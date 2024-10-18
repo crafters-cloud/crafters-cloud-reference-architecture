@@ -15,7 +15,6 @@
     <IncludeContentInPack>true</IncludeContentInPack>
     <NoDefaultExcludes>true</NoDefaultExcludes>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-    <!--    <PackageIcon>icon-192x192.png</PackageIcon>-->
     <PackageId>CraftersCloud.ReferenceArchitecture.Template</PackageId>
     <PackageProjectUrl>https://github.com/crafters-cloud/crafters-cloud-reference-architecture</PackageProjectUrl>
     <PackageTags>CraftersCloud;reference-architecture;dotnet-new;template</PackageTags>
@@ -35,18 +34,11 @@
   <ItemGroup>
     <Compile Remove="**\*"/>
     <Content Include="**\*"
-             Exclude="**\bin\**;**\obj\**;**\dist\**;**\node_modules\**;.git\**;**\.vs\**;**\Artifacts\**;Template.csproj;**\_ReSharper.Caches\**;**\*.user;**\scripts\**"/>
+             Exclude="**\bin\**;**\obj\**;**\dist\**;**\node_modules\**;.git\**;**\.vs\**;**\Artifacts\**;**\_ReSharper.Caches\**;**\*.user;**\TestResults\**;.template.config\**"/>
     <EmbeddedResource
-      Remove="**\bin\**;**\obj\**;**\dist\**;**\node_modules\**;.git\**;**\.vs\**;**\artifacts\**;Template.csproj;**\_ReSharper.Caches\**;**\*.user"/>
+      Remove="**\bin\**;**\obj\**;**\dist\**;**\node_modules\**;.git\**;**\.vs\**;**\artifacts\**;**\_ReSharper.Caches\**;**\*.user;**\TestResults\**;.template.config\**"/>
     <None
-      Remove="**\bin\**;**\obj\**;**\dist\**;**\node_modules\**;.git\**;**\.vs\**;**\artifacts\**;Template.csproj;**\_ReSharper.Caches\**;**\*.user"/>
+      Remove="**\bin\**;**\obj\**;**\dist\**;**\node_modules\**;.git\**;**\.vs\**;**\artifacts\**;**\_ReSharper.Caches\**;**\*.user;**\TestResults\**;.template.config\**"/>
   </ItemGroup>
-
-  <!--  <ItemGroup>-->
-  <!--    <None Include="icon-192x192.png">-->
-  <!--      <Pack>True</Pack>-->
-  <!--      <PackagePath></PackagePath>-->
-  <!--    </None>-->
-  <!--  </ItemGroup>-->
 
 </Project>

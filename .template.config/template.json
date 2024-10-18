@@ -21,7 +21,6 @@
   "sources": [
     {
       "exclude": [
-        "**/Template.csproj",
         "**/.template.config/**",
         "**/.idea/**",
         "**/bin/**",
@@ -33,7 +32,10 @@
         "**/Artifacts/**",
         "**/_ReSharper.Caches/**",
         "**/*.user",
-        "**/*.lock.json"
+        "**/tools/**",
+        "**/*.lock.json",
+        "templating.md",
+        "LICENSE.md"
       ]
     }
   ],
@@ -134,7 +136,7 @@
   "postActions": [
     {
       "args": {
-        "executable": "tools/cleanup-template.cmd",
+        "executable": "cleanup-template.cmd",
         "args": "",
         "redirectStandardOutput": "false"
       },
