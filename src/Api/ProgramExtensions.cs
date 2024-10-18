@@ -6,15 +6,17 @@ using CraftersCloud.Core.AspNetCore.Security;
 using CraftersCloud.Core.HealthChecks.Extensions;
 using CraftersCloud.Core.SmartEnums.Swagger;
 using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
+using CraftersCloud.ReferenceArchitecture.Infrastructure;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Init;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Logging;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Security;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Startup;
-using CraftersCloud.ReferenceArchitecture.Infrastructure.Autofac.Modules;
+using CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Swagger;
+using CraftersCloud.ReferenceArchitecture.Infrastructure.Autofac;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Configuration;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Data;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Identity;
-using CraftersCloud.ReferenceArchitecture.Infrastructure.Init;
+using CraftersCloud.ReferenceArchitecture.Infrastructure.Mediator;
 using Microsoft.IdentityModel.Logging;
 using Serilog;
 
@@ -29,19 +31,19 @@ public static class ProgramExtensions
         services.AddHttpContextAccessor();
         services.AddApplicationInsightsTelemetry();
 
-        services.AppAddSettings(configuration);
+        services.AppConfigureAllSettings(configuration);
         services.AppAddPolly();
         services.AppAddAutoMapper();
         services.AddCoreHealthChecks(configuration)
             .AddDbContextCheck<AppDbContext>();
-        services.AppAddMediatR(AssemblyFinder.ApiAssembly);
+        services.AppAddMediatr(AssemblyFinder.ApiAssembly);
         services.AppAddFluentValidation();
         services.AddCoreHttps(env);
 
-        services.AppAddAuthentication(configuration);
+        services.AppAddAuthentication();
         services.AddCoreAuthorization<PermissionId>();
 
-        services.AppAddSwaggerWithAzureAdAuth(configuration, "Enigmatry Blueprint Api", "v1", configureSettings =>
+        services.AppAddSwagger("Crafters Cloud Reference Architecture Api", "v1", configureSettings =>
         {
             configureSettings.CoreConfigureSmartEnums();
         });
@@ -112,10 +114,7 @@ public static class ProgramExtensions
         app.MapControllers().RequireAuthorization();
         app.MapCoreHealthChecks(configuration);
 
-        if (env.IsDevelopment())
-        {
-            app.AppUseSwaggerWithAzureAdAuth(configuration);
-        }
+        app.AppUseSwagger(configuration);
 
         app.AppConfigureFluentValidation();
     }

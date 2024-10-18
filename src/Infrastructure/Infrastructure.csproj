@@ -47,4 +47,8 @@
     <ProjectReference Include="..\Domain\Domain.csproj"/>
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Include="Api\Security\TestUserAuthenticationHandler.cs" />
+  </ItemGroup>
+
 </Project>

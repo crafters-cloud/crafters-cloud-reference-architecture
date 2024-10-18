@@ -1,8 +1,7 @@
 ﻿using System.Security.Claims;
 using System.Security.Principal;
 using Autofac;
-using CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Init;
-using CraftersCloud.ReferenceArchitecture.Infrastructure.Autofac.Modules;
+using CraftersCloud.ReferenceArchitecture.Infrastructure.Autofac;
 using Microsoft.AspNetCore.Http;
 
 namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Startup;

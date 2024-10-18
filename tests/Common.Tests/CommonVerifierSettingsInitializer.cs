@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using Argon;
 using CraftersCloud.Core.SmartEnums.VerifyTests;
-using CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Init;
+using CraftersCloud.ReferenceArchitecture.Infrastructure;
 
 namespace CraftersCloud.ReferenceArchitecture.Common.Tests;
 

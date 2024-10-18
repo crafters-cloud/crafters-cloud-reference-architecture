@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Init;
+namespace CraftersCloud.ReferenceArchitecture.Infrastructure;
 
 public static class AssemblyFinder
 {

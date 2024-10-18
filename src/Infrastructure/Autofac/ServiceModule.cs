@@ -3,11 +3,11 @@ using Autofac;
 using Module = Autofac.Module;
 using TimeProvider = CraftersCloud.Core.Infrastructure.TimeProvider;
 
-namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Autofac.Modules;
+namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Autofac;
 
 public class ServiceModule : Module
 {
-    public IEnumerable<Assembly> Assemblies { get; set; } = Array.Empty<Assembly>();
+    public IEnumerable<Assembly> Assemblies { get; set; } = [];
 
     protected override void Load(ContainerBuilder builder)
     {

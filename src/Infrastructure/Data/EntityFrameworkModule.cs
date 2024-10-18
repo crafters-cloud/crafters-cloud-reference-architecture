@@ -1,35 +1,23 @@
 ﻿using Autofac;
+using CraftersCloud.Core.Configuration;
 using CraftersCloud.Core.Data;
 using CraftersCloud.Core.EntityFramework.Infrastructure;
-using CraftersCloud.Core.Settings;
-using CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Init;
-using CraftersCloud.ReferenceArchitecture.Infrastructure.Data;
+using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Module = Autofac.Module;
 
-namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Autofac.Modules;
+namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Data;
 
+[UsedImplicitly]
 public class EntityFrameworkModule : Module
 {
     protected override void Load(ContainerBuilder builder)
     {
-        builder.RegisterGeneric(typeof(EntityFrameworkRepository<>))
-            .As(typeof(IRepository<>))
-            .InstancePerLifetimeScope();
-
-        builder.RegisterGeneric(typeof(EntityFrameworkRepository<,>))
-            .As(typeof(IRepository<,>))
-            .InstancePerLifetimeScope();
-
-        builder.RegisterAssemblyTypes(AssemblyFinder.InfrastructureAssembly)
-            .Where(
-                type =>
-                    ImplementsInterface(typeof(IEntityRepository<>), type) ||
-                    type.Name.EndsWith("Repository", StringComparison.InvariantCulture)
-            ).AsImplementedInterfaces().InstancePerLifetimeScope();
+        builder.CoreRegisterRepositoryTypes([AssemblyFinder.InfrastructureAssembly]);
 
         // Registering interceptors as self because we want to resolve them individually to add them to the DbContextOptions in the correct order
         builder.RegisterType<PopulateCreatedUpdatedInterceptor>().AsSelf().InstancePerLifetimeScope();
@@ -42,18 +30,11 @@ public class EntityFrameworkModule : Module
         builder.RegisterType<DbContextUnitOfWork>().As<IUnitOfWork>().InstancePerLifetimeScope();
     }
 
-    private static bool ImplementsInterface(Type interfaceType, Type concreteType) =>
-        concreteType.GetInterfaces().Any(
-            t =>
-                (interfaceType.IsGenericTypeDefinition && t.IsGenericType
-                    ? t.GetGenericTypeDefinition()
-                    : t) == interfaceType);
-
     private DbContextOptions CreateDbContextOptions(IComponentContext container)
     {
         var loggerFactory = container.Resolve<ILoggerFactory>();
         var configuration = container.Resolve<IConfiguration>();
-        var dbContextSettings = container.Resolve<DbContextSettings>();
+        var dbContextSettings = container.Resolve<IOptions<DbContextSettings>>().Value;
 
         var optionsBuilder = new DbContextOptionsBuilder();
 

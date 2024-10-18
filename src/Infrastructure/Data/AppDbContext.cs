@@ -1,6 +1,5 @@
 ﻿using CraftersCloud.Core.EntityFramework.Infrastructure;
 using CraftersCloud.Core.SmartEnums.EntityFramework;
-using CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Init;
 using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore;
 

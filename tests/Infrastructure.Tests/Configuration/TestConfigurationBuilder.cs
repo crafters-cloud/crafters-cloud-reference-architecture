@@ -6,7 +6,7 @@ public class TestConfigurationBuilder
 {
     private string _dbContextName = string.Empty;
     private string _connectionString = string.Empty;
-    private Action<ConfigurationBuilder>? _extraConfiguration;
+    private readonly Action<ConfigurationBuilder>? _extraConfiguration = null;
 
     public TestConfigurationBuilder WithDbContextName(string contextName)
     {
@@ -34,13 +34,8 @@ public class TestConfigurationBuilder
             { "DbContext:ConnectionResiliencyMaxRetryDelay", "0.00:00:30" },
             { "DbContext:RegisterMigrationsAssembly", "true" },
             { $"ConnectionStrings:{_dbContextName}", _connectionString },
-            { "App:Smtp:UsePickupDirectory", "true" },
-            { "App:Smtp:PickupDirectoryLocation", GetSmtpPickupDirectoryLocation() },
-            { "App:AzureAd:Instance", "https://enigmatryb2cdev.b2clogin.com" },
-            { "App:AzureAd:ClientId", "a8793ce9-86dc-4d7e-aa70-361a3c5a5150" },
-            { "App:AzureAd:Domain", "enigmatryb2cdev.onmicrosoft.com" },
-            { "App:AzureAd:SignUpSignInPolicyId", "B2C_1_entry_blueprint_sign_in" },
             { "HealthChecks:TokenAuthorizationEnabled", "false" },
+            { "Swagger:Enabled", "false" },
             { "KeyVault:Enabled", "false" },
             { "ApplicationInsights:ConnectionString", "" }
         };
@@ -49,24 +44,6 @@ public class TestConfigurationBuilder
         _extraConfiguration?.Invoke(configurationBuilder);
         return configurationBuilder.Build();
     }
-
-    public TestConfigurationBuilder WithSchedulerConfiguration()
-    {
-        _extraConfiguration = configurationBuilder =>
-        {
-            var dict = new Dictionary<string, string?>
-            {
-                { "ApplicationInsights:ConnectionString", "" },
-                { "Scheduling:Host:quartz.scheduler.instanceName", "CraftersCloud.Core.Scheduler" },
-                { "Scheduling:Jobs:CleanOldProductsJob:Cronex", "0 0 0 * * ?" }
-            };
-
-            configurationBuilder.AddInMemoryCollection(dict);
-        };
-        return this;
-    }
-
-    private static string GetSmtpPickupDirectoryLocation() => TestContext.CurrentContext.TestDirectory;
 
     private void EnsureParametersBeforeBuild()
     {

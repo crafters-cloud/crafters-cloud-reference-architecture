@@ -1,6 +1,6 @@
 ﻿using JetBrains.Annotations;
 
-namespace CraftersCloud.ReferenceArchitecture.Core.Settings;
+namespace CraftersCloud.ReferenceArchitecture.Infrastructure.KeyVault;
 
 [UsedImplicitly]
 public class KeyVaultSettings

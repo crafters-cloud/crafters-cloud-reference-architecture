@@ -22,14 +22,14 @@ jobs:
         with:
           dotnet-version: '8.0.302'
       - name: Build and Test
-        run: ./Build.ps1
+        run: ./build.ps1
         shell: pwsh
       - name: Push to NuGet
         if: github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v')
         env:
           NUGET_URL: https://api.nuget.org/v3/index.json
           NUGET_API_KEY: ${{ secrets.NUGET_CRAFTERS_CLOUD_CORE_CI_API_KEY }}
-        run: ./Push.ps1
+        run: ./push.ps1
         shell: pwsh
       - name: Artifacts
         uses: actions/upload-artifact@v4

@@ -14,7 +14,7 @@ public static class PollyStartupExtensions
         var policyRegistry = services.AddPolicyRegistry();
 
         // Centrally stored policies
-        AsyncTimeoutPolicy<HttpResponseMessage> timeoutPolicy =
+        var timeoutPolicy =
             Policy.TimeoutAsync<HttpResponseMessage>(TimeSpan.FromMilliseconds(1500));
         policyRegistry.Add(GlobalTimeoutPolicyName, timeoutPolicy);
     }

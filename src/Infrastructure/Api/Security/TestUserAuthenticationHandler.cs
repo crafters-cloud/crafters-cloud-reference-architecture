@@ -1,27 +1,25 @@
 ﻿using System.Security.Claims;
 using System.Text.Encodings.Web;
+using CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Security;
+using CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Security.DummyAuthentication;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
 namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Tests.Impersonation;
 
-public class TestUserAuthenticationHandler(
-    IOptionsMonitor<TestAuthenticationOptions> options,
+public class DummyUserAuthenticationHandler(
+    IOptionsMonitor<DummyAuthenticationOptions> options,
     ILoggerFactory logger,
     UrlEncoder encoder)
-    : AuthenticationHandler<TestAuthenticationOptions>(options, logger, encoder)
+    : AuthenticationHandler<DummyAuthenticationOptions>(options, logger, encoder)
 {
-    public const string AuthenticationScheme = "TestUserAuth";
+    public const string AuthenticationScheme = "DummyUserAuth";
 
     protected override Task<AuthenticateResult> HandleAuthenticateAsync()
     {
-        var testPrincipal = Options.TestPrincipalFactory();
-
-        var authResult = testPrincipal != null
-            ? AuthenticatedUserResult(testPrincipal)
-            : AuthenticateResult.NoResult(); // no user authenticated
-
+        var principal = DummyUserData.CreateClaimsPrincipal();
+        var authResult = AuthenticatedUserResult(principal);
         return Task.FromResult(authResult);
     }
 

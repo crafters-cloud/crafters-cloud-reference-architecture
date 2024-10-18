@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using CraftersCloud.Core.AspNetCore.ApplicationInsights;
+using CraftersCloud.Core.Configuration;
 using CraftersCloud.Core.Helpers;
-using CraftersCloud.Core.Settings;
 using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -40,8 +40,7 @@ public static class SerilogStartupExtension
     public static void AddAppInsightsToSerilog(this LoggerConfiguration loggerConfiguration,
         IConfiguration configuration, IServiceProvider serviceProvider)
     {
-        var settings = configuration.GetSection(ApplicationInsightsSettings.ApplicationInsightsSectionName)
-            .Get<ApplicationInsightsSettings>()!;
+        var settings = configuration.GetOptions<ApplicationInsightsSettings>(ApplicationInsightsSettings.SectionName);
         if (!settings.ConnectionString.HasContent())
         {
             return;

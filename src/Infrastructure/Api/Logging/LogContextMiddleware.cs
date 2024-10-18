@@ -9,18 +9,14 @@ using Serilog.Core.Enrichers;
 namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Logging;
 
 [UsedImplicitly]
-public class LogContextMiddleware
+public class LogContextMiddleware(RequestDelegate next)
 {
-    private readonly RequestDelegate _next;
-
-    public LogContextMiddleware(RequestDelegate next) => _next = next;
-
     [UsedImplicitly]
     public async Task InvokeAsync(HttpContext context)
     {
         using (LogContext.Push(CreateEnrichers(context)))
         {
-            await _next.Invoke(context);
+            await next.Invoke(context);
         }
     }
 

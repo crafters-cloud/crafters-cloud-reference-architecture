@@ -1,5 +1,5 @@
 ﻿using Autofac;
-using CraftersCloud.ReferenceArchitecture.Infrastructure.Autofac.Modules;
+using CraftersCloud.ReferenceArchitecture.Infrastructure.Autofac;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Configuration;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Tests;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Tests.Autofac;

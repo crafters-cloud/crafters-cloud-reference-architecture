@@ -1,14 +1,13 @@
 ﻿using System.Reflection;
 using CraftersCloud.Core.MediatR;
-using CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Init;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Init;
+namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Mediator;
 
-public static class MediatRStartupExtensions
+public static class ServiceCollectionExtensions
 {
-    public static void AppAddMediatR(this IServiceCollection services, params Assembly[] extraAssemblies)
+    public static void AppAddMediatr(this IServiceCollection services, params Assembly[] extraAssemblies)
     {
         services.AddScoped(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
         services.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));

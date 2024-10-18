@@ -1,6 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
 using CraftersCloud.ReferenceArchitecture.Common.Tests;
-using CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Init;
+using CraftersCloud.ReferenceArchitecture.Infrastructure;
 
 namespace CraftersCloud.ReferenceArchitecture.Api.Tests;
 

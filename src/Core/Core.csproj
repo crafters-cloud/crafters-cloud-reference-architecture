@@ -11,4 +11,8 @@
     <PackageReference Include="CraftersCloud.Core.SmartEnums"/>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Settings\" />
+  </ItemGroup>
+
 </Project>

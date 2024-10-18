@@ -3,7 +3,7 @@ using System.Security.Principal;
 
 namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Identity;
 
-public class ClaimsProvider : IClaimsProvider
+public class ClaimsProvider(Func<IPrincipal> principalProvider) : IClaimsProvider
 {
     private static readonly string[] EmailClaims =
     {
@@ -13,23 +13,10 @@ public class ClaimsProvider : IClaimsProvider
         ClaimTypes.Email
     };
 
-    private readonly Func<IPrincipal> _principalProvider;
-
-    public ClaimsProvider(Func<IPrincipal> principalProvider) => _principalProvider = principalProvider;
-
-    private ClaimsPrincipal? Principal => _principalProvider() as ClaimsPrincipal;
+    private ClaimsPrincipal? Principal => principalProvider() as ClaimsPrincipal;
     public bool IsAuthenticated => Principal?.Identity?.IsAuthenticated ?? false;
 
-    public string? Email
-    {
-        get
-        {
-            if (Principal?.Identity is not ClaimsIdentity identity)
-            {
-                return null;
-            }
-
-            return identity.Claims.FirstOrDefault(claim => EmailClaims.Contains(claim.Type))?.Value;
-        }
-    }
+    public string? Email => Principal?.Identity is not ClaimsIdentity identity
+        ? null
+        : identity.Claims.FirstOrDefault(claim => EmailClaims.Contains(claim.Type))?.Value;
 }

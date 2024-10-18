@@ -12,8 +12,8 @@ public static class FluentValidationStartupExtensions
         ValidatorOptions.Global.PropertyNameResolver = CamelCasePropertyNameResolver.ResolvePropertyName;
 
     public static IServiceCollection AppAddFluentValidation(this IServiceCollection services) =>
-        services.AddValidatorsFromAssemblies(new List<Assembly>()
-        {
+        services.AddValidatorsFromAssemblies(
+        [
             AssemblyFinder.DomainAssembly, AssemblyFinder.ApplicationServicesAssembly, AssemblyFinder.ApiAssembly
-        });
+        ]);
 }

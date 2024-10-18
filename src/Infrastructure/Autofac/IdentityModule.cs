@@ -3,7 +3,7 @@ using CraftersCloud.ReferenceArchitecture.Domain.Identity;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Identity;
 using JetBrains.Annotations;
 
-namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Autofac.Modules;
+namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Autofac;
 
 [UsedImplicitly]
 public class IdentityModule<T> : Module where T : ICurrentUserProvider
