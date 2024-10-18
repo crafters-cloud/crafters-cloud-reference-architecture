@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>CraftersCloud.ReferenceArchitecture.Domain</RootNamespace>
+    <AssemblyName>CraftersCloud.ReferenceArchitecture.Domain</AssemblyName>
+  </PropertyGroup>
+
+  <Import Project="..\..\build\Shared.Build.props"/>
+
+  <ItemGroup>
+    <PackageReference Include="CraftersCloud.Core"/>
+    <PackageReference Include="CraftersCloud.Core.EntityFramework"/>
+    <PackageReference Include="FluentValidation"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj"/>
+  </ItemGroup>
+
+</Project>

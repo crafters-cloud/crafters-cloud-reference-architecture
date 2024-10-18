@@ -1,0 +1,52 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>CraftersCloud.ReferenceArchitecture.Template</RootNamespace>
+    <AssemblyName>CraftersCloud.ReferenceArchitecture.Template</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Authors>Crafters Cloud</Authors>
+    <Copyright>Copyright © 2024 Crafters Cloud.</Copyright>
+    <Company>Crafters Cloud</Company>
+    <ContentTargetFolders>content</ContentTargetFolders>
+    <Description>Template to use when creating an Asp.net core Api application.</Description>
+    <EmbedUntrackedSources>false</EmbedUntrackedSources>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <NoDefaultExcludes>true</NoDefaultExcludes>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <!--    <PackageIcon>icon-192x192.png</PackageIcon>-->
+    <PackageId>CraftersCloud.ReferenceArchitecture.Template</PackageId>
+    <PackageProjectUrl>https://github.com/crafters-cloud/crafters-cloud-reference-architecture</PackageProjectUrl>
+    <PackageTags>CraftersCloud;reference-architecture;dotnet-new;template</PackageTags>
+    <PackageType>Template</PackageType>
+    <PackageVersion>1.0.0</PackageVersion>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <RepositoryUrl>https://github.com/crafters-cloud/crafters-cloud-reference-architecture</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+    <Title>Crafters Cloud Reference Architecture Template</Title>
+
+  </PropertyGroup>
+
+  <Import Project="build\Shared.Build.props"/>
+
+  <ItemGroup>
+    <Compile Remove="**\*"/>
+    <Content Include="**\*"
+             Exclude="**\bin\**;**\obj\**;**\dist\**;**\node_modules\**;.git\**;**\.vs\**;**\Artifacts\**;Template.csproj;**\_ReSharper.Caches\**;**\*.user;**\scripts\**"/>
+    <EmbeddedResource
+      Remove="**\bin\**;**\obj\**;**\dist\**;**\node_modules\**;.git\**;**\.vs\**;**\artifacts\**;Template.csproj;**\_ReSharper.Caches\**;**\*.user"/>
+    <None
+      Remove="**\bin\**;**\obj\**;**\dist\**;**\node_modules\**;.git\**;**\.vs\**;**\artifacts\**;Template.csproj;**\_ReSharper.Caches\**;**\*.user"/>
+  </ItemGroup>
+
+  <!--  <ItemGroup>-->
+  <!--    <None Include="icon-192x192.png">-->
+  <!--      <Pack>True</Pack>-->
+  <!--      <PackagePath></PackagePath>-->
+  <!--    </None>-->
+  <!--  </ItemGroup>-->
+
+</Project>

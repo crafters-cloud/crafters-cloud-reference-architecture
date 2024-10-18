@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <RootNamespace>CraftersCloud.ReferenceArchitecture.Api</RootNamespace>
+    <AssemblyName>CraftersCloud.ReferenceArchitecture.Api</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="appsettings.Development.json"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="appsettings.Development.json"/>
+  </ItemGroup>
+
+  <Import Project="..\..\build\Shared.Build.props"/>
+
+  <ItemGroup>
+    <PackageReference Include="CraftersCloud.Core.AspNetCore"/>
+    <PackageReference Include="CraftersCloud.Core.HealthChecks"/>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore"/>
+    <PackageReference Include="Microsoft.AspNetCore.SpaProxy"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="CraftersCloud.ReferenceArchitecture.Api.Tests"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj"/>
+    <ProjectReference Include="..\Domain\Domain.csproj"/>
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj"/>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,11 @@
+﻿{
+  Id: Guid_1,
+  EmailAddress: someuser@test.com,
+  FullName: some user,
+  RoleId: Guid_2,
+  CreatedOn: DateTimeOffset_1,
+  UpdatedOn: DateTimeOffset_1,
+  UserStatusId: Inactive,
+  UserStatusName: Inactive,
+  UserStatusDescription: Inactive Status Description
+}

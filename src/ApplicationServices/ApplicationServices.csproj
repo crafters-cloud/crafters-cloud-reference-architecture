@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>CraftersCloud.ReferenceArchitecture.ApplicationServices</RootNamespace>
+    <AssemblyName>CraftersCloud.ReferenceArchitecture.ApplicationServices</AssemblyName>
+  </PropertyGroup>
+
+  <Import Project="..\..\build\Shared.Build.props"/>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore"/>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational"/>
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj"/>
+  </ItemGroup>
+
+</Project>

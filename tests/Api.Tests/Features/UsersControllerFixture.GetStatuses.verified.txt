@@ -1,0 +1,10 @@
+﻿[
+  {
+    Value: Active,
+    Label: Active
+  },
+  {
+    Value: Inactive,
+    Label: Inactive
+  }
+]

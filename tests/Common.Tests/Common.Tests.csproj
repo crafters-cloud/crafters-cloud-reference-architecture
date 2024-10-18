@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>CraftersCloud.ReferenceArchitecture.Common.Tests</RootNamespace>
+    <AssemblyName>CraftersCloud.ReferenceArchitecture.Common.Tests</AssemblyName>
+  </PropertyGroup>
+
+  <Import Project="..\..\build\Shared.Build.props"/>
+  <Import Project="..\..\build\Shared.Tests.props"/>
+
+  <ItemGroup>
+    <PackageReference Include="CraftersCloud.Core.AspNetCore.TestUtilities"/>
+    <PackageReference Include="CraftersCloud.Core.SmartEnums.VerifyTests"/>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\ApplicationServices\ApplicationServices.csproj"/>
+    <ProjectReference Include="..\..\src\Infrastructure\Infrastructure.csproj"/>
+  </ItemGroup>
+
+</Project>
