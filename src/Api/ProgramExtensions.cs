@@ -20,7 +20,6 @@ using CraftersCloud.ReferenceArchitecture.Infrastructure.Mediator;
 using FastEndpoints;
 using FastEndpoints.Swagger;
 using Microsoft.IdentityModel.Logging;
-using Scalar.AspNetCore;
 using Serilog;
 
 namespace CraftersCloud.ReferenceArchitecture.Api;
@@ -30,16 +29,6 @@ public static class ProgramExtensions
     public static void AppAddServices(this IServiceCollection services, IConfiguration configuration,
         IWebHostEnvironment env)
     {
-        services.AddFastEndpoints()
-            .SwaggerDocument(options =>
-            {
-                options.DocumentSettings = documentSettings =>
-                {
-                    documentSettings.Title = "Crafters Cloud Reference Architecture Api";
-                    documentSettings.Version = "v1";
-                    documentSettings.CoreConfigureSmartEnums();
-                };
-            });
         services.AddCors();
         services.AddHttpContextAccessor();
         services.AddApplicationInsightsTelemetry();
@@ -55,6 +44,17 @@ public static class ProgramExtensions
 
         services.AppAddAuthentication();
         services.AddCoreAuthorization<PermissionId>();
+        
+        services.AddFastEndpoints()
+            .SwaggerDocument(options =>
+            {
+                options.DocumentSettings = documentSettings =>
+                {
+                    documentSettings.Title = "Crafters Cloud Reference Architecture Api";
+                    documentSettings.Version = "v1";
+                    documentSettings.CoreConfigureSmartEnums();
+                };
+            });
 
         /*services.AppAddSwagger("Crafters Cloud Reference Architecture Api", "v1", configureSettings =>
         {
@@ -111,7 +111,11 @@ public static class ProgramExtensions
         app.UseMiddleware<LogContextMiddleware>();
 
         //app.MapControllers().RequireAuthorization();
-        app.UseFastEndpoints();
+        app.UseFastEndpoints(options =>
+        {
+            var converters = options.Serializer.Options.Converters;
+            converters.AppRegisterJsonConverters();
+        });
         app.MapCoreHealthChecks(configuration);
         
         app.AppUseSwagger(configuration);

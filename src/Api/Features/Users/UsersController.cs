@@ -2,6 +2,7 @@
 using CraftersCloud.Core.AspNetCore;
 using CraftersCloud.Core.Data;
 using CraftersCloud.Core.Paging;
+using CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users;
 using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
 using CraftersCloud.ReferenceArchitecture.Domain.Users.Commands;
@@ -47,25 +48,5 @@ public class UsersController(
         var user = await mediator.Send(command);
         await unitOfWork.SaveChangesAsync();
         return await Get(user.Id);
-    }
-
-    [HttpGet]
-    [Route("roles")]
-    [ProducesResponseType(StatusCodes.Status200OK)]
-    [UserHasPermission(PermissionId.UsersRead)]
-    public async Task<ActionResult<IEnumerable<LookupResponse<Guid>>>> GetRolesLookup()
-    {
-        var response = await mediator.Send(new GetRolesLookup.Request());
-        return response.ToActionResult();
-    }
-
-    [HttpGet]
-    [Route("statuses")]
-    [ProducesResponseType(StatusCodes.Status200OK)]
-    [UserHasPermission(PermissionId.UsersRead)]
-    public async Task<ActionResult<IEnumerable<LookupResponse<UserStatusId>>>> GetStatusesLookup()
-    {
-        var response = await mediator.Send(new GetStatusesLookup.Request());
-        return response.ToActionResult();
     }
 }
