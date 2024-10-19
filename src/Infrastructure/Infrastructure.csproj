@@ -20,12 +20,15 @@
     <PackageReference Include="CraftersCloud.Core.SmartEnums.Swagger"/>
     <PackageReference Include="CraftersCloud.Core.SmartEnums.SystemTextJson"/>
     <PackageReference Include="CraftersCloud.Core.Swagger"/>
+    <PackageReference Include="FastEndpoints" />
+    <PackageReference Include="FastEndpoints.Swagger" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions"/>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection"/>
     <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore"/>
     <PackageReference Include="Microsoft.Extensions.Http.Polly"/>
     <PackageReference Include="Microsoft.Identity.Web"/>
     <PackageReference Include="Polly"/>
+    <PackageReference Include="Scalar.AspNetCore" />
     <PackageReference Include="Serilog.AspNetCore"/>
     <PackageReference Include="Serilog.Enrichers.Environment"/>
     <PackageReference Include="Serilog.Enrichers.Process"/>

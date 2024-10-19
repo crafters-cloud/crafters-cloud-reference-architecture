@@ -4,17 +4,23 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using NSwag.Generation.AspNetCore;
+using Scalar.AspNetCore;
 
 namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Swagger;
 
 public static class SwaggerAuthenticationStartupExtensions
 {
-    public static void AppUseSwagger(this IApplicationBuilder app, IConfiguration configuration)
+    public static void AppUseSwagger(this WebApplication app, IConfiguration configuration)
     {
         var swaggerSettings = configuration.GetOptions<SwaggerSettings>(SwaggerSettings.SectionName);
         if (swaggerSettings.Enabled)
         {
-            app.UseCoreSwagger("/api");
+            app.MapOpenApi();
+            app.UseOpenApi();
+            app.UseSwaggerUi(c => c.Path = "/api");
+            app.MapScalarApiReference();
+            //app.UseCoreSwagger("/api");
+            
         }
     }
 

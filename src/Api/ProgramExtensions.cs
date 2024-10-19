@@ -17,7 +17,10 @@ using CraftersCloud.ReferenceArchitecture.Infrastructure.Configuration;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Data;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Identity;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Mediator;
+using FastEndpoints;
+using FastEndpoints.Swagger;
 using Microsoft.IdentityModel.Logging;
+using Scalar.AspNetCore;
 using Serilog;
 
 namespace CraftersCloud.ReferenceArchitecture.Api;
@@ -27,6 +30,16 @@ public static class ProgramExtensions
     public static void AppAddServices(this IServiceCollection services, IConfiguration configuration,
         IWebHostEnvironment env)
     {
+        services.AddFastEndpoints()
+            .SwaggerDocument(options =>
+            {
+                options.DocumentSettings = documentSettings =>
+                {
+                    documentSettings.Title = "Crafters Cloud Reference Architecture Api";
+                    documentSettings.Version = "v1";
+                    documentSettings.CoreConfigureSmartEnums();
+                };
+            });
         services.AddCors();
         services.AddHttpContextAccessor();
         services.AddApplicationInsightsTelemetry();
@@ -43,11 +56,11 @@ public static class ProgramExtensions
         services.AppAddAuthentication();
         services.AddCoreAuthorization<PermissionId>();
 
-        services.AppAddSwagger("Crafters Cloud Reference Architecture Api", "v1", configureSettings =>
+        /*services.AppAddSwagger("Crafters Cloud Reference Architecture Api", "v1", configureSettings =>
         {
             configureSettings.CoreConfigureSmartEnums();
-        });
-        services.AppAddMvc();
+        });*/
+        //services.AppAddMvc();
     }
 
     public static void AppConfigureHost(this IHostBuilder hostBuilder, IConfiguration configuration)
@@ -72,21 +85,7 @@ public static class ProgramExtensions
         var configuration = app.Configuration;
         var env = app.Environment;
 
-        app.UseDefaultFiles();
-        app.UseStaticFiles(new StaticFileOptions
-        {
-            OnPrepareResponse = context =>
-            {
-                if (context.File.Name != "index.html")
-                {
-                    context.Context.Response.Headers.Append("Cache-Control", "public, max-age: 604800");
-                }
-            }
-        });
-
-        app.MapFallbackToFile("index.html");
-
-        app.UseRouting();
+        //app.UseRouting();
 
         if (configuration.AppUseDeveloperExceptionPage())
         {
@@ -111,9 +110,10 @@ public static class ProgramExtensions
 
         app.UseMiddleware<LogContextMiddleware>();
 
-        app.MapControllers().RequireAuthorization();
+        //app.MapControllers().RequireAuthorization();
+        app.UseFastEndpoints();
         app.MapCoreHealthChecks(configuration);
-
+        
         app.AppUseSwagger(configuration);
 
         app.AppConfigureFluentValidation();
