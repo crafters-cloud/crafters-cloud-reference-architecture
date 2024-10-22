@@ -4,10 +4,10 @@
     <AssemblyName>CraftersCloud.ReferenceArchitecture.Data.Migrations</AssemblyName>
   </PropertyGroup>
 
-  <Import Project="..\..\build\Shared.Build.props"/>
+  <Import Project="..\..\build\Shared.Build.props" />
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer"/>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -16,20 +16,20 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="CraftersCloud.Core.EntityFramework"/>
+    <PackageReference Include="CraftersCloud.Core.EntityFramework" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Domain\Domain.csproj"/>
-    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj"/>
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Scripts\SeedTestData.sql"/>
+    <EmbeddedResource Include="Scripts\SeedTestData.sql" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Migrations\"/>
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>

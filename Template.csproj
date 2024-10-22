@@ -29,16 +29,16 @@
 
   </PropertyGroup>
 
-  <Import Project="build\Shared.Build.props"/>
+  <Import Project="build\Shared.Build.props" />
 
   <ItemGroup>
-    <Compile Remove="**\*"/>
+    <Compile Remove="**\*" />
     <Content Include="**\*"
-             Exclude="**\bin\**;**\obj\**;**\dist\**;**\node_modules\**;.git\**;**\.vs\**;**\Artifacts\**;**\_ReSharper.Caches\**;**\*.user;**\TestResults\**;.template.config\**"/>
+             Exclude="**\bin\**;**\obj\**;**\dist\**;**\node_modules\**;.git\**;**\.vs\**;**\Artifacts\**;**\_ReSharper.Caches\**;**\*.user;**\TestResults\**;.template.config\**" />
     <EmbeddedResource
-      Remove="**\bin\**;**\obj\**;**\dist\**;**\node_modules\**;.git\**;**\.vs\**;**\artifacts\**;**\_ReSharper.Caches\**;**\*.user;**\TestResults\**;.template.config\**"/>
+      Remove="**\bin\**;**\obj\**;**\dist\**;**\node_modules\**;.git\**;**\.vs\**;**\artifacts\**;**\_ReSharper.Caches\**;**\*.user;**\TestResults\**;.template.config\**" />
     <None
-      Remove="**\bin\**;**\obj\**;**\dist\**;**\node_modules\**;.git\**;**\.vs\**;**\artifacts\**;**\_ReSharper.Caches\**;**\*.user;**\TestResults\**;.template.config\**"/>
+      Remove="**\bin\**;**\obj\**;**\dist\**;**\node_modules\**;.git\**;**\.vs\**;**\artifacts\**;**\_ReSharper.Caches\**;**\*.user;**\TestResults\**;.template.config\**" />
   </ItemGroup>
 
 </Project>

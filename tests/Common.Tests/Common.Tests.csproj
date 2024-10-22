@@ -4,16 +4,16 @@
     <AssemblyName>CraftersCloud.ReferenceArchitecture.Common.Tests</AssemblyName>
   </PropertyGroup>
 
-  <Import Project="..\..\build\Shared.Build.props"/>
-  <Import Project="..\..\build\Shared.Tests.props"/>
+  <Import Project="..\..\build\Shared.Build.props" />
+  <Import Project="..\..\build\Shared.Tests.props" />
 
   <ItemGroup>
-    <PackageReference Include="CraftersCloud.Core.AspNetCore.TestUtilities"/>
-    <PackageReference Include="CraftersCloud.Core.SmartEnums.VerifyTests"/>
+    <PackageReference Include="CraftersCloud.Core.AspNetCore.TestUtilities" />
+    <PackageReference Include="CraftersCloud.Core.SmartEnums.VerifyTests" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\ApplicationServices\ApplicationServices.csproj"/>
-    <ProjectReference Include="..\..\src\Infrastructure\Infrastructure.csproj"/>
+    <ProjectReference Include="..\..\src\ApplicationServices\ApplicationServices.csproj" />
+    <ProjectReference Include="..\..\src\Infrastructure\Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
