@@ -5,7 +5,6 @@ using CraftersCloud.Core.EntityFramework;
 using CraftersCloud.Core.Paging;
 using CraftersCloud.ReferenceArchitecture.Domain.Identity;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
-using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore;
 
 namespace CraftersCloud.ReferenceArchitecture.Api.Features.Users;

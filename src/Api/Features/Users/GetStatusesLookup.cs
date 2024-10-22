@@ -2,7 +2,6 @@
 using AutoMapper.QueryableExtensions;
 using CraftersCloud.Core.Data;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
-using JetBrains.Annotations;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 

@@ -1,5 +1,4 @@
 ﻿using CraftersCloud.ReferenceArchitecture.Domain.Auditing;
-using JetBrains.Annotations;
 using MediatR;
 using Microsoft.Extensions.Logging;
 

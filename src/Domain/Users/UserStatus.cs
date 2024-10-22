@@ -1,5 +1,4 @@
 using CraftersCloud.Core.SmartEnums.Entities;
-using JetBrains.Annotations;
 
 namespace CraftersCloud.ReferenceArchitecture.Domain.Users;
 

@@ -1,5 +1,3 @@
-using JetBrains.Annotations;
-
 namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Swagger;
 
 [UsedImplicitly]

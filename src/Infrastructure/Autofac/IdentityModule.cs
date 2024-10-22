@@ -1,7 +1,6 @@
 ﻿using Autofac;
 using CraftersCloud.ReferenceArchitecture.Domain.Identity;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Identity;
-using JetBrains.Annotations;
 
 namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Autofac;
 

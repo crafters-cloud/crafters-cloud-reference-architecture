@@ -1,5 +1,4 @@
 ﻿using CraftersCloud.ReferenceArchitecture.Infrastructure.Data;
-using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 

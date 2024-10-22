@@ -41,4 +41,8 @@
       Remove="**\bin\**;**\obj\**;**\dist\**;**\node_modules\**;.git\**;**\.vs\**;**\artifacts\**;**\_ReSharper.Caches\**;**\*.user;**\TestResults\**;.template.config\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations" />
+  </ItemGroup>
+
 </Project>

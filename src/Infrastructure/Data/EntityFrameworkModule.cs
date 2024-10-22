@@ -2,7 +2,6 @@
 using CraftersCloud.Core.Configuration;
 using CraftersCloud.Core.Data;
 using CraftersCloud.Core.EntityFramework.Infrastructure;
-using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Configuration;

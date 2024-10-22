@@ -1,6 +1,5 @@
 ﻿using Ardalis.SmartEnum;
 using CraftersCloud.Core.SmartEnums.Entities;
-using JetBrains.Annotations;
 
 namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Data.Configurations;
 

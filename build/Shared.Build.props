@@ -6,6 +6,10 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Using Include="JetBrains.Annotations" />
+  </ItemGroup>
+
   <!--  <ItemGroup>-->
   <!--    <None Include="icon-192x192.png">-->
   <!--      <Pack>True</Pack>-->

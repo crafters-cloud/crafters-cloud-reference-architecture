@@ -3,7 +3,6 @@ using CraftersCloud.Core.Data;
 using CraftersCloud.Core.Entities;
 using CraftersCloud.Core.EntityFramework;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
-using JetBrains.Annotations;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 

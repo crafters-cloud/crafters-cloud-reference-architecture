@@ -1,6 +1,5 @@
 ﻿using CraftersCloud.Core.SmartEnums.EntityFramework;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
-using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

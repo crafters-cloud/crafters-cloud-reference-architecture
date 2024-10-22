@@ -1,7 +1,6 @@
 ﻿using CraftersCloud.Core.Data;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Identity;
-using JetBrains.Annotations;
 using Microsoft.Extensions.Logging;
 
 namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Tests.Impersonation;

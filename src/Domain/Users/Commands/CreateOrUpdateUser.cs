@@ -1,7 +1,6 @@
 ﻿using CraftersCloud.Core.Data;
 using CraftersCloud.Core.Entities;
 using FluentValidation;
-using JetBrains.Annotations;
 using MediatR;
 
 namespace CraftersCloud.ReferenceArchitecture.Domain.Users.Commands;
