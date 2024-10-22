@@ -917,7 +917,7 @@ export enum PermissionId {
 }
 
 export class ApiException extends Error {
-    message: string;
+    //message: string;
     status: number;
     response: string;
     headers: { [key: string]: any; };
