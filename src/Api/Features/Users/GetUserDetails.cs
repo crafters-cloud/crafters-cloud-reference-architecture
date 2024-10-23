@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.ComponentModel.DataAnnotations;
+using AutoMapper;
 using CraftersCloud.Core.Data;
 using CraftersCloud.Core.Entities;
 using CraftersCloud.Core.EntityFramework;
@@ -22,9 +23,12 @@ public static class GetUserDetails
     [PublicAPI]
     public class Response
     {
-        public Guid Id { get; set; }
-        public string EmailAddress { get; set; } = string.Empty;
-        public string FullName { get; set; } = string.Empty;
+        [Required]
+        public required Guid Id { get; set; }
+        [Required]
+        public required string EmailAddress { get; set; } = string.Empty;
+        [Required]
+        public required string FullName { get; set; } = string.Empty;
         public Guid RoleId { get; set; }
         public DateTimeOffset CreatedOn { get; set; }
         public DateTimeOffset UpdatedOn { get; set; }

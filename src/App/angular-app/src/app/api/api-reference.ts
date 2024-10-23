@@ -481,7 +481,7 @@ export interface IPagedResponseOfGetUsersResponseItem {
 }
 
 export class GetUsersResponseItem implements IGetUsersResponseItem {
-    id?: string;
+    id!: string;
     emailAddress?: string;
     fullName?: string;
     userStatusName?: string;
@@ -537,9 +537,9 @@ export interface IGetUsersResponseItem {
 }
 
 export class GetUserDetailsResponse implements IGetUserDetailsResponse {
-    id?: string;
-    emailAddress?: string;
-    fullName?: string;
+    id!: string;
+    emailAddress!: string;
+    fullName!: string;
     roleId?: string;
     createdOn?: Date;
     updatedOn?: Date;
@@ -593,9 +593,9 @@ export class GetUserDetailsResponse implements IGetUserDetailsResponse {
 }
 
 export interface IGetUserDetailsResponse {
-    id?: string;
-    emailAddress?: string;
-    fullName?: string;
+    id: string;
+    emailAddress: string;
+    fullName: string;
     roleId?: string;
     createdOn?: Date;
     updatedOn?: Date;
@@ -917,7 +917,7 @@ export enum PermissionId {
 }
 
 export class ApiException extends Error {
-    //message: string;
+   // message: string;
     status: number;
     response: string;
     headers: { [key: string]: any; };
