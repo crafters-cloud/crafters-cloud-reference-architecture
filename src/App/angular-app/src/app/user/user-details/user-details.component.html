@@ -1,0 +1,26 @@
+<section>
+    <div id="details" *ngIf="!editMode">
+        <h4 (ngModel) = "fullName">{{fullName}}</h4>
+        <p (ngModel) = "emailAddress">Email address: {{emailAddress}}</p>
+        <p (ngModel) = "userStatusName">User Status: {{userStatusName}}</p>
+        <p (ngModel) = "userStatusDescription">User status description: {{userStatusDescription}}</p>
+        <p (ngModel) = "createdOn">Created on: {{createdOn}}</p>
+        <p (ngModel) = "updatedOn">Updated on: {{updatedOn}}</p>
+        <button type="button" (click)="editMode=!editMode">Edit user</button>
+    </div>
+    <div *ngIf="editMode">
+        <form [formGroup]="editForm" (submit)="submitEditedUser()">
+            <label for="userName">User name:</label>
+            <input id="userName" type="text" formControlName="fullName" placeholder={{fullName}}> <br/>
+            <label for="emailAddress">Email address:</label>
+            <input id="emailAddress" type="email" formControlName="emailAddress" placeholder={{emailAddress}}> <br/>
+            <label for="userStatus">User status:</label>
+            <select id="userStatus" formControlName="userStatus">
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
+            </select> <br/>
+            <button type="submit">Save changes</button>
+            <button type="button" (click)="editMode=!editMode">Cancel edit</button>
+        </form>
+    </div>
+</section>
