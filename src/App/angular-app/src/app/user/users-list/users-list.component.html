@@ -1,5 +1,5 @@
 <input type="text" placeholder="Search user name..." [(ngModel)]="query" (change)="filterResults($event)" >
 <section id="results">
-    <app-user *ngFor="let user of usersList" [id]="user.id">     
-    </app-user>
+    <app-user-list-item *ngFor="let user of usersList" [id]="user.id">     
+    </app-user-list-item>
 </section>

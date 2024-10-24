@@ -1,0 +1,92 @@
+// Variables for colors and sizing
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+$text-color: #333;
+$background-color: #f9f9f9;
+$border-color: #e0e0e0;
+$avatar-size: 50px;
+
+.user-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  
+  .user {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid $border-color;
+    background-color: $background-color;
+
+    &:hover {
+      background-color: lighten($background-color, 10%);
+    }
+
+    .avatar {
+      width: $avatar-size;
+      height: $avatar-size;
+      border-radius: 50%;
+      margin-right: 15px;
+      background-color: $border-color;
+      overflow: hidden;
+      
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+
+      .name {
+        font-size: 1.2em;
+        font-weight: bold;
+        color: $text-color;
+      }
+
+      .role {
+        font-size: 0.9em;
+        color: darken($text-color, 30%);
+      }
+    }
+
+    .status {
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 0.8em;
+      text-transform: uppercase;
+
+      &.active {
+        background-color: $secondary-color;
+        color: white;
+      }
+
+      &.inactive {
+        background-color: lighten($primary-color, 40%);
+        color: $primary-color;
+      }
+
+      &.pending {
+        background-color: #f39c12;
+        color: white;
+      }
+    }
+  }
+}
+
+// Example usage:
+// <ul class="user-list">
+//   <li class="user">
+//     <div class="avatar"><img src="user-avatar.jpg" alt="User Avatar"></div>
+//     <div class="info">
+//       <span class="name">John Doe</span>
+//       <span class="role">Admin</span>
+//     </div>
+//     <div class="status active">Active</div>
+//   </li>
+//   <!-- More users here -->
+// </ul>

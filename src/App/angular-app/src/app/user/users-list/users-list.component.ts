@@ -1,13 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, Input } from '@angular/core';
-import { GetUsersResponseItem, UsersClient } from '../api/api-reference';
+import { GetUsersResponseItem, UsersClient } from '../../api/api-reference';
 import { FormsModule } from '@angular/forms';
-import { UserComponent } from "../user/user.component";
+import { UserListItemComponent } from "../user-list-item/user-list-item.component";
 
 @Component({
   selector: 'app-users-list',
   standalone: true,
-  imports: [CommonModule, FormsModule, UserComponent],
+  imports: [CommonModule, FormsModule, UserListItemComponent],
   templateUrl: './users-list.component.html',
   styleUrl: './users-list.component.scss'
 })

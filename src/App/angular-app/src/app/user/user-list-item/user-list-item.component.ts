@@ -1,24 +1,23 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { UsersClient } from '../api/api-reference';
+import { UsersClient } from '../../api/api-reference';
+import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-user',
+  selector: 'app-user-list-item',
   standalone: true,
-  imports: [],
-  templateUrl: './user.component.html',
-  styleUrl: './user.component.scss'
+  imports: [RouterModule],
+  templateUrl: './user-list-item.component.html',
+  styleUrl: './user-list-item.component.scss'
 })
-export class UserComponent implements OnInit {
+export class UserListItemComponent implements OnInit {
   @Input() id: string = "";
   emailAddress: string = "";
   fullName: string = "";
   userStatusName: string = "";
-  
 
   constructor(private usersClient: UsersClient) {}
 
   ngOnInit() {
-    console.log(this.id);
     this.usersClient.get(this.id).subscribe(user => {
       this.emailAddress = user.emailAddress ?? ""; 
       this.fullName = user.fullName ?? "";
