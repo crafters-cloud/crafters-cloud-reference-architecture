@@ -14,10 +14,10 @@
             <input id="userName" type="text" formControlName="fullName" placeholder={{fullName}}> <br/>
             <label for="emailAddress">Email address:</label>
             <input id="emailAddress" type="email" formControlName="emailAddress" placeholder={{emailAddress}}> <br/>
-            <span *ngIf="!isEmailAddressValid">Must be a valid email address</span>
+            <span *ngIf="!editForm.valid">Must be a valid email address<br/></span>
             <label for="userStatus">User status:</label>
             <select id="userStatus" formControlName="userStatus">
-                <option *ngFor="let status of statuses" [value]="status.label">{{status.label}}</option>
+                <option *ngFor="let status of statuses" [value]="status.label" [selected]="status.value==this.userStatusId">{{status.label}}</option>
             </select> <br/>
             <button type="submit">Save changes</button>
             <button type="button" (click)="editMode=!editMode">Cancel edit</button>

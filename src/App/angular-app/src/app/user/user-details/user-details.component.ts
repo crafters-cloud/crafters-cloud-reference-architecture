@@ -1,6 +1,6 @@
 import { Component, inject, Input, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormControl, FormGroup, ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { CommonModule, Location } from '@angular/common';
+import { FormControl, FormGroup, ReactiveFormsModule, FormsModule, Validators } from '@angular/forms';
 import { CreateOrUpdateUserCommand, LookupResponseOfGuid, LookupResponseOfUserStatusId, UsersClient, UserStatusId } from '../../api/api-reference';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 
@@ -31,11 +31,11 @@ export class UserDetailsComponent implements OnInit{
   statuses: LookupResponseOfUserStatusId[] = [];
   editForm = new FormGroup({
     fullName: new FormControl(''),
-    emailAddress: new FormControl(''),  
+    emailAddress: new FormControl('', [Validators.email]),  
     userStatus: new FormControl(''),
   })
    
-  constructor(private usersClient: UsersClient){}
+  constructor(private usersClient: UsersClient, public location: Location){}
 
   ngOnInit(): void {    
     this.id = this.route.snapshot.params['id'];
@@ -58,12 +58,15 @@ export class UserDetailsComponent implements OnInit{
 
     const command = new CreateOrUpdateUserCommand({
       id: this.id,
-      emailAddress: this.editForm.controls.emailAddress.value?.toString(),
-      fullName: this.editForm.controls.fullName.value?.toString(),
+      emailAddress: this.editForm.controls.emailAddress.value?.toString() || this.emailAddress,
+      fullName: this.editForm.controls.fullName.value?.toString() || this.fullName,
       roleId: this.userRoleId,
       userStatusId: this.userStatusId
     });
 
-    this.usersClient.post(command).subscribe(result => console.log(result));
+    this.usersClient.post(command)
+    .subscribe({
+      next: () => this.location.back()
+  });
   }
 }
