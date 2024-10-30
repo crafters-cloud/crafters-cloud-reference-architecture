@@ -32,7 +32,7 @@ export class UserDetailsComponent implements OnInit{
   editForm = new FormGroup({
     fullName: new FormControl(''),
     emailAddress: new FormControl('', [Validators.email]),  
-    userStatus: new FormControl(''),
+    userStatus: new FormControl<LookupResponseOfUserStatusId | null>(null), //LookupResponseofUSerStatus
   })
    
   constructor(private usersClient: UsersClient, public location: Location){}
@@ -54,14 +54,16 @@ export class UserDetailsComponent implements OnInit{
   }
 
   submitEditedUser() {  
-    this.userStatusId = this.statuses.find(s => s.label == this.editForm.controls.userStatus.value)?.value;
-
+    //this.userStatusId = this.statuses.find(s => s.label == this.editForm.controls.userStatus.value)?.value;
+    const controls = this.editForm.controls;
+    const userStatus = controls.userStatus.value;
+    
     const command = new CreateOrUpdateUserCommand({
       id: this.id,
-      emailAddress: this.editForm.controls.emailAddress.value?.toString() || this.emailAddress,
-      fullName: this.editForm.controls.fullName.value?.toString() || this.fullName,
+      emailAddress: controls.emailAddress.value!,
+      fullName: controls.fullName.value!,
       roleId: this.userRoleId,
-      userStatusId: this.userStatusId
+      userStatusId: userStatus?.value
     });
 
     this.usersClient.post(command)

@@ -1,6 +1,6 @@
 <section>
     <div id="details" *ngIf="!editMode">
-        <h4 (ngModel) = "fullName">{{fullName}}</h4>
+        <h4>{{fullName}}</h4>
         <p (ngModel) = "emailAddress">Email address: {{emailAddress}}</p>
         <p (ngModel) = "userStatusName">User Status: {{userStatusName}}</p>
         <p (ngModel) = "userStatusDescription">User status description: {{userStatusDescription}}</p>
@@ -14,12 +14,11 @@
             <input id="userName" type="text" formControlName="fullName" placeholder={{fullName}}> <br/>
             <label for="emailAddress">Email address:</label>
             <input id="emailAddress" type="email" formControlName="emailAddress" placeholder={{emailAddress}}> <br/>
-            <span *ngIf="!editForm.valid">Must be a valid email address<br/></span>
             <label for="userStatus">User status:</label>
             <select id="userStatus" formControlName="userStatus">
-                <option *ngFor="let status of statuses" [value]="status.label" [selected]="status.value==this.userStatusId">{{status.label}}</option>
+                <option *ngFor="let status of statuses" [value]="status" [selected]="status.value===this.userStatusId">{{status.label}}</option>
             </select> <br/>
-            <button type="submit">Save changes</button>
+            <button type="submit" [disabled]="!editForm.valid">Save changes</button>
             <button type="button" (click)="editMode=!editMode">Cancel edit</button>
         </form>
     </div>
