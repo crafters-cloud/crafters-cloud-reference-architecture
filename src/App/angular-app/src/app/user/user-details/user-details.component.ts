@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, FormsModule, Validators } from '@angular/forms';
-import { CreateOrUpdateUserCommand, GetUserDetailsResponse, LookupResponseOfGuid, LookupResponseOfUserStatusId, UsersClient, UserStatusId } from '../../api/api-reference';
+import { CreateOrUpdateUserCommand, GetUserDetailsResponse, LookupResponseOfUserStatusId, UsersClient } from '../../api/api-reference';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 
 @Component({
@@ -29,10 +29,12 @@ export class UserDetailsComponent implements OnInit{
 
   ngOnInit(): void {    
     const client = this.usersClient;
-    const userId = this.route.snapshot.params['id'];
 
-    client.get(userId).subscribe(user => this.user = user);    
-    client.getStatusesLookup().subscribe(statuses => {this.statuses = statuses});
+    client.get(this.route.snapshot.params['id'])
+          .subscribe(user => this.user = user);    
+    
+    client.getStatusesLookup()
+          .subscribe(statuses => {this.statuses = statuses});
   }
 
   submitEditedUser() {  
