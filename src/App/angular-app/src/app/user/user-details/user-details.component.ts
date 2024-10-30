@@ -1,7 +1,7 @@
-import { Component, inject, Input, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, FormsModule, Validators } from '@angular/forms';
-import { CreateOrUpdateUserCommand, LookupResponseOfGuid, LookupResponseOfUserStatusId, UsersClient, UserStatusId } from '../../api/api-reference';
+import { CreateOrUpdateUserCommand, GetUserDetailsResponse, LookupResponseOfGuid, LookupResponseOfUserStatusId, UsersClient, UserStatusId } from '../../api/api-reference';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 
 @Component({
@@ -13,57 +13,37 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 })
 
 export class UserDetailsComponent implements OnInit{
-
   route: ActivatedRoute = inject(ActivatedRoute);
-  editMode: boolean = false;
-  isEmailAddressValid: boolean = true;
+  editMode: boolean = false;  
 
-  id: string = "";
-  emailAddress: string = "";
-  fullName: string  = "";
-  userStatusName: string = "";
-  createdOn?: Date;
-  updatedOn?: Date;
-  userStatusDescription?: string;
-  userStatusId: UserStatusId | undefined;
-  userRoleId: string | undefined = "";
-  roles : LookupResponseOfGuid[] = [];
+  user!: GetUserDetailsResponse;
   statuses: LookupResponseOfUserStatusId[] = [];
+
   editForm = new FormGroup({
-    fullName: new FormControl(''),
-    emailAddress: new FormControl('', [Validators.email]),  
-    userStatus: new FormControl<LookupResponseOfUserStatusId | null>(null), //LookupResponseofUSerStatus
+    fullName: new FormControl<string>(''),
+    emailAddress: new FormControl('', [Validators.email, Validators.required]),  
+    userStatus: new FormControl<LookupResponseOfUserStatusId | null>(null),
   })
    
   constructor(private usersClient: UsersClient, public location: Location){}
 
   ngOnInit(): void {    
-    this.id = this.route.snapshot.params['id'];
-    this.usersClient.get(this.route.snapshot.params['id']).subscribe(user => {
-      this.emailAddress = user.emailAddress ?? ""; 
-      this.fullName = user.fullName ?? "";
-      this.userStatusName = user.userStatusName ?? "";
-      this.userStatusId = user.userStatusId;
-      this.userRoleId = user.roleId;
-      this.createdOn = user.createdOn;
-      this.updatedOn = user.updatedOn;
-    })
-    
-    this.usersClient.getRolesLookup().subscribe(roles => {this.roles = roles;});
-    this.usersClient.getStatusesLookup().subscribe(statuses => {this.statuses = statuses});
+    const client = this.usersClient;
+    const userId = this.route.snapshot.params['id'];
+
+    client.get(userId).subscribe(user => this.user = user);    
+    client.getStatusesLookup().subscribe(statuses => {this.statuses = statuses});
   }
 
   submitEditedUser() {  
-    //this.userStatusId = this.statuses.find(s => s.label == this.editForm.controls.userStatus.value)?.value;
     const controls = this.editForm.controls;
-    const userStatus = controls.userStatus.value;
     
     const command = new CreateOrUpdateUserCommand({
-      id: this.id,
+      id: this.user.id,
       emailAddress: controls.emailAddress.value!,
       fullName: controls.fullName.value!,
-      roleId: this.userRoleId,
-      userStatusId: userStatus?.value
+      roleId: this.user.roleId,
+      userStatusId: controls.userStatus.value?.value
     });
 
     this.usersClient.post(command)
