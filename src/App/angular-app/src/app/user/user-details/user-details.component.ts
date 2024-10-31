@@ -8,17 +8,17 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './user-details.component.html',
-  styleUrl: './user-details.component.scss'
+  styleUrl: './user-details.component.scss',
 })
-
-export class UserDetailsComponent implements OnInit{
+export class UserDetailsComponent implements OnInit {
   route: ActivatedRoute = inject(ActivatedRoute);
   user!: GetUserDetailsResponse;
-   
-  constructor(private usersClient: UsersClient){}
 
-  ngOnInit(): void {    
-    this.usersClient.get(this.route.snapshot.params['id'])
-                    .subscribe(user => this.user = user);    
-  }  
+  constructor(private usersClient: UsersClient) {}
+
+  ngOnInit(): void {
+    this.usersClient
+      .get(this.route.snapshot.params['id'])
+      .subscribe((user) => (this.user = user));
+  }
 }

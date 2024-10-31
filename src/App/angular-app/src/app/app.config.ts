@@ -11,5 +11,6 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideHttpClient(),
-    { provide: API_BASE_URL, useValue: environment.apiUrl }]
+    { provide: API_BASE_URL, useValue: environment.apiUrl },
+  ],
 };

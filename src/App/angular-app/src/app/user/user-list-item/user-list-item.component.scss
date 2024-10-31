@@ -10,7 +10,7 @@ $avatar-size: 50px;
   list-style-type: none;
   padding: 0;
   margin: 0;
-  
+
   .user {
     display: flex;
     align-items: center;
@@ -29,7 +29,7 @@ $avatar-size: 50px;
       margin-right: 15px;
       background-color: $border-color;
       overflow: hidden;
-      
+
       img {
         width: 100%;
         height: 100%;

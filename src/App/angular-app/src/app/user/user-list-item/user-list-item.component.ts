@@ -7,21 +7,21 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [RouterModule],
   templateUrl: './user-list-item.component.html',
-  styleUrl: './user-list-item.component.scss'
+  styleUrl: './user-list-item.component.scss',
 })
 export class UserListItemComponent implements OnInit {
-  @Input() id: string = "";
-  emailAddress: string = "";
-  fullName: string = "";
-  userStatusName: string = "";
+  @Input() id: string = '';
+  emailAddress: string = '';
+  fullName: string = '';
+  userStatusName: string = '';
 
   constructor(private usersClient: UsersClient) {}
 
   ngOnInit() {
-    this.usersClient.get(this.id).subscribe(user => {
-      this.emailAddress = user.emailAddress ?? ""; 
-      this.fullName = user.fullName ?? "";
-      this.userStatusName = user.userStatusName ?? "";
-    })
+    this.usersClient.get(this.id).subscribe((user) => {
+      this.emailAddress = user.emailAddress ?? '';
+      this.fullName = user.fullName ?? '';
+      this.userStatusName = user.userStatusName ?? '';
+    });
   }
 }

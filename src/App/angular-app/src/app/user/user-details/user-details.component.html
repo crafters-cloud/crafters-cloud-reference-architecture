@@ -1,11 +1,13 @@
 <section>
-    <div id="details">
-        <h4>{{user.fullName}}</h4>
-        <p>Email address: {{user.emailAddress}}</p>
-        <p>User Status: {{user.userStatusName}}</p>
-        <p>User status description: {{user.userStatusDescription}}</p>
-        <p>Created on: {{user.createdOn}}</p>
-        <p>Updated on: {{user.updatedOn}}</p>
-        <button type="button" [routerLink]="['/user',user.id,'edit']">Edit user</button>
-    </div>
+  <div id="details">
+    <h4>{{ user.fullName }}</h4>
+    <p>Email address: {{ user.emailAddress }}</p>
+    <p>User Status: {{ user.userStatusName }}</p>
+    <p>User status description: {{ user.userStatusDescription }}</p>
+    <p>Created on: {{ user.createdOn }}</p>
+    <p>Updated on: {{ user.updatedOn }}</p>
+    <button type="button" [routerLink]="['/user', user.id, 'edit']">
+      Edit user
+    </button>
+  </div>
 </section>
