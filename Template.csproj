@@ -26,7 +26,6 @@
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
     <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
     <Title>Crafters Cloud Reference Architecture Template</Title>
-
   </PropertyGroup>
 
   <Import Project="build\Shared.Build.props" />
@@ -44,5 +43,5 @@
   <ItemGroup>
     <PackageReference Include="JetBrains.Annotations" />
   </ItemGroup>
-
+  
 </Project>

@@ -48,7 +48,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Api\Security\TestUserAuthenticationHandler.cs" />
+    <Content Include="Api\Security\DummyUserAuthenticationHandler.cs" />
   </ItemGroup>
 
 </Project>

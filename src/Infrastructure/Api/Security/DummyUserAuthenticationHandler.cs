@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Tests.Impersonation;
+namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Security;
 
 public class DummyUserAuthenticationHandler(
     IOptionsMonitor<DummyAuthenticationOptions> options,

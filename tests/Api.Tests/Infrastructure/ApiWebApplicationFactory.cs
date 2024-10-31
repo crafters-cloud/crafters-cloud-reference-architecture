@@ -1,6 +1,6 @@
 ﻿using Autofac;
-using CraftersCloud.ReferenceArchitecture.Infrastructure.Autofac;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Configuration;
+using CraftersCloud.ReferenceArchitecture.Infrastructure.Identity;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Tests;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Tests.Autofac;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Tests.Impersonation;

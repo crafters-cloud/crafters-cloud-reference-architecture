@@ -1,8 +1,7 @@
 ﻿using Autofac;
 using CraftersCloud.ReferenceArchitecture.Domain.Identity;
-using CraftersCloud.ReferenceArchitecture.Infrastructure.Identity;
 
-namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Autofac;
+namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Identity;
 
 [UsedImplicitly]
 public class IdentityModule<T> : Module where T : ICurrentUserProvider

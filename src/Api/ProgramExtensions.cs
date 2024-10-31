@@ -12,7 +12,6 @@ using CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Logging;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Security;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Startup;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Swagger;
-using CraftersCloud.ReferenceArchitecture.Infrastructure.Autofac;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Configuration;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Data;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Identity;
@@ -31,7 +30,7 @@ public static class ProgramExtensions
         services.AddHttpContextAccessor();
         services.AddApplicationInsightsTelemetry();
 
-        services.AppConfigureAllSettings(configuration);
+        services.AppConfigureSettings(configuration);
         services.AppAddPolly();
         services.AppAddAutoMapper();
         services.AddCoreHealthChecks(configuration)

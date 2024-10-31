@@ -1,5 +1,4 @@
 ﻿using CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Security.DummyAuthentication;
-using CraftersCloud.ReferenceArchitecture.Infrastructure.Tests.Impersonation;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Security;
