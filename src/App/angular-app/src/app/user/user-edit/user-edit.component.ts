@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core'
+import { Component, inject, OnInit, signal } from '@angular/core'
 import { CommonModule, Location } from '@angular/common'
 import {
     FormControl,
@@ -14,35 +14,56 @@ import {
     UsersClient,
 } from '../../api/api-reference'
 import { ActivatedRoute, RouterModule } from '@angular/router'
+import { MaterialModule } from '../../shared/material.module'
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
+import { merge } from 'rxjs'
 
 @Component({
     selector: 'app-user-edit',
     standalone: true,
-    imports: [FormsModule, ReactiveFormsModule, CommonModule, RouterModule],
+    imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        CommonModule,
+        RouterModule,
+        MaterialModule,
+    ],
     templateUrl: './user-edit.component.html',
     styleUrl: './user-edit.component.scss',
 })
 export class UserEditComponent implements OnInit {
-    route: ActivatedRoute = inject(ActivatedRoute);
-    user!: GetUserDetailsResponse;
-    statuses: LookupResponseOfUserStatusId[] = [];
+    route: ActivatedRoute = inject(ActivatedRoute)
+    user!: GetUserDetailsResponse
+    statuses: LookupResponseOfUserStatusId[] = []
+    errorMessage = signal('')
 
     editForm = new FormGroup({
-        fullName: new FormControl<string>(''),
+        fullName: new FormControl<string>('', Validators.required),
         emailAddress: new FormControl('', [
             Validators.email,
             Validators.required,
         ]),
         userStatus: new FormControl<LookupResponseOfUserStatusId | null>(null),
-    });
-
-    hasEmailError() { return this.editForm.controls.emailAddress.hasError('email')}
-    hasRequiredError() { return this.editForm.controls.emailAddress.hasError('required') }
+    })
 
     constructor(
         private usersClient: UsersClient,
         public location: Location
-    ) {}
+    ) {
+        merge(
+            this.editForm.controls.emailAddress.statusChanges,
+            this.editForm.controls.emailAddress.valueChanges
+        )
+            .pipe(takeUntilDestroyed())
+            .subscribe(() => this.UpdateErrorMessage())
+    }
+
+    UpdateErrorMessage() {
+        if (this.editForm.controls.emailAddress.hasError('email'))
+            this.errorMessage.set('Must be a valid email address.')
+        else if (this.editForm.controls.emailAddress.hasError('required'))
+            this.errorMessage.set('Email address field must not be empty.')
+    }
 
     ngOnInit(): void {
         const client = this.usersClient
@@ -58,7 +79,6 @@ export class UserEditComponent implements OnInit {
 
     submitEditedUser() {
         const controls = this.editForm.controls
-
         const command = new CreateOrUpdateUserCommand({
             id: this.user.id,
             emailAddress: controls.emailAddress.value!,

@@ -1,15 +1,17 @@
-<section id="user">
-  <div id="userName" (ngModel)="(fullName)">{{ fullName }}</div>
-  <div id="emailAddress" (ngModel)="(emailAddress)">{{ emailAddress }}</div>
-  <div id="userStatusName" (ngModel)="(userStatusName)">
-    {{ userStatusName }}
-  </div>
-  <button
-    id="details"
-    type="button"
-    (ngModel)="(id)"
-    [routerLink]="['/user', id]"
-  >
-    Details
-  </button>
-</section>
+<mat-list-item>
+    <h4 mat-subheader>{{ fullName }}</h4>
+    <p mat-line>{{ emailAddress }}</p>
+    <p mat-line>{{ userStatusName }}</p>
+    <p mat-line>
+        <button
+            mat-raised-button
+            id="details"
+            type="button"
+            (ngModel)="(id)"
+            [routerLink]="['/user', id]"
+        >
+            Details
+        </button>
+    </p>
+    <mat-divider></mat-divider>
+</mat-list-item>
