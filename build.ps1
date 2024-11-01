@@ -30,13 +30,13 @@ if (Test-Path $artifacts)
     Remove-Item $artifacts -Force -Recurse
 }
 
-exec { & dotnet clean -c Release ..\CraftersCloud.ReferenceArchitecture.sln }
+exec { & dotnet clean -c Release CraftersCloud.ReferenceArchitecture.sln }
 
-exec { & dotnet build -c Release ..\CraftersCloud.ReferenceArchitecture.sln }
+exec { & dotnet build -c Release CraftersCloud.ReferenceArchitecture.sln }
 
-exec { & dotnet test -c Release ..\CraftersCloud.ReferenceArchitecture.sln --no-build -l trx --verbosity=normal }
+exec { & dotnet test -c Release CraftersCloud.ReferenceArchitecture.sln --no-build -l trx --verbosity=normal }
 
-exec { & dotnet pack ..\Template.csproj -c Release -o $artifacts --no-build }
+exec { & dotnet pack Template.csproj -c Release -o $artifacts --no-build }
 
 
 

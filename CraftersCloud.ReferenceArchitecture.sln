@@ -51,9 +51,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{6CC21449-A3D7-4747-9AFB-DA5FCA1DA0AA}"
 	ProjectSection(SolutionItems) = preProject
 		scripts\add-migration.ps1 = scripts\add-migration.ps1
-		scripts\build.ps1 = scripts\build.ps1
-		scripts\push.ps1 = scripts\push.ps1
 		scripts\update-databases.ps1 = scripts\update-databases.ps1
+		build.ps1 = build.ps1
+		push.ps1 = push.ps1
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".template.config", ".template.config", "{FAA5A207-E0C6-402E-AFDD-7C0A5160B133}"
