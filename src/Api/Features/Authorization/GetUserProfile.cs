@@ -5,7 +5,6 @@ using CraftersCloud.Core.EntityFramework;
 using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
 using CraftersCloud.ReferenceArchitecture.Domain.Identity;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
-using JetBrains.Annotations;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 

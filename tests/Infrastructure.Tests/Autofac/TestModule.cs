@@ -1,6 +1,5 @@
 ﻿using Autofac;
 using CraftersCloud.Core;
-using JetBrains.Annotations;
 
 namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Tests.Autofac;
 

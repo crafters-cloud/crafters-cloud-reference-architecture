@@ -2,7 +2,6 @@
 using CraftersCloud.Core.AspNetCore.Authorization;
 using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Identity;
-using JetBrains.Annotations;
 
 namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Authorization;
 

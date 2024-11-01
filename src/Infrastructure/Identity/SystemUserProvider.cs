@@ -1,7 +1,6 @@
 ﻿using CraftersCloud.Core.Data;
 using CraftersCloud.Core.Entities;
 using CraftersCloud.ReferenceArchitecture.Domain.Identity;
-using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using DomainUser = CraftersCloud.ReferenceArchitecture.Domain.Users.User;

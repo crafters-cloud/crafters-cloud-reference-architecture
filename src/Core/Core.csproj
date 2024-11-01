@@ -5,8 +5,8 @@
   </PropertyGroup>
   
   <ItemGroup>
-    <PackageReference Include="CraftersCloud.Core"/>
-    <PackageReference Include="CraftersCloud.Core.SmartEnums"/>
+    <PackageReference Include="CraftersCloud.Core" />
+    <PackageReference Include="CraftersCloud.Core.SmartEnums" />
   </ItemGroup>
 
   <ItemGroup>

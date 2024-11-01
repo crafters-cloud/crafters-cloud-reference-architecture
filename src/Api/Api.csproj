@@ -6,29 +6,29 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="appsettings.Development.json"/>
+    <Content Remove="appsettings.Development.json" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="appsettings.Development.json"/>
+    <None Include="appsettings.Development.json" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CraftersCloud.Core.AspNetCore"/>
-    <PackageReference Include="CraftersCloud.Core.HealthChecks"/>
-    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore"/>
-    <PackageReference Include="Microsoft.AspNetCore.SpaProxy"/>
+    <PackageReference Include="CraftersCloud.Core.AspNetCore" />
+    <PackageReference Include="CraftersCloud.Core.HealthChecks" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaProxy" />
   </ItemGroup>
 
   <ItemGroup>
-    <InternalsVisibleTo Include="CraftersCloud.ReferenceArchitecture.Api.Tests"/>
+    <InternalsVisibleTo Include="CraftersCloud.ReferenceArchitecture.Api.Tests" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\ApplicationServices\ApplicationServices.csproj"/>
-    <ProjectReference Include="..\Core\Core.csproj"/>
-    <ProjectReference Include="..\Domain\Domain.csproj"/>
-    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj"/>
+    <ProjectReference Include="..\Core\Core.csproj" />
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

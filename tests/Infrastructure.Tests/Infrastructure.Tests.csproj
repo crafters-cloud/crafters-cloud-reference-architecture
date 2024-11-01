@@ -3,23 +3,23 @@
     <RootNamespace>CraftersCloud.ReferenceArchitecture.Infrastructure.Tests</RootNamespace>
     <AssemblyName>CraftersCloud.ReferenceArchitecture.Infrastructure.Tests</AssemblyName>
   </PropertyGroup>
-
+  
   <Import Project="..\..\Tests.Build.props"/>
 
   <ItemGroup>
-    <PackageReference Include="CraftersCloud.Core.AspNetCore.TestUtilities"/>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design"/>
-    <PackageReference Include="Respawn"/>
-    <PackageReference Include="Testcontainers.MsSql"/>
+    <PackageReference Include="CraftersCloud.Core.AspNetCore.TestUtilities" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" />
+    <PackageReference Include="Respawn" />
+    <PackageReference Include="Testcontainers.MsSql" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\tests\Common.Tests\Common.Tests.csproj"/>
-    <ProjectReference Include="..\..\src\Infrastructure\Infrastructure.csproj"/>
+    <ProjectReference Include="..\..\tests\Common.Tests\Common.Tests.csproj" />
+    <ProjectReference Include="..\..\src\Infrastructure\Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <InternalsVisibleTo Include="CraftersCloud.ReferenceArchitecture.Api.Tests"/>
+    <InternalsVisibleTo Include="CraftersCloud.ReferenceArchitecture.Api.Tests" />
   </ItemGroup>
 
 </Project>

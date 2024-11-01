@@ -5,13 +5,13 @@
   </PropertyGroup>
   
   <ItemGroup>
-    <PackageReference Include="CraftersCloud.Core"/>
-    <PackageReference Include="CraftersCloud.Core.EntityFramework"/>
-    <PackageReference Include="FluentValidation"/>
+    <PackageReference Include="CraftersCloud.Core" />
+    <PackageReference Include="CraftersCloud.Core.EntityFramework" />
+    <PackageReference Include="FluentValidation" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Core\Core.csproj"/>
+    <ProjectReference Include="..\Core\Core.csproj" />
   </ItemGroup>
 
 </Project>

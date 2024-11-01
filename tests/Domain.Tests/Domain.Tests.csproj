@@ -3,12 +3,12 @@
     <RootNamespace>CraftersCloud.ReferenceArchitecture.Domain.Tests</RootNamespace>
     <AssemblyName>CraftersCloud.ReferenceArchitecture.Domain.Tests</AssemblyName>
   </PropertyGroup>
-
+  
   <Import Project="..\..\Tests.Build.props"/>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\tests\Common.Tests\Common.Tests.csproj"/>
-    <ProjectReference Include="..\..\src\Domain\Domain.csproj"/>
+    <ProjectReference Include="..\..\tests\Common.Tests\Common.Tests.csproj" />
+    <ProjectReference Include="..\..\src\Domain\Domain.csproj" />
   </ItemGroup>
 
 </Project>

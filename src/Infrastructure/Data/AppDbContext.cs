@@ -1,6 +1,5 @@
 ﻿using CraftersCloud.Core.EntityFramework.Infrastructure;
 using CraftersCloud.Core.SmartEnums.EntityFramework;
-using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore;
 
 namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Data;
@@ -16,6 +15,7 @@ public class AppDbContext(DbContextOptions options) : EntitiesDbContext(CreateOp
     {
         // first we need to build the model so that we can later configure the smart enums
         base.OnModelCreating(modelBuilder);
+        modelBuilder.ApplyEntityWithGuidIdConvention();
         modelBuilder.CoreConfigureSmartEnums();
     }
 

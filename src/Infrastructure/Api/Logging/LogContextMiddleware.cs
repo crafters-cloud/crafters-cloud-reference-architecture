@@ -1,6 +1,5 @@
 ﻿using CraftersCloud.Core.AspNetCore.Filters;
 using CraftersCloud.ReferenceArchitecture.Domain.Identity;
-using JetBrains.Annotations;
 using Microsoft.AspNetCore.Http;
 using Serilog.Context;
 using Serilog.Core;

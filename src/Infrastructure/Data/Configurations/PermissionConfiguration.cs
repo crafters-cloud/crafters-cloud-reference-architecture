@@ -1,5 +1,4 @@
 ﻿using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
-using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

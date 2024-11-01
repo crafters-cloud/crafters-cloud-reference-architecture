@@ -1,6 +1,4 @@
-﻿using JetBrains.Annotations;
-
-namespace CraftersCloud.ReferenceArchitecture.Api.Features;
+﻿namespace CraftersCloud.ReferenceArchitecture.Api.Features;
 
 [PublicAPI]
 public class LookupResponse<T>
