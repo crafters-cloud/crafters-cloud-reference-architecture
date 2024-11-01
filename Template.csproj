@@ -27,9 +27,7 @@
     <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
     <Title>Crafters Cloud Reference Architecture Template</Title>
   </PropertyGroup>
-
-  <Import Project="build\Shared.Build.props" />
-
+  
   <ItemGroup>
     <Compile Remove="**\*" />
     <Content Include="**\*"

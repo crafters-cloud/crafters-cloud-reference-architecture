@@ -8,7 +8,7 @@ public static class ServiceCollectionExtensions
 {
     public static void AppConfigureSettings(this IServiceCollection services, IConfiguration configuration)
     {
-        services.Configure<DbContextSettings>(DbContextSettings.SectionName, configuration);
-        services.Configure<ApplicationInsightsSettings>(ApplicationInsightsSettings.SectionName, configuration);
+        services.Configure<DbContextSettings>(configuration.GetSection(DbContextSettings.SectionName));
+        services.Configure<ApplicationInsightsSettings>(configuration.GetSection(ApplicationInsightsSettings.SectionName));
     }
 }

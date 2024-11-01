@@ -4,8 +4,7 @@
     <AssemblyName>CraftersCloud.ReferenceArchitecture.Domain.Tests</AssemblyName>
   </PropertyGroup>
 
-  <Import Project="..\..\build\Shared.Build.props" />
-  <Import Project="..\..\build\Shared.Tests.props" />
+  <Import Project="..\..\Tests.Build.props"/>
 
   <ItemGroup>
     <ProjectReference Include="..\..\tests\Common.Tests\Common.Tests.csproj" />

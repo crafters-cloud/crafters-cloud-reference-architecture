@@ -3,9 +3,8 @@
     <RootNamespace>CraftersCloud.ReferenceArchitecture.Api.Tests</RootNamespace>
     <AssemblyName>CraftersCloud.ReferenceArchitecture.Api.Tests</AssemblyName>
   </PropertyGroup>
-
-  <Import Project="..\..\build\Shared.Build.props" />
-  <Import Project="..\..\build\Shared.Tests.props" />
+  
+  <Import Project="..\..\Tests.Build.props"/>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" />

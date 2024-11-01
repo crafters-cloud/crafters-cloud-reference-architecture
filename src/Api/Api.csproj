@@ -13,8 +13,6 @@
     <None Include="appsettings.Development.json" />
   </ItemGroup>
 
-  <Import Project="..\..\build\Shared.Build.props" />
-
   <ItemGroup>
     <PackageReference Include="CraftersCloud.Core.AspNetCore" />
     <PackageReference Include="CraftersCloud.Core.HealthChecks" />
@@ -27,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ApplicationServices\ApplicationServices.csproj" />
+    <ProjectReference Include="..\ApplicationServices\ApplicationServices.csproj"/>
     <ProjectReference Include="..\Core\Core.csproj" />
     <ProjectReference Include="..\Domain\Domain.csproj" />
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />

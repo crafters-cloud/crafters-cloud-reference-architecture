@@ -33,6 +33,7 @@ public class EntityFrameworkModule : Module
     {
         var loggerFactory = container.Resolve<ILoggerFactory>();
         var configuration = container.Resolve<IConfiguration>();
+
         var dbContextSettings = container.Resolve<IOptions<DbContextSettings>>().Value;
 
         var optionsBuilder = new DbContextOptionsBuilder();

@@ -3,16 +3,14 @@
     <RootNamespace>CraftersCloud.ReferenceArchitecture.Core</RootNamespace>
     <AssemblyName>CraftersCloud.ReferenceArchitecture.Core</AssemblyName>
   </PropertyGroup>
-
-  <Import Project="..\..\build\Shared.Build.props" />
-
+  
   <ItemGroup>
     <PackageReference Include="CraftersCloud.Core" />
     <PackageReference Include="CraftersCloud.Core.SmartEnums" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Settings\" />
+    <Folder Include="Settings\"/>
   </ItemGroup>
 
 </Project>

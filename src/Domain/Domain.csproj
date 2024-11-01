@@ -3,9 +3,7 @@
     <RootNamespace>CraftersCloud.ReferenceArchitecture.Domain</RootNamespace>
     <AssemblyName>CraftersCloud.ReferenceArchitecture.Domain</AssemblyName>
   </PropertyGroup>
-
-  <Import Project="..\..\build\Shared.Build.props" />
-
+  
   <ItemGroup>
     <PackageReference Include="CraftersCloud.Core" />
     <PackageReference Include="CraftersCloud.Core.EntityFramework" />

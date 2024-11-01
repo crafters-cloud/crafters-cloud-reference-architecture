@@ -3,9 +3,7 @@
     <RootNamespace>CraftersCloud.ReferenceArchitecture.Infrastructure</RootNamespace>
     <AssemblyName>CraftersCloud.ReferenceArchitecture.Infrastructure</AssemblyName>
   </PropertyGroup>
-
-  <Import Project="..\..\build\Shared.Build.props" />
-
+  
   <ItemGroup>
     <PackageReference Include="Autofac" />
     <PackageReference Include="Automapper" />
