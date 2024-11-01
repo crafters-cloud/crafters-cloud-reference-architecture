@@ -3,7 +3,7 @@
     <RootNamespace>CraftersCloud.ReferenceArchitecture.Infrastructure.Tests</RootNamespace>
     <AssemblyName>CraftersCloud.ReferenceArchitecture.Infrastructure.Tests</AssemblyName>
   </PropertyGroup>
-
+  
   <Import Project="..\..\Tests.Build.props"/>
 
   <ItemGroup>

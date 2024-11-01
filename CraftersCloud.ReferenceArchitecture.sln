@@ -48,6 +48,20 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{72436B58-940
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{9A124EA0-77DC-4468-8F3D-DD294C1A8391}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{6CC21449-A3D7-4747-9AFB-DA5FCA1DA0AA}"
+	ProjectSection(SolutionItems) = preProject
+		scripts\add-migration.ps1 = scripts\add-migration.ps1
+		scripts\build.ps1 = scripts\build.ps1
+		scripts\push.ps1 = scripts\push.ps1
+		scripts\update-databases.ps1 = scripts\update-databases.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".template.config", ".template.config", "{FAA5A207-E0C6-402E-AFDD-7C0A5160B133}"
+	ProjectSection(SolutionItems) = preProject
+		.template.config\dotnetcli.host.json = .template.config\dotnetcli.host.json
+		.template.config\template.json = .template.config\template.json
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -115,7 +129,8 @@ Global
 		{98BD9F63-8C8E-4777-A12A-B53056CAA6B9} = {72436B58-9407-46C5-A394-69CDF8E31387}
 		{A37F5D21-519B-4A5E-8238-E9F8AA7D0174} = {72436B58-9407-46C5-A394-69CDF8E31387}
 		{2218303A-AD60-4C30-BFBC-104BB877E18F} = {72436B58-9407-46C5-A394-69CDF8E31387}
-		{85AC88C8-FE50-4642-9C71-8635D2692A03} = {39D678DB-292F-47B0-A70B-0ECB0E7F7C80}
+		{6CC21449-A3D7-4747-9AFB-DA5FCA1DA0AA} = {39D678DB-292F-47B0-A70B-0ECB0E7F7C80}
+		{FAA5A207-E0C6-402E-AFDD-7C0A5160B133} = {39D678DB-292F-47B0-A70B-0ECB0E7F7C80}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5366D8D0-38E2-403F-BD61-0BE58A895283}
