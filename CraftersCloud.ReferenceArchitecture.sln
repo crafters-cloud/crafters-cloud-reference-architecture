@@ -27,9 +27,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Directory.Packages.props = Directory.Packages.props
 		nuget.config = nuget.config
 		README.md = README.md
-		build\Shared.Build.props = build\Shared.Build.props
-		build\Shared.Tests.props = build\Shared.Tests.props
 		templating.md = templating.md
+		Tests.Build.props = Tests.Build.props
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.Tests", "tests\Infrastructure.Tests\Infrastructure.Tests.csproj", "{2453EC7F-F45C-4DAE-9417-A5F95519BCB2}"
@@ -124,6 +123,7 @@ Global
 		{2218303A-AD60-4C30-BFBC-104BB877E18F} = {72436B58-9407-46C5-A394-69CDF8E31387}
 		{A8D4A4DD-20EB-472B-B329-C697DA9D95C0} = {9A124EA0-77DC-4468-8F3D-DD294C1A8391}
 		{11E51269-10A1-44E5-935A-3F61487A0F6C} = {D4B8644E-123F-4EFE-8236-373CA28DE42B}
+		{85AC88C8-FE50-4642-9C71-8635D2692A03} = {39D678DB-292F-47B0-A70B-0ECB0E7F7C80}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5366D8D0-38E2-403F-BD61-0BE58A895283}

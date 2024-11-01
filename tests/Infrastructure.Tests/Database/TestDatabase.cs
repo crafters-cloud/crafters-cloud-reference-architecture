@@ -9,13 +9,13 @@ namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Tests.Database;
 
 internal class TestDatabase
 {
-    public string ConnectionString { get; }
+    public string ConnectionString { get; private set; } = null!;
     private static MsSqlContainer? _container;
 
     private static readonly IEnumerable<string> TablesToIgnore =
         ["__EFMigrationsHistory", nameof(Role), nameof(RolePermission), nameof(Permission), nameof(UserStatus)];
-
-    public TestDatabase()
+    
+    public async Task CreateAsync()
     {
         // To use a local sqlServer instance, Create an Environment variable using R# Test Runner, with name "IntegrationTestsConnectionString"
         // and value: "Server=.;Database={DatabaseName};Trusted_Connection=True;MultipleActiveResultSets=true;Encrypt=False"
@@ -40,7 +40,7 @@ internal class TestDatabase
                     .WithCleanUp(true)
                     .Build();
 
-                _container!.StartAsync().Wait();
+                await _container!.StartAsync();
                 ConnectionString = _container.GetConnectionString();
                 WriteLine($"Docker SQL connection string: {ConnectionString}");
             }

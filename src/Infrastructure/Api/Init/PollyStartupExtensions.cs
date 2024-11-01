@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Polly;
-using Polly.Timeout;
 
 namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Init;
 

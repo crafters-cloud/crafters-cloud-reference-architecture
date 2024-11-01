@@ -1,5 +1,4 @@
-﻿using System.Reflection;
-using CraftersCloud.Core.AspNetCore.Validation;
+﻿using CraftersCloud.Core.AspNetCore.Validation;
 using FluentValidation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;

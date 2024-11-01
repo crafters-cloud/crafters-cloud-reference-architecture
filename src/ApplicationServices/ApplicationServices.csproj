@@ -4,9 +4,7 @@
     <RootNamespace>CraftersCloud.ReferenceArchitecture.ApplicationServices</RootNamespace>
     <AssemblyName>CraftersCloud.ReferenceArchitecture.ApplicationServices</AssemblyName>
   </PropertyGroup>
-
-  <Import Project="..\..\build\Shared.Build.props"/>
-
+  
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore"/>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational"/>

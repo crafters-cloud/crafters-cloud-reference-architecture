@@ -31,7 +31,7 @@ public static class ProgramExtensions
         services.AddHttpContextAccessor();
         services.AddApplicationInsightsTelemetry();
 
-        services.AppConfigureAllSettings(configuration);
+        services.AppConfigureSettings(configuration);
         services.AppAddPolly();
         services.AppAddAutoMapper();
         services.AddCoreHealthChecks(configuration)
@@ -70,7 +70,6 @@ public static class ProgramExtensions
     public static void AppConfigureWebApplication(this WebApplication app)
     {
         var configuration = app.Configuration;
-        var env = app.Environment;
 
         app.UseDefaultFiles();
         app.UseStaticFiles(new StaticFileOptions

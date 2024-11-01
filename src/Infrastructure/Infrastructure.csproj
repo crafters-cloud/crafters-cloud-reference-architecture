@@ -3,9 +3,7 @@
     <RootNamespace>CraftersCloud.ReferenceArchitecture.Infrastructure</RootNamespace>
     <AssemblyName>CraftersCloud.ReferenceArchitecture.Infrastructure</AssemblyName>
   </PropertyGroup>
-
-  <Import Project="..\..\build\Shared.Build.props"/>
-
+  
   <ItemGroup>
     <PackageReference Include="Autofac"/>
     <PackageReference Include="Automapper"/>
@@ -48,7 +46,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Api\Security\TestUserAuthenticationHandler.cs" />
+    <Content Include="Api\Security\TestUserAuthenticationHandler.cs"/>
   </ItemGroup>
 
 </Project>

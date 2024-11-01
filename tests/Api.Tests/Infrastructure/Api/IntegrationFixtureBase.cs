@@ -25,6 +25,7 @@ public class IntegrationFixtureBase
     protected async Task Setup()
     {
         _testDatabase = new TestDatabase();
+        await _testDatabase.CreateAsync();
 
         _configuration = new TestConfigurationBuilder()
             .WithDbContextName(nameof(AppDbContext))
