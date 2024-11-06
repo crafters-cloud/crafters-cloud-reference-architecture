@@ -10,6 +10,7 @@ import {
 import {
     CreateOrUpdateUserCommand,
     GetUserDetailsResponse,
+    LookupResponseOfGuid,
     LookupResponseOfUserStatusId,
     UsersClient,
 } from '../../api/api-reference'
@@ -35,15 +36,14 @@ export class UserEditComponent implements OnInit {
     route: ActivatedRoute = inject(ActivatedRoute)
     user!: GetUserDetailsResponse
     statuses: LookupResponseOfUserStatusId[] = []
+    roles: LookupResponseOfGuid[] = []
     errorMessage = signal('')
 
     editForm = new FormGroup({
         fullName: new FormControl<string>('', Validators.required),
-        emailAddress: new FormControl('', [
-            Validators.email,
-            Validators.required,
-        ]),
+        emailAddress: new FormControl(''),
         userStatus: new FormControl<LookupResponseOfUserStatusId | null>(null),
+        userRole: new FormControl<LookupResponseOfGuid | null>(null)
     })
 
     constructor(
@@ -72,18 +72,25 @@ export class UserEditComponent implements OnInit {
             .get(this.route.snapshot.params['id'])
             .subscribe((user) => (this.user = user))
 
-        client.getStatusesLookup().subscribe((statuses) => {
+        client
+            .getStatusesLookup()
+            .subscribe((statuses) => {
             this.statuses = statuses
         })
+
+        client.getRolesLookup()
+            .subscribe((roles) => {
+                this.roles = roles
+            })
     }
 
     submitEditedUser() {
         const controls = this.editForm.controls
         const command = new CreateOrUpdateUserCommand({
             id: this.user.id,
-            emailAddress: controls.emailAddress.value!,
+            emailAddress: this.user.emailAddress,
             fullName: controls.fullName.value!,
-            roleId: this.user.roleId,
+            roleId: controls.userRole.value?.value,
             userStatusId: controls.userStatus.value?.value,
         })
 

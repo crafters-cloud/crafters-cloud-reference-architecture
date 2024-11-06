@@ -4,11 +4,12 @@ import { GetUsersResponseItem, UsersClient } from '../../api/api-reference'
 import { FormsModule } from '@angular/forms'
 import { UserListItemComponent } from '../user-list-item/user-list-item.component'
 import { MaterialModule } from '../../shared/material.module'
+import { UserAddComponent } from "../user-add/user-add.component";
 
 @Component({
     selector: 'app-users-list',
     standalone: true,
-    imports: [CommonModule, FormsModule, UserListItemComponent, MaterialModule],
+    imports: [CommonModule, FormsModule, UserListItemComponent, MaterialModule, UserAddComponent],
     templateUrl: './users-list.component.html',
     styleUrl: './users-list.component.scss',
 })

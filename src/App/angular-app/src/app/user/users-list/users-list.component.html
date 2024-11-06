@@ -1,14 +1,26 @@
-<mat-form-field>
-    <mat-label>Search</mat-label>
-    <input
-        matInput
-        type="search"
-        placeholder="Search user name..."
-        [(ngModel)]="query"
-        (change)="filterResults($event)"
-    />
-</mat-form-field>
-<section id="results">
-    <app-user-list-item *ngFor="let user of usersList" [id]="user.id">
-    </app-user-list-item>
-</section>
+
+<mat-tab-group>    
+    <mat-tab label="Search Users">
+        <section>
+            <mat-form-field>
+                <mat-label>Search</mat-label>
+                <input
+                    matInput
+                    type="search"
+                    placeholder="Search user name..."
+                    [(ngModel)]="query"
+                    (change)="filterResults($event)"
+                />
+            </mat-form-field>                
+            <app-user-list-item *ngFor="let user of usersList" [id]="user.id">
+            </app-user-list-item>
+        </section>
+    </mat-tab>
+    <mat-tab label="Add User">
+        <section>
+            <app-user-add></app-user-add>
+        </section>
+    </mat-tab>
+</mat-tab-group>
+
+

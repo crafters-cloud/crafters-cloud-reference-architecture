@@ -10,7 +10,7 @@ public static class CreateOrUpdateUser
     [PublicAPI]
     public class Command : IRequest<User>
     {
-        public required Guid? Id { get; set; }
+        public  Guid? Id { get; set; }
         public required string EmailAddress { get; set; } = string.Empty;
         public required string FullName { get; set; } = string.Empty;
         public required Guid RoleId { get; set; }

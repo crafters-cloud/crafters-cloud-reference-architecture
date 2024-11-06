@@ -13,10 +13,10 @@
             <mat-form-field>
                 <mat-label>Email address</mat-label>
                 <input
+                    [disabled]="true"
                     matInput
                     type="email"
-                    formControlName="emailAddress"
-                    placeholder="{{ user.emailAddress }}"
+                    [value]="user.emailAddress"
                 />
                 <mat-error>{{errorMessage()}}</mat-error>
             </mat-form-field><br/>
@@ -31,10 +31,21 @@
                     </mat-option>
                 </mat-select>
             </mat-form-field><br/>
+            <mat-form-field>
+                <mat-label>User role</mat-label>
+                <mat-select formControlName="userRole">
+                    <mat-option
+                    *ngFor="let role of roles"
+                    [value]="role"                   
+                    >
+                    {{ role.label }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field><br/>
                 <button mat-flat-button type="submit" [disabled]="!editForm.valid">
                     Save changes
                 </button>
-                <button mat-flat-button type="button" [routerLink]="['/user', user.id]">
+                <button mat-flat-button type="button" [routerLink]="['/users']">
                     Cancel edit
                 </button>
         </form> 

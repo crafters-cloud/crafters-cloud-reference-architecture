@@ -1,0 +1,45 @@
+<form [formGroup]="addForm" (submit)="submitUser()">
+    <mat-form-field>
+        <mat-label>User name</mat-label>
+        <input
+            matInput
+            type="text"
+            formControlName="fullName"
+            placeholder="Full Name"
+            />
+    </mat-form-field><br/>
+    <mat-form-field>
+        <mat-label>Email address</mat-label>
+        <input
+            matInput
+            type="email"
+            formControlName="emailAddress"            
+        />
+        <mat-error>{{errorMessage()}}</mat-error>
+    </mat-form-field><br/>
+    <mat-form-field>
+        <mat-label>User status</mat-label>
+        <mat-select formControlName="userStatus">
+            <mat-option
+            *ngFor="let status of statuses"
+            [value]="status"                   
+            >
+            {{ status.label }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field><br/>
+    <mat-form-field>
+        <mat-label>User role</mat-label>
+        <mat-select formControlName="userRole">
+            <mat-option
+            *ngFor="let role of roles"
+            [value]="role"                   
+            >
+            {{ role.label }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field><br/>
+        <button mat-flat-button type="submit" [disabled]="!addForm.valid">
+            Add new user
+        </button>
+</form> 
