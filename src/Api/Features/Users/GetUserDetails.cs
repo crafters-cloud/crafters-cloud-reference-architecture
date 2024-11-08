@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+﻿using CraftersCloud.Core.Cqrs;
 using CraftersCloud.Core.Data;
 using CraftersCloud.Core.Entities;
 using CraftersCloud.Core.EntityFramework;
@@ -11,7 +11,7 @@ namespace CraftersCloud.ReferenceArchitecture.Api.Features.Users;
 public static class GetUserDetails
 {
     [PublicAPI]
-    public class Request : IRequest<Response>
+    public class Request : IQuery<Response>
     {
         public Guid Id { get; set; }
 
@@ -33,23 +33,17 @@ public static class GetUserDetails
     }
 
     [UsedImplicitly]
-    public class MappingProfile : Profile
-    {
-        public MappingProfile() => CreateMap<User, Response>();
-    }
-
-    [UsedImplicitly]
-    public class RequestHandler(IRepository<User> repository, IMapper mapper) : IRequestHandler<Request, Response>
+    public class RequestHandler(IRepository<User> repository) : IRequestHandler<Request, Response>
     {
         public async Task<Response> Handle(Request request, CancellationToken cancellationToken)
         {
-            var response = await repository.QueryAll()
-                .BuildInclude()
+            var user = await repository.QueryAll()
+                .Include(x => x.UserStatus)
+                .AsNoTracking()
                 .QueryById(request.Id)
-                .SingleOrDefaultMappedAsync<User, Response>(mapper, cancellationToken);
-            return response;
+                .SingleOrNotFoundAsync(cancellationToken);
+
+            return user.ToResponse();
         }
     }
-
-    private static IQueryable<User> BuildInclude(this IQueryable<User> query) => query.Include(x => x.UserStatus);
 }

@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using CraftersCloud.Core.MediatR;
+using CraftersCloud.ReferenceArchitecture.Infrastructure.Data;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -11,6 +12,7 @@ public static class ServiceCollectionExtensions
     {
         services.AddScoped(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
         services.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+        services.AddScoped(typeof(IPipelineBehavior<,>), typeof(AppSaveChangesBehavior<,>));
 
         services.AddMediatR(config =>
         {

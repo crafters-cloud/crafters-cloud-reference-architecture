@@ -3,7 +3,7 @@
     <RootNamespace>CraftersCloud.ReferenceArchitecture.Domain</RootNamespace>
     <AssemblyName>CraftersCloud.ReferenceArchitecture.Domain</AssemblyName>
   </PropertyGroup>
-  
+
   <ItemGroup>
     <PackageReference Include="CraftersCloud.Core" />
     <PackageReference Include="CraftersCloud.Core.EntityFramework" />

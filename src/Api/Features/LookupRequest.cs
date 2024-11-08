@@ -1,5 +1,5 @@
-﻿using MediatR;
+﻿using CraftersCloud.Core.Cqrs;
 
 namespace CraftersCloud.ReferenceArchitecture.Api.Features;
 
-public class LookupRequest<T> : IRequest<IEnumerable<LookupResponse<T>>>;
+public class LookupRequest<T> : IQuery<IEnumerable<LookupResponse<T>>>;

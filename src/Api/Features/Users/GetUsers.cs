@@ -1,6 +1,4 @@
-﻿using AutoMapper;
-using AutoMapper.QueryableExtensions;
-using CraftersCloud.Core.Data;
+﻿using CraftersCloud.Core.Data;
 using CraftersCloud.Core.EntityFramework;
 using CraftersCloud.Core.Paging;
 using CraftersCloud.ReferenceArchitecture.Domain.Identity;
@@ -19,7 +17,7 @@ public static class GetUsers
     }
 
     [PublicAPI]
-    public static class Response
+    public class Response
     {
         [PublicAPI]
         public class Item
@@ -31,24 +29,18 @@ public static class GetUsers
             public DateTimeOffset CreatedOn { get; set; }
             public DateTimeOffset UpdatedOn { get; set; }
         }
-
-        [UsedImplicitly]
-        public class MappingProfile : Profile
-        {
-            public MappingProfile() => CreateMap<User, Item>();
-        }
     }
 
     [UsedImplicitly]
-    public class RequestHandler(IRepository<User> repository, IMapper mapper)
-        : IPagedRequestHandler<Request, Response.Item>
+    public class RequestHandler(IRepository<User> repository) : IPagedRequestHandler<Request, Response.Item>
     {
         public async Task<PagedResponse<Response.Item>> Handle(Request request, CancellationToken cancellationToken) =>
             await repository.QueryAll()
                 .Include(u => u.UserStatus)
+                .AsNoTracking()
                 .QueryByName(request.Name)
                 .QueryByEmail(request.Email)
-                .ProjectTo<Response.Item>(mapper.ConfigurationProvider, cancellationToken)
+                .ProjectToResponse()
                 .ToPagedResponseAsync(request, cancellationToken);
     }
 }

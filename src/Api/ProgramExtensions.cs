@@ -32,7 +32,6 @@ public static class ProgramExtensions
 
         services.AppConfigureSettings(configuration);
         services.AppAddPolly();
-        services.AppAddAutoMapper();
         services.AddCoreHealthChecks(configuration)
             .AddDbContextCheck<AppDbContext>();
         services.AppAddMediatr(AssemblyFinder.ApiAssembly);

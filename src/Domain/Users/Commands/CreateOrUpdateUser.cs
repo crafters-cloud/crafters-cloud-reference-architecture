@@ -1,14 +1,14 @@
-﻿using CraftersCloud.Core.Data;
+﻿using CraftersCloud.Core.Cqrs;
+using CraftersCloud.Core.Data;
 using CraftersCloud.Core.Entities;
 using FluentValidation;
-using MediatR;
 
 namespace CraftersCloud.ReferenceArchitecture.Domain.Users.Commands;
 
 public static class CreateOrUpdateUser
 {
     [PublicAPI]
-    public class Command : IRequest<User>
+    public class Command : ICommand<User>
     {
         public required Guid? Id { get; set; }
         public required string EmailAddress { get; set; } = string.Empty;

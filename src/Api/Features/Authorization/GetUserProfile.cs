@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+﻿using CraftersCloud.Core.Cqrs;
 using CraftersCloud.Core.Data;
 using CraftersCloud.Core.Entities;
 using CraftersCloud.Core.EntityFramework;
@@ -13,27 +13,19 @@ namespace CraftersCloud.ReferenceArchitecture.Api.Features.Authorization;
 public static class GetUserProfile
 {
     [PublicAPI]
-    public class Request : IRequest<Response>;
+    public class Request : IQuery<Response>;
 
     [PublicAPI]
     public class Response
     {
-        public Guid Id { get; init; }
-        public string FullName { get; init; } = string.Empty;
-        public string EmailAddress { get; init; } = string.Empty;
-        public IEnumerable<PermissionId> Permissions { get; init; } = [];
+        public Guid Id { get; set; }
+        public string FullName { get; set; } = string.Empty;
+        public string EmailAddress { get; set; } = string.Empty;
+        public IReadOnlyCollection<PermissionId> Permissions { get; set; } = [];
     }
 
     [UsedImplicitly]
-    public class MappingProfile : Profile
-    {
-        public MappingProfile() =>
-            CreateMap<User, Response>()
-                .ForMember(dest => dest.Permissions, opt => opt.MapFrom(user => user.GetPermissionIds()));
-    }
-
-    [UsedImplicitly]
-    public class RequestHandler(IMapper mapper, ICurrentUserProvider currentUserProvider, IRepository<User> repository)
+    public class RequestHandler(ICurrentUserProvider currentUserProvider, IRepository<User> repository)
         : IRequestHandler<Request, Response>
     {
         public async Task<Response> Handle(Request request, CancellationToken cancellationToken)
@@ -48,9 +40,10 @@ public static class GetUserProfile
                 .Include(u => u.Role)
                 .ThenInclude(r => r.Permissions)
                 .Include(u => u.UserStatus)
+                .AsNoTracking()
                 .SingleOrNotFoundAsync(cancellationToken);
-            var response = mapper.Map<Response>(user);
-            return response;
+
+            return user.ToResponse();
         }
     }
 }

@@ -40,7 +40,8 @@ public static class SerilogStartupExtension
     public static void AddAppInsightsToSerilog(this LoggerConfiguration loggerConfiguration,
         IConfiguration configuration, IServiceProvider serviceProvider)
     {
-        var settings = configuration.GetOptions<ApplicationInsightsSettings>(ApplicationInsightsSettings.SectionName);
+        var settings = configuration.GetRequiredSection(ApplicationInsightsSettings.SectionName)
+            .Get<ApplicationInsightsSettings>()!;
         if (!settings.ConnectionString.HasContent())
         {
             return;

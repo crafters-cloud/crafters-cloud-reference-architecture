@@ -15,6 +15,7 @@
     <IncludeContentInPack>true</IncludeContentInPack>
     <NoDefaultExcludes>true</NoDefaultExcludes>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <IsPackable>true</IsPackable>
     <PackageId>CraftersCloud.ReferenceArchitecture.Template</PackageId>
     <PackageProjectUrl>https://github.com/crafters-cloud/crafters-cloud-reference-architecture</PackageProjectUrl>
     <PackageTags>CraftersCloud;reference-architecture;dotnet-new;template</PackageTags>
@@ -27,7 +28,7 @@
     <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
     <Title>Crafters Cloud Reference Architecture Template</Title>
   </PropertyGroup>
-  
+
   <ItemGroup>
     <Compile Remove="**\*" />
     <Content Include="**\*"
@@ -41,5 +42,5 @@
   <ItemGroup>
     <PackageReference Include="JetBrains.Annotations" />
   </ItemGroup>
-  
+
 </Project>

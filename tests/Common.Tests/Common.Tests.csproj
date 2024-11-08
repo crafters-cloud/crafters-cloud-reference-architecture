@@ -4,7 +4,7 @@
     <AssemblyName>CraftersCloud.ReferenceArchitecture.Common.Tests</AssemblyName>
   </PropertyGroup>
 
-  <Import Project="..\..\Tests.Build.props"/>
+  <Import Project="..\..\Tests.Build.props" />
 
   <ItemGroup>
     <PackageReference Include="CraftersCloud.Core.AspNetCore.TestUtilities" />

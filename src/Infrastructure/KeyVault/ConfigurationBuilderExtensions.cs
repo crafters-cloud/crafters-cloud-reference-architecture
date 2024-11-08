@@ -1,5 +1,4 @@
 ﻿using Azure.Identity;
-using CraftersCloud.Core.Configuration;
 using Microsoft.Extensions.Configuration;
 
 namespace CraftersCloud.ReferenceArchitecture.Infrastructure.KeyVault;
@@ -8,7 +7,7 @@ public static class ConfigurationBuilderExtensions
 {
     public static void AppAddAzureKeyVault(this IConfigurationBuilder builder, IConfiguration configuration)
     {
-        var settings = configuration.GetOptions<KeyVaultSettings>(KeyVaultSettings.SectionName);
+        var settings = configuration.GetRequiredSection(KeyVaultSettings.SectionName).Get<KeyVaultSettings>();
 
         if (settings is { Enabled: true })
         {

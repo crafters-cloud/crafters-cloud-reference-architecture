@@ -1,6 +1,5 @@
 ﻿using System.Net.Mime;
 using CraftersCloud.Core.AspNetCore;
-using CraftersCloud.Core.Data;
 using CraftersCloud.Core.Paging;
 using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
@@ -13,9 +12,7 @@ namespace CraftersCloud.ReferenceArchitecture.Api.Features.Users;
 
 [Produces(MediaTypeNames.Application.Json)]
 [Route("api/[controller]")]
-public class UsersController(
-    IUnitOfWork unitOfWork,
-    IMediator mediator) : Controller
+public class UsersController(IMediator mediator) : Controller
 {
     [HttpGet]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -45,7 +42,6 @@ public class UsersController(
     public async Task<ActionResult<GetUserDetails.Response>> Post(CreateOrUpdateUser.Command command)
     {
         var user = await mediator.Send(command);
-        await unitOfWork.SaveChangesAsync();
         return await Get(user.Id);
     }
 
@@ -55,7 +51,7 @@ public class UsersController(
     [UserHasPermission(PermissionId.UsersRead)]
     public async Task<ActionResult<IEnumerable<LookupResponse<Guid>>>> GetRolesLookup()
     {
-        var response = await mediator.Send(new GetRolesLookup.Request());
+        var response = await mediator.Send(new GetRoles.Request());
         return response.ToActionResult();
     }
 
@@ -65,7 +61,7 @@ public class UsersController(
     [UserHasPermission(PermissionId.UsersRead)]
     public async Task<ActionResult<IEnumerable<LookupResponse<UserStatusId>>>> GetStatusesLookup()
     {
-        var response = await mediator.Send(new GetStatusesLookup.Request());
+        var response = await mediator.Send(new GetStatuses.Request());
         return response.ToActionResult();
     }
 }

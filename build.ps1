@@ -36,7 +36,16 @@ exec { & dotnet build -c Release CraftersCloud.ReferenceArchitecture.sln }
 
 exec { & dotnet test -c Release CraftersCloud.ReferenceArchitecture.sln --no-build -l trx --verbosity=normal }
 
-exec { & dotnet pack Template.csproj -c Release -o $artifacts --no-build }
+$projects = Get-ChildItem -Recurse -Filter *.csproj
+
+foreach ($project in $projects)
+{
+    $content = Get-Content $project.FullName
+    if ($content -match '<IsPackable>true</IsPackable>')
+    {
+        exec { & dotnet pack $project.FullName -c Release -o $artifacts --no-build }
+    }
+}
 
 
 

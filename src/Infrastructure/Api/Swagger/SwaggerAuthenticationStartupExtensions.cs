@@ -1,5 +1,4 @@
-﻿using CraftersCloud.Core.Configuration;
-using CraftersCloud.Core.Swagger;
+﻿using CraftersCloud.Core.Swagger;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,7 +10,7 @@ public static class SwaggerAuthenticationStartupExtensions
 {
     public static void AppUseSwagger(this IApplicationBuilder app, IConfiguration configuration)
     {
-        var swaggerSettings = configuration.GetOptions<SwaggerSettings>(SwaggerSettings.SectionName);
+        var swaggerSettings = configuration.GetRequiredSection(SwaggerSettings.SectionName).Get<SwaggerSettings>()!;
         if (swaggerSettings.Enabled)
         {
             app.UseCoreSwagger("/api");

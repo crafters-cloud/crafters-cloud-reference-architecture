@@ -3,14 +3,10 @@
     <RootNamespace>CraftersCloud.ReferenceArchitecture.Core</RootNamespace>
     <AssemblyName>CraftersCloud.ReferenceArchitecture.Core</AssemblyName>
   </PropertyGroup>
-  
+
   <ItemGroup>
     <PackageReference Include="CraftersCloud.Core" />
     <PackageReference Include="CraftersCloud.Core.SmartEnums" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Settings\"/>
   </ItemGroup>
 
 </Project>

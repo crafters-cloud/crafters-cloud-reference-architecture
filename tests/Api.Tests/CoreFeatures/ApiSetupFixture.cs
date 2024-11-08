@@ -1,5 +1,4 @@
 ﻿using System.Net.Http.Json;
-using AutoMapper;
 using CraftersCloud.Core.AspNetCore.TestUtilities.Http;
 using CraftersCloud.Core.Paging;
 using CraftersCloud.ReferenceArchitecture.Api.Features.Users;
@@ -112,12 +111,5 @@ public class ApiSetupFixture : IntegrationFixtureBase
         var response = await Client.PostAsJsonAsync("api/users", command, HttpSerializationOptions.Options);
 
         response.Should().BeBadRequest().And.ContainValidationError(validationField, validationErrorMessage);
-    }
-
-    [Test]
-    public void AutoMapperAssertConfigurationIsValid()
-    {
-        var mapper = Resolve<IMapper>();
-        mapper.ConfigurationProvider.AssertConfigurationIsValid();
     }
 }

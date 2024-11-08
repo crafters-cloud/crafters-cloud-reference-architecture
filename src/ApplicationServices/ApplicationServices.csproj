@@ -4,7 +4,7 @@
     <RootNamespace>CraftersCloud.ReferenceArchitecture.ApplicationServices</RootNamespace>
     <AssemblyName>CraftersCloud.ReferenceArchitecture.ApplicationServices</AssemblyName>
   </PropertyGroup>
-  
+
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" />

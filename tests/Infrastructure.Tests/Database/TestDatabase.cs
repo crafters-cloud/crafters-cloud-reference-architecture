@@ -14,7 +14,7 @@ internal class TestDatabase
 
     private static readonly IEnumerable<string> TablesToIgnore =
         ["__EFMigrationsHistory", nameof(Role), nameof(RolePermission), nameof(Permission), nameof(UserStatus)];
-    
+
     public async Task CreateAsync()
     {
         // To use a local sqlServer instance, Create an Environment variable using R# Test Runner, with name "IntegrationTestsConnectionString"

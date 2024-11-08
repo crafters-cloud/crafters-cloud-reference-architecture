@@ -3,10 +3,9 @@
     <RootNamespace>CraftersCloud.ReferenceArchitecture.Infrastructure</RootNamespace>
     <AssemblyName>CraftersCloud.ReferenceArchitecture.Infrastructure</AssemblyName>
   </PropertyGroup>
-  
+
   <ItemGroup>
     <PackageReference Include="Autofac" />
-    <PackageReference Include="Automapper" />
     <PackageReference Include="Autofac.Extensions.DependencyInjection" />
     <PackageReference Include="Azure.Extensions.AspNetCore.Configuration.Secrets" />
     <PackageReference Include="CraftersCloud.Core.AspNetCore" />
@@ -24,6 +23,7 @@
     <PackageReference Include="Microsoft.Extensions.Http.Polly" />
     <PackageReference Include="Microsoft.Identity.Web" />
     <PackageReference Include="Polly" />
+    <PackageReference Include="Riok.Mapperly" />
     <PackageReference Include="Serilog.AspNetCore" />
     <PackageReference Include="Serilog.Enrichers.Environment" />
     <PackageReference Include="Serilog.Enrichers.Process" />

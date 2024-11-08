@@ -54,6 +54,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{6CC2
 		scripts\update-databases.ps1 = scripts\update-databases.ps1
 		build.ps1 = build.ps1
 		push.ps1 = push.ps1
+		scripts\open-api-logs.ps1 = scripts\open-api-logs.ps1
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".template.config", ".template.config", "{FAA5A207-E0C6-402E-AFDD-7C0A5160B133}"
