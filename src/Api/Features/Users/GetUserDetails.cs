@@ -1,23 +1,13 @@
-﻿using CraftersCloud.Core.Cqrs;
-using CraftersCloud.Core.Data;
+﻿using CraftersCloud.Core.Data;
 using CraftersCloud.Core.Entities;
 using CraftersCloud.Core.EntityFramework;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
-using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 namespace CraftersCloud.ReferenceArchitecture.Api.Features.Users;
 
 public static class GetUserDetails
 {
-    [PublicAPI]
-    public class Request : IQuery<Response>
-    {
-        public Guid Id { get; set; }
-
-        public static Request ById(Guid id) => new() { Id = id };
-    }
-
     [PublicAPI]
     public class Response
     {
@@ -31,19 +21,16 @@ public static class GetUserDetails
         public string UserStatusName { get; set; } = string.Empty;
         public string UserStatusDescription { get; set; } = string.Empty;
     }
-
-    [UsedImplicitly]
-    public class RequestHandler(IRepository<User> repository) : IRequestHandler<Request, Response>
+    
+    public static async Task<Response> Handle(Guid id, IRepository<User> repository,
+        CancellationToken cancellationToken)
     {
-        public async Task<Response> Handle(Request request, CancellationToken cancellationToken)
-        {
-            var user = await repository.QueryAll()
-                .Include(x => x.UserStatus)
-                .AsNoTracking()
-                .QueryById(request.Id)
-                .SingleOrNotFoundAsync(cancellationToken);
+        var user = await repository.QueryAll()
+            .Include(x => x.UserStatus)
+            .AsNoTracking()
+            .QueryById(id)
+            .SingleOrNotFoundAsync(cancellationToken);
 
-            return user.ToResponse();
-        }
+        return user.ToResponse();
     }
 }

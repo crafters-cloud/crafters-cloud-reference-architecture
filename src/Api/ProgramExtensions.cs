@@ -1,6 +1,8 @@
 ﻿using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using Carter;
 using CraftersCloud.Core.AspNetCore.Authorization;
+using CraftersCloud.Core.AspNetCore.Carter;
 using CraftersCloud.Core.AspNetCore.Exceptions;
 using CraftersCloud.Core.AspNetCore.Security;
 using CraftersCloud.Core.HealthChecks.Extensions;
@@ -29,7 +31,7 @@ public static class ProgramExtensions
         services.AddCors();
         services.AddHttpContextAccessor();
         services.AddApplicationInsightsTelemetry();
-
+        services.AppConfigureHttpJsonOptions();
         services.AppConfigureSettings(configuration);
         services.AppAddPolly();
         services.AddCoreHealthChecks(configuration)
@@ -41,11 +43,12 @@ public static class ProgramExtensions
         services.AppAddAuthentication();
         services.AddCoreAuthorization<PermissionId>();
 
-        services.AppAddSwagger("Crafters Cloud Reference Architecture Api", "v1", configureSettings =>
-        {
-            configureSettings.CoreConfigureSmartEnums();
-        });
-        services.AppAddMvc();
+        services.AppAddSwaggerScalar("Crafters Cloud Reference Architecture Api", "v1", configuration,
+            configureSettings =>
+            {
+                configureSettings.CoreConfigureSmartEnums();
+            });
+        services.AddCoreCarter([AssemblyFinder.ApiAssembly]);
     }
 
     public static void AppConfigureHost(this IHostBuilder hostBuilder, IConfiguration configuration)
@@ -69,22 +72,6 @@ public static class ProgramExtensions
     {
         var configuration = app.Configuration;
 
-        app.UseDefaultFiles();
-        app.UseStaticFiles(new StaticFileOptions
-        {
-            OnPrepareResponse = context =>
-            {
-                if (context.File.Name != "index.html")
-                {
-                    context.Context.Response.Headers.Append("Cache-Control", "public, max-age: 604800");
-                }
-            }
-        });
-
-        app.MapFallbackToFile("index.html");
-
-        app.UseRouting();
-
         if (configuration.AppUseDeveloperExceptionPage())
         {
             app.UseDeveloperExceptionPage();
@@ -103,15 +90,19 @@ public static class ProgramExtensions
         app.UseCoreHttps(app.Environment);
         app.UseCoreExceptionHandler();
 
+        app.UseMiddleware<LogContextMiddleware>();
+
         app.UseAuthentication();
         app.UseAuthorization();
 
         app.UseMiddleware<LogContextMiddleware>();
 
-        app.MapControllers().RequireAuthorization();
-        app.MapCoreHealthChecks(configuration);
+        app.MapGet("/", () => Results.Redirect("/swagger")).ExcludeFromDescription();
 
-        app.AppUseSwagger(configuration);
+        app.MapCoreHealthChecks(configuration);
+        app.MapCarter();
+
+        app.AppUseSwaggerScalar(configuration);
 
         app.AppConfigureFluentValidation();
     }

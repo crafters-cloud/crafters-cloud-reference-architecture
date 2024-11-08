@@ -77,15 +77,13 @@ public class IntegrationFixtureBase
 
     private static void AddApiJsonConverters()
     {
-        var converters = HttpSerializationOptions.Options.Converters;
-
-        // Guard if multiple tests are run in one context.
-        if (converters.Count > 0)
+        var options = HttpSerializationOptions.Options;
+        if (options.IsReadOnly)
         {
             return;
         }
 
-        converters.AppRegisterJsonConverters();
+        options.Converters.AppRegisterJsonConverters();
     }
 
     protected Task SaveChangesAsync() => Resolve<DbContext>().SaveChangesAsync();

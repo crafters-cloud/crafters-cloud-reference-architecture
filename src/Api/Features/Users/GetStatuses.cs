@@ -1,6 +1,6 @@
 ﻿using CraftersCloud.Core.Data;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
-using MediatR;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 
 namespace CraftersCloud.ReferenceArchitecture.Api.Features.Users;
@@ -8,21 +8,19 @@ namespace CraftersCloud.ReferenceArchitecture.Api.Features.Users;
 public static class GetStatuses
 {
     [PublicAPI]
-    public class Request : LookupRequest<UserStatusId>;
+    public class ResponseItem : LookupResponse<UserStatusId>;
 
-    [PublicAPI]
-    public class Response : LookupResponse<UserStatusId>;
-
-    [UsedImplicitly]
-    public class RequestHandler(IRepository<UserStatus, UserStatusId> roleRepository)
-        : IRequestHandler<Request, IEnumerable<LookupResponse<UserStatusId>>>
+    public static async Task<Ok<List<ResponseItem>>> Handle(
+        IRepository<UserStatus, UserStatusId> roleRepository,
+        CancellationToken cancellationToken)
     {
-        public async Task<IEnumerable<LookupResponse<UserStatusId>>> Handle(Request request,
-            CancellationToken cancellationToken) =>
-            await roleRepository
-                .QueryAll()
-                .Select(x => new Response { Value = x.Id, Label = x.Name })
-                .OrderBy(r => r.Label)
-                .ToListAsync(cancellationToken);
+        var userStatuses = await roleRepository
+            .QueryAll()
+            .AsNoTracking()
+            .Select(x => new ResponseItem { Value = x.Id, Label = x.Name })
+            .OrderBy(r => r.Label)
+            .ToListAsync(cancellationToken);
+
+        return TypedResults.Ok(userStatuses);
     }
 }

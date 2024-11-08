@@ -1,6 +1,6 @@
 ﻿using CraftersCloud.Core.Data;
 using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
-using MediatR;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 
 namespace CraftersCloud.ReferenceArchitecture.Api.Features.Users;
@@ -8,25 +8,19 @@ namespace CraftersCloud.ReferenceArchitecture.Api.Features.Users;
 public static class GetRoles
 {
     [PublicAPI]
-    public class Request : LookupRequest<Guid>;
-
-    [PublicAPI]
-    public class Response : LookupResponse<Guid>;
+    public class ResponseItem : LookupResponse<Guid>;
 
     [UsedImplicitly]
-    public class RequestHandler(IRepository<Role> roleRepository)
-        : IRequestHandler<Request, IEnumerable<LookupResponse<Guid>>>
+    public static async Task<Ok<List<ResponseItem>>> Handle(IRepository<Role> roleRepository,
+        CancellationToken cancellationToken)
     {
-        public async Task<IEnumerable<LookupResponse<Guid>>> Handle(Request request,
-            CancellationToken cancellationToken)
-        {
-            var roles = await roleRepository
-                .QueryAll()
-                .AsNoTracking()
-                .OrderBy(r => r.Name)
-                .ToListAsync(cancellationToken);
+        var roles = await roleRepository
+            .QueryAll()
+            .AsNoTracking()
+            .OrderBy(r => r.Name)
+            .Select(r => new ResponseItem { Value = r.Id, Label = r.Name })
+            .ToListAsync(cancellationToken);
 
-            return roles.Select(r => new Response { Value = r.Id, Label = r.Name });
-        }
+        return TypedResults.Ok(roles);
     }
 }

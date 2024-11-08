@@ -1,3 +1,4 @@
+using CraftersCloud.ReferenceArchitecture.Api.Features.Identity;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
 using Riok.Mapperly.Abstractions;
 

@@ -37,7 +37,7 @@ public class UsersControllerFixture : IntegrationFixtureBase
     public async Task GetAll()
     {
         var users = (await Client.GetAsync<PagedResponse<GetUsers.Response.Item>>(
-                new Uri("api/users", UriKind.RelativeOrAbsolute),
+                new Uri("users", UriKind.RelativeOrAbsolute),
                 new KeyValuePair<string, string>("SortBy", "EmailAddress")))
             ?.Items.ToList()!;
 
@@ -47,7 +47,7 @@ public class UsersControllerFixture : IntegrationFixtureBase
     [Test]
     public async Task GetById()
     {
-        var user = await Client.GetAsync<GetUserDetails.Response>($"api/users/{_user.Id}");
+        var user = await Client.GetAsync<GetUserDetails.Response>($"users/{_user.Id}");
 
         await Verify(user);
     }
@@ -55,7 +55,7 @@ public class UsersControllerFixture : IntegrationFixtureBase
     [Test]
     public async Task GetRoles()
     {
-        var user = await Client.GetAsync<IEnumerable<LookupResponse<Guid>>>($"api/users/roles");
+        var user = await Client.GetAsync<List<GetRoles.ResponseItem>>($"users/roles");
 
         await Verify(user);
     }
@@ -63,7 +63,7 @@ public class UsersControllerFixture : IntegrationFixtureBase
     [Test]
     public async Task GetStatuses()
     {
-        var user = await Client.GetAsync<IEnumerable<LookupResponse<UserStatusId>>>($"api/users/statuses");
+        var user = await Client.GetAsync<List<GetStatuses.ResponseItem>>($"users/statuses");
 
         await Verify(user);
     }
@@ -80,7 +80,7 @@ public class UsersControllerFixture : IntegrationFixtureBase
             UserStatusId = UserStatusId.Active
         };
         var user =
-            await Client.PostAsync<CreateOrUpdateUser.Command, GetUserDetails.Response>("api/users", command);
+            await Client.PostAsync<CreateOrUpdateUser.Command, GetUserDetails.Response>("users", command);
 
         await Verify(user);
     }
@@ -97,7 +97,7 @@ public class UsersControllerFixture : IntegrationFixtureBase
             UserStatusId = UserStatusId.Inactive
         };
         var user =
-            await Client.PostAsync<CreateOrUpdateUser.Command, GetUserDetails.Response>("api/users", command);
+            await Client.PostAsync<CreateOrUpdateUser.Command, GetUserDetails.Response>("users", command);
 
         await Verify(user);
     }
