@@ -17,7 +17,6 @@
     <PackageReference Include="CraftersCloud.Core.AspNetCore" />
     <PackageReference Include="CraftersCloud.Core.HealthChecks" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" />
-    <PackageReference Include="Microsoft.AspNetCore.SpaProxy" />
   </ItemGroup>
 
   <ItemGroup>
