@@ -1,12 +1,8 @@
-﻿using CraftersCloud.Core.Data;
-using CraftersCloud.Core.Entities;
-using CraftersCloud.Core.EntityFramework;
-using CraftersCloud.ReferenceArchitecture.Domain.Users;
-using Microsoft.EntityFrameworkCore;
+﻿using CraftersCloud.ReferenceArchitecture.Api.Endpoints.Identity;
 
-namespace CraftersCloud.ReferenceArchitecture.Api.Features.Users;
+namespace CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users;
 
-public static class GetUserDetails
+public static partial class GetUserDetails
 {
     [PublicAPI]
     public class Response
@@ -21,16 +17,22 @@ public static class GetUserDetails
         public string UserStatusName { get; set; } = string.Empty;
         public string UserStatusDescription { get; set; } = string.Empty;
     }
-    
-    public static async Task<Response> Handle(Guid id, IRepository<User> repository,
+
+    [Mapper]
+    public static partial class ResponseMapper
+    {
+        public static partial Response ToResponse(User source);
+    }
+
+    public static async Task<Results<Ok<Response>, NotFound>> Handle(Guid id, IRepository<User> repository,
         CancellationToken cancellationToken)
     {
         var user = await repository.QueryAll()
             .Include(x => x.UserStatus)
             .AsNoTracking()
             .QueryById(id)
-            .SingleOrNotFoundAsync(cancellationToken);
+            .SingleOrDefaultAsync(cancellationToken);
 
-        return user.ToResponse();
+        return user.ToMappedTypedResults(ResponseMapper.ToResponse);
     }
 }

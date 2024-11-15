@@ -1,19 +1,15 @@
 ﻿using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using Carter;
 using CraftersCloud.Core.AspNetCore.Authorization;
-using CraftersCloud.Core.AspNetCore.Carter;
-using CraftersCloud.Core.AspNetCore.Exceptions;
 using CraftersCloud.Core.AspNetCore.Security;
 using CraftersCloud.Core.HealthChecks.Extensions;
 using CraftersCloud.Core.SmartEnums.Swagger;
-using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
 using CraftersCloud.ReferenceArchitecture.Infrastructure;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Init;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Logging;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Security;
-using CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Startup;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Swagger;
+using CraftersCloud.ReferenceArchitecture.Infrastructure.Autofac;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Configuration;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Data;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Identity;
@@ -48,7 +44,9 @@ public static class ProgramExtensions
             {
                 configureSettings.CoreConfigureSmartEnums();
             });
-        services.AddCoreCarter([AssemblyFinder.ApiAssembly]);
+        services.AddCoreCarter2([AssemblyFinder.ApiAssembly]);
+        services.AddExceptionHandler<GlobalExceptionHandler>();
+        services.AddProblemDetails();
     }
 
     public static void AppConfigureHost(this IHostBuilder hostBuilder, IConfiguration configuration)
@@ -88,7 +86,8 @@ public static class ProgramExtensions
         }
 
         app.UseCoreHttps(app.Environment);
-        app.UseCoreExceptionHandler();
+        //app.UseCoreExceptionHandler();
+        app.UseExceptionHandler();
 
         app.UseMiddleware<LogContextMiddleware>();
 
@@ -103,7 +102,6 @@ public static class ProgramExtensions
         app.MapCarter();
 
         app.AppUseSwaggerScalar(configuration);
-
         app.AppConfigureFluentValidation();
     }
 }

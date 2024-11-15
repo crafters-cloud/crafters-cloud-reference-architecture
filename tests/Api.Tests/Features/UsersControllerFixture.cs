@@ -1,12 +1,15 @@
-﻿using CraftersCloud.Core.AspNetCore.TestUtilities.Http;
+﻿using System.Net;
+using System.Net.Http.Json;
+using CraftersCloud.Core.AspNetCore.TestUtilities.Http;
 using CraftersCloud.Core.Paging;
-using CraftersCloud.ReferenceArchitecture.Api.Features;
-using CraftersCloud.ReferenceArchitecture.Api.Features.Users;
+using CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users;
 using CraftersCloud.ReferenceArchitecture.Api.Tests.Infrastructure.Api;
 using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
 using CraftersCloud.ReferenceArchitecture.Domain.Tests.Users;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
-using CraftersCloud.ReferenceArchitecture.Domain.Users.Commands;
+using FluentAssertions;
+using GetUserDetails = CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users.GetUserDetails;
+using GetUsers = CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users.GetUsers;
 
 namespace CraftersCloud.ReferenceArchitecture.Api.Tests.Features;
 
@@ -71,34 +74,31 @@ public class UsersControllerFixture : IntegrationFixtureBase
     [Test]
     public async Task Create()
     {
-        var command = new CreateOrUpdateUser.Command
-        {
-            Id = null,
-            FullName = "some user",
-            EmailAddress = "someuser@test.com",
-            RoleId = Role.SystemAdminRoleId,
-            UserStatusId = UserStatusId.Active
-        };
-        var user =
-            await Client.PostAsync<CreateOrUpdateUser.Command, GetUserDetails.Response>("users", command);
+        var request = new CreateUser.Request(
+            "someuser@test.com",
+            "some user",
+            Role.SystemAdminRoleId,
+            UserStatusId.Active
+        );
+        var response =
+            await Client.PostAsJsonAsync("users", request, HttpSerializationOptions.Options);
 
-        await Verify(user);
+        response.StatusCode.Should().Be(HttpStatusCode.Created);
     }
 
     [Test]
     public async Task Update()
     {
-        var command = new CreateOrUpdateUser.Command
-        {
-            Id = _user.Id,
-            FullName = "some user",
-            EmailAddress = "someuser@test.com",
-            RoleId = Role.SystemAdminRoleId,
-            UserStatusId = UserStatusId.Inactive
-        };
-        var user =
-            await Client.PostAsync<CreateOrUpdateUser.Command, GetUserDetails.Response>("users", command);
-
+        var request = new UpdateUser.Request(
+            _user.Id,
+            "someuser@test.com",
+            "some user",
+            Role.SystemAdminRoleId,
+            UserStatusId.Inactive
+        );
+        var response = await Client.PutAsJsonAsync("users", request, HttpSerializationOptions.Options);
+        response.StatusCode.Should().Be(HttpStatusCode.NoContent);
+        var user = QueryByIdSkipCache<User>(_user.Id);
         await Verify(user);
     }
 }

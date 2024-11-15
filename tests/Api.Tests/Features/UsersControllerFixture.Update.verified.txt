@@ -1,11 +1,11 @@
 ﻿{
-  Id: Guid_1,
   EmailAddress: john_doe@john.doe,
   FullName: some user,
-  RoleId: Guid_2,
+  RoleId: Guid_1,
+  UserStatusId: Inactive,
+  CreatedById: Guid_2,
+  UpdatedById: Guid_2,
   CreatedOn: DateTimeOffset_1,
   UpdatedOn: DateTimeOffset_1,
-  UserStatusId: Inactive,
-  UserStatusName: Inactive,
-  UserStatusDescription: Inactive Status Description
+  Id: Guid_3
 }

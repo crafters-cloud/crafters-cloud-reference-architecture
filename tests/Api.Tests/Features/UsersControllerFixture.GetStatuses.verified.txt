@@ -1,10 +1,10 @@
 ﻿[
   {
-    Value: Active,
-    Label: Active
+    Key: Active,
+    Value: Active
   },
   {
-    Value: Inactive,
-    Label: Inactive
+    Key: Inactive,
+    Value: Inactive
   }
 ]

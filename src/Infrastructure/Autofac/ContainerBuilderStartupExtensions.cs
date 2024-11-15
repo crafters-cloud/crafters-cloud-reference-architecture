@@ -1,10 +1,9 @@
 ﻿using System.Security.Claims;
 using System.Security.Principal;
 using Autofac;
-using CraftersCloud.ReferenceArchitecture.Infrastructure.Autofac;
 using Microsoft.AspNetCore.Http;
 
-namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Startup;
+namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Autofac;
 
 public static class ContainerBuilderStartupExtensions
 {

@@ -1,5 +1,6 @@
 ﻿using CraftersCloud.Core.AspNetCore.TestUtilities;
 using CraftersCloud.Core.AspNetCore.TestUtilities.Http;
+using CraftersCloud.Core.Entities;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Init;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Data;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Tests;
@@ -89,6 +90,12 @@ public class IntegrationFixtureBase
     protected Task SaveChangesAsync() => Resolve<DbContext>().SaveChangesAsync();
 
     protected IQueryable<T> QueryDb<T>() where T : class => Resolve<DbContext>().Set<T>();
+
+    protected T QueryByIdSkipCache<T>(Guid id) where T : EntityWithTypedId<Guid> =>
+        QueryDbSkipCache<T>().QueryById(id).Single();
+
+    protected T QueryByIdSkipCache<T>(int id) where T : EntityWithTypedId<int> =>
+        QueryDbSkipCache<T>().QueryById(id).Single();
 
     protected IQueryable<T> QueryDbSkipCache<T>() where T : class => Resolve<DbContext>().QueryDbSkipCache<T>();
 

@@ -13,6 +13,6 @@ public static class FluentValidationStartupExtensions
     public static IServiceCollection AppAddFluentValidation(this IServiceCollection services) =>
         services.AddValidatorsFromAssemblies(
         [
-            AssemblyFinder.DomainAssembly, AssemblyFinder.ApplicationServicesAssembly, AssemblyFinder.ApiAssembly
-        ]);
+            AssemblyFinder.DomainAssembly, AssemblyFinder.ApplicationServicesAssembly
+        ], ServiceLifetime.Singleton);
 }

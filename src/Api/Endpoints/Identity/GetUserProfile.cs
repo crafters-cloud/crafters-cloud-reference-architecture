@@ -1,16 +1,6 @@
-﻿using CraftersCloud.Core.Data;
-using CraftersCloud.Core.Entities;
-using CraftersCloud.Core.EntityFramework;
-using CraftersCloud.ReferenceArchitecture.Api.Features.Authorization;
-using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
-using CraftersCloud.ReferenceArchitecture.Domain.Identity;
-using CraftersCloud.ReferenceArchitecture.Domain.Users;
-using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.EntityFrameworkCore;
+﻿namespace CraftersCloud.ReferenceArchitecture.Api.Endpoints.Identity;
 
-namespace CraftersCloud.ReferenceArchitecture.Api.Features.Identity;
-
-public static class GetUserProfile
+public static partial class GetUserProfile
 {
     [PublicAPI]
     public class Response
@@ -19,6 +9,21 @@ public static class GetUserProfile
         public string FullName { get; set; } = string.Empty;
         public string EmailAddress { get; set; } = string.Empty;
         public IReadOnlyCollection<PermissionId> Permissions { get; set; } = [];
+    }
+
+    [Mapper]
+    public static partial class ResponseMapper
+    {
+        [UserMapping(Default = true)]
+        public static Response ToResponse(User source)
+        {
+            var dto = MapToResponse(source);
+            dto.Permissions = source.GetPermissionIds();
+            return dto;
+        }
+
+        [MapperIgnoreTarget(nameof(Response.Permissions))]
+        private static partial Response MapToResponse(User source);
     }
 
     public static async Task<Results<Ok<Response>, NotFound>> Handle(ICurrentUserProvider currentUserProvider,
@@ -35,9 +40,8 @@ public static class GetUserProfile
             .ThenInclude(r => r.Permissions)
             .Include(u => u.UserStatus)
             .AsNoTracking()
-            .SingleOrNotFoundAsync(cancellationToken);
+            .SingleOrDefaultAsync(cancellationToken);
 
-        var response = user.ToResponse();
-        return TypedResults.Ok(response);
+        return user.ToMappedTypedResults(ResponseMapper.ToResponse);
     }
 }

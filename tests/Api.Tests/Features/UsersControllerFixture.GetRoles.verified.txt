@@ -1,6 +1,6 @@
 ﻿[
   {
-    Value: Guid_1,
-    Label: SystemAdmin
+    Key: Guid_1,
+    Value: SystemAdmin
   }
 ]

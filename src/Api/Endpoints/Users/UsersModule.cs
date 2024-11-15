@@ -1,6 +1,4 @@
-﻿using Carter;
-
-namespace CraftersCloud.ReferenceArchitecture.Api.Features.Users;
+﻿namespace CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users;
 
 [UsedImplicitly]
 public class UsersModule : CarterModule
@@ -13,9 +11,8 @@ public class UsersModule : CarterModule
 
         group.MapGet("/", GetUsers.Handle);
         group.MapGet("/{id:guid}", GetUserDetails.Handle);
-        //group.MapPut<UpdateUser.Request>("/", UpdateUser.Handle);
-        // group.MapPost<CreateUser.Response>("/", CreateUser.Handle);
-        
+        group.MapPut<UpdateUser.Request>("/", UpdateUser.Handle);
+        group.MapPost<CreateUser.Request>("/", CreateUser.Handle);
         group.MapGet("/roles", GetRoles.Handle);
         group.MapGet("/statuses", GetStatuses.Handle);
     }

@@ -2647,6 +2647,7 @@
       "CraftersCloud.ReferenceArchitecture.Api": {
         "type": "Project",
         "dependencies": {
+          "Ardalis.Result.AspNetCore": "[10.1.0, )",
           "CraftersCloud.Core.HealthChecks": "[1.0.18, )",
           "CraftersCloud.ReferenceArchitecture.ApplicationServices": "[1.0.0, )",
           "CraftersCloud.ReferenceArchitecture.Core": "[1.0.0, )",
@@ -2681,6 +2682,7 @@
       "CraftersCloud.ReferenceArchitecture.Core": {
         "type": "Project",
         "dependencies": {
+          "Ardalis.Result": "[10.1.0, )",
           "CraftersCloud.Core": "[1.0.18, )",
           "CraftersCloud.Core.SmartEnums": "[1.0.18, )"
         }
@@ -2761,6 +2763,21 @@
           "Testcontainers.MsSql": "[4.0.0, )",
           "Verify": "[28.3.0, )",
           "Verify.NUnit": "[28.3.0, )"
+        }
+      },
+      "Ardalis.Result": {
+        "type": "CentralTransitive",
+        "requested": "[10.1.0, )",
+        "resolved": "10.1.0",
+        "contentHash": "+WgsXh+JRm0d8BZPlBUc5w0+FTda4vbWRa/IF2q4zDoRsU5BXr8w4rTbYEklZIMNgQQZTcNouR/QfBV5I/4XYQ=="
+      },
+      "Ardalis.Result.AspNetCore": {
+        "type": "CentralTransitive",
+        "requested": "[10.1.0, )",
+        "resolved": "10.1.0",
+        "contentHash": "+S653XCUMXbvVLqMXUVYNjE3Q5y0DLGIrxhxIDaoRwiK0E83czB8UHOBEMRyUgdqEykxQXRFsFUwOKcwKZ2uKw==",
+        "dependencies": {
+          "Ardalis.Result": "10.1.0"
         }
       },
       "Autofac": {

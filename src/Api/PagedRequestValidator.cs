@@ -1,5 +1,4 @@
 using CraftersCloud.Core.Paging;
-using FluentValidation;
 
 namespace CraftersCloud.ReferenceArchitecture.Api;
 

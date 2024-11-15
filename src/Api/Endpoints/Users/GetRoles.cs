@@ -1,14 +1,11 @@
-﻿using CraftersCloud.Core.Data;
-using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
-using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.EntityFrameworkCore;
+﻿using CraftersCloud.ReferenceArchitecture.Core;
 
-namespace CraftersCloud.ReferenceArchitecture.Api.Features.Users;
+namespace CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users;
 
 public static class GetRoles
 {
     [PublicAPI]
-    public class ResponseItem : LookupResponse<Guid>;
+    public class ResponseItem : KeyValuePair<Guid>;
 
     [UsedImplicitly]
     public static async Task<Ok<List<ResponseItem>>> Handle(IRepository<Role> roleRepository,
@@ -18,7 +15,7 @@ public static class GetRoles
             .QueryAll()
             .AsNoTracking()
             .OrderBy(r => r.Name)
-            .Select(r => new ResponseItem { Value = r.Id, Label = r.Name })
+            .Select(r => new ResponseItem { Key = r.Id, Value = r.Name })
             .ToListAsync(cancellationToken);
 
         return TypedResults.Ok(roles);

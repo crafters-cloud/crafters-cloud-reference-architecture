@@ -1,24 +1,14 @@
-﻿using CraftersCloud.Core.Data;
-using CraftersCloud.Core.EntityFramework;
-using CraftersCloud.Core.Paging;
-using CraftersCloud.ReferenceArchitecture.Domain.Identity;
-using CraftersCloud.ReferenceArchitecture.Domain.Users;
-using FluentValidation;
-using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿using CraftersCloud.Core.Paging;
 
-namespace CraftersCloud.ReferenceArchitecture.Api.Features.Users;
+namespace CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users;
 
-public static class GetUsers
+public static partial class GetUsers
 {
     [PublicAPI]
     public class Request : PagedRequest<Response.Item>
     {
-        [FromQuery]
-        public string? Name { get; set; }
-        [FromQuery]
-        public string? Email { get; set; }
+        [FromQuery] public string? Name { get; set; }
+        [FromQuery] public string? Email { get; set; }
     }
 
     [UsedImplicitly]
@@ -46,16 +36,24 @@ public static class GetUsers
         }
     }
 
-    public static async Task<Ok<PagedResponse<Response.Item>>> Handle([AsParameters]Request request,
+
+    [Mapper]
+    public static partial class ResponseItemQueryMapper
+    {
+        public static partial IQueryable<Response.Item> ProjectTo(IQueryable<User> q);
+    }
+
+    public static async Task<Ok<PagedResponse<Response.Item>>> Handle([AsParameters] Request request,
         IRepository<User> repository,
         CancellationToken cancellationToken)
     {
-        var items = await repository.QueryAll()
+        var query = repository.QueryAll()
             .Include(u => u.UserStatus)
             .AsNoTracking()
             .QueryByName(request.Name)
-            .QueryByEmail(request.Email)
-            .ProjectToResponse()
+            .QueryByEmail(request.Email);
+
+        var items = await ResponseItemQueryMapper.ProjectTo(query)
             .ToPagedResponseAsync(request, cancellationToken);
 
         return TypedResults.Ok(items);

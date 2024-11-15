@@ -1,6 +1,4 @@
-﻿using Carter;
-
-namespace CraftersCloud.ReferenceArchitecture.Api.Features.Identity;
+﻿namespace CraftersCloud.ReferenceArchitecture.Api.Endpoints.Identity;
 
 [UsedImplicitly]
 public class ProfileModule : CarterModule
@@ -10,7 +8,6 @@ public class ProfileModule : CarterModule
     public override void AddRoutes(IEndpointRouteBuilder app)
     {
         var group = app.MapGroup("profile").WithGroupName("Profile");
-
         group.MapGet("/", GetUserProfile.Handle);
     }
 }

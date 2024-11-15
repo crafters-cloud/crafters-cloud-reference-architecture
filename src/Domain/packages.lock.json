@@ -137,9 +137,16 @@
       "CraftersCloud.ReferenceArchitecture.Core": {
         "type": "Project",
         "dependencies": {
+          "Ardalis.Result": "[10.1.0, )",
           "CraftersCloud.Core": "[1.0.18, )",
           "CraftersCloud.Core.SmartEnums": "[1.0.18, )"
         }
+      },
+      "Ardalis.Result": {
+        "type": "CentralTransitive",
+        "requested": "[10.1.0, )",
+        "resolved": "10.1.0",
+        "contentHash": "+WgsXh+JRm0d8BZPlBUc5w0+FTda4vbWRa/IF2q4zDoRsU5BXr8w4rTbYEklZIMNgQQZTcNouR/QfBV5I/4XYQ=="
       },
       "CraftersCloud.Core": {
         "type": "CentralTransitive",

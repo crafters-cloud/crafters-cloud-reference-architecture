@@ -2,6 +2,15 @@
   "version": 2,
   "dependencies": {
     "net9.0": {
+      "Ardalis.Result.AspNetCore": {
+        "type": "Direct",
+        "requested": "[10.1.0, )",
+        "resolved": "10.1.0",
+        "contentHash": "+S653XCUMXbvVLqMXUVYNjE3Q5y0DLGIrxhxIDaoRwiK0E83czB8UHOBEMRyUgdqEykxQXRFsFUwOKcwKZ2uKw==",
+        "dependencies": {
+          "Ardalis.Result": "10.1.0"
+        }
+      },
       "CraftersCloud.Core.HealthChecks": {
         "type": "Direct",
         "requested": "[1.0.18, )",
@@ -1514,6 +1523,7 @@
       "CraftersCloud.ReferenceArchitecture.Core": {
         "type": "Project",
         "dependencies": {
+          "Ardalis.Result": "[10.1.0, )",
           "CraftersCloud.Core": "[1.0.18, )",
           "CraftersCloud.Core.SmartEnums": "[1.0.18, )"
         }
@@ -1560,6 +1570,12 @@
           "Serilog.Sinks.Console": "[6.0.0, )",
           "Serilog.Sinks.File": "[6.0.0, )"
         }
+      },
+      "Ardalis.Result": {
+        "type": "CentralTransitive",
+        "requested": "[10.1.0, )",
+        "resolved": "10.1.0",
+        "contentHash": "+WgsXh+JRm0d8BZPlBUc5w0+FTda4vbWRa/IF2q4zDoRsU5BXr8w4rTbYEklZIMNgQQZTcNouR/QfBV5I/4XYQ=="
       },
       "Autofac": {
         "type": "CentralTransitive",

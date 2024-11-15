@@ -1,18 +1,20 @@
-﻿using System.Net.Http.Json;
+﻿using System.Net;
+using System.Net.Http.Json;
 using CraftersCloud.Core.AspNetCore.TestUtilities.Http;
 using CraftersCloud.Core.Paging;
-using CraftersCloud.ReferenceArchitecture.Api.Features.Users;
+using CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users;
 using CraftersCloud.ReferenceArchitecture.Api.Tests.Infrastructure.Api;
 using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
 using CraftersCloud.ReferenceArchitecture.Domain.Tests.Users;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
-using CraftersCloud.ReferenceArchitecture.Domain.Users.Commands;
 using FluentAssertions;
+using GetUserDetails = CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users.GetUserDetails;
+using GetUsers = CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users.GetUsers;
 
 namespace CraftersCloud.ReferenceArchitecture.Api.Tests.CoreFeatures;
 
 // Fixture that validates if Api project has been setup correctly
-// Uses arbitrary controller (in this case UserController) and verifies if basic operations, e.g. get, post, validations are correctly setup.  
+// Uses arbitrary endpoints (in this case user related) and verifies if basic operations, e.g. get, post, validations are correctly setup.  
 [Category("integration")]
 public class ApiSetupFixture : IntegrationFixtureBase
 {
@@ -60,34 +62,28 @@ public class ApiSetupFixture : IntegrationFixtureBase
     [Test]
     public async Task CreateUser()
     {
-        var command = new CreateOrUpdateUser.Command
-        {
-            Id = null,
-            FullName = "some user",
-            EmailAddress = "someuser@test.com",
-            RoleId = Role.SystemAdminRoleId,
-            UserStatusId = UserStatusId.Inactive
-        };
-        var user =
-            await Client.PostAsync<CreateOrUpdateUser.Command, GetUserDetails.Response>("users", command);
+        var request = new CreateUser.Request(
+            "someuser@test.com", "some user",
+            Role.SystemAdminRoleId,
+            UserStatusId.Inactive);
 
-        await Verify(user);
+        var result = await Client.PostAsJsonAsync("users", request, HttpSerializationOptions.Options);
+        result.StatusCode.Should().Be(HttpStatusCode.Created);
     }
 
     [Test]
     public async Task UpdateUser()
     {
-        var command = new CreateOrUpdateUser.Command
-        {
-            Id = _user.Id,
-            FullName = "some user",
-            EmailAddress = "someuser@test.com",
-            RoleId = Role.SystemAdminRoleId,
-            UserStatusId = UserStatusId.Inactive
-        };
-        var user =
-            await Client.PostAsync<CreateOrUpdateUser.Command, GetUserDetails.Response>("users", command);
-
+        var request = new UpdateUser.Request(
+            _user.Id,
+            FullName: "some user",
+            EmailAddress: "someuser@test.com",
+            RoleId: Role.SystemAdminRoleId,
+            UserStatusId: UserStatusId.Inactive
+        );
+        var response = await Client.PutAsJsonAsync("users", request, HttpSerializationOptions.Options);
+        response.StatusCode.Should().Be(HttpStatusCode.NoContent);
+        var user = QueryByIdSkipCache<User>(_user.Id);
         await Verify(user);
     }
 
@@ -100,16 +96,13 @@ public class ApiSetupFixture : IntegrationFixtureBase
         string validationField,
         string validationErrorMessage)
     {
-        var command = new CreateOrUpdateUser.Command
-        {
-            Id = null,
-            FullName = name,
-            EmailAddress = emailAddress,
-            RoleId = Role.SystemAdminRoleId,
-            UserStatusId = UserStatusId.Inactive
-        };
-        var response = await Client.PostAsJsonAsync("users", command, HttpSerializationOptions.Options);
-
+        var request = new CreateUser.Request(
+            emailAddress,
+            name,
+            Role.SystemAdminRoleId,
+            UserStatusId.Inactive
+        );
+        var response = await Client.PostAsJsonAsync("users", request, HttpSerializationOptions.Options);
         response.Should().BeBadRequest().And.ContainValidationError(validationField, validationErrorMessage);
     }
 }
