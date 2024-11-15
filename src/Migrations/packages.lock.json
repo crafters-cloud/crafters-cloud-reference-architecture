@@ -2,17 +2,6 @@
   "version": 2,
   "dependencies": {
     "net9.0": {
-      "CraftersCloud.Core.EntityFramework": {
-        "type": "Direct",
-        "requested": "[1.0.18, )",
-        "resolved": "1.0.18",
-        "contentHash": "zBukhIqsayVLIyKszZEZ4/O+QjyaGozejoOeK2h2nDNgvKIgUaw+SNwoCu81XFE2UOcASVaXjSKo69gw0mwNxA==",
-        "dependencies": {
-          "CraftersCloud.Core": "1.0.18",
-          "Microsoft.EntityFrameworkCore": "9.0.0",
-          "System.Linq.Dynamic.Core": "1.4.8"
-        }
-      },
       "Microsoft.EntityFrameworkCore.Design": {
         "type": "Direct",
         "requested": "[9.0.0, )",
@@ -1628,7 +1617,6 @@
       "CraftersCloud.ReferenceArchitecture.Domain": {
         "type": "Project",
         "dependencies": {
-          "CraftersCloud.Core": "[1.0.18, )",
           "CraftersCloud.Core.EntityFramework": "[1.0.18, )",
           "CraftersCloud.ReferenceArchitecture.Core": "[1.0.0, )",
           "FluentValidation": "[11.10.0, )"
@@ -1642,7 +1630,6 @@
           "Azure.Extensions.AspNetCore.Configuration.Secrets": "[1.3.2, )",
           "Carter": "[8.2.1, )",
           "CraftersCloud.Core.AspNetCore": "[1.0.18, )",
-          "CraftersCloud.Core.EntityFramework": "[1.0.18, )",
           "CraftersCloud.Core.EntityFramework.Infrastructure": "[1.0.18, )",
           "CraftersCloud.Core.Infrastructure": "[1.0.18, )",
           "CraftersCloud.Core.MediatR": "[1.0.18, )",
@@ -1737,6 +1724,17 @@
           "FluentValidation.AspNetCore": "11.3.0",
           "Microsoft.ApplicationInsights.AspNetCore": "2.22.0",
           "System.Text.Json": "9.0.0"
+        }
+      },
+      "CraftersCloud.Core.EntityFramework": {
+        "type": "CentralTransitive",
+        "requested": "[1.0.18, )",
+        "resolved": "1.0.18",
+        "contentHash": "zBukhIqsayVLIyKszZEZ4/O+QjyaGozejoOeK2h2nDNgvKIgUaw+SNwoCu81XFE2UOcASVaXjSKo69gw0mwNxA==",
+        "dependencies": {
+          "CraftersCloud.Core": "1.0.18",
+          "Microsoft.EntityFrameworkCore": "9.0.0",
+          "System.Linq.Dynamic.Core": "1.4.8"
         }
       },
       "CraftersCloud.Core.EntityFramework.Infrastructure": {

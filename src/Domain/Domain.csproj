@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CraftersCloud.Core" />
     <PackageReference Include="CraftersCloud.Core.EntityFramework" />
     <PackageReference Include="FluentValidation" />
   </ItemGroup>

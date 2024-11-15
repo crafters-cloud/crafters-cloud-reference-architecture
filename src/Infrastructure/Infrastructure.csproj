@@ -11,7 +11,6 @@
     <PackageReference Include="Carter" />
     <PackageReference Include="CraftersCloud.Core.AspNetCore" />
     <PackageReference Include="CraftersCloud.Core.Infrastructure" />
-    <PackageReference Include="CraftersCloud.Core.EntityFramework" />
     <PackageReference Include="CraftersCloud.Core.EntityFramework.Infrastructure" />
     <PackageReference Include="CraftersCloud.Core.MediatR" />
     <PackageReference Include="CraftersCloud.Core.SmartEnums.EntityFramework" />

@@ -12,9 +12,9 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageVersion>
+    <PackageVersion Include="CraftersCloud.Core" Version="1.0.18" />
     <PackageVersion Include="CraftersCloud.Core.AspNetCore" Version="1.0.18" />
     <PackageVersion Include="CraftersCloud.Core.AspNetCore.TestUtilities" Version="1.0.18" />
-    <PackageVersion Include="CraftersCloud.Core" Version="1.0.18" />
     <PackageVersion Include="CraftersCloud.Core.EntityFramework" Version="1.0.18" />
     <PackageVersion Include="CraftersCloud.Core.EntityFramework.Infrastructure" Version="1.0.18" />
     <PackageVersion Include="CraftersCloud.Core.HealthChecks" Version="1.0.18" />
