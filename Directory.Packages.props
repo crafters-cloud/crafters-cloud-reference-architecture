@@ -12,22 +12,22 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageVersion>
-    <PackageVersion Include="CraftersCloud.Core.AspNetCore" Version="1.0.17" />
-    <PackageVersion Include="CraftersCloud.Core.AspNetCore.TestUtilities" Version="1.0.17" />
-    <PackageVersion Include="CraftersCloud.Core" Version="1.0.17" />
-    <PackageVersion Include="CraftersCloud.Core.EntityFramework" Version="1.0.17" />
-    <PackageVersion Include="CraftersCloud.Core.EntityFramework.Infrastructure" Version="1.0.17" />
-    <PackageVersion Include="CraftersCloud.Core.HealthChecks" Version="1.0.17" />
-    <PackageVersion Include="CraftersCloud.Core.Infrastructure" Version="1.0.17" />
-    <PackageVersion Include="CraftersCloud.Core.MediatR" Version="1.0.17" />
+    <PackageVersion Include="CraftersCloud.Core.AspNetCore" Version="1.0.18" />
+    <PackageVersion Include="CraftersCloud.Core.AspNetCore.TestUtilities" Version="1.0.18" />
+    <PackageVersion Include="CraftersCloud.Core" Version="1.0.18" />
+    <PackageVersion Include="CraftersCloud.Core.EntityFramework" Version="1.0.18" />
+    <PackageVersion Include="CraftersCloud.Core.EntityFramework.Infrastructure" Version="1.0.18" />
+    <PackageVersion Include="CraftersCloud.Core.HealthChecks" Version="1.0.18" />
+    <PackageVersion Include="CraftersCloud.Core.Infrastructure" Version="1.0.18" />
+    <PackageVersion Include="CraftersCloud.Core.MediatR" Version="1.0.18" />
     <PackageVersion Include="CraftersCloud.Core.Scheduler" Version="1.0.11" />
-    <PackageVersion Include="CraftersCloud.Core.SmartEnums" Version="1.0.17" />
-    <PackageVersion Include="CraftersCloud.Core.SmartEnums.EntityFramework" Version="1.0.17" />
-    <PackageVersion Include="CraftersCloud.Core.SmartEnums.Swagger" Version="1.0.17" />
-    <PackageVersion Include="CraftersCloud.Core.SmartEnums.SystemTextJson" Version="1.0.17" />
-    <PackageVersion Include="CraftersCloud.Core.SmartEnums.VerifyTests" Version="1.0.17" />
-    <PackageVersion Include="CraftersCloud.Core.Swagger" Version="1.0.17" />
-    <PackageVersion Include="CraftersCloud.Core.TestUtilities" Version="1.0.17" />
+    <PackageVersion Include="CraftersCloud.Core.SmartEnums" Version="1.0.18" />
+    <PackageVersion Include="CraftersCloud.Core.SmartEnums.EntityFramework" Version="1.0.18" />
+    <PackageVersion Include="CraftersCloud.Core.SmartEnums.Swagger" Version="1.0.18" />
+    <PackageVersion Include="CraftersCloud.Core.SmartEnums.SystemTextJson" Version="1.0.18" />
+    <PackageVersion Include="CraftersCloud.Core.SmartEnums.VerifyTests" Version="1.0.18" />
+    <PackageVersion Include="CraftersCloud.Core.Swagger" Version="1.0.18" />
+    <PackageVersion Include="CraftersCloud.Core.TestUtilities" Version="1.0.18" />
     <PackageVersion Include="FakeItEasy" Version="8.3.0" />
     <PackageVersion Include="FakeItEasy.Analyzer.CSharp" Version="6.1.1" />
     <PackageVersion Include="FluentAssertions" Version="6.12.2" />

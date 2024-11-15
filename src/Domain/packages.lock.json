@@ -17,8 +17,8 @@
       "CraftersCloud.ReferenceArchitecture.Core": {
         "type": "Project",
         "dependencies": {
-          "CraftersCloud.Core": "[1.0.17, )",
-          "CraftersCloud.Core.SmartEnums": "[1.0.17, )"
+          "CraftersCloud.Core": "[1.0.18, )",
+          "CraftersCloud.Core.SmartEnums": "[1.0.18, )"
         }
       }
     }
