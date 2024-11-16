@@ -2,31 +2,27 @@
 using System.Net.Http.Json;
 using CraftersCloud.Core.AspNetCore.TestUtilities.Http;
 using CraftersCloud.Core.Entities;
+using CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users;
 using CraftersCloud.ReferenceArchitecture.Api.Tests.Infrastructure.Api;
 using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
-using CraftersCloud.ReferenceArchitecture.Domain.Users.Commands;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Tests.Impersonation;
 using FluentAssertions;
+using Microsoft.EntityFrameworkCore;
 
 namespace CraftersCloud.ReferenceArchitecture.Api.Tests.CoreFeatures;
 
 [Category("integration")]
 public class AuthorizationFixture : IntegrationFixtureBase
 {
-    private Role? _testRole;
+    private Role? _roleWithUsersReadPermission;
+    private Role? _roleWithNonePermission;
 
     [SetUp]
     public void SetUp()
     {
-        _testRole = new Role { Name = "TestRole" };
-        var permission = QueryDb<Permission>().Where(p => p.Id == PermissionId.UsersRead);
-        _testRole.SetPermissions(permission);
-        AddAndSaveChanges(_testRole);
-
-        var currentUser = QueryCurrentUser();
-        currentUser.UpdateRole(_testRole);
-        SaveChangesAsync();
+        _roleWithUsersReadPermission = CrateRole("RoleWithUsersReadPermission", PermissionId.UsersRead);
+        _roleWithNonePermission = CrateRole("RoleWithNonePermission", PermissionId.None);
     }
 
     [Test]
@@ -37,17 +33,21 @@ public class AuthorizationFixture : IntegrationFixtureBase
     }
 
     [Test]
-    public async Task UserWithoutPermissionIsNotAllowed()
+    public async Task GivenReadPermission_CurrentUserCannot_CreateUser()
     {
-        var command = new CreateOrUpdateUser.Command
-        {
-            Id = null,
-            FullName = "some user",
-            EmailAddress = "someuser@test.com",
-            RoleId = Role.SystemAdminRoleId,
-            UserStatusId = UserStatusId.Active
-        };
-        var response = await Client.PostAsJsonAsync("users", command, HttpSerializationOptions.Options);
+        await UpdateCurrentUserToRole(_roleWithUsersReadPermission!);
+        var request =
+            new CreateUser.Request("someuser@test.com", "some user", Role.SystemAdminRoleId, UserStatusId.Active);
+        var response = await Client.PostAsJsonAsync("users", request, HttpSerializationOptions.Options);
+        response.StatusCode.Should().Be(HttpStatusCode.Forbidden);
+    }
+
+    [Test]
+    public async Task GivenNonePermission_CurrentUserCannot_GetUsers()
+    {
+        await UpdateCurrentUserToRole(_roleWithNonePermission!);
+
+        var response = await Client.GetAsync("users");
         response.StatusCode.Should().Be(HttpStatusCode.Forbidden);
     }
 
@@ -61,14 +61,44 @@ public class AuthorizationFixture : IntegrationFixtureBase
     [TearDown]
     public async Task TearDown()
     {
-        var currentUser = QueryCurrentUser();
-        var role = QueryDb<Role>().First(r => r.Id == Role.SystemAdminRoleId);
-        currentUser.UpdateRole(role);
+        // reset the user to system admin (to avoid permission issues in tests)
+        var role = await QueryDb<Role>().QueryById(Role.SystemAdminRoleId).FirstAsync();
+        await UpdateCurrentUserToRole(role);
 
-        if (_testRole != null)
+        var dbContext = Resolve<DbContext>();
+        // delete created roles (they are not reset between tests)
+        if (_roleWithUsersReadPermission != null)
         {
-            await DeleteByIdsAndSaveChangesAsync<Role, Guid>(_testRole.Id);
+            dbContext.Remove(_roleWithUsersReadPermission);
         }
+
+        if (_roleWithNonePermission != null)
+        {
+            dbContext.Remove(_roleWithNonePermission);
+        }
+
+        await dbContext.SaveChangesAsync();
+    }
+
+    private async Task UpdateCurrentUserToRole(Role role)
+    {
+        var currentUser = QueryCurrentUser();
+        currentUser.UpdateRole(role);
+        await SaveChangesAsync();
+    }
+
+    private Role CrateRole(string name, PermissionId permissionId)
+    {
+        var role = QueryDb<Role>().QueryByName(name).SingleOrDefault();
+        if (role != null)
+        {
+            return role;
+        }
+        role = new Role { Name = name };
+        var permission = QueryDb<Permission>().Where(p => p.Id == permissionId);
+        role.SetPermissions(permission);
+        AddAndSaveChanges(role);
+        return role;
     }
 
     private User QueryCurrentUser() => QueryDb<User>().First(u => u.Id == TestUserData.TestUserId);

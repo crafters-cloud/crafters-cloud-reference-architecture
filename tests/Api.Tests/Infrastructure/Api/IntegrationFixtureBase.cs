@@ -99,9 +99,6 @@ public class IntegrationFixtureBase
 
     protected IQueryable<T> QueryDbSkipCache<T>() where T : class => Resolve<DbContext>().QueryDbSkipCache<T>();
 
-    protected Task DeleteByIdsAndSaveChangesAsync<T, TId>(params TId[] ids) where T : class =>
-        Resolve<DbContext>().DeleteByIdsAndSaveChangesAsync<T, TId>(ids);
-
     private Task DeleteByIdAsync<T, TId>(TId id) where T : class => Resolve<DbContext>().DeleteByIdAsync<T, TId>(id);
 
     protected T Resolve<T>() where T : notnull => _testScope.Resolve<T>();
