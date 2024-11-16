@@ -1,0 +1,12 @@
+﻿{
+  Items: [
+    {
+      Key: 1,
+      Value: Active
+    },
+    {
+      Key: 2,
+      Value: Inactive
+    }
+  ]
+}

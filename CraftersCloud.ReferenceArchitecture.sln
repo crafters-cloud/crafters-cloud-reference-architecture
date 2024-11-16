@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api.Tests", "tests\Api.Test
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain.Tests", "tests\Domain.Tests\Domain.Tests.csproj", "{1CC1BD9F-6D40-42AA-97F2-937AF2AD0B70}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApplicationServices", "src\ApplicationServices\ApplicationServices.csproj", "{E81F6E69-85ED-4768-9DFF-10E0D94AE0F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "src\Application\Application.csproj", "{E81F6E69-85ED-4768-9DFF-10E0D94AE0F4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{39D678DB-292F-47B0-A70B-0ECB0E7F7C80}"
 	ProjectSection(SolutionItems) = preProject

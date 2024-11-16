@@ -1,4 +1,4 @@
-﻿using CraftersCloud.Core.AspNetCore.Filters;
+﻿using CraftersCloud.Core.AspNetCore;
 using CraftersCloud.ReferenceArchitecture.Domain.Identity;
 using Microsoft.AspNetCore.Http;
 using Serilog.Context;

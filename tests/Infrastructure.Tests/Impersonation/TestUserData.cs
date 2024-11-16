@@ -23,9 +23,8 @@ public static class TestUserData
 
     private static User CreateUser(Guid id, string email, string fullName, Guid roleId)
     {
-        var user = User.Create(new CreateOrUpdateUser.Command
+        var user = User.Create(new CreateUserCommand
         {
-            Id = null,
             RoleId = roleId,
             EmailAddress = email,
             FullName = fullName,

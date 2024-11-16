@@ -24,27 +24,29 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ApplicationServices\ApplicationServices.csproj" />
+    <ProjectReference Include="..\Application\Application.csproj" />
     <ProjectReference Include="..\Core\Core.csproj" />
     <ProjectReference Include="..\Domain\Domain.csproj" />
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Using Include="Carter" />
     <Using Include="FluentValidation" />
     <Using Include="MediatR" />
     <Using Include="Ardalis.Result.AspNetCore" />
     <Using Include="Microsoft.AspNetCore.Mvc" />
     <Using Include="Riok.Mapperly.Abstractions" />
+    <Using Include="CraftersCloud.Core" />
+    <Using Include="CraftersCloud.Core.AspNetCore.MinimalApi" />
     <Using Include="CraftersCloud.Core.Data" />
     <Using Include="CraftersCloud.Core.Entities" />
     <Using Include="CraftersCloud.Core.EntityFramework" />
-    <Using Include="CraftersCloud.ReferenceArchitecture.Domain.Authorization" />
-    <Using Include="CraftersCloud.ReferenceArchitecture.Domain.Identity" />
-    <Using Include="CraftersCloud.ReferenceArchitecture.Domain.Users" />
     <Using Include="Microsoft.AspNetCore.Http.HttpResults" />
     <Using Include="Microsoft.EntityFrameworkCore" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Endpoints\ComplexExamples\" />
   </ItemGroup>
 
 </Project>

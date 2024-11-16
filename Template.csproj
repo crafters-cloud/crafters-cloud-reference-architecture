@@ -37,6 +37,12 @@
       Remove="**\bin\**;**\obj\**;**\dist\**;**\node_modules\**;.git\**;**\.vs\**;**\artifacts\**;**\_ReSharper.Caches\**;**\*.user;**\TestResults\**;.template.config\**" />
     <None
       Remove="**\bin\**;**\obj\**;**\dist\**;**\node_modules\**;.git\**;**\.vs\**;**\artifacts\**;**\_ReSharper.Caches\**;**\*.user;**\TestResults\**;.template.config\**" />
+    <Content Update="src\Application\Auditing\AuditableDomainEventNotificationHandler.cs">
+      <Link>src\ApplicationServices\Auditing\AuditableDomainEventNotificationHandler.cs</Link>
+    </Content>
+    <Content Update="src\Application\packages.lock.json">
+      <Link>src\ApplicationServices\packages.lock.json</Link>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>

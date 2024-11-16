@@ -5,7 +5,7 @@ namespace CraftersCloud.ReferenceArchitecture.Infrastructure;
 public static class AssemblyFinder
 {
     private const string ProjectPrefix = "CraftersCloud.ReferenceArchitecture";
-    public static Assembly ApplicationServicesAssembly => FindAssembly("ApplicationServices");
+    public static Assembly ApplicationAssembly => FindAssembly("Application");
     public static Assembly ApiAssembly => FindAssembly("Api");
     public static Assembly DomainAssembly => FindAssembly("Domain");
     public static Assembly InfrastructureAssembly => FindAssembly("Infrastructure");

@@ -13,6 +13,5 @@ public static class DbInitializer
         new UserSeeding()
     ];
 
-    // EF Core way of seeding data: https://docs.microsoft.com/en-us/ef/core/modeling/data-seeding
     public static void SeedData(ModelBuilder modelBuilder) => Seeding.ForEach(seeding => seeding.Seed(modelBuilder));
 }

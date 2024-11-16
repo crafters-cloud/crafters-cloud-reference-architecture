@@ -7,6 +7,7 @@
   <Import Project="..\..\Tests.Build.props" />
 
   <ItemGroup>
+    <PackageReference Include="CraftersCloud.Core.TestUtilities" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" />
     <PackageReference Include="Respawn" />
     <PackageReference Include="Testcontainers.MsSql" />

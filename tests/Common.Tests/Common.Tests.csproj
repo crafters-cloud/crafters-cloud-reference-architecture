@@ -11,7 +11,7 @@
     <PackageReference Include="CraftersCloud.Core.SmartEnums.VerifyTests" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\ApplicationServices\ApplicationServices.csproj" />
+    <ProjectReference Include="..\..\src\Application\Application.csproj" />
     <ProjectReference Include="..\..\src\Infrastructure\Infrastructure.csproj" />
   </ItemGroup>
 

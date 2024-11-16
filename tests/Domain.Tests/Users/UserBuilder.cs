@@ -48,9 +48,8 @@ public class UserBuilder
 
     public User Build()
     {
-        var result = User.Create(new CreateOrUpdateUser.Command
+        var result = User.Create(new CreateUserCommand
         {
-            Id = _id,
             FullName = _fullName,
             EmailAddress = _emailAddress,
             RoleId = _roleId,

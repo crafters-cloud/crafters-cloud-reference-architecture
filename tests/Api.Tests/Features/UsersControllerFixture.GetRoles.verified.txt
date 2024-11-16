@@ -1,6 +1,0 @@
-﻿[
-  {
-    Key: Guid_1,
-    Value: SystemAdmin
-  }
-]

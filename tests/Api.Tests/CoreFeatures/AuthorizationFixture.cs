@@ -2,13 +2,13 @@
 using System.Net.Http.Json;
 using CraftersCloud.Core.AspNetCore.TestUtilities.Http;
 using CraftersCloud.Core.Entities;
-using CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users;
 using CraftersCloud.ReferenceArchitecture.Api.Tests.Infrastructure.Api;
 using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Tests.Impersonation;
 using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
+using CreateUser = CraftersCloud.ReferenceArchitecture.Api.Endpoints.SimpleExamples.Users.CreateUser;
 
 namespace CraftersCloud.ReferenceArchitecture.Api.Tests.CoreFeatures;
 
@@ -94,6 +94,7 @@ public class AuthorizationFixture : IntegrationFixtureBase
         {
             return role;
         }
+
         role = new Role { Name = name };
         var permission = QueryDb<Permission>().Where(p => p.Id == permissionId);
         role.SetPermissions(permission);

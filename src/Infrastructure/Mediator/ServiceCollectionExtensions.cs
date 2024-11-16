@@ -8,7 +8,7 @@ namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Mediator;
 
 public static class ServiceCollectionExtensions
 {
-    public static void AppAddMediatr(this IServiceCollection services, params Assembly[] extraAssemblies)
+    public static void AppAddMediatr(this IServiceCollection services, Assembly[] extraAssemblies)
     {
         services.AddScoped(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
         services.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
@@ -19,7 +19,7 @@ public static class ServiceCollectionExtensions
             config.RegisterServicesFromAssemblies(extraAssemblies);
             config.RegisterServicesFromAssemblies(
                 AssemblyFinder.DomainAssembly,
-                AssemblyFinder.ApplicationServicesAssembly);
+                AssemblyFinder.ApplicationAssembly);
         });
     }
 }

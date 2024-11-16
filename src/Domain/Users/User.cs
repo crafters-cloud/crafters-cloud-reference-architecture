@@ -17,7 +17,7 @@ public class User : EntityWithCreatedUpdated
     public UserStatusId UserStatusId { get; private set; } = null!;
     public UserStatus UserStatus { get; private set; } = null!;
 
-    public static User Create(CreateOrUpdateUser.Command command)
+    public static User Create(CreateUserCommand command)
     {
         var result = new User
         {
@@ -29,7 +29,7 @@ public class User : EntityWithCreatedUpdated
         return result;
     }
 
-    public void Update(CreateOrUpdateUser.Command command)
+    public void Update(UpdateUserCommand command)
     {
         FullName = command.FullName;
         RoleId = command.RoleId;

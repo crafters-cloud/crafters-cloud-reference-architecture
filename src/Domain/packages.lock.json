@@ -4,20 +4,20 @@
     "net9.0": {
       "CraftersCloud.Core.EntityFramework": {
         "type": "Direct",
-        "requested": "[1.0.18, )",
-        "resolved": "1.0.18",
-        "contentHash": "zBukhIqsayVLIyKszZEZ4/O+QjyaGozejoOeK2h2nDNgvKIgUaw+SNwoCu81XFE2UOcASVaXjSKo69gw0mwNxA==",
+        "requested": "[1.0.21-alpha.0.6, )",
+        "resolved": "1.0.21-alpha.0.6",
+        "contentHash": "Nq/DpG13qGXqXzP+G4Tg0UpFhEqy6je/IKbtOMXXNGNcuEMy9nN+NDR7sUshYELTipWQIuk7Wj3lst1TlUrj5A==",
         "dependencies": {
-          "CraftersCloud.Core": "1.0.18",
+          "CraftersCloud.Core": "1.0.21-alpha.0.6",
           "Microsoft.EntityFrameworkCore": "9.0.0",
-          "System.Linq.Dynamic.Core": "1.4.8"
+          "System.Linq.Dynamic.Core": "1.4.9"
         }
       },
       "FluentValidation": {
         "type": "Direct",
-        "requested": "[11.10.0, )",
-        "resolved": "11.10.0",
-        "contentHash": "qsJGSJDdZ8qiG+lVJ70PZfJHcEdq8UQZ/tZDXoj78/iHKG6lVKtMJsD11zyyv/IPc7rwqGqnFoFLTNzpo3IPYg=="
+        "requested": "[11.11.0, )",
+        "resolved": "11.11.0",
+        "contentHash": "cyIVdQBwSipxWG8MA3Rqox7iNbUNUTK5bfJi9tIdm4CAfH71Oo5ABLP4/QyrUwuakqpUEPGtE43BDddvEehuYw=="
       },
       "MinVer": {
         "type": "Direct",
@@ -27,8 +27,8 @@
       },
       "Ardalis.SmartEnum": {
         "type": "Transitive",
-        "resolved": "8.1.0",
-        "contentHash": "+OpcDNwgfwdKEhEwq6U5lrXiBpdA3LxfZR7nTtF6vzbkXc1hKa2Uv/rHduzxwNLYrzOfR/7QUVyjWTliSS7pOA=="
+        "resolved": "8.2.0",
+        "contentHash": "P1CLI2okpzHjOJnZMYLnzcyu1/fUJEYK1X4JSnal2TPmovrUTtXK6Sn78D2JgKUdwjSeWddnRveMj+BEZoksvg=="
       },
       "MediatR": {
         "type": "Transitive",
@@ -131,15 +131,17 @@
       },
       "System.Linq.Dynamic.Core": {
         "type": "Transitive",
-        "resolved": "1.4.8",
-        "contentHash": "PJnIOPdz18YJjMPyHkBI5knqQHNWR1bKVkX+c11sauOVnTVyBDjHSaExZexlwFuWT1q6wkg2UTfmFKloNfANvQ=="
+        "resolved": "1.4.9",
+        "contentHash": "0SMBOMlxDsp8n3JoPsKoM5X6Ory+yWLKMrXlYt+CoiPyyLnqoqo+Dvhsy/gIa6CSaLvjzlTNWuBb1BCKjc6lqg=="
       },
       "CraftersCloud.ReferenceArchitecture.Core": {
         "type": "Project",
         "dependencies": {
           "Ardalis.Result": "[10.1.0, )",
-          "CraftersCloud.Core": "[1.0.18, )",
-          "CraftersCloud.Core.SmartEnums": "[1.0.18, )"
+          "CraftersCloud.Core": "[1.0.21-alpha.0.6, )",
+          "CraftersCloud.Core.SmartEnums": "[1.0.21-alpha.0.6, )",
+          "OneOf": "[3.0.271, )",
+          "OneOf.SourceGenerator": "[3.0.271, )"
         }
       },
       "Ardalis.Result": {
@@ -150,26 +152,30 @@
       },
       "CraftersCloud.Core": {
         "type": "CentralTransitive",
-        "requested": "[1.0.18, )",
-        "resolved": "1.0.18",
-        "contentHash": "384eSY7BrinpoYoaVH+o+aTzYZs3XB/bOUcM7pHoyQHQMAH0ygY91+5rIu4ZLqzLN3g6hiDUr/4Tq3hspvKSeg==",
+        "requested": "[1.0.21-alpha.0.6, )",
+        "resolved": "1.0.21-alpha.0.6",
+        "contentHash": "+YIEnMejid2nFYUKWR6slco2MI9n1mVF1hxSTIxZEmmajkquRWItrlEsg1p7r7JllzX9d+TT2DyTbFs/nCZTvg==",
         "dependencies": {
+          "Ardalis.Result": "10.1.0",
+          "FluentValidation": "11.11.0",
           "JetBrains.Annotations": "2024.3.0",
           "MediatR": "12.4.1",
           "Microsoft.Extensions.Configuration.Binder": "9.0.0",
           "Microsoft.Extensions.Logging.Abstractions": "9.0.0",
+          "OneOf": "3.0.271",
+          "OneOf.SourceGenerator": "3.0.271",
           "Serilog": "4.1.0",
           "System.ComponentModel.Annotations": "5.0.0"
         }
       },
       "CraftersCloud.Core.SmartEnums": {
         "type": "CentralTransitive",
-        "requested": "[1.0.18, )",
-        "resolved": "1.0.18",
-        "contentHash": "dt9Q9XAEzwE7ZeMHp88FH8b1pg+UjD63IDrfjRS7Ap8EoQknHlfIhEeawUlWEEiogTJTItx0vt1Gb1Fjm72LdQ==",
+        "requested": "[1.0.21-alpha.0.6, )",
+        "resolved": "1.0.21-alpha.0.6",
+        "contentHash": "WB12Zudnkur5V5H5jvJyXXKPW3lhkroGVasYc4TYbGamRFdQXm/pNI74OousKkQW6+v0MJcNoQ8or5osdsfnxA==",
         "dependencies": {
-          "Ardalis.SmartEnum": "8.1.0",
-          "CraftersCloud.Core": "1.0.18",
+          "Ardalis.SmartEnum": "8.2.0",
+          "CraftersCloud.Core": "1.0.21-alpha.0.6",
           "JetBrains.Annotations": "2024.3.0"
         }
       },
@@ -208,6 +214,18 @@
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.0"
         }
+      },
+      "OneOf": {
+        "type": "CentralTransitive",
+        "requested": "[3.0.271, )",
+        "resolved": "3.0.271",
+        "contentHash": "pqpqeK8xQGggExhr4tesVgJkjdn+9HQAO0QgrYV2hFjE3y90okzk1kQMntMiUOGfV7FrCUfKPaVvPBD4IANqKg=="
+      },
+      "OneOf.SourceGenerator": {
+        "type": "CentralTransitive",
+        "requested": "[3.0.271, )",
+        "resolved": "3.0.271",
+        "contentHash": "I7e5kx5prSV99g+rM/xO5KMhwBQL/b+NlUY76RhbutXJ0tgiuMoqgOFnlTHOxCLrlKmwaMzp3VI8oz05PSlcIA=="
       }
     }
   }

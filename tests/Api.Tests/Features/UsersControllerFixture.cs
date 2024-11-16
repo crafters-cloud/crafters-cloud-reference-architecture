@@ -2,14 +2,16 @@
 using System.Net.Http.Json;
 using CraftersCloud.Core.AspNetCore.TestUtilities.Http;
 using CraftersCloud.Core.Paging;
-using CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users;
+using CraftersCloud.ReferenceArchitecture.Api.Endpoints.ComplexExamples.Users;
 using CraftersCloud.ReferenceArchitecture.Api.Tests.Infrastructure.Api;
 using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
 using CraftersCloud.ReferenceArchitecture.Domain.Tests.Users;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
 using FluentAssertions;
-using GetUserDetails = CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users.GetUserDetails;
-using GetUsers = CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users.GetUsers;
+using CreateUser = CraftersCloud.ReferenceArchitecture.Api.Endpoints.SimpleExamples.Users.CreateUser;
+using GetUserDetails = CraftersCloud.ReferenceArchitecture.Api.Endpoints.SimpleExamples.Users.GetUserDetails;
+using GetUsers = CraftersCloud.ReferenceArchitecture.Api.Endpoints.SimpleExamples.Users.GetUsers;
+using UpdateUser = CraftersCloud.ReferenceArchitecture.Api.Endpoints.SimpleExamples.Users.UpdateUser;
 
 namespace CraftersCloud.ReferenceArchitecture.Api.Tests.Features;
 
@@ -20,7 +22,7 @@ namespace CraftersCloud.ReferenceArchitecture.Api.Tests.Features;
 // Integration tests should be used for happy flows.
 // For un-happy flows (e.g. edge cases), or complex business rules
 // write unit tests.
-public class UsersControllerFixture : IntegrationFixtureBase
+public class UserEndpointsFixture : IntegrationFixtureBase
 {
     private User _user = null!;
 
@@ -39,7 +41,7 @@ public class UsersControllerFixture : IntegrationFixtureBase
     [Test]
     public async Task GetAll()
     {
-        var users = (await Client.GetAsync<PagedResponse<GetUsers.Response.Item>>(
+        var users = (await Client.GetAsync<PagedQueryResponse<GetUsers.Response.Item>>(
                 new Uri("users", UriKind.RelativeOrAbsolute),
                 new KeyValuePair<string, string>("SortBy", "EmailAddress")))
             ?.Items.ToList()!;
@@ -58,15 +60,14 @@ public class UsersControllerFixture : IntegrationFixtureBase
     [Test]
     public async Task GetRoles()
     {
-        var user = await Client.GetAsync<List<GetRoles.ResponseItem>>($"users/roles");
-
-        await Verify(user);
+        var roles = await Client.GetAsync<GetRoles.Response>($"users/roles");
+        await Verify(roles);
     }
 
     [Test]
     public async Task GetStatuses()
     {
-        var user = await Client.GetAsync<List<GetStatuses.ResponseItem>>($"users/statuses");
+        var user = await Client.GetAsync<GetStatuses.Response>($"users/statuses");
 
         await Verify(user);
     }

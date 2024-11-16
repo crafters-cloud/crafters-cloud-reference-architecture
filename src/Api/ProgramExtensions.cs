@@ -1,9 +1,12 @@
 ﻿using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using CraftersCloud.Core.AspNetCore.Authorization;
+using CraftersCloud.Core.AspNetCore.Exceptions;
+using CraftersCloud.Core.AspNetCore.MinimalApi;
 using CraftersCloud.Core.AspNetCore.Security;
 using CraftersCloud.Core.HealthChecks.Extensions;
 using CraftersCloud.Core.SmartEnums.Swagger;
+using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
 using CraftersCloud.ReferenceArchitecture.Infrastructure;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Init;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Logging;
@@ -27,13 +30,13 @@ public static class ProgramExtensions
         services.AddCors();
         services.AddHttpContextAccessor();
         services.AddApplicationInsightsTelemetry();
-        services.AppConfigureHttpJsonOptions();
+        services.AppConfigureHttpJsonOptions([AssemblyFinder.ApiAssembly]);
         services.AppConfigureSettings(configuration);
         services.AppAddPolly();
         services.AddCoreHealthChecks(configuration)
             .AddDbContextCheck<AppDbContext>();
-        services.AppAddMediatr(AssemblyFinder.ApiAssembly);
-        services.AppAddFluentValidation();
+        services.AppAddMediatr([AssemblyFinder.ApiAssembly]);
+        services.AppAddFluentValidation(ServiceLifetime.Singleton);
         services.AddCoreHttps(env);
 
         services.AppAddAuthentication();
@@ -44,8 +47,8 @@ public static class ProgramExtensions
             {
                 configureSettings.CoreConfigureSmartEnums();
             });
-        services.AddCoreCarter2([AssemblyFinder.ApiAssembly]);
-        services.AddExceptionHandler<GlobalExceptionHandler>();
+        services.AddCoreEndpoints(AssemblyFinder.ApiAssembly);
+        services.AddExceptionHandler<CoreGlobalExceptionHandler>();
         services.AddProblemDetails();
     }
 
@@ -86,10 +89,10 @@ public static class ProgramExtensions
         }
 
         app.UseCoreHttps(app.Environment);
-        //app.UseCoreExceptionHandler();
-        app.UseExceptionHandler();
 
         app.UseMiddleware<LogContextMiddleware>();
+
+        app.UseExceptionHandler();
 
         app.UseAuthentication();
         app.UseAuthorization();
@@ -99,7 +102,7 @@ public static class ProgramExtensions
         app.MapGet("/", () => Results.Redirect("/swagger")).ExcludeFromDescription();
 
         app.MapCoreHealthChecks(configuration);
-        app.MapCarter();
+        app.MapCoreEndpoints();
 
         app.AppUseSwaggerScalar(configuration);
         app.AppConfigureFluentValidation();

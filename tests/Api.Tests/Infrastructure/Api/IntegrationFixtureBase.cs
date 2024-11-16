@@ -1,6 +1,7 @@
-﻿using CraftersCloud.Core.AspNetCore.TestUtilities;
+﻿using CraftersCloud.Core;
 using CraftersCloud.Core.AspNetCore.TestUtilities.Http;
 using CraftersCloud.Core.Entities;
+using CraftersCloud.ReferenceArchitecture.Infrastructure;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Init;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Data;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Tests;
@@ -84,7 +85,7 @@ public class IntegrationFixtureBase
             return;
         }
 
-        options.Converters.AppRegisterJsonConverters();
+        options.Converters.AppRegisterJsonConverters([AssemblyFinder.ApiAssembly]);
     }
 
     protected Task SaveChangesAsync() => Resolve<DbContext>().SaveChangesAsync();

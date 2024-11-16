@@ -2,14 +2,15 @@
 using System.Net.Http.Json;
 using CraftersCloud.Core.AspNetCore.TestUtilities.Http;
 using CraftersCloud.Core.Paging;
-using CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users;
 using CraftersCloud.ReferenceArchitecture.Api.Tests.Infrastructure.Api;
 using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
 using CraftersCloud.ReferenceArchitecture.Domain.Tests.Users;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
 using FluentAssertions;
-using GetUserDetails = CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users.GetUserDetails;
-using GetUsers = CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users.GetUsers;
+using CreateUser = CraftersCloud.ReferenceArchitecture.Api.Endpoints.SimpleExamples.Users.CreateUser;
+using GetUserDetails = CraftersCloud.ReferenceArchitecture.Api.Endpoints.SimpleExamples.Users.GetUserDetails;
+using GetUsers = CraftersCloud.ReferenceArchitecture.Api.Endpoints.SimpleExamples.Users.GetUsers;
+using UpdateUser = CraftersCloud.ReferenceArchitecture.Api.Endpoints.SimpleExamples.Users.UpdateUser;
 
 namespace CraftersCloud.ReferenceArchitecture.Api.Tests.CoreFeatures;
 
@@ -35,7 +36,7 @@ public class ApiSetupFixture : IntegrationFixtureBase
     [Test]
     public async Task TestGetAll()
     {
-        var users = (await Client.GetAsync<PagedResponse<GetUsers.Response.Item>>(
+        var users = (await Client.GetAsync<PagedQueryResponse<GetUsers.Response.Item>>(
                 new Uri("users", UriKind.RelativeOrAbsolute),
                 new KeyValuePair<string, string>("SortBy", "EmailAddress")))
             ?.Items.ToList()!;
