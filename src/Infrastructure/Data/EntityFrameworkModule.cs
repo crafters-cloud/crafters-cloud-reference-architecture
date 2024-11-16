@@ -3,6 +3,7 @@ using CraftersCloud.Core.Configuration;
 using CraftersCloud.Core.Data;
 using CraftersCloud.Core.EntityFramework.Infrastructure;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -40,7 +41,9 @@ public class EntityFrameworkModule : Module
 
         optionsBuilder
             .UseLoggerFactory(loggerFactory)
-            .EnableSensitiveDataLogging(dbContextSettings.SensitiveDataLoggingEnabled);
+            .EnableSensitiveDataLogging(dbContextSettings.SensitiveDataLoggingEnabled)
+            //ef 9 started showing this error in integration tests
+            .ConfigureWarnings(warnings => warnings.Log(RelationalEventId.PendingModelChangesWarning));
 
         optionsBuilder.UseSqlServer(configuration.GetConnectionString("AppDbContext")!,
             sqlOptions => SetupSqlOptions(sqlOptions, dbContextSettings));

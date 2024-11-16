@@ -4,7 +4,7 @@
 
 namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Migrations
 {
-    public partial class SeedTestData : Migration
+    public partial class SeedData : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
