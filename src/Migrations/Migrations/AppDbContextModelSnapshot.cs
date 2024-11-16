@@ -17,7 +17,7 @@ namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.10")
+                .HasAnnotation("ProductVersion", "9.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -55,7 +55,6 @@ namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Migrations
             modelBuilder.Entity("CraftersCloud.ReferenceArchitecture.Domain.Authorization.Role", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Name")
@@ -81,7 +80,6 @@ namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Migrations
             modelBuilder.Entity("CraftersCloud.ReferenceArchitecture.Domain.Users.User", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("CreatedById")
