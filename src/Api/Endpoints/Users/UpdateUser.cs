@@ -14,7 +14,7 @@ public static partial class UpdateUser
         UserStatusId UserStatusId);
 
     public static async Task<Results<NoContent, NotFound, BadRequest<ValidationProblemDetails>>> Handle([FromBody] Request request,
-        ISender sender,
+        IMediator sender,
         CancellationToken cancellationToken)
     {
         var command = UpdateUserRequestMapper.ToCommand(request);

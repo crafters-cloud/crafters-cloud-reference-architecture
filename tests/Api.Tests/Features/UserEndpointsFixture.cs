@@ -8,10 +8,6 @@ using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
 using CraftersCloud.ReferenceArchitecture.Domain.Tests.Users;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
 using FluentAssertions;
-using CreateUser = CraftersCloud.ReferenceArchitecture.Api.Endpoints.SimpleExamples.Users.CreateUser;
-using GetUserDetails = CraftersCloud.ReferenceArchitecture.Api.Endpoints.SimpleExamples.Users.GetUserDetails;
-using GetUsers = CraftersCloud.ReferenceArchitecture.Api.Endpoints.SimpleExamples.Users.GetUsers;
-using UpdateUser = CraftersCloud.ReferenceArchitecture.Api.Endpoints.SimpleExamples.Users.UpdateUser;
 
 namespace CraftersCloud.ReferenceArchitecture.Api.Tests.Features;
 

@@ -1,7 +1,7 @@
 <Project>
   <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-    <CraftersCloudVersion>1.0.21-alpha.0.6</CraftersCloudVersion>
+    <CraftersCloudVersion>1.0.21-alpha.0.7</CraftersCloudVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageVersion Include="Ardalis.Result" Version="10.1.0" />
@@ -14,7 +14,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageVersion>
-    <PackageVersion Include="CraftersCloud.Core" Version="$(CraftersCloudVersion)" />
+    <PackageVersion Include="CraftersCloud.Core" Version="1.0.21-alpha.0.7" />
     <PackageVersion Include="CraftersCloud.Core.AspNetCore" Version="$(CraftersCloudVersion)" />
     <PackageVersion Include="CraftersCloud.Core.AspNetCore.TestUtilities" Version="$(CraftersCloudVersion)" />
     <PackageVersion Include="CraftersCloud.Core.EntityFramework" Version="$(CraftersCloudVersion)" />

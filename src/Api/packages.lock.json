@@ -13,13 +13,13 @@
       },
       "CraftersCloud.Core.HealthChecks": {
         "type": "Direct",
-        "requested": "[1.0.21-alpha.0.6, )",
-        "resolved": "1.0.21-alpha.0.6",
-        "contentHash": "hBme8rwOjwllqjQMEqqcQE7yb0zC2ej4iXelVOQSr6kjn0VodxYzL3BAgsurKCuDx21ks0nlUbEsyyIpYNE7JQ==",
+        "requested": "[1.0.21-alpha.0.7, )",
+        "resolved": "1.0.21-alpha.0.7",
+        "contentHash": "W4UeQ3lVNKdO7i86WzlP+qKvgJCJfX8ofpiaLwKjO0f2nCcOxPMSwgebO5M01LSlSdayCbaLwV+vdwHbCJjokA==",
         "dependencies": {
           "AspNetCore.HealthChecks.Publisher.ApplicationInsights": "8.0.1",
           "AspNetCore.HealthChecks.System": "8.0.1",
-          "CraftersCloud.Core": "1.0.21-alpha.0.6"
+          "CraftersCloud.Core": "1.0.21-alpha.0.7"
         }
       },
       "Microsoft.ApplicationInsights.AspNetCore": {
@@ -1172,8 +1172,8 @@
         "type": "Project",
         "dependencies": {
           "Ardalis.Result": "[10.1.0, )",
-          "CraftersCloud.Core": "[1.0.21-alpha.0.6, )",
-          "CraftersCloud.Core.SmartEnums": "[1.0.21-alpha.0.6, )",
+          "CraftersCloud.Core": "[1.0.21-alpha.0.7, )",
+          "CraftersCloud.Core.SmartEnums": "[1.0.21-alpha.0.7, )",
           "OneOf": "[3.0.271, )",
           "OneOf.SourceGenerator": "[3.0.271, )"
         }
@@ -1181,7 +1181,8 @@
       "CraftersCloud.ReferenceArchitecture.Domain": {
         "type": "Project",
         "dependencies": {
-          "CraftersCloud.Core.EntityFramework": "[1.0.21-alpha.0.6, )",
+          "CraftersCloud.Core": "[1.0.21-alpha.0.7, )",
+          "CraftersCloud.Core.EntityFramework": "[1.0.21-alpha.0.7, )",
           "CraftersCloud.ReferenceArchitecture.Core": "[1.0.0, )",
           "FluentValidation": "[11.11.0, )"
         }
@@ -1192,14 +1193,14 @@
           "Autofac": "[8.1.1, )",
           "Autofac.Extensions.DependencyInjection": "[10.0.0, )",
           "Azure.Extensions.AspNetCore.Configuration.Secrets": "[1.3.2, )",
-          "CraftersCloud.Core.AspNetCore": "[1.0.21-alpha.0.6, )",
-          "CraftersCloud.Core.EntityFramework.Infrastructure": "[1.0.21-alpha.0.6, )",
-          "CraftersCloud.Core.Infrastructure": "[1.0.21-alpha.0.6, )",
-          "CraftersCloud.Core.MediatR": "[1.0.21-alpha.0.6, )",
-          "CraftersCloud.Core.SmartEnums.EntityFramework": "[1.0.21-alpha.0.6, )",
-          "CraftersCloud.Core.SmartEnums.Swagger": "[1.0.21-alpha.0.6, )",
-          "CraftersCloud.Core.SmartEnums.SystemTextJson": "[1.0.21-alpha.0.6, )",
-          "CraftersCloud.Core.Swagger": "[1.0.21-alpha.0.6, )",
+          "CraftersCloud.Core.AspNetCore": "[1.0.21-alpha.0.7, )",
+          "CraftersCloud.Core.EntityFramework.Infrastructure": "[1.0.21-alpha.0.7, )",
+          "CraftersCloud.Core.Infrastructure": "[1.0.21-alpha.0.7, )",
+          "CraftersCloud.Core.MediatR": "[1.0.21-alpha.0.7, )",
+          "CraftersCloud.Core.SmartEnums.EntityFramework": "[1.0.21-alpha.0.7, )",
+          "CraftersCloud.Core.SmartEnums.Swagger": "[1.0.21-alpha.0.7, )",
+          "CraftersCloud.Core.SmartEnums.SystemTextJson": "[1.0.21-alpha.0.7, )",
+          "CraftersCloud.Core.Swagger": "[1.0.21-alpha.0.7, )",
           "CraftersCloud.ReferenceArchitecture.Domain": "[1.0.0, )",
           "FluentValidation.DependencyInjectionExtensions": "[11.11.0, )",
           "Microsoft.Extensions.DependencyInjection": "[9.0.0, )",
@@ -1258,9 +1259,9 @@
       },
       "CraftersCloud.Core": {
         "type": "CentralTransitive",
-        "requested": "[1.0.21-alpha.0.6, )",
-        "resolved": "1.0.21-alpha.0.6",
-        "contentHash": "+YIEnMejid2nFYUKWR6slco2MI9n1mVF1hxSTIxZEmmajkquRWItrlEsg1p7r7JllzX9d+TT2DyTbFs/nCZTvg==",
+        "requested": "[1.0.21-alpha.0.7, )",
+        "resolved": "1.0.21-alpha.0.7",
+        "contentHash": "S0IAmRspnKbI7UcQqPMLQ0TodCRPfunrcL+It5/qcISCgRAN6Ec099A6RvqVBC45yRAXr5G2ZCX31n/cADJFEA==",
         "dependencies": {
           "Ardalis.Result": "10.1.0",
           "FluentValidation": "11.11.0",
@@ -1276,12 +1277,12 @@
       },
       "CraftersCloud.Core.AspNetCore": {
         "type": "CentralTransitive",
-        "requested": "[1.0.21-alpha.0.6, )",
-        "resolved": "1.0.21-alpha.0.6",
-        "contentHash": "+H1/qNDlUY8DfwLPitAKLNuQx/geM82sshkiAgXt+3zoFCJEQsv/VCZD6i3Ib1ls+uuvGQCJdnIBzrK9RpnnYw==",
+        "requested": "[1.0.21-alpha.0.7, )",
+        "resolved": "1.0.21-alpha.0.7",
+        "contentHash": "nD2nkUsXPkU6zdXCemODW2++gQTMNz5IEmd3oQKEIPnmFpRrq+gAEVrtwvO5oKq7GwCI8BWjTjcqwuA+8y8m9g==",
         "dependencies": {
           "Ben.Demystifier": "0.4.1",
-          "CraftersCloud.Core": "1.0.21-alpha.0.6",
+          "CraftersCloud.Core": "1.0.21-alpha.0.7",
           "FluentValidation.AspNetCore": "11.3.0",
           "Microsoft.ApplicationInsights.AspNetCore": "2.22.0",
           "System.Text.Json": "9.0.0"
@@ -1289,25 +1290,25 @@
       },
       "CraftersCloud.Core.EntityFramework": {
         "type": "CentralTransitive",
-        "requested": "[1.0.21-alpha.0.6, )",
-        "resolved": "1.0.21-alpha.0.6",
-        "contentHash": "Nq/DpG13qGXqXzP+G4Tg0UpFhEqy6je/IKbtOMXXNGNcuEMy9nN+NDR7sUshYELTipWQIuk7Wj3lst1TlUrj5A==",
+        "requested": "[1.0.21-alpha.0.7, )",
+        "resolved": "1.0.21-alpha.0.7",
+        "contentHash": "4KlzTOrf4aOXuO1kH94ANt5pWLUD2FRKf2Snk6oBOpexABngsZ41GMRCCWWOJeHd3qPPKi2kh9xTHGERvOdO/Q==",
         "dependencies": {
-          "CraftersCloud.Core": "1.0.21-alpha.0.6",
+          "CraftersCloud.Core": "1.0.21-alpha.0.7",
           "Microsoft.EntityFrameworkCore": "9.0.0",
           "System.Linq.Dynamic.Core": "1.4.9"
         }
       },
       "CraftersCloud.Core.EntityFramework.Infrastructure": {
         "type": "CentralTransitive",
-        "requested": "[1.0.21-alpha.0.6, )",
-        "resolved": "1.0.21-alpha.0.6",
-        "contentHash": "tMBmmBGOMLXU6vtnBH+tCiiGOqcPDrMgnvH2VX5fsMaVGgNFNRdF6oJG15Fga8a4iIj/7NcG/yKyHplqdIwieQ==",
+        "requested": "[1.0.21-alpha.0.7, )",
+        "resolved": "1.0.21-alpha.0.7",
+        "contentHash": "X9y9Y5hqUdJpL5NrPDQGQN6RQfk+xXG0ehL2raxBE/m3kK1qNH9/5VEBK38kNnM31gbd29lenV5yXiZdtTZRyw==",
         "dependencies": {
           "Autofac": "8.1.1",
           "Azure.Identity": "1.13.1",
-          "CraftersCloud.Core.EntityFramework": "1.0.21-alpha.0.6",
-          "CraftersCloud.Core.MediatR": "1.0.21-alpha.0.6",
+          "CraftersCloud.Core.EntityFramework": "1.0.21-alpha.0.7",
+          "CraftersCloud.Core.MediatR": "1.0.21-alpha.0.7",
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.0",
           "Microsoft.Extensions.Logging.Abstractions": "9.0.0",
           "System.Text.Json": "9.0.0"
@@ -1315,20 +1316,20 @@
       },
       "CraftersCloud.Core.Infrastructure": {
         "type": "CentralTransitive",
-        "requested": "[1.0.21-alpha.0.6, )",
-        "resolved": "1.0.21-alpha.0.6",
-        "contentHash": "Q+GYeASjaoGvoCCfsj3vFcsASTasjsxrFd/oz9efMibX+dz51t1v0FZgHMdqU0q3TiktjZWY5Bx8WnMJ7dR5IQ==",
+        "requested": "[1.0.21-alpha.0.7, )",
+        "resolved": "1.0.21-alpha.0.7",
+        "contentHash": "bxPP0k11LOpE7lpY0TDU82vqJ9zk/8xHGHucsdSJ2iDWsL71aqKIDV/N82qsWa3c0SA6duKCmaJ3pZYndZeqpA==",
         "dependencies": {
-          "CraftersCloud.Core": "1.0.21-alpha.0.6"
+          "CraftersCloud.Core": "1.0.21-alpha.0.7"
         }
       },
       "CraftersCloud.Core.MediatR": {
         "type": "CentralTransitive",
-        "requested": "[1.0.21-alpha.0.6, )",
-        "resolved": "1.0.21-alpha.0.6",
-        "contentHash": "/7J4a2BfU8L/XOhwFPKBXr/hgQLtOsQ9/GG9682jtJAR0F2px82IgAS03PIwEQou65ZAe3Y5zy39OZBssSX78A==",
+        "requested": "[1.0.21-alpha.0.7, )",
+        "resolved": "1.0.21-alpha.0.7",
+        "contentHash": "vulPxnSIJfPTcZCs1Oz0bII0P2qEoVoeXLhozpYHg1hIJC8cP9W9MNw53FGvNqUkW21+ZXs+W1XP1aUlNClYAg==",
         "dependencies": {
-          "CraftersCloud.Core": "1.0.21-alpha.0.6",
+          "CraftersCloud.Core": "1.0.21-alpha.0.7",
           "JetBrains.Annotations": "2024.3.0",
           "MediatR": "12.4.1",
           "Microsoft.Extensions.Logging": "9.0.0",
@@ -1337,55 +1338,55 @@
       },
       "CraftersCloud.Core.SmartEnums": {
         "type": "CentralTransitive",
-        "requested": "[1.0.21-alpha.0.6, )",
-        "resolved": "1.0.21-alpha.0.6",
-        "contentHash": "WB12Zudnkur5V5H5jvJyXXKPW3lhkroGVasYc4TYbGamRFdQXm/pNI74OousKkQW6+v0MJcNoQ8or5osdsfnxA==",
+        "requested": "[1.0.21-alpha.0.7, )",
+        "resolved": "1.0.21-alpha.0.7",
+        "contentHash": "cZ1Z4OLWmTImVJUt3wpU0OCY6wMVViHvMIVzBQ42hm/UqOuuVSc1pMnHoNfrmqPRoUvLMCwvkkgkJoLPXeZSWw==",
         "dependencies": {
           "Ardalis.SmartEnum": "8.2.0",
-          "CraftersCloud.Core": "1.0.21-alpha.0.6",
+          "CraftersCloud.Core": "1.0.21-alpha.0.7",
           "JetBrains.Annotations": "2024.3.0"
         }
       },
       "CraftersCloud.Core.SmartEnums.EntityFramework": {
         "type": "CentralTransitive",
-        "requested": "[1.0.21-alpha.0.6, )",
-        "resolved": "1.0.21-alpha.0.6",
-        "contentHash": "EqufSSKuX8X41Bh7KVH4Fpm9lrlEeKURNzBCZ/ccph+Tbu8MD+SKR73/NsPpziYEgICKv0dP82zOG5x337D5dg==",
+        "requested": "[1.0.21-alpha.0.7, )",
+        "resolved": "1.0.21-alpha.0.7",
+        "contentHash": "ecQugX8v3HHCHUU4R4wZiQMM/H8p7vV45ZQkZGpgtA4QkN499u+ZALzYEJo0YmS5r2vKDmD1s86YzpS496+Rww==",
         "dependencies": {
           "Ardalis.SmartEnum.EFCore": "8.1.0",
-          "CraftersCloud.Core.EntityFramework": "1.0.21-alpha.0.6",
-          "CraftersCloud.Core.SmartEnums": "1.0.21-alpha.0.6",
+          "CraftersCloud.Core.EntityFramework": "1.0.21-alpha.0.7",
+          "CraftersCloud.Core.SmartEnums": "1.0.21-alpha.0.7",
           "JetBrains.Annotations": "2024.3.0",
           "System.Text.Json": "9.0.0"
         }
       },
       "CraftersCloud.Core.SmartEnums.Swagger": {
         "type": "CentralTransitive",
-        "requested": "[1.0.21-alpha.0.6, )",
-        "resolved": "1.0.21-alpha.0.6",
-        "contentHash": "UpDNdU9toR/Xb+/9wf21xAvtDZecFtWgC1Y1q3CXvbfBRyQhtyV+AneWv1eYH8maw5VE367wtZkpywfzcxftaQ==",
+        "requested": "[1.0.21-alpha.0.7, )",
+        "resolved": "1.0.21-alpha.0.7",
+        "contentHash": "Jnyqrf2xPbZjJVaSzgPmqEPsQJze5zlnrUhlgrLYsrtV5StgFOLaht897qb+b3+jYuPCk1C10ZdFhh/5x5h/hw==",
         "dependencies": {
-          "CraftersCloud.Core.SmartEnums": "1.0.21-alpha.0.6",
+          "CraftersCloud.Core.SmartEnums": "1.0.21-alpha.0.7",
           "JetBrains.Annotations": "2024.3.0",
           "NSwag.Generation.AspNetCore": "14.2.0"
         }
       },
       "CraftersCloud.Core.SmartEnums.SystemTextJson": {
         "type": "CentralTransitive",
-        "requested": "[1.0.21-alpha.0.6, )",
-        "resolved": "1.0.21-alpha.0.6",
-        "contentHash": "oS/06Jc/6NjgIVb9T/mvZ3SuZ4nfVE1SwuIa5c6JrJSIIgxpqYL/SlYJM+t5s0ktK6j02I6cJymeXBPjXGJ7Wg==",
+        "requested": "[1.0.21-alpha.0.7, )",
+        "resolved": "1.0.21-alpha.0.7",
+        "contentHash": "8uUM6n9ANmBwsdEcWzBnrDwIO8Ep9eC7b/d8zvWaJWlbO9UZI+72usf9dyUdkR4jt2UhQZwKn/VFnUKMiGTodw==",
         "dependencies": {
           "Ardalis.SmartEnum.SystemTextJson": "8.1.0",
-          "CraftersCloud.Core.SmartEnums": "1.0.21-alpha.0.6",
+          "CraftersCloud.Core.SmartEnums": "1.0.21-alpha.0.7",
           "JetBrains.Annotations": "2024.3.0"
         }
       },
       "CraftersCloud.Core.Swagger": {
         "type": "CentralTransitive",
-        "requested": "[1.0.21-alpha.0.6, )",
-        "resolved": "1.0.21-alpha.0.6",
-        "contentHash": "j1MsCXukifGo3TLKHSkQRVAlHAedo2d2QkxmVKp+/7ZrhMQWer45Bcr52PLR31Bttmi762KqlxUJGA/fzhUCIQ==",
+        "requested": "[1.0.21-alpha.0.7, )",
+        "resolved": "1.0.21-alpha.0.7",
+        "contentHash": "oaetxNvPODHdGetsFP3CM9uKzd5ZbDzFs9RFW7PsY3+xMZoToOrAuuaKTsQes5kIg4arvmQVRtQ8GiULbTsFoQ==",
         "dependencies": {
           "JetBrains.Annotations": "2024.3.0",
           "Microsoft.AspNetCore.Mvc.Abstractions": "2.2.0",

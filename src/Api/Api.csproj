@@ -45,8 +45,4 @@
     <Using Include="Microsoft.EntityFrameworkCore" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Endpoints\ComplexExamples\" />
-  </ItemGroup>
-
 </Project>

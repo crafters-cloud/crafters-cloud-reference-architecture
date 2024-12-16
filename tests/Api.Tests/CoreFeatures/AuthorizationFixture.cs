@@ -2,13 +2,13 @@
 using System.Net.Http.Json;
 using CraftersCloud.Core.AspNetCore.TestUtilities.Http;
 using CraftersCloud.Core.Entities;
+using CraftersCloud.ReferenceArchitecture.Api.Endpoints.ComplexExamples.Users;
 using CraftersCloud.ReferenceArchitecture.Api.Tests.Infrastructure.Api;
 using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Tests.Impersonation;
 using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
-using CreateUser = CraftersCloud.ReferenceArchitecture.Api.Endpoints.SimpleExamples.Users.CreateUser;
 
 namespace CraftersCloud.ReferenceArchitecture.Api.Tests.CoreFeatures;
 
