@@ -1,4 +1,5 @@
-﻿using CraftersCloud.ReferenceArchitecture.Domain.Users;
+﻿using CraftersCloud.ReferenceArchitecture.Api.MinimalApi;
+using CraftersCloud.ReferenceArchitecture.Domain.Users;
 using CraftersCloud.ReferenceArchitecture.Domain.Users.Commands;
 
 namespace CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users;
@@ -14,7 +15,7 @@ public static partial class CreateUser
     {
         var command = UpdateUserRequestMapper.ToCommand(request);
         var commandResult = await sender.Send(command, cancellationToken);
-        var results = commandResult.ToMinimalApiResult();
+        var results = commandResult.ToMinimalApiResult(user => $"/users/{user.Id}");
         return results;
     }
 

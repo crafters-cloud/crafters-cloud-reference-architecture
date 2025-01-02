@@ -1,4 +1,5 @@
-﻿using CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Init;
+﻿
+using CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Init;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Configuration;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.KeyVault;
 using Serilog;

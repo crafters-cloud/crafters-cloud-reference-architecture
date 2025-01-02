@@ -15,10 +15,11 @@ public static partial class GetUsers
     }
 
     [UsedImplicitly]
-    public class RequestValidator : PagedRequestValidator<Request, Response.Item>
+    public class Validator : AbstractValidator<Request>
     {
-        public RequestValidator()
+        public Validator()
         {
+            this.AddPagedQueryRules();
             RuleFor(x => x.Name).MaximumLength(100);
             RuleFor(x => x.Email).MaximumLength(100);
         }

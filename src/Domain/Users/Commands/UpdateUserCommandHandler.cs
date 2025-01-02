@@ -1,6 +1,6 @@
 ﻿using CraftersCloud.Core.Data;
 using CraftersCloud.Core.Entities;
-using CraftersCloud.Core.Messaging.CommandResults;
+using CraftersCloud.ReferenceArchitecture.Core.CommandResults;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 

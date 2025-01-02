@@ -1,4 +1,4 @@
-﻿using CraftersCloud.ReferenceArchitecture.Api.Mapping;
+﻿using CraftersCloud.ReferenceArchitecture.Api.MinimalApi;
 using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
 using CraftersCloud.ReferenceArchitecture.Domain.Identity;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;

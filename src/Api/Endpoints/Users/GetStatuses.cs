@@ -1,4 +1,4 @@
-﻿using CraftersCloud.ReferenceArchitecture.Api.Mapping;
+﻿using CraftersCloud.ReferenceArchitecture.Api.MinimalApi;
 using CraftersCloud.ReferenceArchitecture.Api.Models;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
 
@@ -7,7 +7,7 @@ namespace CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users;
 public static class GetStatuses
 {
     [PublicAPI]
-    public class Response : ItemsListResponse<KeyValuePairDto<int>>;
+    public class Response : ItemsResponse<KeyValuePairDto<int>>;
 
     public static async Task<Ok<Response>> Handle(
         IRepository<UserStatus, UserStatusId> roleRepository,
@@ -20,6 +20,6 @@ public static class GetStatuses
             .OrderBy(r => r.Value)
             .ToListAsync(cancellationToken);
 
-        return items.ToMinimalApiResult<Response>();
+        return items.ToMinimalApiResult<int, Response>();
     }
 }

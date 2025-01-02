@@ -1,7 +1,7 @@
 <Project>
   <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-    <CraftersCloudVersion>1.0.21-alpha.0.6</CraftersCloudVersion>
+    <CraftersCloudVersion>1.0.21-alpha.0.8</CraftersCloudVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageVersion Include="Ardalis.Result" Version="10.1.0" />

@@ -1,5 +1,5 @@
 ﻿using CraftersCloud.Core.Data;
-using CraftersCloud.Core.Messaging.CommandResults;
+using CraftersCloud.ReferenceArchitecture.Core.CommandResults;
 using MediatR;
 
 namespace CraftersCloud.ReferenceArchitecture.Domain.Users.Commands;

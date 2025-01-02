@@ -1,4 +1,4 @@
-﻿using CraftersCloud.ReferenceArchitecture.Api.Mapping;
+﻿using CraftersCloud.ReferenceArchitecture.Api.MinimalApi;
 using CraftersCloud.ReferenceArchitecture.Api.Models;
 using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
 
@@ -6,7 +6,7 @@ namespace CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users;
 
 public static class GetRoles
 {
-    public class Response : ItemsListResponse<KeyValuePairDto<Guid>>;
+    public class Response : ItemsResponse<KeyValuePairDto<Guid>>;
 
     [UsedImplicitly]
     public static async Task<Ok<Response>> Handle(IRepository<Role> roleRepository,
@@ -19,6 +19,6 @@ public static class GetRoles
             .Select(r => new KeyValuePairDto<Guid> { Key = r.Id, Value = r.Name })
             .ToListAsync(cancellationToken);
 
-        return items.ToMinimalApiResult<Response>();
+        return items.ToMinimalApiResult<Guid, Response>();
     }
 }

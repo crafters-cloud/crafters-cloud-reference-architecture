@@ -1,8 +1,8 @@
 ﻿namespace CraftersCloud.ReferenceArchitecture.Api.Models;
 
 [PublicAPI]
-public class KeyValuePairDto<T>
+public class KeyValuePairDto<TKey>
 {
-    public required T Key { get; set; }
+    public required TKey Key { get; set; }
     public string Value { get; set; } = string.Empty;
 }

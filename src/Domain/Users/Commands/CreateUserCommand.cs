@@ -1,6 +1,6 @@
 ﻿using CraftersCloud.Core.Data;
 using CraftersCloud.Core.Messaging;
-using CraftersCloud.Core.Messaging.CommandResults;
+using CraftersCloud.ReferenceArchitecture.Core.CommandResults;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
