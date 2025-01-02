@@ -3,7 +3,7 @@ using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
 using CraftersCloud.ReferenceArchitecture.Domain.Identity;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
 
-namespace CraftersCloud.ReferenceArchitecture.Api.Endpoints.SimpleExamples.Identity;
+namespace CraftersCloud.ReferenceArchitecture.Api.Endpoints.Identity;
 
 public static partial class GetUserProfile
 {

@@ -1,7 +1,7 @@
 ﻿using CraftersCloud.ReferenceArchitecture.Api.Mapping;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
 
-namespace CraftersCloud.ReferenceArchitecture.Api.Endpoints.SimpleExamples.Users;
+namespace CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users;
 
 public static partial class GetUserDetails
 {

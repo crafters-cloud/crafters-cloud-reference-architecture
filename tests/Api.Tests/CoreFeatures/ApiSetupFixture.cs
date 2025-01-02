@@ -2,15 +2,14 @@
 using System.Net.Http.Json;
 using CraftersCloud.Core.AspNetCore.TestUtilities.Http;
 using CraftersCloud.Core.Paging;
+using CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users;
 using CraftersCloud.ReferenceArchitecture.Api.Tests.Infrastructure.Api;
 using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
 using CraftersCloud.ReferenceArchitecture.Domain.Tests.Users;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
 using FluentAssertions;
-using CreateUser = CraftersCloud.ReferenceArchitecture.Api.Endpoints.SimpleExamples.Users.CreateUser;
-using GetUserDetails = CraftersCloud.ReferenceArchitecture.Api.Endpoints.SimpleExamples.Users.GetUserDetails;
-using GetUsers = CraftersCloud.ReferenceArchitecture.Api.Endpoints.SimpleExamples.Users.GetUsers;
-using UpdateUser = CraftersCloud.ReferenceArchitecture.Api.Endpoints.SimpleExamples.Users.UpdateUser;
+using GetUsers = CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users.GetUsers;
+using UpdateUser = CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users.UpdateUser;
 
 namespace CraftersCloud.ReferenceArchitecture.Api.Tests.CoreFeatures;
 

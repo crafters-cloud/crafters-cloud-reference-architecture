@@ -1,6 +1,6 @@
 ﻿using CraftersCloud.Core.AspNetCore.TestUtilities.Http;
 using CraftersCloud.ReferenceArchitecture.Api.Tests.Infrastructure.Api;
-using GetUserProfile = CraftersCloud.ReferenceArchitecture.Api.Endpoints.SimpleExamples.Identity.GetUserProfile;
+using GetUserProfile = CraftersCloud.ReferenceArchitecture.Api.Endpoints.Identity.GetUserProfile;
 
 namespace CraftersCloud.ReferenceArchitecture.Api.Tests.Features;
 

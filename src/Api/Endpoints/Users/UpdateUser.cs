@@ -1,8 +1,7 @@
-﻿using CraftersCloud.Core.Messaging.CommandResults;
-using CraftersCloud.ReferenceArchitecture.Domain.Users;
+﻿using CraftersCloud.ReferenceArchitecture.Domain.Users;
 using CraftersCloud.ReferenceArchitecture.Domain.Users.Commands;
 
-namespace CraftersCloud.ReferenceArchitecture.Api.Endpoints.ComplexExamples.Users;
+namespace CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users;
 
 public static partial class UpdateUser
 {

@@ -2,7 +2,7 @@
 using CraftersCloud.ReferenceArchitecture.Api.Models;
 using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
 
-namespace CraftersCloud.ReferenceArchitecture.Api.Endpoints.ComplexExamples.Users;
+namespace CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users;
 
 public static class GetRoles
 {

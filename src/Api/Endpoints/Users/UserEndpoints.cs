@@ -1,7 +1,7 @@
 ﻿using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Security;
 
-namespace CraftersCloud.ReferenceArchitecture.Api.Endpoints.SimpleExamples.Users;
+namespace CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users;
 
 [UsedImplicitly]
 public class UserEndpoints : IEndpoint

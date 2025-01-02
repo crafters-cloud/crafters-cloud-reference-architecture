@@ -3,7 +3,7 @@ using CraftersCloud.ReferenceArchitecture.Api.Models;
 using CraftersCloud.ReferenceArchitecture.Domain.Identity;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
 
-namespace CraftersCloud.ReferenceArchitecture.Api.Endpoints.ComplexExamples.Users;
+namespace CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users;
 
 public static partial class GetUsers
 {

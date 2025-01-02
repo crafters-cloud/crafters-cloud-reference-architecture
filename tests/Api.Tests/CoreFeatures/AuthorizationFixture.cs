@@ -8,7 +8,7 @@ using CraftersCloud.ReferenceArchitecture.Domain.Users;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Tests.Impersonation;
 using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
-using CreateUser = CraftersCloud.ReferenceArchitecture.Api.Endpoints.SimpleExamples.Users.CreateUser;
+using CreateUser = CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users.CreateUser;
 
 namespace CraftersCloud.ReferenceArchitecture.Api.Tests.CoreFeatures;
 

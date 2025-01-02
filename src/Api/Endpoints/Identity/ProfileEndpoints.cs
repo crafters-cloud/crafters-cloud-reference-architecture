@@ -1,7 +1,6 @@
-﻿namespace CraftersCloud.ReferenceArchitecture.Api.Endpoints.SimpleExamples.Identity;
+﻿namespace CraftersCloud.ReferenceArchitecture.Api.Endpoints.Identity;
 
 [UsedImplicitly]
-
 public class ProfileEndpoints : IEndpoint
 {
     public void MapEndpoint(IEndpointRouteBuilder app)
@@ -9,7 +8,7 @@ public class ProfileEndpoints : IEndpoint
         var group = app.MapGroup("profile")
             .RequireAuthorization()
             .WithGroupName("Profile");
-        
+
         group.MapGet("/", GetUserProfile.Handle);
     }
 }

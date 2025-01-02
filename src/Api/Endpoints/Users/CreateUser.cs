@@ -1,7 +1,7 @@
 ﻿using CraftersCloud.ReferenceArchitecture.Domain.Users;
 using CraftersCloud.ReferenceArchitecture.Domain.Users.Commands;
 
-namespace CraftersCloud.ReferenceArchitecture.Api.Endpoints.SimpleExamples.Users;
+namespace CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users;
 
 public static partial class CreateUser
 {
