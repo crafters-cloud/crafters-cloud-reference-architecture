@@ -4,7 +4,6 @@ using CraftersCloud.ReferenceArchitecture.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -12,11 +11,9 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241116154523_SeedData")]
-    partial class SeedData
+    partial class AppDbContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -96,7 +93,12 @@ namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
-                    b.Property<string>("FullName")
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("LastName")
                         .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
@@ -135,7 +137,8 @@ namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Migrations
                             CreatedById = new Guid("dfb44aa8-bfc9-4d95-8f45-ed6da241dcfc"),
                             CreatedOn = new DateTimeOffset(new DateTime(2024, 3, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             EmailAddress = "N/A",
-                            FullName = "System User",
+                            FirstName = "System",
+                            LastName = "User",
                             RoleId = new Guid("028e686d-51de-4dd9-91e9-dfb5ddde97d0"),
                             UpdatedById = new Guid("dfb44aa8-bfc9-4d95-8f45-ed6da241dcfc"),
                             UpdatedOn = new DateTimeOffset(new DateTime(2024, 3, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),

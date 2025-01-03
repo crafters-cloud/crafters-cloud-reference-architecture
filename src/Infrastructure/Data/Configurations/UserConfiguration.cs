@@ -11,7 +11,8 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
     public void Configure(EntityTypeBuilder<User> builder)
     {
         builder.Property(u => u.EmailAddress).IsRequired().HasMaxLength(User.EmailAddressMaxLength);
-        builder.Property(u => u.FullName).IsRequired().HasMaxLength(User.NameMaxLength);
+        builder.Property(u => u.FirstName).IsRequired().HasMaxLength(User.FirstNameMaxLength);
+        builder.Property(u => u.LastName).IsRequired().HasMaxLength(User.LastNameMaxLength);
         builder.Property(u => u.RoleId).IsRequired();
         builder.Property(u => u.CreatedOn).IsRequired();
 

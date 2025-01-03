@@ -9,17 +9,19 @@ public static partial class UpdateUser
     public sealed record Request(
         Guid Id,
         string EmailAddress,
-        string FullName,
+        string FirstName,
+        string LastName,
         Guid RoleId,
         UserStatusId UserStatusId);
 
     public static async Task<Results<NoContent, NotFound, BadRequest<ValidationProblemDetails>>> Handle([FromBody] Request request,
         ISender sender,
+        HttpContext context,
         CancellationToken cancellationToken)
     {
         var command = UpdateUserRequestMapper.ToCommand(request);
         var commandResult = await sender.Send(command, cancellationToken);
-        return commandResult.ToMinimalApiResult();
+        return commandResult.ToMinimalApiResult(context);
     }
 
     [Mapper]

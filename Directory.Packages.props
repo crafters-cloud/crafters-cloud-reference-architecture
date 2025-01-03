@@ -1,14 +1,11 @@
 <Project>
   <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-    <CraftersCloudVersion>1.0.21-alpha.0.8</CraftersCloudVersion>
+    <CraftersCloudVersion>1.0.27</CraftersCloudVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageVersion Include="Ardalis.Result" Version="10.1.0" />
-    <PackageVersion Include="Ardalis.Result.AspNetCore" Version="10.1.0" />
-    <PackageVersion Include="Autofac" Version="8.1.1" />
+    <PackageVersion Include="Autofac" Version="8.2.0" />
     <PackageVersion Include="Autofac.Extensions.DependencyInjection" Version="10.0.0" />
-    <PackageVersion Include="AutoMapper" Version="13.0.1" />
     <PackageVersion Include="Azure.Extensions.AspNetCore.Configuration.Secrets" Version="1.3.2" />
     <PackageVersion Include="coverlet.collector" Version="6.0.2">
       <PrivateAssets>all</PrivateAssets>
@@ -16,7 +13,6 @@
     </PackageVersion>
     <PackageVersion Include="CraftersCloud.Core" Version="$(CraftersCloudVersion)" />
     <PackageVersion Include="CraftersCloud.Core.AspNetCore" Version="$(CraftersCloudVersion)" />
-    <PackageVersion Include="CraftersCloud.Core.AspNetCore.TestUtilities" Version="$(CraftersCloudVersion)" />
     <PackageVersion Include="CraftersCloud.Core.EntityFramework" Version="$(CraftersCloudVersion)" />
     <PackageVersion Include="CraftersCloud.Core.EntityFramework.Infrastructure" Version="$(CraftersCloudVersion)" />
     <PackageVersion Include="CraftersCloud.Core.HealthChecks" Version="$(CraftersCloudVersion)" />
@@ -79,7 +75,7 @@
     <PackageVersion Include="Serilog.Sinks.Console" Version="6.0.0" />
     <PackageVersion Include="Serilog.Sinks.File" Version="6.0.0" />
     <PackageVersion Include="Testcontainers.MsSql" Version="4.0.0" />
-    <PackageVersion Include="Verify" Version="28.3.2" />
-    <PackageVersion Include="Verify.NUnit" Version="28.3.2" />
+    <PackageVersion Include="Verify" Version="28.7.0" />
+    <PackageVersion Include="Verify.NUnit" Version="28.7.0" />
   </ItemGroup>
 </Project>

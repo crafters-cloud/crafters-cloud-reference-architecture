@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Ardalis.Result" />
     <PackageReference Include="CraftersCloud.Core" />
     <PackageReference Include="CraftersCloud.Core.SmartEnums" />
     <PackageReference Include="OneOf" />

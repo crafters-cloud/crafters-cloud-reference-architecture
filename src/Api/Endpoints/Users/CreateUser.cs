@@ -6,16 +6,17 @@ namespace CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users;
 
 public static partial class CreateUser
 {
-    public sealed record Request(string EmailAddress, string FullName, Guid RoleId, UserStatusId UserStatusId);
+    public sealed record Request(string EmailAddress, string FirstName, string LastName, Guid RoleId, UserStatusId UserStatusId);
 
     public static async Task<Results<Created<User>, BadRequest<ValidationProblemDetails>>> Handle(
         [FromBody] Request request,
+        HttpContext httpContext,
         ISender sender,
         CancellationToken cancellationToken)
     {
         var command = UpdateUserRequestMapper.ToCommand(request);
         var commandResult = await sender.Send(command, cancellationToken);
-        var results = commandResult.ToMinimalApiResult(user => $"/users/{user.Id}");
+        var results = commandResult.ToMinimalApiResult(httpContext, user => $"/users/{user.Id}");
         return results;
     }
 

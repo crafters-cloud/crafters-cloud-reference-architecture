@@ -1,5 +1,4 @@
 ﻿using System.Net;
-using CraftersCloud.Core.AspNetCore.TestUtilities.Http;
 using CraftersCloud.Core.Paging;
 using CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users;
 using CraftersCloud.ReferenceArchitecture.Api.Tests.Infrastructure.Api;
@@ -18,7 +17,7 @@ namespace CraftersCloud.ReferenceArchitecture.Api.Tests.Endpoints;
 // Basic example of an integration test.
 // For every public api method add appropriate test.
 // Integration tests should be used for happy flows.
-// For un-happy flows (e.g. edge cases), or complex business rules
+// For non-happy flows (e.g. edge cases), or complex business rules
 // write unit tests.
 public class UserEndpointsFixture : IntegrationFixtureBase
 {
@@ -29,7 +28,8 @@ public class UserEndpointsFixture : IntegrationFixtureBase
     {
         _user = new UserBuilder()
             .WithEmailAddress("john_doe@john.doe")
-            .WithFullName("John Doe")
+            .WithFirstName("John")
+            .WithLastName("Doe")
             .WithRoleId(Role.SystemAdminRoleId)
             .WithStatusId(UserStatusId.Active);
 
@@ -71,7 +71,8 @@ public class UserEndpointsFixture : IntegrationFixtureBase
     {
         var request = new CreateUser.Request(
             "someuser@test.com",
-            "some user",
+            "some",
+            "user",
             Role.SystemAdminRoleId,
             UserStatusId.Active
         );
@@ -86,12 +87,13 @@ public class UserEndpointsFixture : IntegrationFixtureBase
         var request = new UpdateUser.Request(
             _user.Id,
             "someuser@test.com",
-            "some user",
+            "some",
+            "user",
             Role.SystemAdminRoleId,
             UserStatusId.Inactive
         );
         var response = await Client.Request("users").PutJsonAsync(request);
-        response.StatusCode.Should().Be((int)HttpStatusCode.NoContent);
+        response.StatusCode.Should().Be((int) HttpStatusCode.NoContent);
         var user = QueryByIdSkipCache<User>(_user.Id);
         await Verify(user);
     }

@@ -1,0 +1,12 @@
+﻿{
+  Errors: {
+    emailAddress: [
+      'email Address' is not a valid email address.
+    ]
+  },
+  Type: https://tools.ietf.org/html/rfc9110#section-15.5.1,
+  Title: One or more validation errors occurred.,
+  Status: 400,
+  Detail: Please refer to the errors property for additional details.,
+  Instance: /users
+}

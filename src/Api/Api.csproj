@@ -14,7 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Ardalis.Result.AspNetCore" />
     <PackageReference Include="CraftersCloud.Core.HealthChecks" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" />
   </ItemGroup>
@@ -33,7 +32,6 @@
   <ItemGroup>
     <Using Include="FluentValidation" />
     <Using Include="MediatR" />
-    <Using Include="Ardalis.Result.AspNetCore" />
     <Using Include="Microsoft.AspNetCore.Mvc" />
     <Using Include="Riok.Mapperly.Abstractions" />
     <Using Include="CraftersCloud.Core" />

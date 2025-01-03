@@ -7,7 +7,6 @@
   <Import Project="..\..\Tests.Build.props" />
 
   <ItemGroup>
-    <PackageReference Include="CraftersCloud.Core.AspNetCore.TestUtilities" />
     <PackageReference Include="CraftersCloud.Core.SmartEnums.VerifyTests" />
   </ItemGroup>
   <ItemGroup>

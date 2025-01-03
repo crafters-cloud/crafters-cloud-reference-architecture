@@ -10,10 +10,9 @@ public static class FluentValidationStartupExtensions
     public static void AppConfigureFluentValidation(this IApplicationBuilder _) =>
         ValidatorOptions.Global.PropertyNameResolver = CamelCasePropertyNameResolver.ResolvePropertyName;
 
-    public static IServiceCollection AppAddFluentValidation(this IServiceCollection services,
-        ServiceLifetime serviceLifetime) =>
+    public static IServiceCollection AppAddFluentValidation(this IServiceCollection services) =>
         services.AddValidatorsFromAssemblies(
         [
             AssemblyFinder.DomainAssembly, AssemblyFinder.ApplicationAssembly
-        ], serviceLifetime);
+        ], ServiceLifetime.Singleton);
 }

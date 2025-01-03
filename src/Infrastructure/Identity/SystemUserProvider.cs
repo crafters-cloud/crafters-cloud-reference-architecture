@@ -1,6 +1,7 @@
 ﻿using CraftersCloud.Core.Data;
 using CraftersCloud.Core.Entities;
 using CraftersCloud.ReferenceArchitecture.Domain.Identity;
+using CraftersCloud.ReferenceArchitecture.Domain.Users;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using DomainUser = CraftersCloud.ReferenceArchitecture.Domain.Users.User;
@@ -26,9 +27,8 @@ public class SystemUserProvider(IRepository<DomainUser> userRepository, ILogger<
             var user = userRepository
                 .QueryAll()
                 .QueryById(UserId!.Value)
-                .BuildAggregateInclude()
+                .IncludeAggregate()
                 .AsNoTracking()
-                .AsSplitQuery()
                 .SingleOrDefault();
 
             if (user == null)

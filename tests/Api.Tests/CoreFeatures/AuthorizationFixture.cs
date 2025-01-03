@@ -1,6 +1,4 @@
 ﻿using System.Net;
-using System.Net.Http.Json;
-using CraftersCloud.Core.AspNetCore.TestUtilities.Http;
 using CraftersCloud.Core.Entities;
 using CraftersCloud.ReferenceArchitecture.Api.Tests.Infrastructure.Api;
 using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
@@ -30,7 +28,7 @@ public class AuthorizationFixture : IntegrationFixtureBase
     public async Task UserWithPermissionIsAllowed()
     {
         var response = await Client.Request("users").GetAsync();
-        response.StatusCode.Should().Be((int)HttpStatusCode.OK);
+        response.StatusCode.Should().Be((int) HttpStatusCode.OK);
     }
 
     [Test]
@@ -38,9 +36,10 @@ public class AuthorizationFixture : IntegrationFixtureBase
     {
         await UpdateCurrentUserToRole(_roleWithUsersReadPermission!);
         var request =
-            new CreateUser.Request("someuser@test.com", "some user", Role.SystemAdminRoleId, UserStatusId.Active);
-        var response = await Client.Request("users").AllowHttpStatus((int)HttpStatusCode.Forbidden).PostJsonAsync(request);
-        response.StatusCode.Should().Be((int)HttpStatusCode.Forbidden);
+            new CreateUser.Request("someuser@test.com", "some", "user", Role.SystemAdminRoleId, UserStatusId.Active);
+        var response = await Client.Request("users").AllowHttpStatus((int) HttpStatusCode.Forbidden)
+            .PostJsonAsync(request);
+        response.StatusCode.Should().Be((int) HttpStatusCode.Forbidden);
     }
 
     [Test]
@@ -48,15 +47,15 @@ public class AuthorizationFixture : IntegrationFixtureBase
     {
         await UpdateCurrentUserToRole(_roleWithNonePermission!);
 
-        var response = await Client.Request("users").AllowHttpStatus((int)HttpStatusCode.Forbidden).GetAsync();
-        response.StatusCode.Should().Be((int)HttpStatusCode.Forbidden);
+        var response = await Client.Request("users").AllowHttpStatus((int) HttpStatusCode.Forbidden).GetAsync();
+        response.StatusCode.Should().Be((int) HttpStatusCode.Forbidden);
     }
 
     [Test]
     public async Task EndpointWithoutAuthorizeAttributeIsAllowed()
     {
         var response = await Client.Request("profile").GetAsync();
-        response.StatusCode.Should().Be((int)HttpStatusCode.OK);
+        response.StatusCode.Should().Be((int) HttpStatusCode.OK);
     }
 
     [TearDown]

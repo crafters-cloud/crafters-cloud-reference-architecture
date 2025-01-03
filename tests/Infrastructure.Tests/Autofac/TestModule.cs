@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using CraftersCloud.Core;
+using CraftersCloud.Core.TestUtilities;
 
 namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Tests.Autofac;
 
@@ -7,8 +8,8 @@ namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Tests.Autofac;
 public class TestModule : Module
 {
     protected override void Load(ContainerBuilder builder) =>
-        builder.RegisterType<SettableTimeProvider>()
+        builder.RegisterType<TestTimeProvider>()
             .As<ITimeProvider>()
-            .AsSelf()
+            .As<TestTimeProvider>()
             .SingleInstance();
 }

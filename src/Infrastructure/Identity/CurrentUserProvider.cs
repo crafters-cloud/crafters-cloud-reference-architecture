@@ -40,8 +40,8 @@ public class CurrentUserProvider(
 
             var user = userRepository
                 .QueryAll()
-                .QueryByEmailAddress(claimsProvider.Email)
-                .BuildAggregateInclude()
+                .QueryByEmail(claimsProvider.Email)
+                .IncludeAggregate()
                 .AsNoTracking()
                 .AsSplitQuery()
                 .SingleOrDefault();

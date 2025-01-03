@@ -14,7 +14,8 @@ internal class UserSeeding : ISeeding
         {
             Id = User.SystemUserId,
             EmailAddress = "N/A",
-            FullName = "System User",
+            FirstName = "System",
+            LastName = "User",
             RoleId = Role.SystemAdminRoleId,
             CreatedById = User.SystemUserId,
             CreatedOn = asOf,

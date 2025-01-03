@@ -1,6 +1,7 @@
-﻿using CraftersCloud.Core;
-using CraftersCloud.Core.AspNetCore.TestUtilities.Http;
+﻿using System.Text.Json;
+using CraftersCloud.Core;
 using CraftersCloud.Core.Entities;
+using CraftersCloud.Core.TestUtilities;
 using CraftersCloud.ReferenceArchitecture.Infrastructure;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Init;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Data;
@@ -41,15 +42,12 @@ public class IntegrationFixtureBase
         var scopeFactory = _factory.Services.GetRequiredService<IServiceScopeFactory>();
         _testScope = scopeFactory.CreateScope();
         var httpClient = _factory.CreateClient();
-        Client = new FlurlClient(httpClient).WithSettings(settings =>
-            settings.JsonSerializer = new DefaultJsonSerializer(HttpSerializationOptions.Options));
+        Client = CreateFlurlClient(httpClient);
 
         var dbContext = Resolve<DbContext>();
         await TestDatabase.ResetAsync(dbContext);
 
         SeedTestUsers();
-
-        AddApiJsonConverters();
     }
 
     protected void DisableUserAuthentication() => _isUserAuthenticated = false;
@@ -80,18 +78,7 @@ public class IntegrationFixtureBase
         var dbContext = Resolve<DbContext>();
         dbContext.AddRange(entities);
     }
-
-    private static void AddApiJsonConverters()
-    {
-        var options = HttpSerializationOptions.Options;
-        if (options.IsReadOnly)
-        {
-            return;
-        }
-
-        options.Converters.AppRegisterJsonConverters([AssemblyFinder.ApiAssembly]);
-    }
-
+    
     protected Task SaveChangesAsync() => Resolve<DbContext>().SaveChangesAsync();
 
     protected IQueryable<T> QueryDb<T>() where T : class => Resolve<DbContext>().Set<T>();
@@ -108,9 +95,17 @@ public class IntegrationFixtureBase
 
     protected T Resolve<T>() where T : notnull => _testScope.Resolve<T>();
 
-    protected void SetFixedUtcNow(DateTimeOffset value)
+    protected void SetNow(DateTimeOffset value)
     {
-        var settableTimeProvider = Resolve<SettableTimeProvider>();
+        var settableTimeProvider = Resolve<TestTimeProvider>();
         settableTimeProvider.SetNow(value);
     }
+    
+    private static FlurlClient CreateFlurlClient(HttpClient httpClient) =>
+        new FlurlClient(httpClient).WithSettings(settings =>
+        {
+            var options = new JsonSerializerOptions(JsonSerializerDefaults.Web);
+            options.Converters.AppRegisterJsonConverters([AssemblyFinder.ApiAssembly]);
+            settings.JsonSerializer = new DefaultJsonSerializer(options);
+        });
 }

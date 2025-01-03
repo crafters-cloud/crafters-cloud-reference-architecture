@@ -1,0 +1,15 @@
+﻿{
+  Errors: {
+    firstName: [
+      'first Name' must not be empty.
+    ],
+    lastName: [
+      'last Name' must not be empty.
+    ]
+  },
+  Type: https://tools.ietf.org/html/rfc9110#section-15.5.1,
+  Title: One or more validation errors occurred.,
+  Status: 400,
+  Detail: Please refer to the errors property for additional details.,
+  Instance: /users
+}

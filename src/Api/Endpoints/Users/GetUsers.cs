@@ -33,7 +33,8 @@ public static partial class GetUsers
         {
             public Guid Id { get; set; }
             public string EmailAddress { get; set; } = string.Empty;
-            public string FullName { get; set; } = string.Empty;
+            public string FirstName { get; set; } = string.Empty;
+            public string LastName { get; set; } = string.Empty;
             public string UserStatusName { get; set; } = string.Empty;
             public DateTimeOffset CreatedOn { get; set; }
             public DateTimeOffset UpdatedOn { get; set; }
@@ -53,8 +54,8 @@ public static partial class GetUsers
         var query = repository.QueryAll()
             .Include(u => u.UserStatus)
             .AsNoTracking()
-            .QueryByName(request.Name)
-            .QueryByEmail(request.Email);
+            .QueryByNameOptional(request.Name)
+            .QueryByEmailOptional(request.Email);
 
         var items = await ResponseItemQueryMapper.ProjectTo(query)
             .ToPagedResponseAsync(request, cancellationToken);

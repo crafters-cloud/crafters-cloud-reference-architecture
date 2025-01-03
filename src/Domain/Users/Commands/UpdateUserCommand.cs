@@ -13,7 +13,8 @@ public class UpdateUserCommand : ICommand<UpdateCommandResult<User>>
 {
     public Guid Id { get; set; }
     public string EmailAddress { get; set; } = string.Empty;
-    public string FullName { get; set; } = string.Empty;
+    public string FirstName { get; set; } = string.Empty;
+    public string LastName { get; set; } = string.Empty;
     public Guid RoleId { get; set; }
     public UserStatusId UserStatusId { get; set; } = UserStatusId.Active;
 
@@ -27,7 +28,8 @@ public class UpdateUserCommand : ICommand<UpdateCommandResult<User>>
             _scopeFactory = scopeFactory;
             RuleFor(x => x.EmailAddress).NotEmpty().MaximumLength(User.EmailAddressMaxLength).EmailAddress();
             RuleFor(x => x.EmailAddress).MustAsync(UniqueEmailAddress).WithMessage("EmailAddress is already taken");
-            RuleFor(x => x.FullName).NotEmpty().MaximumLength(User.NameMaxLength);
+            RuleFor(x => x.FirstName).NotEmpty().MaximumLength(User.FirstNameMaxLength);
+            RuleFor(x => x.LastName).NotEmpty().MaximumLength(User.LastNameMaxLength);
             RuleFor(x => x.RoleId).NotEmpty();
         }
 
@@ -36,7 +38,7 @@ public class UpdateUserCommand : ICommand<UpdateCommandResult<User>>
             using var scope = _scopeFactory.CreateScope();
             var userRepository = scope.Resolve<IRepository<User>>();
             return !await userRepository.QueryAll()
-                .QueryByEmailAddress(name)
+                .QueryByEmail(name)
                 .AnyAsync(ct);
         }
     }

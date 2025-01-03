@@ -25,7 +25,8 @@ public class ApiSetupFixture : IntegrationFixtureBase
     {
         _user = new UserBuilder()
             .WithEmailAddress("john_doe@john.doe")
-            .WithFullName("John Doe")
+            .WithFirstName("John")
+            .WithLastName("Doe")
             .WithRoleId(Role.SystemAdminRoleId)
             .WithStatusId(UserStatusId.Active);
 
@@ -59,7 +60,9 @@ public class ApiSetupFixture : IntegrationFixtureBase
     public async Task CreateUser()
     {
         var request = new CreateUser.Request(
-            "someuser@test.com", "some user",
+            "someuser@test.com",
+            "some",
+            "user",
             Role.SystemAdminRoleId,
             UserStatusId.Inactive);
 
@@ -73,8 +76,9 @@ public class ApiSetupFixture : IntegrationFixtureBase
     public async Task UpdateUser()
     {
         var request = new UpdateUser.Request(
-            _user.Id,
-            FullName: "some user",
+            Id: _user.Id,
+            FirstName: "some",
+            LastName: "user",
             EmailAddress: "someuser@test.com",
             RoleId: Role.SystemAdminRoleId,
             UserStatusId: UserStatusId.Inactive
@@ -85,16 +89,17 @@ public class ApiSetupFixture : IntegrationFixtureBase
         await Verify(user);
     }
 
-    [TestCase("some user", "invalid email", TestName = "InvalidEmail")]
-    [TestCase("", "someuser@test.com", TestName = "MissingName")]
-    [TestCase("some user", "", TestName = "MissingEmail")]
-    [TestCase("John Doe", "john_doe@john.doe", TestName = "EmailAddressAlreadyTaken")]
-    public async Task CreateReturnsValidationErrors(string name,
+    [TestCase("some", "user", "invalid email", TestName = "InvalidEmail")]
+    [TestCase("", "", "someuser@test.com", TestName = "MissingName")]
+    [TestCase("some", "user", "", TestName = "MissingEmail")]
+    [TestCase("John", "Doe", "john_doe@john.doe", TestName = "EmailAddressAlreadyTaken")]
+    public async Task CreateReturnsValidationErrors(string firstName, string lastName,
         string emailAddress)
     {
         var request = new CreateUser.Request(
             emailAddress,
-            name,
+            firstName,
+            lastName,
             Role.SystemAdminRoleId,
             UserStatusId.Inactive
         );

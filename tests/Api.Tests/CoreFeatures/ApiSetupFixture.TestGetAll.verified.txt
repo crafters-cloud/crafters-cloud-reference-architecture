@@ -3,7 +3,8 @@
     {
       Id: Guid_1,
       EmailAddress: john_doe@john.doe,
-      FullName: John Doe,
+      FirstName: John,
+      LastName: Doe,
       UserStatusName: Active,
       CreatedOn: DateTimeOffset_1,
       UpdatedOn: DateTimeOffset_1
@@ -11,7 +12,8 @@
     {
       Id: Guid_2,
       EmailAddress: N/A,
-      FullName: System User,
+      FirstName: System,
+      LastName: User,
       UserStatusName: Active,
       CreatedOn: DateTimeOffset_1,
       UpdatedOn: DateTimeOffset_1
@@ -19,7 +21,8 @@
     {
       Id: Guid_3,
       EmailAddress: test_user@xyz.com,
-      FullName: INTEGRATION_TEST,
+      FirstName: INTEGRATION,
+      LastName: TEST,
       UserStatusName: Active,
       CreatedOn: DateTimeOffset_1,
       UpdatedOn: DateTimeOffset_1

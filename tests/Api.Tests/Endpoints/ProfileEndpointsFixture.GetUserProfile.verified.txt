@@ -1,6 +1,7 @@
 ﻿{
   Id: Guid_1,
-  FullName: INTEGRATION_TEST,
+  FirstName: INTEGRATION,
+  LastName: TEST,
   EmailAddress: test_user@xyz.com,
   Permissions: [
     UsersRead,

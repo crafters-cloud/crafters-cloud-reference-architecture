@@ -16,11 +16,11 @@ public class UserQueryableExtensionsFixture
     {
         _user = new UserBuilder()
             .WithEmailAddress("emailAddress1")
-            .WithFullName("name")
+            .WithFirstName("name")
             .WithRoleId(Role.SystemAdminRoleId);
         _user2 = new UserBuilder()
             .WithEmailAddress("emailAddress2")
-            .WithFullName("name2")
+            .WithFirstName("name2")
             .WithRoleId(Role.SystemAdminRoleId);
 
         _query = new List<User> { _user, _user2 }.AsQueryable();
@@ -29,7 +29,7 @@ public class UserQueryableExtensionsFixture
     [Test]
     public void QueryEmptyList()
     {
-        var result = new List<User>().AsQueryable().QueryByEmailAddress("some").ToList();
+        var result = new List<User>().AsQueryable().QueryByEmail("some").ToList();
         result.Should().BeEmpty();
     }
 
@@ -41,7 +41,7 @@ public class UserQueryableExtensionsFixture
     public void TestQueryByEmailAddress(string emailAddress, int expectedCount)
     {
         //change to use expectedCount instead of Verify
-        var result = _query.QueryByEmailAddress(emailAddress).ToList();
+        var result = _query.QueryByEmail(emailAddress).ToList();
 
         result.Count.Should().Be(expectedCount);
     }

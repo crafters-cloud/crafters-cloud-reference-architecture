@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <RootNamespace>CraftersCloud.ReferenceArchitecture.Template</RootNamespace>
     <AssemblyName>CraftersCloud.ReferenceArchitecture.Template</AssemblyName>
   </PropertyGroup>
   <PropertyGroup>
     <Authors>Crafters Cloud</Authors>
-    <Copyright>Copyright © 2024 Crafters Cloud.</Copyright>
+    <Copyright>Copyright © 2025 Crafters Cloud.</Copyright>
     <Company>Crafters Cloud</Company>
     <ContentTargetFolders>content</ContentTargetFolders>
     <Description>Template to use when creating an Asp.net core Api application.</Description>
@@ -37,16 +37,6 @@
       Remove="**\bin\**;**\obj\**;**\dist\**;**\node_modules\**;.git\**;**\.vs\**;**\artifacts\**;**\_ReSharper.Caches\**;**\*.user;**\TestResults\**;.template.config\**" />
     <None
       Remove="**\bin\**;**\obj\**;**\dist\**;**\node_modules\**;.git\**;**\.vs\**;**\artifacts\**;**\_ReSharper.Caches\**;**\*.user;**\TestResults\**;.template.config\**" />
-    <Content Update="src\Application\Auditing\AuditableDomainEventNotificationHandler.cs">
-      <Link>src\ApplicationServices\Auditing\AuditableDomainEventNotificationHandler.cs</Link>
-    </Content>
-    <Content Update="src\Application\packages.lock.json">
-      <Link>src\ApplicationServices\packages.lock.json</Link>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="JetBrains.Annotations" />
   </ItemGroup>
 
 </Project>

@@ -1,8 +1,7 @@
 ﻿using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using CraftersCloud.Core.AspNetCore.Authorization;
-using CraftersCloud.Core.AspNetCore.Exceptions;
-using CraftersCloud.Core.AspNetCore.MinimalApi;
+using CraftersCloud.Core.AspNetCore.Errors;
 using CraftersCloud.Core.AspNetCore.Security;
 using CraftersCloud.Core.HealthChecks.Extensions;
 using CraftersCloud.Core.SmartEnums.Swagger;
@@ -36,7 +35,7 @@ public static class ProgramExtensions
         services.AddCoreHealthChecks(configuration)
             .AddDbContextCheck<AppDbContext>();
         services.AppAddMediatr([AssemblyFinder.ApiAssembly]);
-        services.AppAddFluentValidation(ServiceLifetime.Singleton);
+        services.AppAddFluentValidation();
         services.AddCoreHttps(env);
 
         services.AppAddAuthentication();

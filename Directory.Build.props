@@ -6,9 +6,11 @@
     <Features>strict</Features>
 
     <Authors>Srdjan Zivojinovic</Authors>
-    <Copyright>Copyright © 2024 Crafters Cloud</Copyright>
+    <Copyright>Copyright © 2025 Crafters Cloud</Copyright>
     <Company>Crafters Cloud</Company>
     <MinVerTagPrefix>v</MinVerTagPrefix>
+
+    <PackageIcon>icon-128x92.png</PackageIcon>
 
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>
@@ -21,6 +23,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations" />
     <PackageReference Include="MinVer">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -31,10 +34,7 @@
     <Using Include="JetBrains.Annotations" />
   </ItemGroup>
 
-  <!--  <ItemGroup>-->
-  <!--    <None Include="icon-192x192.png">-->
-  <!--      <Pack>True</Pack>-->
-  <!--      <PackagePath></PackagePath>-->
-  <!--    </None>-->
-  <!--  </ItemGroup>-->
+  <ItemGroup>
+    <None Include="icon-128x92.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
 </Project>
