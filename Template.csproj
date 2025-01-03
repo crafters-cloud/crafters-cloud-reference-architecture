@@ -39,4 +39,8 @@
       Remove="**\bin\**;**\obj\**;**\dist\**;**\node_modules\**;.git\**;**\.vs\**;**\artifacts\**;**\_ReSharper.Caches\**;**\*.user;**\TestResults\**;.template.config\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
 </Project>
