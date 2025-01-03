@@ -27,6 +27,7 @@
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
     <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
     <Title>Crafters Cloud Reference Architecture Template</Title>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
