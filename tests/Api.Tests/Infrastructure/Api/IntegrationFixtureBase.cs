@@ -8,6 +8,8 @@ using CraftersCloud.ReferenceArchitecture.Infrastructure.Tests;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Tests.Configuration;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Tests.Database;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Tests.Impersonation;
+using Flurl.Http;
+using Flurl.Http.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -21,7 +23,7 @@ public class IntegrationFixtureBase
     private IServiceScope _testScope = null!;
     private static ApiWebApplicationFactory _factory = null!;
     private bool _isUserAuthenticated = true;
-    protected HttpClient Client { get; private set; } = null!;
+    protected FlurlClient Client { get; private set; } = null!;
 
     [SetUp]
     protected async Task Setup()
@@ -38,7 +40,9 @@ public class IntegrationFixtureBase
 
         var scopeFactory = _factory.Services.GetRequiredService<IServiceScopeFactory>();
         _testScope = scopeFactory.CreateScope();
-        Client = _factory.CreateClient();
+        var httpClient = _factory.CreateClient();
+        Client = new FlurlClient(httpClient).WithSettings(settings =>
+            settings.JsonSerializer = new DefaultJsonSerializer(HttpSerializationOptions.Options));
 
         var dbContext = Resolve<DbContext>();
         await TestDatabase.ResetAsync(dbContext);

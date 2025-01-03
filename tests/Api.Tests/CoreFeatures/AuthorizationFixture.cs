@@ -7,6 +7,7 @@ using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Tests.Impersonation;
 using FluentAssertions;
+using Flurl.Http;
 using Microsoft.EntityFrameworkCore;
 using CreateUser = CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users.CreateUser;
 
@@ -28,8 +29,8 @@ public class AuthorizationFixture : IntegrationFixtureBase
     [Test]
     public async Task UserWithPermissionIsAllowed()
     {
-        var response = await Client.GetAsync("users");
-        response.StatusCode.Should().Be(HttpStatusCode.OK);
+        var response = await Client.Request("users").GetAsync();
+        response.StatusCode.Should().Be((int)HttpStatusCode.OK);
     }
 
     [Test]
@@ -38,8 +39,8 @@ public class AuthorizationFixture : IntegrationFixtureBase
         await UpdateCurrentUserToRole(_roleWithUsersReadPermission!);
         var request =
             new CreateUser.Request("someuser@test.com", "some user", Role.SystemAdminRoleId, UserStatusId.Active);
-        var response = await Client.PostAsJsonAsync("users", request, HttpSerializationOptions.Options);
-        response.StatusCode.Should().Be(HttpStatusCode.Forbidden);
+        var response = await Client.Request("users").AllowHttpStatus((int)HttpStatusCode.Forbidden).PostJsonAsync(request);
+        response.StatusCode.Should().Be((int)HttpStatusCode.Forbidden);
     }
 
     [Test]
@@ -47,15 +48,15 @@ public class AuthorizationFixture : IntegrationFixtureBase
     {
         await UpdateCurrentUserToRole(_roleWithNonePermission!);
 
-        var response = await Client.GetAsync("users");
-        response.StatusCode.Should().Be(HttpStatusCode.Forbidden);
+        var response = await Client.Request("users").AllowHttpStatus((int)HttpStatusCode.Forbidden).GetAsync();
+        response.StatusCode.Should().Be((int)HttpStatusCode.Forbidden);
     }
 
     [Test]
     public async Task EndpointWithoutAuthorizeAttributeIsAllowed()
     {
-        var response = await Client.GetAsync("profile");
-        response.StatusCode.Should().Be(HttpStatusCode.OK);
+        var response = await Client.Request("profile").GetAsync();
+        response.StatusCode.Should().Be((int)HttpStatusCode.OK);
     }
 
     [TearDown]

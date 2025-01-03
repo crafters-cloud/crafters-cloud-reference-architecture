@@ -1,5 +1,4 @@
 ﻿using System.Net;
-using System.Net.Http.Json;
 using CraftersCloud.Core.AspNetCore.TestUtilities.Http;
 using CraftersCloud.Core.Paging;
 using CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users;
@@ -8,10 +7,11 @@ using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
 using CraftersCloud.ReferenceArchitecture.Domain.Tests.Users;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
 using FluentAssertions;
+using Flurl.Http;
 using GetUsers = CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users.GetUsers;
 using UpdateUser = CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users.UpdateUser;
 
-namespace CraftersCloud.ReferenceArchitecture.Api.Tests.Features;
+namespace CraftersCloud.ReferenceArchitecture.Api.Tests.Endpoints;
 
 [Category("integration")]
 
@@ -39,35 +39,31 @@ public class UserEndpointsFixture : IntegrationFixtureBase
     [Test]
     public async Task GetAll()
     {
-        var users = (await Client.GetAsync<PagedQueryResponse<GetUsers.Response.Item>>(
-                new Uri("users", UriKind.RelativeOrAbsolute),
-                new KeyValuePair<string, string>("SortBy", "EmailAddress")))
-            ?.Items.ToList()!;
-
-        await Verify(users);
+        var response = await Client.Request("users").AppendQueryParam("SortBy", "EmailAddress")
+            .GetJsonAsync<PagedQueryResponse<GetUsers.Response.Item>>();
+        await Verify(response);
     }
 
     [Test]
     public async Task GetById()
     {
-        var user = await Client.GetAsync<GetUserDetails.Response>($"users/{_user.Id}");
-
-        await Verify(user);
+        var response = await Client.Request("users").AppendPathSegment(_user.Id)
+            .GetJsonAsync<GetUserDetails.Response>();
+        await Verify(response);
     }
 
     [Test]
     public async Task GetRoles()
     {
-        var roles = await Client.GetAsync<GetRoles.Response>($"users/roles");
-        await Verify(roles);
+        var response = await Client.Request("users").AppendPathSegment("roles").GetJsonAsync<GetRoles.Response>();
+        await Verify(response);
     }
 
     [Test]
     public async Task GetStatuses()
     {
-        var user = await Client.GetAsync<GetStatuses.Response>($"users/statuses");
-
-        await Verify(user);
+        var response = await Client.Request("users").AppendPathSegment("statuses").GetJsonAsync<GetStatuses.Response>();
+        await Verify(response);
     }
 
     [Test]
@@ -80,9 +76,8 @@ public class UserEndpointsFixture : IntegrationFixtureBase
             UserStatusId.Active
         );
         var response =
-            await Client.PostAsJsonAsync("users", request, HttpSerializationOptions.Options);
-
-        response.StatusCode.Should().Be(HttpStatusCode.Created);
+            await Client.Request("users").PostJsonAsync(request);
+        response.StatusCode.Should().Be((int) HttpStatusCode.Created);
     }
 
     [Test]
@@ -95,8 +90,8 @@ public class UserEndpointsFixture : IntegrationFixtureBase
             Role.SystemAdminRoleId,
             UserStatusId.Inactive
         );
-        var response = await Client.PutAsJsonAsync("users", request, HttpSerializationOptions.Options);
-        response.StatusCode.Should().Be(HttpStatusCode.NoContent);
+        var response = await Client.Request("users").PutJsonAsync(request);
+        response.StatusCode.Should().Be((int)HttpStatusCode.NoContent);
         var user = QueryByIdSkipCache<User>(_user.Id);
         await Verify(user);
     }

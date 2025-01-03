@@ -1,6 +1,7 @@
 ﻿using System.Net;
 using CraftersCloud.ReferenceArchitecture.Api.Tests.Infrastructure.Api;
 using FluentAssertions;
+using Flurl.Http;
 
 namespace CraftersCloud.ReferenceArchitecture.Api.Tests.CoreFeatures;
 
@@ -12,14 +13,14 @@ public class UnauthenticatedAccessFixture : IntegrationFixtureBase
     [Test]
     public async Task EndpointWithAuthorizeAttributeIsNotAllowed()
     {
-        var response = await Client.GetAsync("users");
-        response.StatusCode.Should().Be(HttpStatusCode.Unauthorized);
+        var response = await Client.Request("users").AllowHttpStatus((int)HttpStatusCode.Unauthorized).GetAsync();
+        response.StatusCode.Should().Be((int)HttpStatusCode.Unauthorized);
     }
 
     [Test]
     public async Task EndpointWithNoAuthorizeAttributeIsNotAllowed()
     {
-        var response = await Client.GetAsync("profile");
-        response.StatusCode.Should().Be(HttpStatusCode.Unauthorized);
+        var response = await Client.Request("profile").AllowHttpStatus((int)HttpStatusCode.Unauthorized).GetAsync();
+        response.StatusCode.Should().Be((int)HttpStatusCode.Unauthorized);
     }
 }

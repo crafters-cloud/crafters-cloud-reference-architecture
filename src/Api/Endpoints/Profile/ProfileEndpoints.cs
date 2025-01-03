@@ -1,4 +1,4 @@
-﻿namespace CraftersCloud.ReferenceArchitecture.Api.Endpoints.Identity;
+﻿namespace CraftersCloud.ReferenceArchitecture.Api.Endpoints.Profile;
 
 [UsedImplicitly]
 public class ProfileEndpoints : IEndpoint
