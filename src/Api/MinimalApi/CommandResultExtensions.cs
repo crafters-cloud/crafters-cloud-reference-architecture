@@ -1,5 +1,5 @@
 using CraftersCloud.Core.AspNetCore.Errors;
-using CraftersCloud.ReferenceArchitecture.Core.CommandResults;
+using CraftersCloud.ReferenceArchitecture.Core.Cqrs;
 
 namespace CraftersCloud.ReferenceArchitecture.Api.MinimalApi;
 

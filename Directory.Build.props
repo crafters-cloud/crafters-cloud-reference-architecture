@@ -10,8 +10,6 @@
     <Company>Crafters Cloud</Company>
     <MinVerTagPrefix>v</MinVerTagPrefix>
 
-    <PackageIcon>icon-128x92.png</PackageIcon>
-
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
@@ -33,8 +31,5 @@
   <ItemGroup>
     <Using Include="JetBrains.Annotations" />
   </ItemGroup>
-
-  <ItemGroup>
-    <None Include="icon-128x92.png" Pack="true" PackagePath="\" />
-  </ItemGroup>
+  
 </Project>

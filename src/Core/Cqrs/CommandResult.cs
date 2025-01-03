@@ -1,7 +1,7 @@
 ﻿using CraftersCloud.Core.Results;
 using OneOf;
 
-namespace CraftersCloud.ReferenceArchitecture.Core.CommandResults;
+namespace CraftersCloud.ReferenceArchitecture.Core.Cqrs;
 
 [PublicAPI]
 public static class CommandResult

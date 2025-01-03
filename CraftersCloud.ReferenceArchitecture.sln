@@ -27,7 +27,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Directory.Packages.props = Directory.Packages.props
 		nuget.config = nuget.config
 		README.md = README.md
-		templating.md = templating.md
 		Tests.Build.props = Tests.Build.props
 	EndProjectSection
 EndProject
@@ -55,6 +54,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{6CC2
 		build.ps1 = build.ps1
 		push.ps1 = push.ps1
 		scripts\open-api-logs.ps1 = scripts\open-api-logs.ps1
+		reinstall-template.ps1 = reinstall-template.ps1
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".template.config", ".template.config", "{FAA5A207-E0C6-402E-AFDD-7C0A5160B133}"
