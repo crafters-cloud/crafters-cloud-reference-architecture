@@ -47,20 +47,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{72436B58-940
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{9A124EA0-77DC-4468-8F3D-DD294C1A8391}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{6CC21449-A3D7-4747-9AFB-DA5FCA1DA0AA}"
-	ProjectSection(SolutionItems) = preProject
-		scripts\add-migration.ps1 = scripts\add-migration.ps1
-		scripts\update-databases.ps1 = scripts\update-databases.ps1
-		build.ps1 = build.ps1
-		push.ps1 = push.ps1
-		scripts\open-api-logs.ps1 = scripts\open-api-logs.ps1
-		reinstall-template.ps1 = reinstall-template.ps1
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".template.config", ".template.config", "{FAA5A207-E0C6-402E-AFDD-7C0A5160B133}"
 	ProjectSection(SolutionItems) = preProject
 		.template.config\dotnetcli.host.json = .template.config\dotnetcli.host.json
 		.template.config\template.json = .template.config\template.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{97EB1D39-165C-4719-98CF-6D8092A05437}"
+	ProjectSection(SolutionItems) = preProject
+		scripts\add-migration.ps1 = scripts\add-migration.ps1
+		scripts\open-api-logs.ps1 = scripts\open-api-logs.ps1
+		build.ps1 = build.ps1
+		push.ps1 = push.ps1
+		reinstall-template.ps1 = reinstall-template.ps1
 	EndProjectSection
 EndProject
 Global
@@ -130,7 +129,6 @@ Global
 		{98BD9F63-8C8E-4777-A12A-B53056CAA6B9} = {72436B58-9407-46C5-A394-69CDF8E31387}
 		{A37F5D21-519B-4A5E-8238-E9F8AA7D0174} = {72436B58-9407-46C5-A394-69CDF8E31387}
 		{2218303A-AD60-4C30-BFBC-104BB877E18F} = {72436B58-9407-46C5-A394-69CDF8E31387}
-		{6CC21449-A3D7-4747-9AFB-DA5FCA1DA0AA} = {39D678DB-292F-47B0-A70B-0ECB0E7F7C80}
 		{FAA5A207-E0C6-402E-AFDD-7C0A5160B133} = {39D678DB-292F-47B0-A70B-0ECB0E7F7C80}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
