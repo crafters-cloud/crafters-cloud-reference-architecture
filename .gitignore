@@ -264,3 +264,4 @@ __pycache__/
 *.pyc
 .mfractor/.txf.tmd.db
 /.mfractor
+/templates/Solution/src

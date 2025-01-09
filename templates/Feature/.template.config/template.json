@@ -1,0 +1,33 @@
+﻿{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "CraftersCloud",
+  "classifications": [
+    "reference",
+    "architecture",
+    ".netcore",
+    "api"
+  ],
+  "name": "Crafters Cloud Reference Architecture Slice Template",
+  "generatorVersions": "[1.0.0.0-*)",
+  "groupIdentity": "CraftersCloud.ReferenceArchitecture.SliceTemplate",
+  "precedence": "100",
+  "identity": "CraftersCloud.ReferenceArchitecture.SliceTemplate",
+  "shortName": "crafters-feature",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sourceName": "CraftersCloud.ReferenceArchitecture",
+  "sources": [
+    {
+    }
+  ],
+  "preferNameDirectory": true,
+  "symbols": {
+    "sliceName": {
+      "type": "parameter",
+      "replaces": "user",
+      "FileRename": "User"
+    }
+  }
+}

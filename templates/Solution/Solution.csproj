@@ -1,24 +1,24 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
-    <RootNamespace>CraftersCloud.ReferenceArchitecture.Template</RootNamespace>
-    <AssemblyName>CraftersCloud.ReferenceArchitecture.Template</AssemblyName>
+    <RootNamespace>CraftersCloud.ReferenceArchitecture.SolutionTemplate</RootNamespace>
+    <AssemblyName>CraftersCloud.ReferenceArchitecture.SolutionTemplate</AssemblyName>
   </PropertyGroup>
   <PropertyGroup>
     <Authors>Crafters Cloud</Authors>
     <Copyright>Copyright © 2025 Crafters Cloud.</Copyright>
     <Company>Crafters Cloud</Company>
     <ContentTargetFolders>content</ContentTargetFolders>
-    <Description>Template to use when creating an Asp.net core Api application.</Description>
+    <Description>A template to use when creating an Asp.Net Minimal Api solution.</Description>
     <EmbedUntrackedSources>false</EmbedUntrackedSources>
     <IncludeBuildOutput>false</IncludeBuildOutput>
     <IncludeContentInPack>true</IncludeContentInPack>
     <NoDefaultExcludes>true</NoDefaultExcludes>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <IsPackable>true</IsPackable>
-    <PackageId>CraftersCloud.ReferenceArchitecture.Template</PackageId>
+    <PackageId>CraftersCloud.ReferenceArchitecture.SolutionTemplate</PackageId>
     <PackageProjectUrl>https://github.com/crafters-cloud/crafters-cloud-reference-architecture</PackageProjectUrl>
-    <PackageTags>CraftersCloud;reference-architecture;dotnet-new;template</PackageTags>
+    <PackageTags>CraftersCloud;reference-architecture;dotnet-new;api;template</PackageTags>
     <PackageType>Template</PackageType>
     <PackageVersion>1.0.0</PackageVersion>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
@@ -26,24 +26,32 @@
     <RepositoryType>git</RepositoryType>
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
     <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
-    <Title>Crafters Cloud Reference Architecture Template</Title>
+    <Title>Crafters Cloud Reference Architecture Solution Template</Title>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>icon-128x92.png</PackageIcon>
+    <RestorePackagesWithLockFile>false</RestorePackagesWithLockFile>
+    <ExcludeContent>**\bin\**;**\obj\**;**\*.user;**\TestResults\**</ExcludeContent>
   </PropertyGroup>
+
+  <Target Name="UpdateTemplateContent" BeforeTargets="Build">
+    <Exec Command="powershell -ExecutionPolicy Bypass -File $(ProjectDir)update-template-content.ps1 -SolutionDir $(SolutionDir)" />
+  </Target>
+
+  <Target Name="CleanTemplateContent" BeforeTargets="Clean">
+    <Exec Command="powershell -ExecutionPolicy Bypass -File $(ProjectDir)update-template-content.ps1 -SolutionDir $(SolutionDir) -CleanOnly" />
+  </Target>
 
   <ItemGroup>
     <Compile Remove="**\*" />
     <Content Include="**\*"
-             Exclude="**\bin\**;**\obj\**;**\dist\**;**\node_modules\**;.git\**;**\.vs\**;**\artifacts\**;**\_ReSharper.Caches\**;**\*.user;**\TestResults\**" />
-    <EmbeddedResource
-      Remove="**\bin\**;**\obj\**;**\dist\**;**\node_modules\**;.git\**;**\.vs\**;**\artifacts\**;**\_ReSharper.Caches\**;**\*.user;**\TestResults\**" />
-    <None
-      Remove="**\bin\**;**\obj\**;**\dist\**;**\node_modules\**;.git\**;**\.vs\**;**\artifacts\**;**\_ReSharper.Caches\**;**\*.user;**\TestResults\**" />
+             Exclude="$(ExcludeContent)" />
+    <EmbeddedResource Remove="$(ExcludeContent)" />
+    <None Remove="$(ExcludeContent)" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="README.md" Pack="true" PackagePath="\" />
-    <None Include="icon-128x92.png" Pack="true" PackagePath="\" />
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+    <None Include="..\..\icon-128x92.png" Pack="true" PackagePath="\" />
   </ItemGroup>
 
 </Project>

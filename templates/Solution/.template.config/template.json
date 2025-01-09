@@ -12,7 +12,7 @@
   "groupIdentity": "CraftersCloud.ReferenceArchitecture.Template",
   "precedence": "100",
   "identity": "CraftersCloud.ReferenceArchitecture.Template",
-  "shortName": "cc-ref-arch",
+  "shortName": "crafters-solution",
   "tags": {
     "language": "C#",
     "type": "project"
@@ -45,21 +45,6 @@
       "type": "parameter",
       "replaces": "CraftersCloud.ReferenceArchitecture",
       "FileRename": "CraftersCloud.ReferenceArchitecture"
-    },
-    "appProjectName": {
-      "type": "parameter",
-      "replaces": "crafters-cloud-reference-architecture",
-      "FileRename": "crafters-cloud-reference-architecture",
-      "description": "the kebab-cased name (i.e. crafters-cloud-reference-architecture)"
-    },
-    "appProjectNameUpper": {
-      "type": "generated",
-      "generator": "casing",
-      "parameters": {
-        "source": "appProjectName",
-        "toLower": true
-      },
-      "FileRename": "crafters-cloud-reference-architecture"
     },
     "projectNameNoDots": {
       "type": "derived",
