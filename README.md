@@ -24,6 +24,7 @@ where VERSION should be replaced with the specific version you want to install, 
 ## Deploy a new solution based on the template:
 
 ``dotnet new crafters-solution --projectName Customer.Project --friendlyName "Customer Project" --allow-scripts yes``
+``dotnet new crafters-feature --projectName Customer.Project --featureName NewFeature --featureNamePlural NewFeatures --allow-scripts yes``
 
 ## Uninstall the template (when installed from nupkg)
 

@@ -1,11 +1,14 @@
 @echo off
-dotnet sln remove Feature.csproj
-del Feature.csproj
+dotnet sln remove templates\Feature\Feature.csproj
+del templates\Feature\Feature.csproj
 
-dotnet sln remove Solution.csproj
-del Solution.csproj
+dotnet sln remove templates\Solution\Solution.csproj
+del templates\Solution\Solution.csproj
+
+dotnet sln remove templates
 
 del icon-128x92.png
+del update-template-content.ps1
 
 rem clean up the README.md
 break>README.md

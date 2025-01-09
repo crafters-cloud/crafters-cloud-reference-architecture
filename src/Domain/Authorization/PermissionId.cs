@@ -2,7 +2,7 @@
 
 public enum PermissionId
 {
-    None = 0,
     UsersRead = 1,
-    UsersWrite = 2
+    UsersWrite = 2,
+    RolesRead = 3
 }

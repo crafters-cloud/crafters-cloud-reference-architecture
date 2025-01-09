@@ -20,8 +20,7 @@ public class UserEndpoints : IEndpoint
             .RequirePermissions(PermissionId.UsersWrite);
         group.MapPost("/", CreateUser.Handle).Validate<CreateUser.Request>()
             .RequirePermissions(PermissionId.UsersWrite);
-
-        group.MapGet("/roles", GetRoles.Handle);
+        
         group.MapGet("/statuses", GetStatuses.Handle);
     }
 }

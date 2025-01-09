@@ -53,13 +53,6 @@ public class UserEndpointsFixture : IntegrationFixtureBase
     }
 
     [Test]
-    public async Task GetRoles()
-    {
-        var response = await Client.Request("users").AppendPathSegment("roles").GetJsonAsync<GetRoles.Response>();
-        await Verify(response);
-    }
-
-    [Test]
     public async Task GetStatuses()
     {
         var response = await Client.Request("users").AppendPathSegment("statuses").GetJsonAsync<GetStatuses.Response>();

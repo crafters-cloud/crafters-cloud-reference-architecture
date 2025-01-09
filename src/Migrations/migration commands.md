@@ -1,33 +1,5 @@
 ﻿# Entity framework migration commands
 
-Run these commands from Package Manager Console.
-
-## Powershell commands
-
-### Add migration
-
-``` powershell
-Add-Migration -Project CraftersCloud.Core.ReferenceArchitecture.Data.Migrations -StartUpProject CraftersCloud.Core.ReferenceArchitecture.Data.Migrations -Context AppDbContext -Name MIGRATION_NAME_HERE
-```
-
-### Update database
-
-``` powershell
-Update-Database -Project CraftersCloud.Core.ReferenceArchitecture.Data.Migrations -StartUpProject CraftersCloud.Core.ReferenceArchitecture.Data.Migrations -Context AppDbContext
-```
-
-### Remove migration
-
-``` powershell
-Remove-Migration -Project CraftersCloud.Core.ReferenceArchitecture.Data.Migrations -StartUpProject CraftersCloud.Core.ReferenceArchitecture.Data.Migrations
-```
-
-### Revert to a specific migration (discard all migrations created after the specified one)
-
-``` powershell
-Update-Database -Project CraftersCloud.Core.ReferenceArchitecture.Data.Migrations -StartUpProject CraftersCloud.Core.ReferenceArchitecture.Data.Migrations -Context AppDbContext THE-LAST-GOOD-MIGRATION-NAME
-```
-
 ## Command line commands
 
 ### Install global tool

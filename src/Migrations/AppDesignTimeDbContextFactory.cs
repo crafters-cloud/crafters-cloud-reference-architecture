@@ -1,4 +1,5 @@
-﻿using CraftersCloud.ReferenceArchitecture.Infrastructure.Data;
+﻿using CraftersCloud.ReferenceArchitecture.Data.Migrations.Seeding;
+using CraftersCloud.ReferenceArchitecture.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
@@ -18,11 +19,10 @@ public class AppDesignTimeDbContextFactory : IDesignTimeDbContextFactory<AppDbCo
                 b.MigrationsAssembly(typeof(AppDesignTimeDbContextFactory).Assembly.FullName);
             });
 
-        var result =
-            new AppDbContext(optionsBuilder.Options)
-            {
-                ModelBuilderConfigurator = DbInitializer.SeedData
-            };
+        var result = new AppDbContext(optionsBuilder.Options)
+        {
+            ModelBuilderConfigurator = DatabaseSeeder.Seed
+        };
         return result;
     }
 

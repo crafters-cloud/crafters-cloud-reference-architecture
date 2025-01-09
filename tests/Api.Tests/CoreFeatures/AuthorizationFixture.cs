@@ -21,7 +21,7 @@ public class AuthorizationFixture : IntegrationFixtureBase
     public void SetUp()
     {
         _roleWithUsersReadPermission = CrateRole("RoleWithUsersReadPermission", PermissionId.UsersRead);
-        _roleWithNonePermission = CrateRole("RoleWithNonePermission", PermissionId.None);
+        _roleWithNonePermission = CrateRole("RoleWithNonePermission", 0);
     }
 
     [Test]

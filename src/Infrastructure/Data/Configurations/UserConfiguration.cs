@@ -20,7 +20,7 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
 
         builder.HasReferenceTableRelationWithEnumAsForeignKey(x => x.UserStatus, x => x.UserStatusId);
 
-        builder.HasOne(u => u.Role).WithMany(x => x.Users).OnDelete(DeleteBehavior.NoAction);
+        builder.HasOne(u => u.Role).WithMany().OnDelete(DeleteBehavior.NoAction);
         builder.HasCreatedByAndUpdatedBy();
     }
 }

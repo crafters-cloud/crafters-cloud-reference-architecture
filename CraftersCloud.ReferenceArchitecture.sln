@@ -49,10 +49,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{97EB
 	ProjectSection(SolutionItems) = preProject
 		scripts\add-migration.ps1 = scripts\add-migration.ps1
 		scripts\open-api-logs.ps1 = scripts\open-api-logs.ps1
-		scripts\utils.ps1 = scripts\utils.ps1
 		scripts\build.ps1 = scripts\build.ps1
-		scripts\reinstall-template.ps1 = scripts\reinstall-template.ps1
-		scripts\push.ps1 = scripts\push.ps1
+		scripts\utils.ps1 = scripts\utils.ps1
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "templates", "templates", "{97EDF21D-C51E-44CE-8A5B-58FD9A8F3EC7}"

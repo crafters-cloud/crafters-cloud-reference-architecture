@@ -30,7 +30,6 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>icon-128x92.png</PackageIcon>
     <RestorePackagesWithLockFile>false</RestorePackagesWithLockFile>
-    <ExcludeContent>**\bin\**;**\obj\**;**\*.user;**\TestResults\**</ExcludeContent>
   </PropertyGroup>
 
   <Target Name="UpdateTemplateContent" BeforeTargets="Build">
@@ -42,11 +41,15 @@
   </Target>
 
   <ItemGroup>
+    <!-- Remove all files from the project, we do not want to compile c# files -->
     <Compile Remove="**\*" />
+    
+    <!-- Include the files from the project root -->
     <Content Include="**\*"
-             Exclude="$(ExcludeContent)" />
-    <EmbeddedResource Remove="$(ExcludeContent)" />
-    <None Remove="$(ExcludeContent)" />
+             Exclude="**\bin\**;**\obj\**;**\*.user;**\TestResults\**" />
+
+    <!-- Include the files from the solution root -->
+    <Content Include="..\..\*.*" />
   </ItemGroup>
 
   <ItemGroup>
