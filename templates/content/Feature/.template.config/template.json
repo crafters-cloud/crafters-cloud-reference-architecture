@@ -1,0 +1,74 @@
+﻿{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "CraftersCloud",
+  "classifications": [
+    "reference",
+    "architecture",
+    ".netcore",
+    "api"
+  ],
+  "name": "Crafters Cloud Reference Architecture Feature Template",
+  "generatorVersions": "[1.0.0.0-*)",
+  "groupIdentity": "CraftersCloud.ReferenceArchitecture.FeatureTemplate",
+  "precedence": "100",
+  "identity": "CraftersCloud.ReferenceArchitecture.FeatureTemplate",
+  "shortName": "crafters-feature",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sourceName": "CraftersCloud.ReferenceArchitecture",
+  "preferNameDirectory": true,
+  "symbols": {
+    "projectName": {
+      "type": "parameter",
+      "replaces": "CraftersCloud.ReferenceArchitecture",
+      "FileRename": "CraftersCloud.ReferenceArchitecture"
+    },
+    "featureNamePlural": {
+      "type": "parameter",
+      "replaces": "Users",
+      "FileRename": "Users"
+    },
+    "featureNamePluralLower": {
+      "type": "generated",
+      "generator": "casing",
+      "parameters": {
+        "source": "featureNamePlural",
+        "toLower": true
+      },
+      "replaces": "users"
+    },
+    "featureName": {
+      "type": "parameter",
+      "replaces": "User",
+      "FileRename": "User"
+    },
+    "featureNameLower": {
+      "type": "generated",
+      "generator": "casing",
+      "parameters": {
+        "source": "featureName",
+        "toLower": true
+      },
+      "replaces": "user"
+    }
+  },
+  "postActions": [
+    {
+      "args": {
+        "executable": "cleanup-template.cmd",
+        "args": "",
+        "redirectStandardOutput": "false"
+      },
+      "manualInstructions": [
+        {
+          "text": "Run 'cleanup-template.cmd'"
+        }
+      ],
+      "description": "final cleanup",
+      "actionId": "3A7C4B45-1F5D-4A30-959A-51B88E82B5D2",
+      "continueOnError": true
+    }
+  ]
+}

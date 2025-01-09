@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <RootNamespace>CraftersCloud.ReferenceArchitecture.FeatureTemplate</RootNamespace>
+    <AssemblyName>CraftersCloud.ReferenceArchitecture.FeatureTemplate</AssemblyName>
+    <PackageType>Template</PackageType>
+    <RestorePackagesWithLockFile>false</RestorePackagesWithLockFile>
+  </PropertyGroup>
+
+  <Target Name="UpdateTemplateContent" BeforeTargets="Build">
+    <Exec Command="powershell -ExecutionPolicy Bypass -File $(ProjectDir)update-template-content.ps1 -SolutionDir $(SolutionDir)" />
+  </Target>
+
+  <Target Name="CleanTemplateContent" BeforeTargets="Clean">
+    <Exec Command="powershell -ExecutionPolicy Bypass -File $(ProjectDir)update-template-content.ps1 -SolutionDir $(SolutionDir) -CleanOnly" />
+  </Target>
+
+  <ItemGroup>
+    <!-- Remove all files from the project, we do not want to compile c# files -->
+    <Compile Remove="**\*" />
+
+    <!-- Include the files from the project root -->
+    <Content Include="**\*"
+             Exclude="**\bin\**;**\obj\**;**\*.user;**\TestResults\**" />
+  </ItemGroup>
+
+</Project>
