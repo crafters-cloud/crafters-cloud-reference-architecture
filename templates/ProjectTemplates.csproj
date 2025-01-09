@@ -1,0 +1,55 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <RootNamespace>CraftersCloud.ReferenceArchitecture.ProjectsTemplate</RootNamespace>
+    <AssemblyName>CraftersCloud.ReferenceArchitecture.ProjectsTemplate</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Authors>Crafters Cloud</Authors>
+    <Copyright>Copyright © 2025 Crafters Cloud.</Copyright>
+    <Company>Crafters Cloud</Company>
+    <ContentTargetFolders>content</ContentTargetFolders>
+    <Description>A set of templates to use in combination with Crafters Reference Architecture.</Description>
+    <EmbedUntrackedSources>false</EmbedUntrackedSources>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <NoDefaultExcludes>true</NoDefaultExcludes>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <IsPackable>true</IsPackable>
+    <PackageId>CraftersCloud.ReferenceArchitecture.ProjectTemplates</PackageId>
+    <PackageProjectUrl>https://github.com/crafters-cloud/crafters-cloud-reference-architecture</PackageProjectUrl>
+    <PackageTags>reference-architecture;dotnet-new;api;template</PackageTags>
+    <PackageType>Template</PackageType>
+    <PackageVersion>1.0.0</PackageVersion>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <RepositoryUrl>https://github.com/crafters-cloud/crafters-cloud-reference-architecture</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+    <Title>Crafters Cloud Reference Architecture Project Templates</Title>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>icon-128x92.png</PackageIcon>
+    <RestorePackagesWithLockFile>false</RestorePackagesWithLockFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\templates\content\Feature\Feature.csproj" />
+    <ProjectReference Include="..\templates\content\Solution\Solution.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <ExcludeItems>**\*\obj\**;**\*\bin\**;**\*\*.user;**\*\packages.lock.json</ExcludeItems>
+    <BuildProjectReferences>true</BuildProjectReferences>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="**\*"/>
+    <Content Include="content\**" PackagePath="content" />
+    <Content Remove="$(ExcludeItems)" />
+    <None Remove="$(ExcludeItems)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="\"/>
+    <None Include="..\icon-128x92.png" Pack="true" PackagePath="\"/>
+  </ItemGroup>
+</Project>

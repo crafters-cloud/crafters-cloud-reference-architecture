@@ -6,16 +6,14 @@ $artifacts = "${solutionDir}\artifacts"
 
 try
 {
-    exec { & dotnet new uninstall CraftersCloud.ReferenceArchitecture.SolutionTemplate }
-    exec { & dotnet new uninstall CraftersCloud.ReferenceArchitecture.FeatureTemplate }
+    exec { & dotnet new uninstall CraftersCloud.ReferenceArchitecture.ProjectTemplates }
 }
 catch
 {
     Write-Host "Templates not found"
 }
 
-exec { & dotnet new install "$artifacts\CraftersCloud.ReferenceArchitecture.SolutionTemplate.*.nupkg" }
-exec { & dotnet new install "$artifacts\CraftersCloud.ReferenceArchitecture.FeatureTemplate.*.nupkg" }
+exec { & dotnet new install "$artifacts\CraftersCloud.ReferenceArchitecture.ProjectTemplates.*.nupkg" }
 
 
 

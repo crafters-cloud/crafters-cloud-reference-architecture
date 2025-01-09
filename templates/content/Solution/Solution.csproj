@@ -18,7 +18,6 @@
   <ItemGroup>
     <!-- Remove all files from the project, we do not want to compile c# files -->
     <Compile Remove="**\*" />
-    <Compile Include="GlobalUsings.cs" />
     
     <!-- Include the files from the project root -->
     <Content Include="**\*"

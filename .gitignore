@@ -265,10 +265,26 @@ __pycache__/
 .mfractor/.txf.tmd.db
 /.mfractor
 
-/templates/Solution/scripts
-/templates/Solution/src
-/templates/Solution/tests
+# ignore files being copied to the template folders
+/templates/content/Solution/scripts
+/templates/content/Solution/src
+/templates/content/Solution/tests
 
-/templates/Feature/src
-/templates/Feature/tests
+# ignore files being copied to the template folders
+/templates/content/Feature/src
+/templates/content/Feature/tests
 
+# ignore files being copied to the template folders
+/templates/content/Solution/.editorconfig
+/templates/content/Solution/.gitignore
+/templates/content/Solution/.runsettings
+/templates/content/Solution/CraftersCloud.DotSettings
+/templates/content/Solution/CraftersCloud.ReferenceArchitecture.sln
+/templates/content/Solution/Directory.Build.props
+/templates/content/Solution/Directory.Packages.props
+/templates/content/Solution/icon-128x92.png
+/templates/content/Solution/LICENSE.md
+/templates/content/Solution/README.md
+/templates/content/Solution/Tests.Build.props
+/templates/content/Solution/CraftersCloud.ReferenceArchitecture.sln.DotSettings
+/templates/content/Solution/nuget.config
