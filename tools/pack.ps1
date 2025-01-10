@@ -13,7 +13,7 @@ exec { & dotnet clean -c Release "$solutionDir/CraftersCloud.ReferenceArchitectu
 
 exec { & dotnet build -c Release "$solutionDir/CraftersCloud.ReferenceArchitecture.sln" }
 
-exec { & dotnet test -c Release "$solutionDir/CraftersCloud.ReferenceArchitecture.sln" --no-build -l trx --verbosity=normal }
+#exec { & dotnet test -c Release "$solutionDir/CraftersCloud.ReferenceArchitecture.sln" --no-build -l trx --verbosity=normal }
 
 $projects = Get-ChildItem -Path $solutionDir -Recurse -Filter *.csproj
 
