@@ -44,8 +44,9 @@ function Exclude-Directories
         $allowThrough = $true
         foreach ($directoryToExclude in $ExcludeDirs)
         {
-            $directoryText = "*\" + $directoryToExclude
-            $childText = "*\" + $directoryToExclude + "\*"
+            $directoryText = Join-Path -Path "*" -ChildPath $directoryToExclude
+            $childText = Join-Path -Path "*" -ChildPath $directoryToExclude
+            $childText = Join-Path -Path $childText -ChildPath "*"
             if (($_.FullName -Like $directoryText -And $_.PsIsContainer) `
                 -Or $_.FullName -Like $childText)
             {
@@ -92,6 +93,7 @@ function Copy-FolderContents
     $items = Get-ChildItem -Path $SourceDir -Filter $Filter -Recurse | Exclude-Directories -ExcludeDirs $ExcludeDirs
     foreach ($item in $items) {
         $relativePath = $item.FullName.Substring($SourceDir.Length + 1)
+        Write-Host "Relative path: $relativePath"
         $destinationPath = Join-Path -Path $DestinationDir -ChildPath $relativePath
 
         if ($item.PSIsContainer) {
