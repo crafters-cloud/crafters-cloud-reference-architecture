@@ -7,10 +7,8 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Migrations
 {
-    /// <inheritdoc />
     public partial class Initial : Migration
     {
-        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
@@ -23,6 +21,19 @@ namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Permission", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ProductStatus",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProductStatus", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -115,13 +126,59 @@ namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Migrations
                         principalColumn: "Id");
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Product",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(2000)", maxLength: 2000, nullable: false),
+                    ProductStatusId = table.Column<int>(type: "int", nullable: false),
+                    CreatedById = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UpdatedById = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CreatedOn = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
+                    UpdatedOn = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Product", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Product_ProductStatus_ProductStatusId",
+                        column: x => x.ProductStatusId,
+                        principalTable: "ProductStatus",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Product_User_CreatedById",
+                        column: x => x.CreatedById,
+                        principalTable: "User",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Product_User_UpdatedById",
+                        column: x => x.UpdatedById,
+                        principalTable: "User",
+                        principalColumn: "Id");
+                });
+
             migrationBuilder.InsertData(
                 table: "Permission",
                 columns: new[] { "Id", "Name" },
                 values: new object[,]
                 {
                     { 1, "UsersRead" },
-                    { 2, "UsersWrite" }
+                    { 2, "UsersWrite" },
+                    { 3, "RolesRead" },
+                    { 4, "ProductsRead" },
+                    { 5, "ProductsWrite" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "ProductStatus",
+                columns: new[] { "Id", "Description", "Name" },
+                values: new object[,]
+                {
+                    { 1, "Active Status Description", "Active" },
+                    { 2, "Inactive Status Description", "Inactive" }
                 });
 
             migrationBuilder.InsertData(
@@ -144,7 +201,10 @@ namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Migrations
                 values: new object[,]
                 {
                     { 1, new Guid("028e686d-51de-4dd9-91e9-dfb5ddde97d0") },
-                    { 2, new Guid("028e686d-51de-4dd9-91e9-dfb5ddde97d0") }
+                    { 2, new Guid("028e686d-51de-4dd9-91e9-dfb5ddde97d0") },
+                    { 3, new Guid("028e686d-51de-4dd9-91e9-dfb5ddde97d0") },
+                    { 4, new Guid("028e686d-51de-4dd9-91e9-dfb5ddde97d0") },
+                    { 5, new Guid("028e686d-51de-4dd9-91e9-dfb5ddde97d0") }
                 });
 
             migrationBuilder.InsertData(
@@ -152,11 +212,37 @@ namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Migrations
                 columns: new[] { "Id", "CreatedById", "CreatedOn", "EmailAddress", "FirstName", "LastName", "RoleId", "UpdatedById", "UpdatedOn", "UserStatusId" },
                 values: new object[] { new Guid("dfb44aa8-bfc9-4d95-8f45-ed6da241dcfc"), new Guid("dfb44aa8-bfc9-4d95-8f45-ed6da241dcfc"), new DateTimeOffset(new DateTime(2024, 3, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "N/A", "System", "User", new Guid("028e686d-51de-4dd9-91e9-dfb5ddde97d0"), new Guid("dfb44aa8-bfc9-4d95-8f45-ed6da241dcfc"), new DateTimeOffset(new DateTime(2024, 3, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), 1 });
 
+            migrationBuilder.InsertData(
+                table: "Product",
+                columns: new[] { "Id", "CreatedById", "CreatedOn", "Description", "Name", "ProductStatusId", "UpdatedById", "UpdatedOn" },
+                values: new object[] { new Guid("9f39d68d-83e6-4481-871f-f809a3eba998"), new Guid("dfb44aa8-bfc9-4d95-8f45-ed6da241dcfc"), new DateTimeOffset(new DateTime(2025, 1, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "Lorem ipsum", "Software development", 1, new Guid("dfb44aa8-bfc9-4d95-8f45-ed6da241dcfc"), new DateTimeOffset(new DateTime(2025, 1, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)) });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Permission_Name",
                 table: "Permission",
                 column: "Name",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Product_CreatedById",
+                table: "Product",
+                column: "CreatedById");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Product_Name",
+                table: "Product",
+                column: "Name",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Product_ProductStatusId",
+                table: "Product",
+                column: "ProductStatusId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Product_UpdatedById",
+                table: "Product",
+                column: "UpdatedById");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Role_Name",

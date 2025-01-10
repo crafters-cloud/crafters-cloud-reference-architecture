@@ -10,7 +10,7 @@ public static partial class GetUsers
     public class Request : PagedQuery<Response.Item>
     {
         [FromQuery] public string? Name { get; set; }
-        [FromQuery] public string? Email { get; set; }
+        [FromQuery] public string? EmailAddress { get; set; }
     }
 
     [UsedImplicitly]
@@ -20,7 +20,7 @@ public static partial class GetUsers
         {
             this.AddPagedQueryRules();
             RuleFor(x => x.Name).MaximumLength(100);
-            RuleFor(x => x.Email).MaximumLength(100);
+            RuleFor(x => x.EmailAddress).MaximumLength(100);
         }
     }
 
@@ -55,7 +55,7 @@ public static partial class GetUsers
             .AsNoTracking()
             .QueryActiveOnly()
             .QueryByNameOptional(request.Name)
-            .QueryByEmailOptional(request.Email);
+            .QueryByEmailOptional(request.EmailAddress);
 
         var items = await ResponseItemQueryMapper.ProjectTo(query)
             .ToPagedResponseAsync(request, cancellationToken);

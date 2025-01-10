@@ -43,7 +43,7 @@ public class UserEndpointsFixture : IntegrationFixtureBase
     [Test]
     public async Task GetAll()
     {
-        var response = await _endpoint.AppendQueryParam(nameof(GetUsers.Request.SortBy), nameof(GetUsers.Request.Email))
+        var response = await _endpoint.AppendQueryParam(nameof(GetUsers.Request.SortBy), nameof(User.EmailAddress))
             .GetJsonAsync<PagedQueryResponse<GetUsers.Response.Item>>();
         await Verify(response);
     }

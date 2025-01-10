@@ -6,6 +6,9 @@ namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Migrations
 {
     public partial class SeedTestData : Migration
     {
-        protected override void Up(MigrationBuilder migrationBuilder) => migrationBuilder.ResourceSql("SeedTestData.sql");
+        protected override void Up(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.ResourceSql("SeedTestData.sql");
+        }
     }
 }
