@@ -1,9 +1,9 @@
-. ./utils.ps1
+. "$PSScriptRoot/utils.ps1"
 
 $scriptName = $MyInvocation.MyCommand.Name
 
 $solutionDir = Get-FolderLevelsUp -StartPath $PSScriptRoot -LevelsUp 1
-$artifacts = "${solutionDir}\artifacts"
+$artifacts = "${solutionDir}/artifacts"
 
 if ( [string]::IsNullOrEmpty($Env:NUGET_API_KEY))
 {

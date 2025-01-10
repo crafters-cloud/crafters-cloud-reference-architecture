@@ -1,8 +1,8 @@
 # import utils.ps1
-. ./utils.ps1
+. "$PSScriptRoot/utils.ps1"
 
 $solutionDir = Get-FolderLevelsUp -StartPath $PSScriptRoot -LevelsUp 1
-$artifacts = "${solutionDir}\artifacts"
+$artifacts = "${solutionDir}/artifacts"
 
 try
 {
@@ -13,7 +13,7 @@ catch
     Write-Host "Templates not found"
 }
 
-exec { & dotnet new install "$artifacts\CraftersCloud.ReferenceArchitecture.ProjectTemplates.*.nupkg" }
+exec { & dotnet new install "$artifacts/CraftersCloud.ReferenceArchitecture.ProjectTemplates.*.nupkg" }
 
 
 

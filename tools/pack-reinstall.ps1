@@ -1,5 +1,5 @@
-. ./pack.ps1
-. ./reinstall.ps1
+. "$PSScriptRoot/pack.ps1"
+. "$PSScriptRoot/reinstall.ps1"
 
 
 
