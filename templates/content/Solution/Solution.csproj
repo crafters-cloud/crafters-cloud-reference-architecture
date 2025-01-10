@@ -7,12 +7,17 @@
     <RestorePackagesWithLockFile>false</RestorePackagesWithLockFile>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <PowerShellCmd Condition="'$(OS)' == 'Windows_NT'">powershell</PowerShellCmd>
+    <PowerShellCmd Condition="'$(OS)' != 'Windows_NT'">pwsh</PowerShellCmd>
+  </PropertyGroup>
+
   <Target Name="UpdateTemplateContent" BeforeTargets="Build">
-    <Exec Command="powershell -ExecutionPolicy Bypass -File $(ProjectDir)update-template-content.ps1 -SolutionDir $(SolutionDir)" />
+    <Exec Command="$(PowerShellCmd) -ExecutionPolicy Bypass -File $(ProjectDir)update-template-content.ps1 -SolutionDir $(SolutionDir)" />
   </Target>
 
   <Target Name="CleanTemplateContent" BeforeTargets="Clean">
-    <Exec Command="powershell -ExecutionPolicy Bypass -File $(ProjectDir)update-template-content.ps1 -SolutionDir $(SolutionDir) -CleanOnly" />
+    <Exec Command="$(PowerShellCmd) -ExecutionPolicy Bypass -File $(ProjectDir)update-template-content.ps1 -SolutionDir $(SolutionDir) -CleanOnly" />
   </Target>
 
   <ItemGroup>
