@@ -29,12 +29,13 @@ public static partial class GetUserById
     public static async Task<Results<Ok<Response>, NotFound>> Handle(Guid id, IRepository<User> repository,
         CancellationToken cancellationToken)
     {
-        var user = await repository.QueryAll()
+        var entity = await repository.QueryAll()
             .Include(x => x.UserStatus)
             .AsNoTracking()
             .QueryById(id)
+            .QueryActiveOnly()
             .SingleOrDefaultAsync(cancellationToken);
 
-        return user.ToMappedMinimalApiResult(ResponseMapper.ToResponse);
+        return entity.ToMappedMinimalApiResult(ResponseMapper.ToResponse);
     }
 }

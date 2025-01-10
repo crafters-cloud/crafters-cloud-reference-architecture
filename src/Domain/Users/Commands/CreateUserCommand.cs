@@ -1,4 +1,5 @@
-﻿using CraftersCloud.Core.Data;
+﻿using CraftersCloud.Core;
+using CraftersCloud.Core.Data;
 using CraftersCloud.Core.Messaging;
 using CraftersCloud.ReferenceArchitecture.Core.Cqrs;
 using FluentValidation;
@@ -31,13 +32,13 @@ public class CreateUserCommand : ICommand<CreateCommandResult<User>>
             RuleFor(x => x.RoleId).NotEmpty();
         }
 
-        private async Task<bool> UniqueEmailAddress(CreateUserCommand command, string name, CancellationToken ct)
+        private async Task<bool> UniqueEmailAddress(CreateUserCommand command, string name, CancellationToken cancellationToken)
         {
             using var scope = _scopeFactory.CreateScope();
-            var userRepository = scope.ServiceProvider.GetRequiredService<IRepository<User>>();
-            return !await userRepository.QueryAll()
+            var repository = scope.Resolve<IRepository<User>>();
+            return !await repository.QueryAll()
                 .QueryByEmail(name)
-                .AnyAsync(ct);
+                .AnyAsync(cancellationToken);
         }
     }
 }

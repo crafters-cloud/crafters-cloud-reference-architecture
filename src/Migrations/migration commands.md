@@ -1,4 +1,4 @@
-﻿# Entity framework migration commands
+﻿# Entity Framework migration commands
 
 ## Command line commands
 
@@ -17,23 +17,23 @@ dotnet tool update --global dotnet-ef
 ### Add migration
 
 ``` shell
-dotnet-ef migrations add MIGRATION_NAME_HERE --project CraftersCloud.Core.ReferenceArchitecture.Data.Migrations --startup-project CraftersCloud.Core.ReferenceArchitecture.Data.Migrations --context AppDbContext
+dotnet-ef migrations add MIGRATION_NAME_HERE --project src\Migrations --startup-project src\Migrations --context AppDbContext
 ```
 
 ### Update database
 
 ``` shell
-dotnet-ef database update --project CraftersCloud.Core.ReferenceArchitecture.Data.Migrations --startup-project CraftersCloud.Core.ReferenceArchitecture.Data.Migrations --context AppDbContext
+dotnet-ef database update --project src\Migrations --startup-project src\Migrations --context AppDbContext
 ```
 
 ### Remove migration
 
 ``` shell
-dotnet-ef migration remove --project CraftersCloud.Core.ReferenceArchitecture.Data.Migrations --startup-project CraftersCloud.Core.ReferenceArchitecture.Data.Migrations
+dotnet-ef migration remove --project src\Migrations --startup-project src\Migrations
 ```
 
 ### Revert to a specific migration (discard all migrations created after the specified one)
 
 ``` shell
-dotnet-ef database update --project CraftersCloud.Core.ReferenceArchitecture.Data.Migrations --startup-project CraftersCloud.Core.ReferenceArchitecture.Data.Migrations THE-LAST-GOOD-MIGRATION-NAME
+dotnet-ef database update --project src\Migrations --startup-project src\Migrations THE-LAST-GOOD-MIGRATION-NAME
 ```

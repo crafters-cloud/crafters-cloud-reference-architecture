@@ -4,16 +4,16 @@ using CraftersCloud.ReferenceArchitecture.Domain.Users;
 
 namespace CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users;
 
-public static class GetStatuses
+public static class GetUserStatuses
 {
     [PublicAPI]
     public class Response : ItemsResponse<KeyValuePairDto<int>>;
 
     public static async Task<Ok<Response>> Handle(
-        IRepository<UserStatus, UserStatusId> roleRepository,
+        IRepository<UserStatus, UserStatusId> repository,
         CancellationToken cancellationToken)
     {
-        var items = await roleRepository
+        var items = await repository
             .QueryAll()
             .AsNoTracking()
             .Select(x => new KeyValuePairDto<int> { Key = x.Id, Value = x.Name })

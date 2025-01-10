@@ -33,13 +33,13 @@ public class UpdateUserCommand : ICommand<UpdateCommandResult<User>>
             RuleFor(x => x.RoleId).NotEmpty();
         }
 
-        private async Task<bool> UniqueEmailAddress(UpdateUserCommand command, string name, CancellationToken ct)
+        private async Task<bool> UniqueEmailAddress(UpdateUserCommand command, string name, CancellationToken cancellationToken)
         {
             using var scope = _scopeFactory.CreateScope();
-            var userRepository = scope.Resolve<IRepository<User>>();
-            return !await userRepository.QueryAll()
+            var repository = scope.Resolve<IRepository<User>>();
+            return !await repository.QueryAll()
                 .QueryByEmail(name)
-                .AnyAsync(ct);
+                .AnyAsync(cancellationToken);
         }
     }
 }

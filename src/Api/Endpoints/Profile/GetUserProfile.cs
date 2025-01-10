@@ -41,13 +41,13 @@ public static partial class GetUserProfile
             return TypedResults.NotFound();
         }
 
-        var user = await repository.QueryAll().QueryById(currentUserProvider.UserId.Value)
+        var entity = await repository.QueryAll().QueryById(currentUserProvider.UserId.Value)
             .Include(u => u.Role)
             .ThenInclude(r => r.Permissions)
             .Include(u => u.UserStatus)
             .AsNoTracking()
             .SingleOrDefaultAsync(cancellationToken);
 
-        return user.ToMappedMinimalApiResult(ResponseMapper.ToResponse);
+        return entity.ToMappedMinimalApiResult(ResponseMapper.ToResponse);
     }
 }

@@ -54,6 +54,7 @@ public static partial class GetUsers
         var query = repository.QueryAll()
             .Include(u => u.UserStatus)
             .AsNoTracking()
+            .QueryActiveOnly()
             .QueryByNameOptional(request.Name)
             .QueryByEmailOptional(request.Email);
 
