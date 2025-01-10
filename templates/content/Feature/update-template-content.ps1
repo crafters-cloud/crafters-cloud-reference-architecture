@@ -22,10 +22,10 @@ Write-Output "SolutionDir: ${SolutionDir}"
 $ProjectDir = "${SolutionDir}\templates\content\Feature"
 
 # Copy the template content
-Copy-FolderContents -SourceDir "${SolutionDir}\src\Api\Endpoints\Users" -DestinationDir "${ProjectDir}\src\Api\Endpoints\Users" -CleanOnly:$CleanOnly
-Copy-FolderContents -SourceDir "${SolutionDir}\src\Domain\Users" -DestinationDir "${ProjectDir}\src\Domain\Users" -CleanOnly:$CleanOnly
-Copy-FolderContents -SourceDir "${SolutionDir}\src\Infrastructure\Data\Configurations" -DestinationDir "${ProjectDir}\src\Infrastructure\Data\Configurations" -Filter "User*" -CleanOnly:$CleanOnly
-Copy-FolderContents -SourceDir "${SolutionDir}\src\Migrations\Seeding" -DestinationDir "${ProjectDir}\src\Migrations\Seeding" -Filter "User*" -CleanOnly:$CleanOnly
-Copy-FolderContents -SourceDir "${SolutionDir}\tests\Api.Tests\Endpoints" -DestinationDir "${ProjectDir}\tests\Api.Tests\Endpoints" -Filter "User*.cs" -CleanOnly:$CleanOnly
-Copy-FolderContents -SourceDir "${SolutionDir}\tests\Domain.Tests\Users" -DestinationDir "${ProjectDir}\tests\Domain.Tests\Users" -Filter "User*" -CleanOnly:$CleanOnly
+Copy-FolderContents -SourceDir "${SolutionDir}\src\Api\Endpoints\Products" -DestinationDir "${ProjectDir}\src\Api\Endpoints\Products" -CleanOnly:$CleanOnly
+Copy-FolderContents -SourceDir "${SolutionDir}\src\Domain\Products" -DestinationDir "${ProjectDir}\src\Domain\Products" -CleanOnly:$CleanOnly
+Copy-FolderContents -SourceDir "${SolutionDir}\src\Infrastructure\Data\Configurations" -DestinationDir "${ProjectDir}\src\Infrastructure\Data\Configurations" -Filter "Product*" -CleanOnly:$CleanOnly
+Copy-FolderContents -SourceDir "${SolutionDir}\src\Migrations\Seeding" -DestinationDir "${ProjectDir}\src\Migrations\Seeding" -Filter "Product*" -CleanOnly:$CleanOnly
+Copy-FolderContents -SourceDir "${SolutionDir}\tests\Api.Tests\Endpoints" -DestinationDir "${ProjectDir}\tests\Api.Tests\Endpoints" -Filter "Product*.cs" -CleanOnly:$CleanOnly
+Copy-FolderContents -SourceDir "${SolutionDir}\tests\Domain.Tests\Products" -DestinationDir "${ProjectDir}\tests\Domain.Tests\Products" -Filter "Product*" -CleanOnly:$CleanOnly
 
