@@ -2,20 +2,20 @@
   "$schema": "http://json.schemastore.org/template",
   "author": "CraftersCloud",
   "classifications": [
-    "reference",
-    "architecture",
-    ".netcore",
-    "api"
+    "feature",
+    "vertical-slice",
+    "minimal-api",
+    "net"
   ],
-  "name": "Crafters Cloud Reference Architecture Feature Template",
+  "name": "New Feature",
   "generatorVersions": "[1.0.0.0-*)",
   "groupIdentity": "CraftersCloud.ReferenceArchitecture.FeatureTemplate",
-  "precedence": "100",
+  "precedence": "101",
   "identity": "CraftersCloud.ReferenceArchitecture.FeatureTemplate",
   "shortName": "crafters-feature",
   "tags": {
     "language": "C#",
-    "type": "project"
+    "type": "item"
   },
   "sourceName": "CraftersCloud.ReferenceArchitecture",
   "preferNameDirectory": true,

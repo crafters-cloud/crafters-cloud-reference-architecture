@@ -45,7 +45,7 @@ public class ApiSetupFixture : IntegrationFixtureBase
     [Test]
     public async Task GivenValidUserId_GetById_ReturnsUserDetails()
     {
-        var user = await Client.Request("users").AppendPathSegment(_user.Id).GetJsonAsync<GetUserDetails.Response>();
+        var user = await Client.Request("users").AppendPathSegment(_user.Id).GetJsonAsync<GetUserById.Response>();
         await Verify(user);
     }
 

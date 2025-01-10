@@ -3,7 +3,7 @@ using CraftersCloud.ReferenceArchitecture.Domain.Users;
 
 namespace CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users;
 
-public static partial class GetUserDetails
+public static partial class GetUserById
 {
     [PublicAPI]
     public class Response

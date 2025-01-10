@@ -13,8 +13,8 @@ public class UserEndpoints : IEndpoint
             .RequireAuthorization()
             .RequirePermissions(PermissionId.UsersRead);
 
-        group.MapGet("/", GetUsers.Handle);
-        group.MapGet("/{id:guid}", GetUserDetails.Handle);
+        group.MapGet("/", GetUsers.Handle).Validate<GetUsers.Request>();
+        group.MapGet("/{id:guid}", GetUserById.Handle);
 
         group.MapPut("/", UpdateUser.Handle).Validate<UpdateUser.Request>()
             .RequirePermissions(PermissionId.UsersWrite);

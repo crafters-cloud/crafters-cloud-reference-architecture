@@ -2,16 +2,16 @@
   "$schema": "http://json.schemastore.org/template",
   "author": "CraftersCloud",
   "classifications": [
-    "reference",
-    "architecture",
-    ".netcore",
-    "api"
+    "solution",
+    "vertical-slice",
+    "minimal-api",
+    "net"
   ],
-  "name": "Crafters Cloud Reference Architecture Template",
+  "name": "New Solution",
   "generatorVersions": "[1.0.0.0-*)",
-  "groupIdentity": "CraftersCloud.ReferenceArchitecture.Template",
+  "groupIdentity": "CraftersCloud.ReferenceArchitecture.SolutionTemplate",
   "precedence": "100",
-  "identity": "CraftersCloud.ReferenceArchitecture.Template",
+  "identity": "CraftersCloud.ReferenceArchitecture.SolutionTemplate",
   "shortName": "crafters-solution",
   "tags": {
     "language": "C#",

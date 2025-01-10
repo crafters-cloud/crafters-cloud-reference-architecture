@@ -48,7 +48,7 @@ public class UserEndpointsFixture : IntegrationFixtureBase
     public async Task GetById()
     {
         var response = await Client.Request("users").AppendPathSegment(_user.Id)
-            .GetJsonAsync<GetUserDetails.Response>();
+            .GetJsonAsync<GetUserById.Response>();
         await Verify(response);
     }
 
