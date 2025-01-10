@@ -1,21 +1,22 @@
-﻿using CraftersCloud.ReferenceArchitecture.Core.Entities;
+﻿using CraftersCloud.ReferenceArchitecture.Core;
 using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
+using CraftersCloud.ReferenceArchitecture.Domain.Entities;
 using CraftersCloud.ReferenceArchitecture.Domain.Users.Commands;
 using CraftersCloud.ReferenceArchitecture.Domain.Users.DomainEvents;
 
 namespace CraftersCloud.ReferenceArchitecture.Domain.Users;
 
-public class User : EntityWithCreatedUpdated
+public class User : EntityWithCreatedUpdated<UserId>
 {
     public const int FirstNameMaxLength = 200;
     public const int LastNameMaxLength = 200;
     public const int EmailAddressMaxLength = 200;
-    
-    public static readonly Guid SystemUserId = new("DFB44AA8-BFC9-4D95-8F45-ED6DA241DCFC");
+
+    public static readonly UserId SystemUserId = new(new Guid("DFB44AA8-BFC9-4D95-8F45-ED6DA241DCFC"));
     public string EmailAddress { get; private set; } = string.Empty;
     public string FirstName { get; private set; } = string.Empty;
     public string LastName { get; private set; } = string.Empty;
-    public Guid RoleId { get; private set; }
+    public RoleId RoleId { get; private set; }
     public Role Role { get; private set; } = null!;
     public UserStatusId UserStatusId { get; private set; } = null!;
     public UserStatus UserStatus { get; private set; } = null!;
@@ -24,7 +25,9 @@ public class User : EntityWithCreatedUpdated
     {
         var result = new User
         {
-            EmailAddress = command.EmailAddress, FirstName = command.FirstName, LastName = command.LastName, RoleId = command.RoleId,
+            Id = IStronglyTypedId<UserId>.CreateNew(),
+            EmailAddress = command.EmailAddress, FirstName = command.FirstName, LastName = command.LastName,
+            RoleId = command.RoleId,
             UserStatusId = command.UserStatusId
         };
 

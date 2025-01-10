@@ -1,7 +1,9 @@
+using CraftersCloud.ReferenceArchitecture.Domain.Users;
+
 namespace CraftersCloud.ReferenceArchitecture.Domain.Identity;
 
-public class UserContext(Guid userId, PermissionsContext permissions)
+public class UserContext(UserId userId, PermissionsContext permissions)
 {
-    public Guid UserId => userId;
+    public UserId UserId => userId;
     public PermissionsContext Permissions => permissions;
 }

@@ -2,6 +2,7 @@
 using CraftersCloud.Core.Data;
 using CraftersCloud.Core.Messaging;
 using CraftersCloud.ReferenceArchitecture.Core.Cqrs;
+using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,7 +15,7 @@ public class CreateUserCommand : ICommand<CreateCommandResult<User>>
     public string EmailAddress { get; set; } = string.Empty;
     public string FirstName { get; set; } = string.Empty;
     public string LastName { get; set; } = string.Empty;
-    public Guid RoleId { get; set; }
+    public RoleId RoleId { get; set; }
     public UserStatusId UserStatusId { get; set; } = UserStatusId.Active;
 
     [UsedImplicitly]
@@ -32,10 +33,11 @@ public class CreateUserCommand : ICommand<CreateCommandResult<User>>
             RuleFor(x => x.RoleId).NotEmpty();
         }
 
-        private async Task<bool> UniqueEmailAddress(CreateUserCommand command, string name, CancellationToken cancellationToken)
+        private async Task<bool> UniqueEmailAddress(CreateUserCommand command, string name,
+            CancellationToken cancellationToken)
         {
             using var scope = _scopeFactory.CreateScope();
-            var repository = scope.Resolve<IRepository<User>>();
+            var repository = scope.Resolve<IRepository<User, UserId>>();
             return !await repository.QueryAll()
                 .QueryByEmail(name)
                 .AnyAsync(cancellationToken);

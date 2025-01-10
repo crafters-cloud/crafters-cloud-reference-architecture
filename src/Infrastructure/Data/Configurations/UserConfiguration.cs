@@ -10,6 +10,7 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
 {
     public void Configure(EntityTypeBuilder<User> builder)
     {
+        builder.Property(x => x.Id).HasStronglyTypedId(x => x.Value, x => new UserId(x));
         builder.Property(u => u.EmailAddress).IsRequired().HasMaxLength(User.EmailAddressMaxLength);
         builder.Property(u => u.FirstName).IsRequired().HasMaxLength(User.FirstNameMaxLength);
         builder.Property(u => u.LastName).IsRequired().HasMaxLength(User.LastNameMaxLength);

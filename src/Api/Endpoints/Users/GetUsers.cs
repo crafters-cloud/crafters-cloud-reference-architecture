@@ -1,6 +1,5 @@
 ﻿using CraftersCloud.Core.Paging;
 using CraftersCloud.ReferenceArchitecture.Api.Models;
-using CraftersCloud.ReferenceArchitecture.Domain.Identity;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
 
 namespace CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users;
@@ -48,7 +47,7 @@ public static partial class GetUsers
     }
 
     public static async Task<Ok<PagedQueryResponse<Response.Item>>> Handle([AsParameters] Request request,
-        IRepository<User> repository,
+        IRepository<User, UserId> repository,
         CancellationToken cancellationToken)
     {
         var query = repository.QueryAll()

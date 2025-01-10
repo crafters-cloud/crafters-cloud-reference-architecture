@@ -7,6 +7,6 @@ namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Data.Configurations
 // Helper class used for easier data configuration and data seeding
 public class RolePermission
 {
-    public Guid RoleId { get; init; }
+    public RoleId RoleId { get; init; }
     public PermissionId PermissionId { get; init; }
 }

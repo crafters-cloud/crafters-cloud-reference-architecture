@@ -33,7 +33,7 @@ public static partial class GetUserProfile
     }
 
     public static async Task<Results<Ok<Response>, NotFound>> Handle(ICurrentUserProvider currentUserProvider,
-        IRepository<User> repository,
+        IRepository<User, UserId> repository,
         CancellationToken cancellationToken)
     {
         if (currentUserProvider.UserId is null)

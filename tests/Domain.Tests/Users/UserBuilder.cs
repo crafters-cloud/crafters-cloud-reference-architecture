@@ -1,4 +1,5 @@
-﻿using CraftersCloud.ReferenceArchitecture.Domain.Users;
+﻿using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
+using CraftersCloud.ReferenceArchitecture.Domain.Users;
 using CraftersCloud.ReferenceArchitecture.Domain.Users.Commands;
 
 namespace CraftersCloud.ReferenceArchitecture.Domain.Tests.Users;
@@ -7,7 +8,7 @@ public class UserBuilder
 {
     private string _firstName = string.Empty;
     private string _lastName = string.Empty;
-    private Guid _roleId = Guid.Empty;
+    private RoleId _roleId = new(Guid.Empty);
     private string _emailAddress = string.Empty;
     private UserStatusId _statusId = UserStatusId.Active;
 
@@ -22,14 +23,14 @@ public class UserBuilder
         _firstName = value;
         return this;
     }
-    
+
     public UserBuilder WithLastName(string value)
     {
         _lastName = value;
         return this;
     }
 
-    public UserBuilder WithRoleId(Guid value)
+    public UserBuilder WithRoleId(RoleId value)
     {
         _roleId = value;
         return this;

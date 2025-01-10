@@ -14,7 +14,8 @@ public static partial class UpdateUser
         Guid RoleId,
         UserStatusId UserStatusId);
 
-    public static async Task<Results<NoContent, NotFound, BadRequest<ValidationProblemDetails>>> Handle([FromBody] Request request,
+    public static async Task<Results<NoContent, NotFound, BadRequest<ValidationProblemDetails>>> Handle(
+        [FromBody] Request request,
         ISender sender,
         HttpContext context,
         CancellationToken cancellationToken)

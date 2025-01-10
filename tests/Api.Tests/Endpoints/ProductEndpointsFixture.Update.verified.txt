@@ -1,0 +1,10 @@
+﻿{
+  Name: new name,
+  Description: new description,
+  ProductStatusId: Inactive,
+  CreatedById: Guid_1,
+  UpdatedById: Guid_1,
+  CreatedOn: DateTimeOffset_1,
+  UpdatedOn: DateTimeOffset_1,
+  Id: Guid_2
+}

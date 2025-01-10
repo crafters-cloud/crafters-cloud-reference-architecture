@@ -26,7 +26,7 @@ public static partial class GetUserById
         public static partial Response ToResponse(User source);
     }
 
-    public static async Task<Results<Ok<Response>, NotFound>> Handle(Guid id, IRepository<User> repository,
+    public static async Task<Results<Ok<Response>, NotFound>> Handle(UserId id, IRepository<User, UserId> repository,
         CancellationToken cancellationToken)
     {
         var entity = await repository.QueryAll()

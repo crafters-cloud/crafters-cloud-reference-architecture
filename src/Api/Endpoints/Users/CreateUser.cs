@@ -6,7 +6,12 @@ namespace CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users;
 
 public static partial class CreateUser
 {
-    public sealed record Request(string EmailAddress, string FirstName, string LastName, Guid RoleId, UserStatusId UserStatusId);
+    public sealed record Request(
+        string EmailAddress,
+        string FirstName,
+        string LastName,
+        Guid RoleId,
+        UserStatusId UserStatusId);
 
     public static async Task<Results<Created<User>, BadRequest<ValidationProblemDetails>>> Handle(
         [FromBody] Request request,

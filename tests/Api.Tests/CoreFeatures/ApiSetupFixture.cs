@@ -76,7 +76,7 @@ public class ApiSetupFixture : IntegrationFixtureBase
     public async Task UpdateUser()
     {
         var request = new UpdateUser.Request(
-            Id: _user.Id,
+            _user.Id,
             FirstName: "some",
             LastName: "user",
             EmailAddress: "someuser@test.com",
@@ -85,7 +85,7 @@ public class ApiSetupFixture : IntegrationFixtureBase
         );
         var response = await Client.Request("users").PutJsonAsync(request);
         response.StatusCode.Should().Be((int) HttpStatusCode.NoContent);
-        var user = QueryByIdSkipCache<User>(_user.Id);
+        var user = QueryDbSkipCache<User>().QueryById(_user.Id).Single();
         await Verify(user);
     }
 

@@ -21,11 +21,15 @@ namespace CraftersCloud.ReferenceArchitecture.Api.Tests.Endpoints;
 // write unit tests.
 public class UserEndpointsFixture : IntegrationFixtureBase
 {
+    private IFlurlRequest _endpoint = null!;
+
     private User _user = null!;
 
     [SetUp]
     public void SetUp()
     {
+        _endpoint = Client.Request("users");
+
         _user = new UserBuilder()
             .WithEmailAddress("john_doe@john.doe")
             .WithFirstName("John")
@@ -39,7 +43,7 @@ public class UserEndpointsFixture : IntegrationFixtureBase
     [Test]
     public async Task GetAll()
     {
-        var response = await Client.Request("users").AppendQueryParam("SortBy", "EmailAddress")
+        var response = await _endpoint.AppendQueryParam(nameof(GetUsers.Request.SortBy), nameof(GetUsers.Request.Email))
             .GetJsonAsync<PagedQueryResponse<GetUsers.Response.Item>>();
         await Verify(response);
     }
@@ -47,7 +51,7 @@ public class UserEndpointsFixture : IntegrationFixtureBase
     [Test]
     public async Task GetById()
     {
-        var response = await Client.Request("users").AppendPathSegment(_user.Id)
+        var response = await _endpoint.AppendPathSegment(_user.Id)
             .GetJsonAsync<GetUserById.Response>();
         await Verify(response);
     }
@@ -55,7 +59,7 @@ public class UserEndpointsFixture : IntegrationFixtureBase
     [Test]
     public async Task GetStatuses()
     {
-        var response = await Client.Request("users").AppendPathSegment("statuses").GetJsonAsync<GetUserStatuses.Response>();
+        var response = await _endpoint.AppendPathSegment("statuses").GetJsonAsync<GetUserStatuses.Response>();
         await Verify(response);
     }
 
@@ -69,8 +73,7 @@ public class UserEndpointsFixture : IntegrationFixtureBase
             Role.SystemAdminRoleId,
             UserStatusId.Active
         );
-        var response =
-            await Client.Request("users").PostJsonAsync(request);
+        var response = await _endpoint.PostJsonAsync(request);
         response.StatusCode.Should().Be((int) HttpStatusCode.Created);
     }
 
@@ -85,9 +88,9 @@ public class UserEndpointsFixture : IntegrationFixtureBase
             Role.SystemAdminRoleId,
             UserStatusId.Inactive
         );
-        var response = await Client.Request("users").PutJsonAsync(request);
+        var response = await _endpoint.PutJsonAsync(request);
         response.StatusCode.Should().Be((int) HttpStatusCode.NoContent);
-        var user = QueryByIdSkipCache<User>(_user.Id);
+        var user = QueryDb<User>().QueryById(_user.Id).Single();
         await Verify(user);
     }
 }

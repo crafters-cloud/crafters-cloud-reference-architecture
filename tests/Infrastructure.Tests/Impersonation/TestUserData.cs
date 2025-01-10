@@ -8,7 +8,7 @@ namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Tests.Impersonation
 
 public static class TestUserData
 {
-    public static readonly Guid TestUserId = new("8af459b7-d6b3-4b0a-8200-66257811e66e");
+    public static readonly UserId TestUserId = new(new Guid("8af459b7-d6b3-4b0a-8200-66257811e66e"));
     private const string TestEmailAddress = "test_user@xyz.com";
 
     public static ClaimsPrincipal CreateClaimsPrincipal() =>
@@ -20,7 +20,7 @@ public static class TestUserData
     public static User CreateSystemUser() =>
         CreateUser(User.SystemUserId, "N/A", "System", "User", Role.SystemAdminRoleId);
 
-    private static User CreateUser(Guid id, string email, string firstName, string lastName, Guid roleId)
+    private static User CreateUser(UserId id, string email, string firstName, string lastName, RoleId roleId)
     {
         var user = User.Create(new CreateUserCommand
         {

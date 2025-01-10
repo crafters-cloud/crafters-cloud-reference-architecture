@@ -9,7 +9,9 @@ public static class DatabaseSeeder
     [
         new UserStatusSeeding(),
         new RolePermissionSeeding(),
-        new UserSeeding()
+        new UserSeeding(),
+        new ProductStatusSeeding(),
+        new ProductSeeding()
     ];
 
     public static void Seed(ModelBuilder modelBuilder) => Seedings.ForEach(seeding => seeding.Seed(modelBuilder));

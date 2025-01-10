@@ -31,5 +31,5 @@
   <ItemGroup>
     <Using Include="JetBrains.Annotations" />
   </ItemGroup>
-  
+
 </Project>

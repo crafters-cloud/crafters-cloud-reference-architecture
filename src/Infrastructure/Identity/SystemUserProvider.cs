@@ -1,5 +1,4 @@
 ﻿using CraftersCloud.Core.Data;
-using CraftersCloud.Core.Entities;
 using CraftersCloud.ReferenceArchitecture.Domain.Identity;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
 using Microsoft.EntityFrameworkCore;
@@ -9,11 +8,11 @@ using DomainUser = CraftersCloud.ReferenceArchitecture.Domain.Users.User;
 namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Identity;
 
 [UsedImplicitly]
-public class SystemUserProvider(IRepository<DomainUser> userRepository, ILogger<SystemUserProvider> logger)
+public class SystemUserProvider(IRepository<DomainUser, UserId> userRepository, ILogger<SystemUserProvider> logger)
     : ICurrentUserProvider
 {
-    public virtual Guid? UserId => DomainUser.SystemUserId;
     private UserContext? _user;
+    public virtual UserId? UserId => DomainUser.SystemUserId;
 
     public UserContext? User
     {

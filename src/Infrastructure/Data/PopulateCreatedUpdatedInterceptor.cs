@@ -1,6 +1,6 @@
 ﻿using CraftersCloud.Core;
 using CraftersCloud.Core.Entities;
-using CraftersCloud.ReferenceArchitecture.Core.Entities;
+using CraftersCloud.ReferenceArchitecture.Domain.Entities;
 using CraftersCloud.ReferenceArchitecture.Domain.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;

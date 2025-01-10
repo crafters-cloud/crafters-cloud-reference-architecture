@@ -1,7 +1,9 @@
-﻿namespace CraftersCloud.ReferenceArchitecture.Domain.Identity;
+﻿using CraftersCloud.ReferenceArchitecture.Domain.Users;
+
+namespace CraftersCloud.ReferenceArchitecture.Domain.Identity;
 
 public interface ICurrentUserProvider
 {
     UserContext? User { get; }
-    Guid? UserId { get; }
+    UserId? UserId { get; }
 }

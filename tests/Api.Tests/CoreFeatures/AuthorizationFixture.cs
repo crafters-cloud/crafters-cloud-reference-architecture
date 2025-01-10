@@ -1,5 +1,4 @@
 ﻿using System.Net;
-using CraftersCloud.Core.Entities;
 using CraftersCloud.ReferenceArchitecture.Api.Tests.Infrastructure.Api;
 using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
@@ -95,9 +94,9 @@ public class AuthorizationFixture : IntegrationFixtureBase
             return role;
         }
 
-        role = new Role { Name = name };
+        role = Role.Create(name);
         var permission = QueryDb<Permission>().Where(p => p.Id == permissionId);
-        role.SetPermissions(permission);
+        role.UpdatePermissions(permission);
         AddAndSaveChanges(role);
         return role;
     }

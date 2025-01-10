@@ -1,0 +1,17 @@
+﻿{
+  Items: [
+    {
+      Id: Guid_1,
+      Name: Product 1,
+      ProductStatusName: Active,
+      CreatedOn: DateTimeOffset_1,
+      UpdatedOn: DateTimeOffset_1
+    }
+  ],
+  TotalCount: 1,
+  PageNumber: 1,
+  PageSize: 10,
+  TotalPages: 1,
+  HasNextPage: false,
+  HasPreviousPage: false
+}

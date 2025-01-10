@@ -9,13 +9,13 @@ namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Identity;
 [UsedImplicitly]
 public class CurrentUserProvider(
     IClaimsProvider claimsProvider,
-    IRepository<User> userRepository,
+    IRepository<User, UserId> userRepository,
     ILogger<CurrentUserProvider> logger)
     : ICurrentUserProvider
 {
     private UserContext? _user;
     private bool IsAuthenticated => claimsProvider.IsAuthenticated;
-    public Guid? UserId => User?.UserId;
+    public UserId? UserId => User?.UserId;
 
     public UserContext? User
     {

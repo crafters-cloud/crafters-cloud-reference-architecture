@@ -12,7 +12,7 @@ if (-not $SolutionDir)
 }
 
 # remove \ from the end of the path
-if ($SolutionDir.EndsWith("\"))
+if ( $SolutionDir.EndsWith("\"))
 {
     $SolutionDir = $SolutionDir.Substring(0, $SolutionDir.Length - 1)
 }

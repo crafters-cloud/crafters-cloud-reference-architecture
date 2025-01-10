@@ -6,6 +6,8 @@
   Permissions: [
     UsersRead,
     UsersWrite,
-    RolesRead
+    RolesRead,
+    ProductsRead,
+    ProductsWrite
   ]
 }

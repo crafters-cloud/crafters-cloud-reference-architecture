@@ -4,4 +4,5 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Data;
 
-public class UserRepository(DbContext context) : EntityFrameworkRepository<User, Guid>(context);
+// This is an example of a Custom repository implementation.
+public class UserRepository(DbContext context) : EntityFrameworkRepository<User, UserId>(context);

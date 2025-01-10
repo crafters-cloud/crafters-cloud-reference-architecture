@@ -9,20 +9,20 @@ public class RolePermissionSeeding : ISeeding
 {
     public void Seed(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Permission>().HasData(CreateAllPermissions());
+        modelBuilder.Entity<Permission>().HasData(AllPermissions());
 
-        modelBuilder.Entity<Role>().HasData(CreateAllRoles());
+        modelBuilder.Entity<Role>().HasData(AllRoles());
 
         var rolePermissions = GetRolePermissions();
         modelBuilder.Entity<RolePermission>().HasData(rolePermissions);
     }
 
-    private static IEnumerable<Role> CreateAllRoles()
+    private static IEnumerable<object> AllRoles()
     {
-        yield return new Role { Id = Role.SystemAdminRoleId, Name = "SystemAdmin" };
+        yield return new { Id = Role.SystemAdminRoleId, Name = "SystemAdmin" };
     }
-    
-    private static IEnumerable<Permission> CreateAllPermissions() =>
+
+    private static IEnumerable<Permission> AllPermissions() =>
         Enum.GetValues<PermissionId>()
             .Select(permissionId => new Permission(permissionId));
 
@@ -31,10 +31,10 @@ public class RolePermissionSeeding : ISeeding
             .SelectMany(tuple => tuple.Permissions
                 .Select(permissionId => new RolePermission { RoleId = tuple.RoleId, PermissionId = permissionId }))
             .ToList();
-    
-    private static IEnumerable<(Guid RoleId, PermissionId[] Permissions)> GetSystemUserPermissions()
+
+    private static IEnumerable<(RoleId RoleId, PermissionId[] Permissions)> GetSystemUserPermissions()
     {
-        yield return new ValueTuple<Guid, PermissionId[]>(Role.SystemAdminRoleId,
+        yield return new ValueTuple<RoleId, PermissionId[]>(Role.SystemAdminRoleId,
             [.. Enum.GetValues<PermissionId>()]); // all permissions
     }
 }

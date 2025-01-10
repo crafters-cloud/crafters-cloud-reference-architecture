@@ -1,6 +1,5 @@
 ﻿using System.Text.Json;
 using CraftersCloud.Core;
-using CraftersCloud.Core.Entities;
 using CraftersCloud.Core.TestUtilities;
 using CraftersCloud.ReferenceArchitecture.Infrastructure;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Init;
@@ -78,16 +77,10 @@ public class IntegrationFixtureBase
         var dbContext = Resolve<DbContext>();
         dbContext.AddRange(entities);
     }
-    
+
     protected Task SaveChangesAsync() => Resolve<DbContext>().SaveChangesAsync();
 
     protected IQueryable<T> QueryDb<T>() where T : class => Resolve<DbContext>().Set<T>();
-
-    protected T QueryByIdSkipCache<T>(Guid id) where T : EntityWithTypedId<Guid> =>
-        QueryDbSkipCache<T>().QueryById(id).Single();
-
-    protected T QueryByIdSkipCache<T>(int id) where T : EntityWithTypedId<int> =>
-        QueryDbSkipCache<T>().QueryById(id).Single();
 
     protected IQueryable<T> QueryDbSkipCache<T>() where T : class => Resolve<DbContext>().QueryDbSkipCache<T>();
 
@@ -100,7 +93,7 @@ public class IntegrationFixtureBase
         var settableTimeProvider = Resolve<TestTimeProvider>();
         settableTimeProvider.SetNow(value);
     }
-    
+
     private static FlurlClient CreateFlurlClient(HttpClient httpClient) =>
         new FlurlClient(httpClient).WithSettings(settings =>
         {

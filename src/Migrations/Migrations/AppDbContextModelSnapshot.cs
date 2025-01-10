@@ -54,6 +54,16 @@ namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Migrations
                         {
                             Id = 3,
                             Name = "RolesRead"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "ProductsRead"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "ProductsWrite"
                         });
                 });
 
@@ -79,6 +89,97 @@ namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Migrations
                         {
                             Id = new Guid("028e686d-51de-4dd9-91e9-dfb5ddde97d0"),
                             Name = "SystemAdmin"
+                        });
+                });
+
+            modelBuilder.Entity("CraftersCloud.ReferenceArchitecture.Domain.Products.Product", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("CreatedById")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTimeOffset>("CreatedOn")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<int>("ProductStatusId")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("UpdatedById")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTimeOffset>("UpdatedOn")
+                        .HasColumnType("datetimeoffset");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CreatedById");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.HasIndex("ProductStatusId");
+
+                    b.HasIndex("UpdatedById");
+
+                    b.ToTable("Product");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("9f39d68d-83e6-4481-871f-f809a3eba998"),
+                            CreatedById = new Guid("dfb44aa8-bfc9-4d95-8f45-ed6da241dcfc"),
+                            CreatedOn = new DateTimeOffset(new DateTime(2025, 1, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            Description = "Lorem ipsum",
+                            Name = "Software development",
+                            ProductStatusId = 1,
+                            UpdatedById = new Guid("dfb44aa8-bfc9-4d95-8f45-ed6da241dcfc"),
+                            UpdatedOn = new DateTimeOffset(new DateTime(2025, 1, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0))
+                        });
+                });
+
+            modelBuilder.Entity("CraftersCloud.ReferenceArchitecture.Domain.Products.ProductStatus", b =>
+                {
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ProductStatus");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Description = "Active Status Description",
+                            Name = "Active"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Description = "Inactive Status Description",
+                            Name = "Inactive"
                         });
                 });
 
@@ -214,7 +315,40 @@ namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Migrations
                         {
                             PermissionId = 3,
                             RoleId = new Guid("028e686d-51de-4dd9-91e9-dfb5ddde97d0")
+                        },
+                        new
+                        {
+                            PermissionId = 4,
+                            RoleId = new Guid("028e686d-51de-4dd9-91e9-dfb5ddde97d0")
+                        },
+                        new
+                        {
+                            PermissionId = 5,
+                            RoleId = new Guid("028e686d-51de-4dd9-91e9-dfb5ddde97d0")
                         });
+                });
+
+            modelBuilder.Entity("CraftersCloud.ReferenceArchitecture.Domain.Products.Product", b =>
+                {
+                    b.HasOne("CraftersCloud.ReferenceArchitecture.Domain.Users.User", null)
+                        .WithMany()
+                        .HasForeignKey("CreatedById")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("CraftersCloud.ReferenceArchitecture.Domain.Products.ProductStatus", "ProductStatus")
+                        .WithMany()
+                        .HasForeignKey("ProductStatusId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("CraftersCloud.ReferenceArchitecture.Domain.Users.User", null)
+                        .WithMany()
+                        .HasForeignKey("UpdatedById")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("ProductStatus");
                 });
 
             modelBuilder.Entity("CraftersCloud.ReferenceArchitecture.Domain.Users.User", b =>

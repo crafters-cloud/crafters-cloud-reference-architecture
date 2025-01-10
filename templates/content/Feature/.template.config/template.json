@@ -27,8 +27,8 @@
     },
     "featureNamePlural": {
       "type": "parameter",
-      "replaces": "Users",
-      "FileRename": "Users"
+      "replaces": "Products",
+      "FileRename": "Products"
     },
     "featureNamePluralLower": {
       "type": "generated",
@@ -37,12 +37,12 @@
         "source": "featureNamePlural",
         "toLower": true
       },
-      "replaces": "users"
+      "replaces": "products"
     },
     "featureName": {
       "type": "parameter",
-      "replaces": "User",
-      "FileRename": "User"
+      "replaces": "Product",
+      "FileRename": "Product"
     },
     "featureNameLower": {
       "type": "generated",
@@ -51,7 +51,7 @@
         "source": "featureName",
         "toLower": true
       },
-      "replaces": "user"
+      "replaces": "product"
     }
   },
   "postActions": [

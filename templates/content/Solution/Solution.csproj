@@ -18,7 +18,7 @@
   <ItemGroup>
     <!-- Remove all files from the project, we do not want to compile c# files -->
     <Compile Remove="**\*" />
-    
+
     <!-- Include the files from the project root -->
     <Content Include="**\*"
              Exclude="**\bin\**;**\obj\**;**\*.user;**\TestResults\**" />

@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using Argon;
 using CraftersCloud.Core.SmartEnums.VerifyTests;
+using CraftersCloud.ReferenceArchitecture.Common.Tests.StronglyTypedIds;
 using CraftersCloud.ReferenceArchitecture.Infrastructure;
 
 namespace CraftersCloud.ReferenceArchitecture.Common.Tests;
@@ -16,6 +17,7 @@ public static class CommonVerifierSettingsInitializer
         {
             // needed for SmartEnum serialization 
             settings.Converters.AddCoreSmartEnumJsonConverters([entryAssembly, AssemblyFinder.DomainAssembly]);
+            settings.Converters.AddStronglyTypedIdsJsonConverters([entryAssembly, AssemblyFinder.DomainAssembly]);
 
             settings.NullValueHandling = NullValueHandling.Ignore;
 

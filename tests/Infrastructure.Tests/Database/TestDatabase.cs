@@ -1,5 +1,6 @@
 ﻿using CraftersCloud.Core.TestUtilities.Database;
 using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
+using CraftersCloud.ReferenceArchitecture.Domain.Products;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Data.Configurations;
 using Microsoft.EntityFrameworkCore;
@@ -13,7 +14,10 @@ internal class TestDatabase
     private static MsSqlContainer? _container;
 
     private static readonly IEnumerable<string> TablesToIgnore =
-        ["__EFMigrationsHistory", nameof(Role), nameof(RolePermission), nameof(Permission), nameof(UserStatus)];
+    [
+        "__EFMigrationsHistory", nameof(Role), nameof(RolePermission), nameof(Permission), nameof(UserStatus),
+        nameof(ProductStatus)
+    ];
 
     public async Task CreateAsync()
     {

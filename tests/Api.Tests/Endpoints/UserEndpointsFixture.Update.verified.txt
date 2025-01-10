@@ -1,9 +1,9 @@
 ﻿{
   EmailAddress: john_doe@john.doe,
-  FirstName: some,
-  LastName: user,
+  FirstName: John,
+  LastName: Doe,
   RoleId: Guid_1,
-  UserStatusId: Inactive,
+  UserStatusId: Active,
   CreatedById: Guid_2,
   UpdatedById: Guid_2,
   CreatedOn: DateTimeOffset_1,
