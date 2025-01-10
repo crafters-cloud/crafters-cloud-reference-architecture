@@ -19,5 +19,5 @@ else
 {
     # Navigate to the root of the solution
     Set-Location ..
-    dotnet new crafters-feature --projectName CraftersCloud.ReferenceArchitecture --featureName $featureName --featureNamePlural $featureNamePlural --allow-scripts yes
+    dotnet new crafters-feature --projectName "CraftersCloud.ReferenceArchitecture" --featureName $featureName --featureNamePlural $featureNamePlural --allow-scripts yes
 }

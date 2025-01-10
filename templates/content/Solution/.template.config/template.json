@@ -55,7 +55,7 @@
     },
     "friendlyName": {
       "type": "parameter",
-      "replaces": "CraftersCloud ReferenceArchitecture"
+      "replaces": "Crafters Cloud Reference Architecture"
     },
     "skipRestore": {
       "type": "parameter",
