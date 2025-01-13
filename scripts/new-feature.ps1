@@ -1,5 +1,5 @@
 Write-Host "Adding new feature"
-$featureName = Read-Host "Feature name (e.g. 'Product' or 'exit' to quit)"
+$featureName = Read-Host "Feature name (e.g. 'Order' or 'exit' to quit)"
 
 # Optionally, include any logic you want to perform with the user input
 # For example, you can check if the input matches certain criteria
@@ -9,7 +9,7 @@ if ($featureName -eq "exit")
     exit
 }
 
-$featureNamePlural = Read-Host "Feature name in plural (e.g. 'Products' or 'exit' to quit)"
+$featureNamePlural = Read-Host "Feature name in plural (e.g. 'Orders' or 'exit' to quit)"
 if ($featureNamePlural -eq "exit")
 {
     Write-Host "Exiting the script."

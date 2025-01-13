@@ -187,12 +187,12 @@
       "condition": "(!skipGit)",
       "args": {
         "executable": "git",
-        "args": "commit -q -m \"Initial Commit\"",
+        "args": "commit -q -m \"Initial\"",
         "redirectStandardOutput": "false"
       },
       "manualInstructions": [
         {
-          "text": "Run 'git commit -m \"Initial Commit\"'"
+          "text": "Run 'git commit -m \"Initial\"'"
         }
       ],
       "description": "git commit",
