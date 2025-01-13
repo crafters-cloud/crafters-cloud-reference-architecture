@@ -16,10 +16,10 @@ Autofac.Extensions.DependencyInjection is licensed under the MIT License (https:
 
 Copyright (c) 2014 Autofac Project
 
-# Azure.Extensions.AspNetCore.Configuration.Secrets
+# Azure SDK for .NET
 URL: https://github.com/Azure/azure-sdk-for-net
 
-Azure.Extensions.AspNetCore.Configuration.Secrets is licensed under the MIT License (https://github.com/Azure/azure-sdk-for-net/blob/main/LICENSE.txt).
+Azure SDK for .NET is licensed under the MIT License (https://github.com/Azure/azure-sdk-for-net/blob/main/LICENSE.txt).
 
 Copyright (c) 2015 Microsoft
 
