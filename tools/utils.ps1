@@ -92,6 +92,7 @@ function Copy-FolderContents
     # Get all items in the source directory, excluding specified folders
     $items = Get-ChildItem -Path $SourceDir -Filter $Filter -Recurse | Exclude-Directories -ExcludeDirs $ExcludeDirs
     foreach ($item in $items) {
+        Write-Host "Full name: $($item.FullName)"
         $relativePath = $item.FullName.Substring($SourceDir.Length + 1)
         Write-Host "Relative path: $relativePath"
         $destinationPath = Join-Path -Path $DestinationDir -ChildPath $relativePath
