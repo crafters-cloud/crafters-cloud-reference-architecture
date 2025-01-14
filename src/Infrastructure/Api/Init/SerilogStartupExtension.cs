@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using CraftersCloud.Core.AspNetCore.ApplicationInsights;
-using CraftersCloud.Core.Configuration;
 using CraftersCloud.Core.Helpers;
+using CraftersCloud.Core.Infrastructure;
 using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

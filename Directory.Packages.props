@@ -1,7 +1,7 @@
 <Project>
   <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-    <CraftersCloudVersion>1.0.27</CraftersCloudVersion>
+    <CoreVersion>1.0.32</CoreVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageVersion Include="Autofac" Version="8.2.0" />
@@ -11,20 +11,20 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageVersion>
-    <PackageVersion Include="CraftersCloud.Core" Version="$(CraftersCloudVersion)" />
-    <PackageVersion Include="CraftersCloud.Core.AspNetCore" Version="$(CraftersCloudVersion)" />
-    <PackageVersion Include="CraftersCloud.Core.EntityFramework" Version="$(CraftersCloudVersion)" />
-    <PackageVersion Include="CraftersCloud.Core.EntityFramework.Infrastructure" Version="$(CraftersCloudVersion)" />
-    <PackageVersion Include="CraftersCloud.Core.HealthChecks" Version="$(CraftersCloudVersion)" />
-    <PackageVersion Include="CraftersCloud.Core.Infrastructure" Version="$(CraftersCloudVersion)" />
-    <PackageVersion Include="CraftersCloud.Core.MediatR" Version="$(CraftersCloudVersion)" />
-    <PackageVersion Include="CraftersCloud.Core.SmartEnums" Version="$(CraftersCloudVersion)" />
-    <PackageVersion Include="CraftersCloud.Core.SmartEnums.EntityFramework" Version="$(CraftersCloudVersion)" />
-    <PackageVersion Include="CraftersCloud.Core.SmartEnums.Swagger" Version="$(CraftersCloudVersion)" />
-    <PackageVersion Include="CraftersCloud.Core.SmartEnums.SystemTextJson" Version="$(CraftersCloudVersion)" />
-    <PackageVersion Include="CraftersCloud.Core.SmartEnums.VerifyTests" Version="$(CraftersCloudVersion)" />
-    <PackageVersion Include="CraftersCloud.Core.Swagger" Version="$(CraftersCloudVersion)" />
-    <PackageVersion Include="CraftersCloud.Core.TestUtilities" Version="$(CraftersCloudVersion)" />
+    <PackageVersion Include="CraftersCloud.Core" Version="$(CoreVersion)" />
+    <PackageVersion Include="CraftersCloud.Core.AspNetCore" Version="$(CoreVersion)" />
+    <PackageVersion Include="CraftersCloud.Core.EntityFramework" Version="$(CoreVersion)" />
+    <PackageVersion Include="CraftersCloud.Core.EntityFramework.Infrastructure" Version="$(CoreVersion)" />
+    <PackageVersion Include="CraftersCloud.Core.HealthChecks" Version="$(CoreVersion)" />
+    <PackageVersion Include="CraftersCloud.Core.Infrastructure" Version="$(CoreVersion)" />
+    <PackageVersion Include="CraftersCloud.Core.MediatR" Version="$(CoreVersion)" />
+    <PackageVersion Include="CraftersCloud.Core.SmartEnums" Version="$(CoreVersion)" />
+    <PackageVersion Include="CraftersCloud.Core.SmartEnums.EntityFramework" Version="$(CoreVersion)" />
+    <PackageVersion Include="CraftersCloud.Core.SmartEnums.Swagger" Version="$(CoreVersion)" />
+    <PackageVersion Include="CraftersCloud.Core.SmartEnums.SystemTextJson" Version="$(CoreVersion)" />
+    <PackageVersion Include="CraftersCloud.Core.SmartEnums.VerifyTests" Version="$(CoreVersion)" />
+    <PackageVersion Include="CraftersCloud.Core.Swagger" Version="$(CoreVersion)" />
+    <PackageVersion Include="CraftersCloud.Core.TestUtilities" Version="$(CoreVersion)" />
     <PackageVersion Include="FakeItEasy" Version="8.3.0" />
     <PackageVersion Include="FakeItEasy.Analyzer.CSharp" Version="6.1.1" />
     <PackageVersion Include="FluentAssertions" Version="7.0.0" />
@@ -63,7 +63,7 @@
     <PackageVersion Include="Polly" Version="8.5.0" />
     <PackageVersion Include="Respawn" Version="6.2.1" />
     <PackageVersion Include="Riok.Mapperly" Version="4.1.1" />
-    <PackageVersion Include="Scalar.AspNetCore" Version="1.2.72" />
+    <PackageVersion Include="Scalar.AspNetCore" Version="1.2.75" />
     <PackageVersion Include="Serilog.AspNetCore" Version="9.0.0" />
     <PackageVersion Include="Serilog.Enrichers.Environment" Version="3.0.1" />
     <PackageVersion Include="Serilog.Enrichers.Process" Version="3.0.0" />
@@ -74,7 +74,7 @@
     <PackageVersion Include="Serilog.Sinks.Console" Version="6.0.0" />
     <PackageVersion Include="Serilog.Sinks.File" Version="6.0.0" />
     <PackageVersion Include="Testcontainers.MsSql" Version="4.1.0" />
-    <PackageVersion Include="Verify" Version="28.7.0" />
-    <PackageVersion Include="Verify.NUnit" Version="28.7.0" />
+    <PackageVersion Include="Verify" Version="28.8.1" />
+    <PackageVersion Include="Verify.NUnit" Version="28.8.1" />
   </ItemGroup>
 </Project>

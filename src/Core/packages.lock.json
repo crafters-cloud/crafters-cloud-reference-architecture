@@ -4,9 +4,9 @@
     "net9.0": {
       "CraftersCloud.Core": {
         "type": "Direct",
-        "requested": "[1.0.27, )",
-        "resolved": "1.0.27",
-        "contentHash": "wCnX54D1tVSLjb6MKRaEf6QeiVTn4+Vr7LawzoPuVIzmmJMlbOYgSxLZm9SnYLE15a45cNirDYuH0WHd1P0zZg==",
+        "requested": "[1.0.32, )",
+        "resolved": "1.0.32",
+        "contentHash": "GU0B3BCFF1UiS8VRvR0U6bO3rI82fy418JXOXbrwnl2Rt0m2hFnrKZ/jPe/5AKGGg8ppt8A5VuEcbZiW4v6orA==",
         "dependencies": {
           "FluentValidation": "11.11.0",
           "JetBrains.Annotations": "2024.3.0",
@@ -20,12 +20,12 @@
       },
       "CraftersCloud.Core.SmartEnums": {
         "type": "Direct",
-        "requested": "[1.0.27, )",
-        "resolved": "1.0.27",
-        "contentHash": "JeArMr242mVMvsfAD8Uk4Js4pG9ELkAp/Qg4k0jYath1eZxZMF+5geY2B0lw/SXENYXqG7X64Q3dH9GW9IOKJA==",
+        "requested": "[1.0.32, )",
+        "resolved": "1.0.32",
+        "contentHash": "PK5KuB2IQY0uMil23uZX/xLtlYewICYifCw05v71dBOtpJ/TR/Wv0636yxhmQy92YAotocPnFpA2OcpYtPsTnQ==",
         "dependencies": {
           "Ardalis.SmartEnum": "8.2.0",
-          "CraftersCloud.Core": "1.0.27",
+          "CraftersCloud.Core": "1.0.32",
           "JetBrains.Annotations": "2024.3.0"
         }
       },

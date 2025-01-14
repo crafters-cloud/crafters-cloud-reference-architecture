@@ -1,4 +1,4 @@
-﻿using CraftersCloud.Core.Messaging;
+﻿using CraftersCloud.Core.Cqrs;
 
 public sealed record GetCurrentUserProfileQuery() : IQuery<CurrentUserProfileResponse>;
 

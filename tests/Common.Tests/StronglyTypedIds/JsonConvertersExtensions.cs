@@ -10,8 +10,6 @@ public static class JsonConvertersExtensions
     public static void AddStronglyTypedIdsJsonConverters(this IList<JsonConverter> converters,
         IEnumerable<Assembly> assemblies)
     {
-        var type1 = typeof(UserId);
-        var blah = type1.IsStronglyTypedId();
         var stronglyTypedIdsTypes = assemblies.SelectMany(a => a.GetTypes())
             .Where(t => t.IsStronglyTypedId());
 

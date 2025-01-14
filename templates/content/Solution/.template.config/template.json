@@ -12,7 +12,7 @@
   "groupIdentity": "CraftersCloud.ReferenceArchitecture.SolutionTemplate",
   "precedence": "100",
   "identity": "CraftersCloud.ReferenceArchitecture.SolutionTemplate",
-  "shortName": "crafters-solution",
+  "shortName": "crafters-starter",
   "tags": {
     "language": "C#",
     "type": "project"

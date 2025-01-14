@@ -1,5 +1,4 @@
 ﻿using Autofac;
-using CraftersCloud.Core.Configuration;
 using CraftersCloud.Core.Data;
 using CraftersCloud.Core.EntityFramework.Infrastructure;
 using Microsoft.EntityFrameworkCore;

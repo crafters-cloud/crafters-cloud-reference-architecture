@@ -1,6 +1,6 @@
 ﻿using CraftersCloud.Core;
 using CraftersCloud.Core.Data;
-using CraftersCloud.Core.Messaging;
+using CraftersCloud.Core.Cqrs;
 using CraftersCloud.ReferenceArchitecture.Core.Cqrs;
 using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
 using FluentValidation;
