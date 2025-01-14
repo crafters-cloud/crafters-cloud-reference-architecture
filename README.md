@@ -43,7 +43,7 @@ This combination of technologies provides a robust foundation for developing mod
 
 ``dotnet new install CraftersCloud.ReferenceArchitecture.ProjectTemplates``
 
-### Create a new solution based on the template:
+### Create a new solution based on the template
 
 ``dotnet new crafters-starter --projectName Client.Project --friendlyName "Client Project" --allow-scripts yes``
 
@@ -51,7 +51,7 @@ This combination of technologies provides a robust foundation for developing mod
 
 Build the solution and run the integration tests to ensure everything is working correctly.
 
-### Scaffold new feature in the new solution:
+### Scaffold new feature in the new solution
 
 Either execute the _scripts\new-feature.ps1_ script
 

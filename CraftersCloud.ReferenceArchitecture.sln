@@ -55,6 +55,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{4F7D
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "templates", "templates", "{6D9F7F63-7B8E-43A0-BAE8-2ABD7A1C1D26}"
+	ProjectSection(SolutionItems) = preProject
+		templates\TEMPLATE.md = templates\TEMPLATE.md
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Feature", "templates\content\Feature\Feature.csproj", "{95C5A10B-FCF3-4013-8280-4EB8CF06F1E7}"
 EndProject
