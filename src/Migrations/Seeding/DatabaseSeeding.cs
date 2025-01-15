@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Seeding;
 
-public static class DatabaseSeeder
+public static class DatabaseSeeding
 {
     private static readonly List<ISeeding> Seedings =
     [

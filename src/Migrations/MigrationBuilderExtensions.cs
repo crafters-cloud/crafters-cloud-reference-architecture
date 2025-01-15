@@ -8,7 +8,7 @@ public static class MigrationBuilderExtensions
 {
     public static void ResourceSql(this MigrationBuilder migrationBuilder, string scriptName)
     {
-        var sql = EmbeddedResource.ReadResourceContent(typeof(DatabaseSeeder).Assembly,
+        var sql = EmbeddedResource.ReadResourceContent(typeof(DatabaseSeeding).Assembly,
             $"CraftersCloud.ReferenceArchitecture.Data.Migrations.Scripts.{scriptName}");
         if (!sql.HasContent())
         {

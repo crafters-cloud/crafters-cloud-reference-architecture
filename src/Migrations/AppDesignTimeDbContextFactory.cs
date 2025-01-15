@@ -21,7 +21,7 @@ public class AppDesignTimeDbContextFactory : IDesignTimeDbContextFactory<AppDbCo
 
         var result = new AppDbContext(optionsBuilder.Options)
         {
-            ModelBuilderConfigurator = DatabaseSeeder.Seed
+            ModelBuilderConfigurator = DatabaseSeeding.Seed
         };
         return result;
     }
