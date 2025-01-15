@@ -10,6 +10,7 @@ dotnet sln remove templates\content\Solution\Solution.csproj
 del templates\content\Solution\Solution.csproj
 
 dotnet sln remove workflows
+dotnet sln remove templates
 
 del icon-128x92.png
 del update-template-content.ps1
