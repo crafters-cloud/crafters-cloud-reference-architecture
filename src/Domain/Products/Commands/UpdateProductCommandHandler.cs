@@ -1,11 +1,12 @@
 ﻿using CraftersCloud.Core.Data;
+using CraftersCloud.Core.Entities;
 using CraftersCloud.ReferenceArchitecture.Core.Cqrs;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 namespace CraftersCloud.ReferenceArchitecture.Domain.Products.Commands;
 
-public class UpdateProductCommandHandler(IRepository<Product, ProductId> repository)
+public class UpdateProductCommandHandler(IRepository<Product> repository)
     : IRequestHandler<UpdateProductCommand, UpdateCommandResult<Product>>
 {
     public async Task<UpdateCommandResult<Product>> Handle(UpdateProductCommand command,

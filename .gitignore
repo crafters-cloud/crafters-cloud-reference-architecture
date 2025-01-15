@@ -284,6 +284,7 @@ __pycache__/
 /templates/content/Solution/Directory.Packages.props
 /templates/content/Solution/icon-128x92.png
 /templates/content/Solution/LICENSE.md
+/templates/content/Solution/NOTICE.md
 /templates/content/Solution/README.md
 /templates/content/Solution/Tests.Build.props
 /templates/content/Solution/CraftersCloud.ReferenceArchitecture.sln.DotSettings

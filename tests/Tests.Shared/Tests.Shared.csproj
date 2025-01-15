@@ -1,13 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <RootNamespace>CraftersCloud.ReferenceArchitecture.Common.Tests</RootNamespace>
-    <AssemblyName>CraftersCloud.ReferenceArchitecture.Common.Tests</AssemblyName>
+    <RootNamespace>CraftersCloud.ReferenceArchitecture.Tests.Shared</RootNamespace>
+    <AssemblyName>CraftersCloud.ReferenceArchitecture.Tests.Shared</AssemblyName>
   </PropertyGroup>
 
   <Import Project="..\..\Tests.Build.props" />
 
   <ItemGroup>
-    <PackageReference Include="CraftersCloud.Core.SmartEnums.VerifyTests" />
+    <PackageReference Include="CraftersCloud.Core.Tests.Shared" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\Application\Application.csproj" />

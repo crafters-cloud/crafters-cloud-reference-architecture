@@ -1,6 +1,7 @@
 ﻿using CraftersCloud.Core;
-using CraftersCloud.Core.Data;
 using CraftersCloud.Core.Cqrs;
+using CraftersCloud.Core.Data;
+using CraftersCloud.Core.Entities;
 using CraftersCloud.ReferenceArchitecture.Core.Cqrs;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
@@ -34,7 +35,7 @@ public class UpdateProductCommand : ICommand<UpdateCommandResult<Product>>
             CancellationToken cancellationToken)
         {
             using var scope = _scopeFactory.CreateScope();
-            var repository = scope.Resolve<IRepository<Product, ProductId>>();
+            var repository = scope.Resolve<IRepository<Product>>();
             return !await repository.QueryAll()
                 .QueryExceptWithId(command.Id)
                 .QueryByName(name)

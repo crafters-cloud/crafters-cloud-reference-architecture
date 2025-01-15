@@ -4,14 +4,9 @@ namespace CraftersCloud.ReferenceArchitecture.Domain.Products;
 
 public static class ProductQueryableExtensions
 {
+    // Use this method to build Root Aggregate when loading
     public static IQueryable<Product> IncludeAggregate(this IQueryable<Product> query) =>
         query;
-
-    public static IQueryable<Product> QueryById(this IQueryable<Product> query, ProductId id) =>
-        query.Where(e => e.Id == id);
-
-    public static IQueryable<Product> QueryExceptWithId(this IQueryable<Product> query, ProductId? id)
-        => query.Where(e => e.Id != id);
 
     public static IQueryable<Product> QueryByName(this IQueryable<Product> query, string email) =>
         query.Where(e => e.Name == email);

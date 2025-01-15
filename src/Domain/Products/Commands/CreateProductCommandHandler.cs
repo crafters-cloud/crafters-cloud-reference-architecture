@@ -4,7 +4,7 @@ using MediatR;
 
 namespace CraftersCloud.ReferenceArchitecture.Domain.Products.Commands;
 
-public class CreateProductCommandHandler(IRepository<Product, ProductId> repository)
+public class CreateProductCommandHandler(IRepository<Product> repository)
     : IRequestHandler<CreateProductCommand, CreateCommandResult<Product>>
 {
     public Task<CreateCommandResult<Product>> Handle(CreateProductCommand command,

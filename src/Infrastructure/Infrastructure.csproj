@@ -36,17 +36,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <InternalsVisibleTo Include="CraftersCloud.ReferenceArchitecture.Api" />
-    <InternalsVisibleTo Include="CraftersCloud.ReferenceArchitecture.Api.Tests" />
-    <InternalsVisibleTo Include="CraftersCloud.Core.ReferenceArchitecture.Scheduler.Tests" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="Api\Security\DummyUserAuthenticationHandler.cs" />
   </ItemGroup>
 
 </Project>

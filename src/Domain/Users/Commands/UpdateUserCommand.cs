@@ -1,6 +1,6 @@
 ﻿using CraftersCloud.Core;
-using CraftersCloud.Core.Data;
 using CraftersCloud.Core.Cqrs;
+using CraftersCloud.Core.Data;
 using CraftersCloud.ReferenceArchitecture.Core.Cqrs;
 using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
 using FluentValidation;
@@ -38,7 +38,7 @@ public class UpdateUserCommand : ICommand<UpdateCommandResult<User>>
             CancellationToken cancellationToken)
         {
             using var scope = _scopeFactory.CreateScope();
-            var repository = scope.Resolve<IRepository<User, UserId>>();
+            var repository = scope.Resolve<IRepository<User>>();
             return !await repository.QueryAll()
                 .QueryByEmail(name)
                 .AnyAsync(cancellationToken);

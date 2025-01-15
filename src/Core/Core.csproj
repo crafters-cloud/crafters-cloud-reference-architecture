@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="CraftersCloud.Core" />
+    <PackageReference Include="CraftersCloud.Core.SourceGenerator" />
     <PackageReference Include="CraftersCloud.Core.SmartEnums" />
     <PackageReference Include="OneOf" />
     <PackageReference Include="OneOf.SourceGenerator" />

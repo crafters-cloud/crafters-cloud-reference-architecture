@@ -9,7 +9,7 @@ namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Identity;
 [UsedImplicitly]
 public class CurrentUserProvider(
     IClaimsProvider claimsProvider,
-    IRepository<User, UserId> userRepository,
+    IRepository<User> userRepository,
     ILogger<CurrentUserProvider> logger)
     : ICurrentUserProvider
 {

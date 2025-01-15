@@ -7,19 +7,15 @@
   <Import Project="..\..\Tests.Build.props" />
 
   <ItemGroup>
-    <PackageReference Include="CraftersCloud.Core.TestUtilities" />
+    <PackageReference Include="CraftersCloud.Core.Tests.Shared" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" />
     <PackageReference Include="Respawn" />
     <PackageReference Include="Testcontainers.MsSql" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\tests\Common.Tests\Common.Tests.csproj" />
+    <ProjectReference Include="..\Tests.Shared\Tests.Shared.csproj" />
     <ProjectReference Include="..\..\src\Infrastructure\Infrastructure.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <InternalsVisibleTo Include="CraftersCloud.ReferenceArchitecture.Api.Tests" />
   </ItemGroup>
 
 </Project>

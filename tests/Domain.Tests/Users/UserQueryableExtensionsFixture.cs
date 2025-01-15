@@ -1,6 +1,5 @@
 ﻿using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
-using FluentAssertions;
 
 namespace CraftersCloud.ReferenceArchitecture.Domain.Tests.Users;
 
@@ -30,7 +29,7 @@ public class UserQueryableExtensionsFixture
     public void QueryEmptyList()
     {
         var result = new List<User>().AsQueryable().QueryByEmail("some").ToList();
-        result.Should().BeEmpty();
+        result.ShouldBeEmpty();
     }
 
     [TestCase("emailAddress1", 1, TestName = "Case sensitive-should find")]
@@ -43,6 +42,6 @@ public class UserQueryableExtensionsFixture
         //change to use expectedCount instead of Verify
         var result = _query.QueryByEmail(emailAddress).ToList();
 
-        result.Count.Should().Be(expectedCount);
+        result.Count.ShouldBe(expectedCount);
     }
 }

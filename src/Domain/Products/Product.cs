@@ -1,9 +1,12 @@
-﻿using CraftersCloud.ReferenceArchitecture.Core;
+﻿using CraftersCloud.Core.StronglyTypedIds;
 using CraftersCloud.ReferenceArchitecture.Domain.Entities;
 using CraftersCloud.ReferenceArchitecture.Domain.Products.Commands;
 using CraftersCloud.ReferenceArchitecture.Domain.Products.DomainEvents;
 
 namespace CraftersCloud.ReferenceArchitecture.Domain.Products;
+
+[StronglyTypedId(ValueKind.Guid)]
+public readonly partial record struct ProductId;
 
 public class Product : EntityWithCreatedUpdated<ProductId>
 {
@@ -21,7 +24,7 @@ public class Product : EntityWithCreatedUpdated<ProductId>
     {
         var result = new Product
         {
-            Id = IStronglyTypedId<ProductId>.CreateNew(),
+            Id = ProductId.CreateNew(),
             Name = command.Name, Description = command.Description,
             ProductStatusId = command.ProductStatusId
         };

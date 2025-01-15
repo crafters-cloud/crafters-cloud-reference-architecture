@@ -19,10 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <InternalsVisibleTo Include="CraftersCloud.ReferenceArchitecture.Api.Tests" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Application\Application.csproj" />
     <ProjectReference Include="..\Core\Core.csproj" />
     <ProjectReference Include="..\Domain\Domain.csproj" />

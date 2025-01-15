@@ -2,6 +2,14 @@
 
 This open source project is using and is based on several other open source projects:
 
+## Ardalis.SmartEnum
+
+URL: https://github.com/ardalis/SmartEnum
+
+Ardalis.SmartEnum is licensed under the MIT License (https://github.com/ardalis/SmartEnum/blob/main/LICENSE) 
+ 
+Copyright (c) 2017 Steve Smith
+
 ## Asp.NET Core
 
 URL: https://github.com/dotnet/aspnetcore
@@ -10,12 +18,26 @@ ASP.NET Core is licensed under the MIT License (https://github.com/dotnet/aspnet
 
 Copyright (c) .NET Foundation and Contributors
 
+## AspNetCore.Diagnostics.HealthChecks
+
+URL: https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks
+
+AspNetCore.Diagnostics.HealthChecks is licensed under the Apache 2.0 License (https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks/blob/master/LICENSE)
+
+## AspNetWebStack
+
+URL: https://github.com/aspnet/AspNetWebStack
+
+AspNetWebStack is licensed under the Apache 2.0 License (https://github.com/aspnet/AspNetWebStack/blob/main/LICENSE.txt)
+ 
+Copyright (c) .NET Foundation. All rights reserved.
+
 ## Autofac
 
-URL: https://github.com/autofac/autofac
+URL: https://github.com/autofac/Autofac
 
-Autofac is licensed under the MIT License (https://github.com/autofac/Autofac/blob/develop/LICENSE).
-
+Autofac is licensed under the MIT License (https://github.com/autofac/Autofac/blob/develop/LICENSE)
+ 
 Copyright © 2014 Autofac Project
 
 ## Autofac.Extensions.DependencyInjection
@@ -26,13 +48,19 @@ Autofac.Extensions.DependencyInjection is licensed under the MIT License (https:
 
 Copyright (c) 2014 Autofac Project
 
-## Azure SDK for .NET
+## Azure SDK for NET
 
 URL: https://github.com/Azure/azure-sdk-for-net
 
-Azure SDK for .NET. is licensed under the MIT License (https://github.com/Azure/azure-sdk-for-net/blob/main/LICENSE.txt).
-
+Azure SDK for NET is licensed under the MIT License (https://github.com/Azure/azure-sdk-for-net/blob/main/LICENSE.txt)
+ 
 Copyright (c) 2015 Microsoft
+
+## Ben.Demystifier
+
+URL: https://github.com/benaadams/Ben.Demystifier
+
+Ben.Demystifier is licensed under the Apache 2.0 License (https://github.com/benaadams/Ben.Demystifier/blob/main/LICENSE)
 
 ## coverlet
 
@@ -42,14 +70,6 @@ coverlet is licensed under the MIT License (https://github.com/coverlet-coverage
 
 Copyright (c) 2018 Toni Solarin-Sodara
 
-## CraftersCloud.Core
-
-URL: https://github.com/crafters-cloud/crafters-cloud-core
-
-CraftersCloud.Core is licensed under Apache 2.0 License (https://github.com/crafters-cloud/crafters-cloud-core/blob/main/LICENSE.md)
-
-Copyright (c) 2024-present Crafters Cloud
-
 ## Dotnet.Extensions
 
 URL: https://github.com/dotnet/extensions
@@ -57,26 +77,20 @@ URL: https://github.com/dotnet/extensions
 Microsoft.Extensions.DependencyInjection is licensed under the MIT License (https://github.com/dotnet/extensions/blob/main/LICENSE).
 
 Copyright (c) .NET Foundation. All rights reserved.
-
+ 
 ## FakeItEasy
 
 URL: https://github.com/FakeItEasy/FakeItEasy
 
-FakeItEasy is licensed under the MIT License (https://github.com/FakeItEasy/FakeItEasy/blob/master/License.txt).
-
+FakeItEasy is licensed under the MIT License (https://github.com/FakeItEasy/FakeItEasy/blob/master/License.txt)
+ 
 Copyright (c) FakeItEasy contributors. (fakeiteasy@hagne.se)
-
-## FluentAssertions
-
-URL: https://github.com/fluentassertions/fluentassertions
-
-FluentAssertions is licensed under the Apache 2.0 License (https://github.com/fluentassertions/fluentassertions/blob/main/LICENSE).
 
 ## FluentValidation
 
 URL: https://github.com/FluentValidation/FluentValidation
 
-FluentValidation is licensed under the Apache 2.0 License (https://github.com/FluentValidation/FluentValidation/blob/main/License.txt).
+FluentValidation is licensed under the Apache 2.0 License (https://github.com/FluentValidation/FluentValidation/blob/main/License.txt)
 
 ## Flurl.Http
 
@@ -90,10 +104,16 @@ Copyright (c) 2025 Todd Menier
 
 URL: https://github.com/JetBrains/JetBrains.Annotations
 
-JetBrains.Annotations is licensed under the MIT License (https://github.com/JetBrains/JetBrains.Annotations/blob/main/license.md).
-
+JetBrains.Annotations is licensed under the MIT License (https://github.com/JetBrains/JetBrains.Annotations/blob/main/license.md)
+ 
 Copyright (c) 2016-2024 JetBrains s.r.o.
 
+## MediatR
+
+URL: https://github.com/jbogard/MediatR
+
+MediatR is licensed under the Apache 2.0 License (https://github.com/jbogard/MediatR/blob/master/LICENSE)
+ 
 ## Microsoft.ApplicationInsights.AspNetCore
 
 URL: https://github.com/microsoft/ApplicationInsights-dotnet
@@ -106,8 +126,8 @@ Copyright (c) 2015 Microsoft
 
 URL: https://github.com/dotnet/efcore
 
-Microsoft.EntityFrameworkCore is licensed under the MIT License (https://github.com/dotnet/efcore/blob/main/LICENSE.txt).
-
+Microsoft.EntityFrameworkCore is licensed under the MIT License (https://github.com/dotnet/efcore/blob/main/LICENSE.txt)
+ 
 Copyright (c) .NET Foundation and Contributors
 
 ## Microsoft.Identity.Web
@@ -120,25 +140,51 @@ Copyright (c) Microsoft Corporation.
 
 ## Microsoft.NET.Test.Sdk
 
-URL: https://github.com/microsoft/testfx
+URL: https://github.com/microsoft/vstest
 
-Microsoft.NET.Test.Sdk is licensed under the MIT License (https://github.com/microsoft/testfx/blob/main/LICENSE).
-
+Microsoft.NET.Test.Sdk is licensed under the MIT License (https://github.com/microsoft/vstest/blob/main/LICENSE)
+ 
 Copyright (c) Microsoft Corporation
+
+## Source Link
+
+URL: https://github.com/dotnet/sourcelink
+
+Source Link is licensed under the MIT License (https://github.com/dotnet/sourcelink/blob/main/License.txt)
+ 
+Copyright (c) .NET Foundation and Contributors
 
 ## MinVer
 
 URL: https://github.com/adamralph/minver
 
-MinVer is licensed under the Apache 2.0 License (https://github.com/adamralph/minver/blob/main/LICENSE).
+MinVer is licensed under the Apache 2.0 License (https://github.com/adamralph/minver/blob/main/LICENSE)
+ 
+Copyright (c)
+
+## NSwag
+
+URL: https://github.com/RicoSuter/NSwag
+
+NSwag is licensed under the MIT License (https://github.com/RicoSuter/NSwag/blob/master/LICENSE.md)
+ 
+Copyright (c) 2021 Rico Suter
 
 ## NUnit
 
 URL: https://github.com/nunit/nunit
 
-NUnit is licensed under the MIT License (https://github.com/nunit/nunit/blob/main/LICENSE.txt).
-
+NUnit is licensed under the MIT License (https://github.com/nunit/nunit/blob/main/LICENSE.txt)
+ 
 Copyright (c) 2024 Charlie Poole, Rob Prouse
+
+## NUnit3TestAdapter
+
+URL: https://github.com/nunit/nunit3-vs-adapter
+
+NUnit3TestAdapter is licensed under the MIT License (https://github.com/nunit/nunit3-vs-adapter/blob/master/LICENSE)
+ 
+Copyright (c) 2011-2020 Charlie Poole, 2014-2024 Terje Sandstrom
 
 ## NUnit Console
 
@@ -152,8 +198,8 @@ Copyright (c) 2021 Charlie Poole, Rob Prouse
 
 URL: https://github.com/mcintyre321/OneOf
 
-OneOf is licensed under the MIT License (https://github.com/mcintyre321/OneOf/blob/master/licence.md).
-
+OneOf is licensed under the MIT License (https://github.com/mcintyre321/OneOf/blob/master/licence.md)
+ 
 Copyright (c) 2016 Harry McIntyre
 
 ## Polly
@@ -168,7 +214,9 @@ Copyright (c) 2015-2023, App vNext
 
 URL: https://github.com/jbogard/Respawn
 
-Respawn is licensed under the Apache 2.0 License (https://github.com/jbogard/Respawn).
+Respawn is licensed under the Apache 2.0 License (https://github.com/jbogard/Respawn/blob/master/LICENSE)
+ 
+Copyright (c)
 
 ## Riok.Mapperly
 
@@ -183,6 +231,12 @@ URL: https://github.com/scalar/scalar
 Scalar is licensed under the MIT License (https://github.com/scalar/scalar/blob/main/LICENSE).
 
 Copyright (c) 2023-present Scalar
+
+## Serilog
+
+URL: https://github.com/serilog/serilog
+
+Serilog is licensed under the Apache 2.0 License (https://github.com/serilog/serilog/blob/dev/LICENSE)
 
 ## Serilog.AspNetCore
 
@@ -238,6 +292,21 @@ URL: https://github.com/serilog/serilog-sinks-file
 
 Serilog.Sinks.File is licensed under the Apache 2.0 License (https://github.com/serilog/serilog-sinks-file/blob/dev/LICENSE).
 
+## Shouldly
+
+URL: https://github.com/shouldly/shouldly
+
+Shouldly is licensed under the BSD License (https://github.com/shouldly/shouldly/blob/master/LICENSE.txt).
+
+## System.Linq.Dynamic.Core
+
+URL: https://github.com/zzzprojects/System.Linq.Dynamic.Core
+
+System.Linq.Dynamic.Core is licensed under the Apache 2.0 License (https://github.com/zzzprojects/System.Linq.Dynamic.Core/blob/master/LICENSE)
+
+Copyright [2016] [Stef Heyenrath]
+
+
 ## Testcontainers.MsSql
 
 URL: https://github.com/testcontainers/testcontainers-dotnet
@@ -245,11 +314,12 @@ URL: https://github.com/testcontainers/testcontainers-dotnet
 Testcontainers.MsSql is licensed under the MIT License (https://github.com/testcontainers/testcontainers-dotnet/blob/develop/LICENSE).
 
 Copyright (c) 2019 - 2025 Andre Hofmeister and other authors
-
+ 
 ## Verify
 
 URL: https://github.com/VerifyTests/Verify
 
-Verify is licensed under the MIT License (https://github.com/VerifyTests/Verify/blob/main/license.txt).
-
+Verify is licensed under the MIT License (https://github.com/VerifyTests/Verify/blob/main/license.txt)
+ 
 Copyright (c) .NET Foundation and Contributors
+

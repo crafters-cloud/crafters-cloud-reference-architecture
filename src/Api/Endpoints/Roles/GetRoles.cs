@@ -9,7 +9,7 @@ public static class GetRoles
     public class Response : ItemsResponse<KeyValuePairDto<Guid>>;
 
     [UsedImplicitly]
-    public static async Task<Ok<Response>> Handle(IRepository<Role, RoleId> roleRepository,
+    public static async Task<Ok<Response>> Handle(IRepository<Role> roleRepository,
         CancellationToken cancellationToken)
     {
         var items = await roleRepository

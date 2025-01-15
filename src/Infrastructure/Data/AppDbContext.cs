@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Data;
 
 [UsedImplicitly]
-public class AppDbContext(DbContextOptions options) : EntitiesDbContext(CreateOptions(), options)
+public class AppDbContext(DbContextOptions options) : BaseDbContext(CreateOptions(), options)
 {
     protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder) =>
         configurationBuilder.Properties<string>()
@@ -15,12 +15,14 @@ public class AppDbContext(DbContextOptions options) : EntitiesDbContext(CreateOp
     {
         // first we need to build the model so that we can later configure the smart enums
         base.OnModelCreating(modelBuilder);
-        modelBuilder.ApplyEntityWithGuidIdConvention();
         modelBuilder.CoreConfigureSmartEnums();
     }
 
-    private static EntitiesDbContextOptions CreateOptions() => new()
+    private static EntityRegistrationOptions CreateOptions() => new()
     {
-        ConfigurationAssembly = AssemblyFinder.InfrastructureAssembly, EntitiesAssembly = AssemblyFinder.DomainAssembly
+        ConfigurationAssembly = AssemblyFinder.InfrastructureAssembly, 
+        EntitiesAssembly = AssemblyFinder.DomainAssembly,
+        EntityTypePredicate = null,
+        ConfigurationTypePredicate = null
     };
 }

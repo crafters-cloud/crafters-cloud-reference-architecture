@@ -1,10 +1,10 @@
 ﻿using System.Net;
+using CraftersCloud.Core.Entities;
 using CraftersCloud.Core.Paging;
 using CraftersCloud.ReferenceArchitecture.Api.Endpoints.Products;
 using CraftersCloud.ReferenceArchitecture.Api.Tests.Infrastructure.Api;
 using CraftersCloud.ReferenceArchitecture.Domain.Products;
 using CraftersCloud.ReferenceArchitecture.Domain.Tests.Products;
-using FluentAssertions;
 using Flurl.Http;
 using GetProducts = CraftersCloud.ReferenceArchitecture.Api.Endpoints.Products.GetProducts;
 using UpdateProduct = CraftersCloud.ReferenceArchitecture.Api.Endpoints.Products.UpdateProduct;
@@ -67,7 +67,7 @@ public class ProductEndpointsFixture : IntegrationFixtureBase
         );
         var response =
             await _endpoint.PostJsonAsync(request);
-        response.StatusCode.Should().Be((int) HttpStatusCode.Created);
+        response.StatusCode.ShouldBe((int) HttpStatusCode.Created);
     }
 
     [Test]
@@ -80,7 +80,7 @@ public class ProductEndpointsFixture : IntegrationFixtureBase
             ProductStatusId.Inactive
         );
         var response = await _endpoint.PutJsonAsync(request);
-        response.StatusCode.Should().Be((int) HttpStatusCode.NoContent);
+        response.StatusCode.ShouldBe((int) HttpStatusCode.NoContent);
         var product = QueryDbSkipCache<Product>().QueryById(_product.Id).Single();
         await Verify(product);
     }

@@ -18,9 +18,9 @@
     <ProjectReference Include="..\..\src\Infrastructure\Infrastructure.csproj" />
     <ProjectReference Include="..\..\src\Migrations\Migrations.csproj" />
 
-    <ProjectReference Include="..\..\tests\Domain.Tests\Domain.Tests.csproj" />
-    <ProjectReference Include="..\..\tests\Common.Tests\Common.Tests.csproj" />
-    <ProjectReference Include="..\..\tests\Infrastructure.Tests\Infrastructure.Tests.csproj" />
+    <ProjectReference Include="..\Domain.Tests\Domain.Tests.csproj" />
+    <ProjectReference Include="..\Tests.Shared\Tests.Shared.csproj" />
+    <ProjectReference Include="..\Infrastructure.Tests\Infrastructure.Tests.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,4 +1,4 @@
-﻿using CraftersCloud.Core.TestUtilities.Database;
+﻿using CraftersCloud.Core.Tests.Shared.Database;
 using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
 using CraftersCloud.ReferenceArchitecture.Domain.Products;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
@@ -8,7 +8,7 @@ using Testcontainers.MsSql;
 
 namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Tests.Database;
 
-internal class TestDatabase
+public class TestDatabase
 {
     public string ConnectionString { get; private set; } = null!;
     private static MsSqlContainer? _container;

@@ -1,11 +1,11 @@
 ﻿using System.Net;
+using CraftersCloud.Core.Entities;
 using CraftersCloud.Core.Paging;
 using CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users;
 using CraftersCloud.ReferenceArchitecture.Api.Tests.Infrastructure.Api;
 using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
 using CraftersCloud.ReferenceArchitecture.Domain.Tests.Users;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
-using FluentAssertions;
 using Flurl.Http;
 using GetUsers = CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users.GetUsers;
 using UpdateUser = CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users.UpdateUser;
@@ -74,7 +74,7 @@ public class UserEndpointsFixture : IntegrationFixtureBase
             UserStatusId.Active
         );
         var response = await _endpoint.PostJsonAsync(request);
-        response.StatusCode.Should().Be((int) HttpStatusCode.Created);
+        response.StatusCode.ShouldBe((int) HttpStatusCode.Created);
     }
 
     [Test]
@@ -89,7 +89,7 @@ public class UserEndpointsFixture : IntegrationFixtureBase
             UserStatusId.Inactive
         );
         var response = await _endpoint.PutJsonAsync(request);
-        response.StatusCode.Should().Be((int) HttpStatusCode.NoContent);
+        response.StatusCode.ShouldBe((int) HttpStatusCode.NoContent);
         var user = QueryDb<User>().QueryById(_user.Id).Single();
         await Verify(user);
     }

@@ -10,12 +10,6 @@ public static class UserQueryableExtensions
             .Include(u => u.Role)
             .ThenInclude(r => r.Permissions);
 
-    public static IQueryable<User> QueryById(this IQueryable<User> query, UserId id) =>
-        query.Where(e => e.Id == id);
-
-    public static IQueryable<User> QueryExceptWithId(this IQueryable<User> query, UserId id)
-        => query.Where(e => e.Id != id);
-
     public static IQueryable<User> QueryByEmail(this IQueryable<User> query, string email) =>
         query.Where(e => e.EmailAddress == email);
 

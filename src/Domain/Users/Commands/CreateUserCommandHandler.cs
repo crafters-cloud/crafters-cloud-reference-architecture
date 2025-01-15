@@ -4,7 +4,7 @@ using MediatR;
 
 namespace CraftersCloud.ReferenceArchitecture.Domain.Users.Commands;
 
-public class CreateUserCommandHandler(IRepository<User, UserId> repository)
+public class CreateUserCommandHandler(IRepository<User> repository)
     : IRequestHandler<CreateUserCommand, CreateCommandResult<User>>
 {
     public Task<CreateCommandResult<User>> Handle(CreateUserCommand command,

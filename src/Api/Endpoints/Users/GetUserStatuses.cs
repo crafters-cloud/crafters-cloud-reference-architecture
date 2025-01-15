@@ -10,7 +10,7 @@ public static class GetUserStatuses
     public class Response : ItemsResponse<KeyValuePairDto<int>>;
 
     public static async Task<Ok<Response>> Handle(
-        IRepository<UserStatus, UserStatusId> repository,
+        IRepository<UserStatus> repository,
         CancellationToken cancellationToken)
     {
         var items = await repository

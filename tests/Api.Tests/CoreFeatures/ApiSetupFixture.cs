@@ -1,11 +1,11 @@
 ﻿using System.Net;
+using CraftersCloud.Core.Entities;
 using CraftersCloud.Core.Paging;
 using CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users;
 using CraftersCloud.ReferenceArchitecture.Api.Tests.Infrastructure.Api;
 using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
 using CraftersCloud.ReferenceArchitecture.Domain.Tests.Users;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
-using FluentAssertions;
 using Flurl.Http;
 using Microsoft.AspNetCore.Mvc;
 using GetUsers = CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users.GetUsers;
@@ -53,7 +53,7 @@ public class ApiSetupFixture : IntegrationFixtureBase
     public async Task GivenNonExistingUserId_GetById_ReturnsNotFound()
     {
         var response = await Client.Request($"users").AppendPathSegment(Guid.NewGuid()).AllowHttpStatus(404).GetAsync();
-        response.StatusCode.Should().Be(404);
+        response.StatusCode.ShouldBe(404);
     }
 
     [Test]
@@ -67,9 +67,9 @@ public class ApiSetupFixture : IntegrationFixtureBase
             UserStatusId.Inactive);
 
         var result = await Client.Request("users").PostJsonAsync(request);
-        result.StatusCode.Should().Be((int) HttpStatusCode.Created);
+        result.StatusCode.ShouldBe((int) HttpStatusCode.Created);
         var (_, location) = result.Headers.FirstOrDefault(h => h.Name == "Location");
-        location.Should().NotBeNullOrEmpty();
+        location.ShouldNotBeNullOrEmpty();
     }
 
     [Test]
@@ -84,7 +84,7 @@ public class ApiSetupFixture : IntegrationFixtureBase
             UserStatusId: UserStatusId.Inactive
         );
         var response = await Client.Request("users").PutJsonAsync(request);
-        response.StatusCode.Should().Be((int) HttpStatusCode.NoContent);
+        response.StatusCode.ShouldBe((int) HttpStatusCode.NoContent);
         var user = QueryDbSkipCache<User>().QueryById(_user.Id).Single();
         await Verify(user);
     }
@@ -106,7 +106,7 @@ public class ApiSetupFixture : IntegrationFixtureBase
         var response = await Client.Request("users").AllowHttpStatus((int) HttpStatusCode.BadRequest)
             .PostJsonAsync(request);
         var validationErrors = await response.GetJsonAsync<ValidationProblemDetails>();
-        response.StatusCode.Should().Be((int) HttpStatusCode.BadRequest);
+        response.StatusCode.ShouldBe((int) HttpStatusCode.BadRequest);
         await Verify(validationErrors).UseParameters(TestContext.CurrentContext.Test.Name);
     }
 }

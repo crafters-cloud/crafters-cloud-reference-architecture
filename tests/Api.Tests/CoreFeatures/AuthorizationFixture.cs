@@ -1,9 +1,9 @@
 ﻿using System.Net;
+using CraftersCloud.Core.Entities;
 using CraftersCloud.ReferenceArchitecture.Api.Tests.Infrastructure.Api;
 using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Tests.Impersonation;
-using FluentAssertions;
 using Flurl.Http;
 using Microsoft.EntityFrameworkCore;
 using CreateUser = CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users.CreateUser;
@@ -27,7 +27,7 @@ public class AuthorizationFixture : IntegrationFixtureBase
     public async Task UserWithPermissionIsAllowed()
     {
         var response = await Client.Request("users").GetAsync();
-        response.StatusCode.Should().Be((int) HttpStatusCode.OK);
+        response.StatusCode.ShouldBe((int) HttpStatusCode.OK);
     }
 
     [Test]
@@ -38,7 +38,7 @@ public class AuthorizationFixture : IntegrationFixtureBase
             new CreateUser.Request("someuser@test.com", "some", "user", Role.SystemAdminRoleId, UserStatusId.Active);
         var response = await Client.Request("users").AllowHttpStatus((int) HttpStatusCode.Forbidden)
             .PostJsonAsync(request);
-        response.StatusCode.Should().Be((int) HttpStatusCode.Forbidden);
+        response.StatusCode.ShouldBe((int) HttpStatusCode.Forbidden);
     }
 
     [Test]
@@ -47,14 +47,14 @@ public class AuthorizationFixture : IntegrationFixtureBase
         await UpdateCurrentUserToRole(_roleWithNonePermission!);
 
         var response = await Client.Request("users").AllowHttpStatus((int) HttpStatusCode.Forbidden).GetAsync();
-        response.StatusCode.Should().Be((int) HttpStatusCode.Forbidden);
+        response.StatusCode.ShouldBe((int) HttpStatusCode.Forbidden);
     }
 
     [Test]
     public async Task EndpointWithoutAuthorizeAttributeIsAllowed()
     {
         var response = await Client.Request("profile").GetAsync();
-        response.StatusCode.Should().Be((int) HttpStatusCode.OK);
+        response.StatusCode.ShouldBe((int) HttpStatusCode.OK);
     }
 
     [TearDown]

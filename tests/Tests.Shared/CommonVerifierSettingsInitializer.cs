@@ -1,10 +1,10 @@
 ﻿using System.Reflection;
 using Argon;
-using CraftersCloud.Core.SmartEnums.VerifyTests;
-using CraftersCloud.ReferenceArchitecture.Common.Tests.StronglyTypedIds;
+using CraftersCloud.Core.Tests.Shared.SmartEnums;
+using CraftersCloud.Core.Tests.Shared.StronglyTypedIds;
 using CraftersCloud.ReferenceArchitecture.Infrastructure;
 
-namespace CraftersCloud.ReferenceArchitecture.Common.Tests;
+namespace CraftersCloud.ReferenceArchitecture.Tests.Shared;
 
 public static class CommonVerifierSettingsInitializer
 {

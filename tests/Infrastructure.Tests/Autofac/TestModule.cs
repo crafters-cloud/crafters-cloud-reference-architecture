@@ -1,6 +1,6 @@
 ﻿using Autofac;
 using CraftersCloud.Core;
-using CraftersCloud.Core.TestUtilities;
+using CraftersCloud.Core.Tests.Shared;
 
 namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Tests.Autofac;
 

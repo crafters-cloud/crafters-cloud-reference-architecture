@@ -25,7 +25,7 @@ public static partial class GetProductById
     }
 
     public static async Task<Results<Ok<Response>, NotFound>> Handle(ProductId id,
-        IRepository<Product, ProductId> repository,
+        IRepository<Product> repository,
         CancellationToken cancellationToken)
     {
         var entity = await repository.QueryAll()

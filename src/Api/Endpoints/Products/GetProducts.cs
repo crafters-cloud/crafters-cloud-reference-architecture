@@ -44,7 +44,7 @@ public static partial class GetProducts
     }
 
     public static async Task<Ok<PagedQueryResponse<Response.Item>>> Handle([AsParameters] Request request,
-        IRepository<Product, ProductId> repository,
+        IRepository<Product> repository,
         CancellationToken cancellationToken)
     {
         var query = repository.QueryAll()

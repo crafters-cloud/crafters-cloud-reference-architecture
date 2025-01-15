@@ -33,7 +33,7 @@ public class CreateProductCommand : ICommand<CreateCommandResult<Product>>
             CancellationToken cancellationToken)
         {
             using var scope = _scopeFactory.CreateScope();
-            var repository = scope.Resolve<IRepository<Product, ProductId>>();
+            var repository = scope.Resolve<IRepository<Product>>();
             return !await repository.QueryAll()
                 .QueryByName(name)
                 .AnyAsync(cancellationToken);

@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 using CraftersCloud.Core;
-using CraftersCloud.Core.TestUtilities;
+using CraftersCloud.Core.Tests.Shared;
 using CraftersCloud.ReferenceArchitecture.Infrastructure;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Init;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Data;

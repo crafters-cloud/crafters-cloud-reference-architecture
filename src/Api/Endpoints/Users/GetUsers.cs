@@ -47,7 +47,7 @@ public static partial class GetUsers
     }
 
     public static async Task<Ok<PagedQueryResponse<Response.Item>>> Handle([AsParameters] Request request,
-        IRepository<User, UserId> repository,
+        IRepository<User> repository,
         CancellationToken cancellationToken)
     {
         var query = repository.QueryAll()
