@@ -25,10 +25,9 @@ public class UpdateProductCommand : ICommand<UpdateCommandResult<Product>>
         public Validator(IServiceScopeFactory scopeFactory)
         {
             _scopeFactory = scopeFactory;
-            RuleFor(x => x.Name).NotEmpty().MaximumLength(Product.NameMaxLength);
-            RuleFor(x => x.Name).MustAsync(UniqueProductName).WithMessage("Product name is already taken");
-            RuleFor(x => x.Description).MaximumLength(Product.DescriptionMaxLength);
-            RuleFor(x => x.ProductStatusId).NotEmpty();
+            RuleFor(x => x.Name).ValidateProductName(UniqueProductName);
+            RuleFor(x => x.Description).ValidateProductDescription();
+            RuleFor(x => x.ProductStatusId).ValidateProductStatusId();
         }
 
         private async Task<bool> UniqueProductName(UpdateProductCommand command, string name,

@@ -24,6 +24,10 @@ public class User : EntityWithCreatedUpdated<UserId>
     public UserStatusId UserStatusId { get; private set; } = null!;
     public UserStatus UserStatus { get; private set; } = null!;
 
+    private User()
+    {
+    }
+
     public static User Create(CreateUserCommand command)
     {
         var result = new User

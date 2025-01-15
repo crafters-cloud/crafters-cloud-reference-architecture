@@ -2,7 +2,7 @@
 
 namespace CraftersCloud.ReferenceArchitecture.Domain.Users.DomainEvents;
 
-public record UserUpdatedDomainEvent(Guid Id, string EmailAddress) : AuditableDomainEvent("UserUpdated")
+public record UserUpdatedDomainEvent(UserId Id, string EmailAddress) : AuditableDomainEvent("UserUpdated")
 {
     public override object AuditPayload => new { Id, EmailAddress };
 }

@@ -26,11 +26,10 @@ public class CreateUserCommand : ICommand<CreateCommandResult<User>>
         public Validator(IServiceScopeFactory scopeFactory)
         {
             _scopeFactory = scopeFactory;
-            RuleFor(x => x.EmailAddress).NotEmpty().MaximumLength(User.EmailAddressMaxLength).EmailAddress();
-            RuleFor(x => x.EmailAddress).MustAsync(UniqueEmailAddress).WithMessage("EmailAddress is already taken");
-            RuleFor(x => x.FirstName).NotEmpty().MaximumLength(User.FirstNameMaxLength);
-            RuleFor(x => x.LastName).NotEmpty().MaximumLength(User.LastNameMaxLength);
-            RuleFor(x => x.RoleId).NotEmpty();
+            RuleFor(x => x.EmailAddress).ValidateUserEmail(UniqueEmailAddress);
+            RuleFor(x => x.FirstName).ValidateUserFirstName();
+            RuleFor(x => x.LastName).ValidateUserLastName();
+            RuleFor(x => x.RoleId).ValidateRoleId();
         }
 
         private async Task<bool> UniqueEmailAddress(CreateUserCommand command, string name,

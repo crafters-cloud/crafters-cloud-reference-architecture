@@ -1,6 +1,6 @@
 ﻿using CraftersCloud.Core;
-using CraftersCloud.Core.Data;
 using CraftersCloud.Core.Cqrs;
+using CraftersCloud.Core.Data;
 using CraftersCloud.ReferenceArchitecture.Core.Cqrs;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
@@ -23,14 +23,12 @@ public class CreateProductCommand : ICommand<CreateCommandResult<Product>>
         public Validator(IServiceScopeFactory scopeFactory)
         {
             _scopeFactory = scopeFactory;
-            RuleFor(x => x.Name).NotEmpty().MaximumLength(Product.NameMaxLength);
-            RuleFor(x => x.Name).MustAsync(UniqueProductName).WithMessage("Product name is already taken");
-            RuleFor(x => x.Description).MaximumLength(Product.DescriptionMaxLength);
-            RuleFor(x => x.ProductStatusId).NotEmpty();
+            RuleFor(x => x.Name).ValidateProductName(UniqueProductName);
+            RuleFor(x => x.Description).ValidateProductDescription();
+            RuleFor(x => x.ProductStatusId).ValidateProductStatusId();
         }
 
-        private async Task<bool> UniqueProductName(CreateProductCommand command, string name,
-            CancellationToken cancellationToken)
+        private async Task<bool> UniqueProductName(CreateProductCommand command, string name, CancellationToken cancellationToken)
         {
             using var scope = _scopeFactory.CreateScope();
             var repository = scope.Resolve<IRepository<Product>>();

@@ -2,7 +2,7 @@
 
 namespace CraftersCloud.ReferenceArchitecture.Domain.Products.DomainEvents;
 
-public record ProductCreatedDomainEvent(Guid Id, string Name) : AuditableDomainEvent("ProductCreated")
+public record ProductCreatedDomainEvent(ProductId Id, string Name) : AuditableDomainEvent("ProductCreated")
 {
     public override object AuditPayload => new { Id, Name };
 }
