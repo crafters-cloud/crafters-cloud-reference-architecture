@@ -13,6 +13,32 @@ public static partial class UpdateUser
         string LastName,
         Guid RoleId,
         UserStatusId UserStatusId);
+    
+    [UsedImplicitly]
+    public class Validator : AbstractValidator<Request>
+    {
+        private readonly IServiceScopeFactory _scopeFactory;
+
+        public Validator(IServiceScopeFactory scopeFactory)
+        {
+            _scopeFactory = scopeFactory;
+            RuleFor(x => x.EmailAddress).ValidateUserEmail(UniqueEmailAddress);
+            RuleFor(x => x.FirstName).ValidateUserFirstName();
+            RuleFor(x => x.LastName).ValidateUserLastName();
+            RuleFor(x => x.RoleId).ValidateRoleId();
+        }
+
+        private async Task<bool> UniqueEmailAddress(Request command, string name,
+            CancellationToken cancellationToken)
+        {
+            using var scope = _scopeFactory.CreateScope();
+            var repository = scope.Resolve<IRepository<User>>();
+            return !await repository.QueryAll()
+                .QueryByEmail(name)
+                .QueryExceptWithId(UserId.Create(command.Id))
+                .AnyAsync(cancellationToken);
+        }
+    }
 
     public static async Task<Results<NoContent, NotFound, BadRequest<ValidationProblemDetails>>> Handle(
         [FromBody] Request request,

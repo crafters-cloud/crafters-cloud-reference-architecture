@@ -8,12 +8,13 @@ public static class ProductQueryableExtensions
     public static IQueryable<Product> IncludeAggregate(this IQueryable<Product> query) =>
         query;
 
-    public static IQueryable<Product> QueryByName(this IQueryable<Product> query, string email) =>
-        query.Where(e => e.Name == email);
+    public static IQueryable<Product> QueryByName(this IQueryable<Product> query, string name) =>
+        query.Where(e => e.Name == name);
 
-    public static IQueryable<Product> QueryByNameOptional(this IQueryable<Product> query, string? name) =>
+    public static IQueryable<Product> QueryByNameOptional(this IQueryable<Product> query, string? name,
+        Func<string, string> pattern) =>
         !string.IsNullOrEmpty(name)
-            ? query.Where(e => EF.Functions.Like(e.Name, $"%{name}%"))
+            ? query.Where(e => EF.Functions.Like(e.Name, pattern(name)))
             : query;
 
     public static IQueryable<Product> QueryActiveOnly(this IQueryable<Product> query) =>

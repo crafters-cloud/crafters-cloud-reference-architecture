@@ -1,6 +1,8 @@
 ﻿using CraftersCloud.Core.Paging;
 using CraftersCloud.ReferenceArchitecture.Api.Models;
+using CraftersCloud.ReferenceArchitecture.Domain;
 using CraftersCloud.ReferenceArchitecture.Domain.Products;
+using CraftersCloud.ReferenceArchitecture.Domain.Users;
 
 namespace CraftersCloud.ReferenceArchitecture.Api.Endpoints.Products;
 
@@ -51,8 +53,7 @@ public static partial class GetProducts
             .Include(u => u.ProductStatus)
             .AsNoTracking()
             .QueryByStatusOptional(request.ProductStatusId)
-            .QueryByNameOptional(request.Name);
-
+            .QueryByNameOptional(request.Name, SearchPatterns.Like);
         var items = await ResponseItemQueryMapper.ProjectTo(query)
             .ToPagedResponseAsync(request, cancellationToken);
 

@@ -13,9 +13,10 @@ public static class UserQueryableExtensions
     public static IQueryable<User> QueryByEmail(this IQueryable<User> query, string email) =>
         query.Where(e => e.EmailAddress == email);
 
-    public static IQueryable<User> QueryByEmailOptional(this IQueryable<User> query, string? email) =>
+    public static IQueryable<User> QueryEmailOptional(this IQueryable<User> query, string? email,
+        Func<string, string> pattern) =>
         !string.IsNullOrEmpty(email)
-            ? query.Where(e => EF.Functions.Like(e.EmailAddress, $"%{email}%"))
+            ? query.Where(e => EF.Functions.Like(e.EmailAddress, pattern(email)))
             : query;
 
     public static IQueryable<User> QueryActiveOnly(this IQueryable<User> query) =>

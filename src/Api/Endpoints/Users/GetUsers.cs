@@ -1,5 +1,6 @@
 ﻿using CraftersCloud.Core.Paging;
 using CraftersCloud.ReferenceArchitecture.Api.Models;
+using CraftersCloud.ReferenceArchitecture.Domain;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
 
 namespace CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users;
@@ -55,7 +56,7 @@ public static partial class GetUsers
             .AsNoTracking()
             .QueryActiveOnly()
             .QueryByNameOptional(request.Name)
-            .QueryByEmailOptional(request.EmailAddress);
+            .QueryEmailOptional(request.EmailAddress, SearchPatterns.Like);
 
         var items = await ResponseItemQueryMapper.ProjectTo(query)
             .ToPagedResponseAsync(request, cancellationToken);
