@@ -71,6 +71,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppHost", "src\AppHost\AppH
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceDefaults", "src\ServiceDefaults\ServiceDefaults.csproj", "{6FD9C41C-9968-47B3-9ADF-B2E34819C10E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MigrationService", "src\MigrationService\MigrationService.csproj", "{FF31F9E2-A013-4804-A29F-AC437AA8B612}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -137,6 +139,10 @@ Global
 		{6FD9C41C-9968-47B3-9ADF-B2E34819C10E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FD9C41C-9968-47B3-9ADF-B2E34819C10E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6FD9C41C-9968-47B3-9ADF-B2E34819C10E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF31F9E2-A013-4804-A29F-AC437AA8B612}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF31F9E2-A013-4804-A29F-AC437AA8B612}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF31F9E2-A013-4804-A29F-AC437AA8B612}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF31F9E2-A013-4804-A29F-AC437AA8B612}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -159,6 +165,7 @@ Global
 		{54D92D01-1BB7-46EF-977F-AF9B0F590EA5} = {6D9F7F63-7B8E-43A0-BAE8-2ABD7A1C1D26}
 		{07CCE1B9-2648-4DB4-A0C2-A43884E40B73} = {1B9A7DFE-EF36-4ED3-B967-92BDC387E64A}
 		{6FD9C41C-9968-47B3-9ADF-B2E34819C10E} = {1B9A7DFE-EF36-4ED3-B967-92BDC387E64A}
+		{FF31F9E2-A013-4804-A29F-AC437AA8B612} = {1B9A7DFE-EF36-4ED3-B967-92BDC387E64A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5366D8D0-38E2-403F-BD61-0BE58A895283}
