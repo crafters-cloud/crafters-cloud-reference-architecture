@@ -10,7 +10,7 @@ public class ProductConfiguration : IEntityTypeConfiguration<Product>
 {
     public void Configure(EntityTypeBuilder<Product> builder)
     {
-        builder.Property(x => x.Id).HasStronglyTypedId(x => x.Value, x => new ProductId(x));
+        builder.Property(x => x.Id).HasStronglyTypedId(x => x.Value, x => ProductId.Create(x));
         builder.Property(x => x.Name).IsRequired().HasMaxLength(Product.NameMaxLength);
         builder.Property(x => x.Description).HasMaxLength(Product.DescriptionMaxLength);
 

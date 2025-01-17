@@ -32,7 +32,7 @@ public class IntegrationFixtureBase
         await _testDatabase.CreateAsync();
 
         _configuration = new TestConfigurationBuilder()
-            .WithDbContextName(nameof(AppDbContext))
+            .WithDbName("app-db")
             .WithConnectionString(_testDatabase.ConnectionString)
             .Build();
 

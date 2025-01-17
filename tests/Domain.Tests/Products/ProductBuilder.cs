@@ -34,11 +34,11 @@ public class ProductBuilder
     public Product Build()
     {
         var result = Product.Create(new CreateProductCommand
-        {
-            Name = _name,
-            Description = _description,
-            ProductStatusId = _statusId
-        });
+        (
+            Name: _name,
+            Description: _description,
+            ProductStatusId: _statusId
+        ));
 
         return result;
     }

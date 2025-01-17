@@ -3,9 +3,9 @@ using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Data.Configurations;
 using Microsoft.EntityFrameworkCore;
 
-namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Seeding;
+namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Seeding.MigrationSeeding;
 
-public class RolePermissionSeeding : ISeeding
+public class RolePermissionSeeding : IModelBuilderSeeding
 {
     public void Seed(ModelBuilder modelBuilder)
     {

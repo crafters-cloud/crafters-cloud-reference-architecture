@@ -1,4 +1,6 @@
 using System.Diagnostics;
+using CraftersCloud.ReferenceArchitecture.Data.Migrations.Seeding;
+using CraftersCloud.ReferenceArchitecture.Data.Migrations.Seeding.DbContextSeeding;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
@@ -11,11 +13,11 @@ public class Worker(
     IHostApplicationLifetime hostApplicationLifetime) : BackgroundService
 {
     public const string ActivitySourceName = "Migrations";
-    private static readonly ActivitySource s_activitySource = new(ActivitySourceName);
+    private static readonly ActivitySource activitySource = new(ActivitySourceName);
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        using var activity = s_activitySource.StartActivity("Migrating database", ActivityKind.Client);
+        using var activity = activitySource.StartActivity(ActivityKind.Client);
 
         try
         {
@@ -42,8 +44,6 @@ public class Worker(
         var strategy = dbContext.Database.CreateExecutionStrategy();
         await strategy.ExecuteAsync(async () =>
         {
-            // Create the database if it does not exist.
-            // Do this first so there is then a database to start a transaction against.
             if (!await dbCreator.ExistsAsync(cancellationToken))
             {
                 await dbCreator.CreateAsync(cancellationToken);
@@ -56,19 +56,11 @@ public class Worker(
 
     private static async Task SeedDataAsync(AppDbContext dbContext, CancellationToken cancellationToken)
     {
-        // SupportTicket firstTicket = new()
-        // {
-        //     Title = "Test Ticket",
-        //     Description = "Default ticket, please ignore!",
-        //     Completed = true
-        // };
-
         var strategy = dbContext.Database.CreateExecutionStrategy();
         await strategy.ExecuteAsync(async () =>
         {
-            // Seed the database
             await using var transaction = await dbContext.Database.BeginTransactionAsync(cancellationToken);
-            //await dbContext.Tickets.AddAsync(firstTicket, cancellationToken);
+            DbContextSeeding.Seed(dbContext);
             await dbContext.SaveChangesAsync(cancellationToken);
             await transaction.CommitAsync(cancellationToken);
         });

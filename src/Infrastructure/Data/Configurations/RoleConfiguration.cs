@@ -9,7 +9,7 @@ public class RoleConfiguration : IEntityTypeConfiguration<Role>
 {
     public void Configure(EntityTypeBuilder<Role> builder)
     {
-        builder.Property(x => x.Id).HasStronglyTypedId(x => x.Value, x => new RoleId(x));
+        builder.Property(x => x.Id).HasStronglyTypedId(x => x.Value, x => RoleId.Create(x));
         builder.Property(x => x.Name).IsRequired().HasMaxLength(Role.NameMaxLength);
 
         builder.HasIndex(x => x.Name).IsUnique();

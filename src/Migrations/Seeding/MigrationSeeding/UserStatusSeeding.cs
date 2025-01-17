@@ -1,7 +1,7 @@
 ﻿using CraftersCloud.Core.SmartEnums.EntityFramework.Seeding;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
 
-namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Seeding;
+namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Seeding.MigrationSeeding;
 
 internal class UserStatusSeeding() : EntityWithEnumIdSeeding<UserStatus, UserStatusId>(statusId =>
     new { Id = statusId, statusId.Name, Description = GetDescription(statusId) })

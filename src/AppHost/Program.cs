@@ -2,7 +2,8 @@ var builder = DistributedApplication.CreateBuilder(args);
 
 var cache = builder.AddRedis("cache")
     .WithDataVolume()
-    .WithLifetime(ContainerLifetime.Persistent);
+    .WithLifetime(ContainerLifetime.Persistent)
+    .WithRedisCommander();
 
 const string databaseName = "app-db";
 
@@ -19,8 +20,6 @@ builder.AddProject<Projects.MigrationService>("migrations")
 
 builder.AddProject<Projects.Api>("api")
     .WithReference(cache)
-    .WaitFor(cache)
-    .WithReference(database)
-    .WaitFor(database);
+    .WithReference(database);
 
 await builder.Build().RunAsync();

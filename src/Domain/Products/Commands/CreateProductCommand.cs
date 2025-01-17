@@ -9,12 +9,8 @@ using Microsoft.Extensions.DependencyInjection;
 namespace CraftersCloud.ReferenceArchitecture.Domain.Products.Commands;
 
 [PublicAPI]
-public class CreateProductCommand : ICommand<CreateCommandResult<Product>>
+public record CreateProductCommand(string Name, string Description, ProductStatusId ProductStatusId) : ICommand<CreateCommandResult<Product>>
 {
-    public string Name { get; set; } = string.Empty;
-    public string Description { get; set; } = string.Empty;
-    public ProductStatusId ProductStatusId { get; set; } = ProductStatusId.Active;
-
     [UsedImplicitly]
     public class Validator : AbstractValidator<CreateProductCommand>
     {

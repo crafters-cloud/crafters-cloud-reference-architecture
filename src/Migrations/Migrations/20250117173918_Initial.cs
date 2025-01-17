@@ -7,8 +7,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Migrations
 {
+    /// <inheritdoc />
     public partial class Initial : Migration
     {
+        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
@@ -27,9 +29,9 @@ namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Migrations
                 name: "ProductStatus",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<byte>(type: "tinyint", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false)
+                    Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -52,9 +54,9 @@ namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Migrations
                 name: "UserStatus",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<byte>(type: "tinyint", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false)
+                    Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -94,7 +96,7 @@ namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Migrations
                     FirstName = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
                     RoleId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    UserStatusId = table.Column<int>(type: "int", nullable: false),
+                    UserStatusId = table.Column<byte>(type: "tinyint", nullable: false),
                     CreatedById = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     UpdatedById = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CreatedOn = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
@@ -133,7 +135,7 @@ namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(2000)", maxLength: 2000, nullable: false),
-                    ProductStatusId = table.Column<int>(type: "int", nullable: false),
+                    ProductStatusId = table.Column<byte>(type: "tinyint", nullable: false),
                     CreatedById = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     UpdatedById = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CreatedOn = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
@@ -177,8 +179,8 @@ namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Migrations
                 columns: new[] { "Id", "Description", "Name" },
                 values: new object[,]
                 {
-                    { 1, "Active Status Description", "Active" },
-                    { 2, "Inactive Status Description", "Inactive" }
+                    { (byte)1, "Active Status Description", "Active" },
+                    { (byte)2, "Inactive Status Description", "Inactive" }
                 });
 
             migrationBuilder.InsertData(
@@ -191,8 +193,8 @@ namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Migrations
                 columns: new[] { "Id", "Description", "Name" },
                 values: new object[,]
                 {
-                    { 1, "Active Status Description", "Active" },
-                    { 2, "Inactive Status Description", "Inactive" }
+                    { (byte)1, "Active Status Description", "Active" },
+                    { (byte)2, "Inactive Status Description", "Inactive" }
                 });
 
             migrationBuilder.InsertData(
@@ -210,12 +212,7 @@ namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Migrations
             migrationBuilder.InsertData(
                 table: "User",
                 columns: new[] { "Id", "CreatedById", "CreatedOn", "EmailAddress", "FirstName", "LastName", "RoleId", "UpdatedById", "UpdatedOn", "UserStatusId" },
-                values: new object[] { new Guid("dfb44aa8-bfc9-4d95-8f45-ed6da241dcfc"), new Guid("dfb44aa8-bfc9-4d95-8f45-ed6da241dcfc"), new DateTimeOffset(new DateTime(2024, 3, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "N/A", "System", "User", new Guid("028e686d-51de-4dd9-91e9-dfb5ddde97d0"), new Guid("dfb44aa8-bfc9-4d95-8f45-ed6da241dcfc"), new DateTimeOffset(new DateTime(2024, 3, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), 1 });
-
-            migrationBuilder.InsertData(
-                table: "Product",
-                columns: new[] { "Id", "CreatedById", "CreatedOn", "Description", "Name", "ProductStatusId", "UpdatedById", "UpdatedOn" },
-                values: new object[] { new Guid("9f39d68d-83e6-4481-871f-f809a3eba998"), new Guid("dfb44aa8-bfc9-4d95-8f45-ed6da241dcfc"), new DateTimeOffset(new DateTime(2025, 1, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "Lorem ipsum", "Software development", 1, new Guid("dfb44aa8-bfc9-4d95-8f45-ed6da241dcfc"), new DateTimeOffset(new DateTime(2025, 1, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)) });
+                values: new object[] { new Guid("dfb44aa8-bfc9-4d95-8f45-ed6da241dcfc"), new Guid("dfb44aa8-bfc9-4d95-8f45-ed6da241dcfc"), new DateTimeOffset(new DateTime(2024, 3, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "N/A", "System", "User", new Guid("028e686d-51de-4dd9-91e9-dfb5ddde97d0"), new Guid("dfb44aa8-bfc9-4d95-8f45-ed6da241dcfc"), new DateTimeOffset(new DateTime(2024, 3, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), (byte)1 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Permission_Name",
@@ -280,6 +277,31 @@ namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Migrations
                 name: "IX_User_UserStatusId",
                 table: "User",
                 column: "UserStatusId");
+        }
+
+        /// <inheritdoc />
+        protected override void Down(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.DropTable(
+                name: "Product");
+
+            migrationBuilder.DropTable(
+                name: "RolePermission");
+
+            migrationBuilder.DropTable(
+                name: "ProductStatus");
+
+            migrationBuilder.DropTable(
+                name: "User");
+
+            migrationBuilder.DropTable(
+                name: "Permission");
+
+            migrationBuilder.DropTable(
+                name: "Role");
+
+            migrationBuilder.DropTable(
+                name: "UserStatus");
         }
     }
 }

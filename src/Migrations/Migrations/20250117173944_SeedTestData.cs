@@ -4,8 +4,10 @@
 
 namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Migrations
 {
+    /// <inheritdoc />
     public partial class SeedTestData : Migration
     {
+        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.ResourceSql("SeedTestData.sql");

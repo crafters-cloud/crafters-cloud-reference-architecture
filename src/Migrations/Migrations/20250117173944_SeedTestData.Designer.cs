@@ -12,15 +12,15 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250110153849_Initial")]
-    partial class Initial
+    [Migration("20250117173944_SeedTestData")]
+    partial class SeedTestData
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.0")
+                .HasAnnotation("ProductVersion", "9.0.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -116,8 +116,8 @@ namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
-                    b.Property<int>("ProductStatusId")
-                        .HasColumnType("int");
+                    b.Property<byte>("ProductStatusId")
+                        .HasColumnType("tinyint");
 
                     b.Property<Guid>("UpdatedById")
                         .HasColumnType("uniqueidentifier");
@@ -137,25 +137,12 @@ namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Migrations
                     b.HasIndex("UpdatedById");
 
                     b.ToTable("Product");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("9f39d68d-83e6-4481-871f-f809a3eba998"),
-                            CreatedById = new Guid("dfb44aa8-bfc9-4d95-8f45-ed6da241dcfc"),
-                            CreatedOn = new DateTimeOffset(new DateTime(2025, 1, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            Description = "Lorem ipsum",
-                            Name = "Software development",
-                            ProductStatusId = 1,
-                            UpdatedById = new Guid("dfb44aa8-bfc9-4d95-8f45-ed6da241dcfc"),
-                            UpdatedOn = new DateTimeOffset(new DateTime(2025, 1, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0))
-                        });
                 });
 
             modelBuilder.Entity("CraftersCloud.ReferenceArchitecture.Domain.Products.ProductStatus", b =>
                 {
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
+                    b.Property<byte>("Id")
+                        .HasColumnType("tinyint");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -164,8 +151,8 @@ namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
 
@@ -174,13 +161,13 @@ namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            Id = (byte)1,
                             Description = "Active Status Description",
                             Name = "Active"
                         },
                         new
                         {
-                            Id = 2,
+                            Id = (byte)2,
                             Description = "Inactive Status Description",
                             Name = "Inactive"
                         });
@@ -221,8 +208,8 @@ namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Migrations
                     b.Property<DateTimeOffset>("UpdatedOn")
                         .HasColumnType("datetimeoffset");
 
-                    b.Property<int>("UserStatusId")
-                        .HasColumnType("int");
+                    b.Property<byte>("UserStatusId")
+                        .HasColumnType("tinyint");
 
                     b.HasKey("Id");
 
@@ -251,14 +238,14 @@ namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Migrations
                             RoleId = new Guid("028e686d-51de-4dd9-91e9-dfb5ddde97d0"),
                             UpdatedById = new Guid("dfb44aa8-bfc9-4d95-8f45-ed6da241dcfc"),
                             UpdatedOn = new DateTimeOffset(new DateTime(2024, 3, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            UserStatusId = 1
+                            UserStatusId = (byte)1
                         });
                 });
 
             modelBuilder.Entity("CraftersCloud.ReferenceArchitecture.Domain.Users.UserStatus", b =>
                 {
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
+                    b.Property<byte>("Id")
+                        .HasColumnType("tinyint");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -267,8 +254,8 @@ namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
 
@@ -277,13 +264,13 @@ namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            Id = (byte)1,
                             Description = "Active Status Description",
                             Name = "Active"
                         },
                         new
                         {
-                            Id = 2,
+                            Id = (byte)2,
                             Description = "Inactive Status Description",
                             Name = "Inactive"
                         });

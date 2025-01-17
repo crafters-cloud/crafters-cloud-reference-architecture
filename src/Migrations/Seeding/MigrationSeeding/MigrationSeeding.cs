@@ -1,17 +1,16 @@
 ﻿using CraftersCloud.Core.EntityFramework.Seeding;
 using Microsoft.EntityFrameworkCore;
 
-namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Seeding;
+namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Seeding.MigrationSeeding;
 
-public static class DatabaseSeeding
+public static class MigrationSeeding
 {
-    private static readonly List<ISeeding> Seedings =
+    private static readonly List<IModelBuilderSeeding> Seedings =
     [
         new UserStatusSeeding(),
         new RolePermissionSeeding(),
         new UserSeeding(),
-        new ProductStatusSeeding(),
-        new ProductSeeding()
+        new ProductStatusSeeding()
     ];
 
     public static void Seed(ModelBuilder modelBuilder) => Seedings.ForEach(seeding => seeding.Seed(modelBuilder));
