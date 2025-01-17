@@ -1,6 +1,7 @@
 ﻿using CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Init;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Configuration;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.KeyVault;
+using CraftersCloud.ReferenceArchitecture.ServiceDefaults;
 using Serilog;
 
 namespace CraftersCloud.ReferenceArchitecture.Api;
@@ -23,6 +24,8 @@ public class Program
             {
                 options.AddServerHeader = false;
             });
+            
+            builder.AddServiceDefaults();
 
             builder.Configuration.AppAddAzureKeyVault(builder.Configuration);
             builder.Services.AppAddServices(builder.Configuration, builder.Environment);

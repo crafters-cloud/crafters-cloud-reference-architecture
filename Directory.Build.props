@@ -9,7 +9,7 @@
     <Copyright>Copyright © 2025 Crafters Cloud</Copyright>
     <Company>Crafters Cloud</Company>
     <MinVerTagPrefix>v</MinVerTagPrefix>
-    <MinVerDefaultPreReleaseIdentifiers>preview.0</MinVerDefaultPreReleaseIdentifiers>
+    <MinVerDefaultPreReleaseIdentifiers>pre.0</MinVerDefaultPreReleaseIdentifiers>
 
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>

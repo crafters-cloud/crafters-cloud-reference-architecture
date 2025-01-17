@@ -16,6 +16,7 @@ using CraftersCloud.ReferenceArchitecture.Infrastructure.Configuration;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Data;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Identity;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Mediator;
+using CraftersCloud.ReferenceArchitecture.ServiceDefaults;
 using Microsoft.IdentityModel.Logging;
 using Serilog;
 
@@ -31,7 +32,6 @@ public static class ProgramExtensions
         services.AddApplicationInsightsTelemetry();
         services.AppConfigureHttpJsonOptions([AssemblyFinder.ApiAssembly]);
         services.AppConfigureSettings(configuration);
-        services.AppAddPolly();
         services.AddCoreHealthChecks(configuration)
             .AddDbContextCheck<AppDbContext>();
         services.AppAddMediatr([AssemblyFinder.ApiAssembly]);
@@ -100,8 +100,9 @@ public static class ProgramExtensions
 
         app.MapGet("/", () => Results.Redirect("/swagger")).ExcludeFromDescription();
 
-        app.MapCoreHealthChecks(configuration);
+        //app.MapCoreHealthChecks(configuration);
         app.MapCoreEndpoints();
+        app.MapDefaultEndpoints();
 
         app.AppUseSwaggerScalar(configuration);
         app.AppConfigureFluentValidation();
