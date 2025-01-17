@@ -19,7 +19,7 @@ public static class SwaggerScalarStartupExtensions
         {
             return;
         }
-
+        
         services.AddEndpointsApiExplorer();
         services.AddCoreSwagger(appTitle, appVersion, configureSettings);
     }

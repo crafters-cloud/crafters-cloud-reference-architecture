@@ -1,14 +1,14 @@
 var builder = DistributedApplication.CreateBuilder(args);
 
 var cache = builder.AddRedis("cache")
-    .WithDataVolume()
+    .WithDataBindMount(@"c:\data\redis")
     .WithLifetime(ContainerLifetime.Persistent)
     .WithRedisCommander();
 
 const string databaseName = "app-db";
 
 var sql = builder.AddSqlServer("sql")
-    .WithDataVolume()
+    .WithDataBindMount(@"c:\data\sql")
     .WithLifetime(ContainerLifetime.Persistent)
     .WithEnvironment("SQL_SERVER", databaseName);
 

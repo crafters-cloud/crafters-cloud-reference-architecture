@@ -100,7 +100,7 @@ public static class ProgramExtensions
 
         app.MapGet("/", () => Results.Redirect("/swagger")).ExcludeFromDescription();
 
-        //app.MapCoreHealthChecks(configuration);
+        app.MapCoreHealthChecks(configuration);
         app.MapCoreEndpoints();
         app.MapDefaultEndpoints();
 

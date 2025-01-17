@@ -1,4 +1,4 @@
-﻿using CraftersCloud.Core.SmartEnums.EntityFramework.Seeding;
+﻿using CraftersCloud.Core.SmartEnums.EntityFramework;
 using CraftersCloud.ReferenceArchitecture.Domain.Products;
 
 namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Seeding.MigrationSeeding;
