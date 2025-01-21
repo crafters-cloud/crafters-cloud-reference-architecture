@@ -22,7 +22,8 @@ $ProjectDir = "${SolutionDir}/templates/content/Feature"
 Copy-FolderContents -SourceDir "${SolutionDir}/src/Api/Endpoints/Products" -DestinationDir "${ProjectDir}/src/Api/Endpoints/Products" -CleanOnly:$CleanOnly
 Copy-FolderContents -SourceDir "${SolutionDir}/src/Domain/Products" -DestinationDir "${ProjectDir}/src/Domain/Products" -CleanOnly:$CleanOnly
 Copy-FolderContents -SourceDir "${SolutionDir}/src/Infrastructure/Data/Configurations" -DestinationDir "${ProjectDir}/src/Infrastructure/Data/Configurations" -Filter "Product*" -CleanOnly:$CleanOnly
-Copy-FolderContents -SourceDir "${SolutionDir}/src/Migrations/Seeding" -DestinationDir "${ProjectDir}/src/Migrations/Seeding" -Filter "Product*" -CleanOnly:$CleanOnly
+Copy-FolderContents -SourceDir "${SolutionDir}/src/Migrations/Seeding/DbContextSeeding" -DestinationDir "${ProjectDir}/src/Migrations/Seeding/DbContextSeeding" -Filter "Product*" -CleanOnly:$CleanOnly
+Copy-FolderContents -SourceDir "${SolutionDir}/src/Migrations/Seeding/MigrationSeeding" -DestinationDir "${ProjectDir}/src/Migrations/Seeding/MigrationSeeding" -Filter "Product*" -CleanOnly:$CleanOnly
 Copy-FolderContents -SourceDir "${SolutionDir}/tests/Api.Tests/Endpoints" -DestinationDir "${ProjectDir}/tests/Api.Tests/Endpoints" -Filter "Product*.cs" -CleanOnly:$CleanOnly
 Copy-FolderContents -SourceDir "${SolutionDir}/tests/Domain.Tests/Products" -DestinationDir "${ProjectDir}/tests/Domain.Tests/Products" -Filter "Product*" -CleanOnly:$CleanOnly
 
