@@ -3,7 +3,7 @@
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
     <AspireVersion>9.0.0</AspireVersion>
     <AspnetVersion>9.0.1</AspnetVersion>
-    <CraftersCoreVersion>2.0.0-preview.2</CraftersCoreVersion>
+    <CraftersCoreVersion>2.0.0-preview.3.1</CraftersCoreVersion>
     <EFcoreVersion>9.0.1</EFcoreVersion>
   </PropertyGroup>
   <ItemGroup>
@@ -15,7 +15,7 @@
     <PackageVersion Include="Autofac" Version="8.2.0" />
     <PackageVersion Include="Autofac.Extensions.DependencyInjection" Version="10.0.0" />
     <PackageVersion Include="Azure.Extensions.AspNetCore.Configuration.Secrets" Version="1.3.2" />
-    <PackageVersion Include="coverlet.collector" Version="6.0.3">
+    <PackageVersion Include="coverlet.collector" Version="6.0.4">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageVersion>
@@ -61,7 +61,7 @@
     <PackageVersion Include="Microsoft.Extensions.Http.Resilience" Version="9.1.0" />
     <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.1" />
     <PackageVersion Include="Microsoft.Extensions.ServiceDiscovery" Version="9.0.0" />
-    <PackageVersion Include="Microsoft.Identity.Web" Version="3.5.0" />
+    <PackageVersion Include="Microsoft.Identity.Web" Version="3.6.0" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
     <PackageVersion Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="9.0.0" />
     <PackageVersion Include="MinVer" Version="6.0.0" />
