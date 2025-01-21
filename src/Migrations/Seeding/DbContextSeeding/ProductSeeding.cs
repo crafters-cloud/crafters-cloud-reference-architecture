@@ -19,6 +19,7 @@ internal class ProductSeeding : IDbContextSeeding<AppDbContext>
             product = Product.Create(new CreateProductCommand("Software development", "Lorem ipsum",
                 ProductStatusId.Active));
 
+            product.WithId(id);
             product.SetCreated(asOf, User.SystemUserId);
             product.SetUpdated(asOf, User.SystemUserId);
 

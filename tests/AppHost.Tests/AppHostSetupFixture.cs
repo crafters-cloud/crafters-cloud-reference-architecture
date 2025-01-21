@@ -40,7 +40,7 @@ public class AppHostSetupFixture
         response.StatusCode.ShouldBe(HttpStatusCode.OK);
     }
 
-    [TestCase("app-db", TestName = "Database has connection string")]
+    [TestCase("AppDbContext", TestName = "Database has connection string")]
     [TestCase("redis", TestName = "Cache has connection string")]
     public async Task ResourceHasConnectionString(string resourceName)
     {

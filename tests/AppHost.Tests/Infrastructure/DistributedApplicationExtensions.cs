@@ -49,6 +49,26 @@ public static partial class DistributedApplicationExtensions
     }
 
     /// <summary>
+    /// Removes all bind mounts from the application.
+    /// </summary>
+    public static TBuilder RemoveBindMounts<TBuilder>(this TBuilder builder)
+        where TBuilder : IDistributedApplicationTestingBuilder
+    {
+        var allResourceNamedVolumes = builder.Resources.SelectMany(r => r.Annotations
+                .OfType<ContainerMountAnnotation>()
+                .Where(m => m.Type == ContainerMountType.BindMount && !string.IsNullOrEmpty(m.Source))
+                .Select(m => (Resource: r, Volume: m)))
+            .ToList();
+
+        foreach (var (resource, volume) in allResourceNamedVolumes)
+        {
+            resource.Annotations.Remove(volume);
+        }
+
+        return builder;
+    }
+
+    /// <summary>
     /// Replaces all named volumes with anonymous volumes so they're isolated across test runs and from the volume the app uses during development.
     /// </summary>
     /// <remarks>
@@ -59,6 +79,7 @@ public static partial class DistributedApplicationExtensions
     {
         // Named volumes that aren't shared across resources should be replaced with anonymous volumes.
         // Named volumes shared by mulitple resources need to have their name randomized but kept shared across those resources.
+
 
         // Find all shared volumes and make a map of their original name to a new randomized name
         var allResourceNamedVolumes = builder.Resources.SelectMany(r => r.Annotations

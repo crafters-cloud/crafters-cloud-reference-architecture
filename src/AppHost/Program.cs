@@ -1,4 +1,5 @@
 using CraftersCloud.ReferenceArchitecture.AppHost;
+
 using Projects;
 
 var builder = DistributedApplication.CreateBuilder(args);
@@ -14,14 +15,15 @@ var sqlServer = builder.AddSqlServer("sql-server")
     .WithDataBindMount(Path.Combine(dataDirectory, "sql-server"))
     .WithLifetime(ContainerLifetime.Persistent);
 
-var database = sqlServer.AddDatabase("app-db");
+var database = sqlServer.AddDatabase("AppDbContext");
 
-builder.AddProject<MigrationService>("migrations")
+var migrations = builder.AddProject<MigrationService>("migrations")
     .WithReference(database)
     .WaitFor(database);
 
 builder.AddProject<Api>("api")
     .WithReference(cache)
-    .WithReference(database);
+    .WithReference(database)
+    .WaitFor(migrations);
 
 await builder.Build().RunAsync();

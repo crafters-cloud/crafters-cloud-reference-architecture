@@ -12,7 +12,7 @@ builder.Services.AddHostedService<Worker>();
 builder.Services.AddOpenTelemetry()
     .WithTracing(tracing => tracing.AddSource(Worker.ActivitySourceName));
 
-builder.AddSqlServerDbContext<AppDbContext>("app-db", null,
+builder.AddSqlServerDbContext<AppDbContext>(nameof(AppDbContext), null,
     optionsBuilder =>
     {
         optionsBuilder.ConfigureWarnings(warnings => warnings.Ignore(RelationalEventId.PendingModelChangesWarning));

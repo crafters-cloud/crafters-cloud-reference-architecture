@@ -10,6 +10,7 @@ internal static class DistributedApplicationTestFactory
         var builder = await DistributedApplicationTestingBuilder.CreateAsync<TEntryPoint>();
 
         builder.WithRandomParameterValues();
+        builder.RemoveBindMounts();
         builder.WithRandomVolumeNames();
         builder.WithContainersLifetime(ContainerLifetime.Session);
 
