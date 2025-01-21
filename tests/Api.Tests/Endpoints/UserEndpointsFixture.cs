@@ -1,14 +1,9 @@
-﻿using System.Net;
-using CraftersCloud.Core.Entities;
+﻿using CraftersCloud.Core.Entities;
 using CraftersCloud.Core.Paging;
 using CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users;
-using CraftersCloud.ReferenceArchitecture.Api.Tests.Infrastructure.Api;
 using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
 using CraftersCloud.ReferenceArchitecture.Domain.Tests.Users;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
-using Flurl.Http;
-using GetUsers = CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users.GetUsers;
-using UpdateUser = CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users.UpdateUser;
 
 namespace CraftersCloud.ReferenceArchitecture.Api.Tests.Endpoints;
 
@@ -19,7 +14,7 @@ namespace CraftersCloud.ReferenceArchitecture.Api.Tests.Endpoints;
 // Integration tests should be used for happy flows.
 // For non-happy flows (e.g. edge cases), or complex business rules
 // write unit tests.
-public class UserEndpointsFixture : IntegrationFixtureBase
+public class UserEndpointsFixture : EndpointsFixtureBase
 {
     private IFlurlRequest _endpoint = null!;
 

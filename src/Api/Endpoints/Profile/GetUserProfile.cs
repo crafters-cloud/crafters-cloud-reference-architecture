@@ -51,7 +51,7 @@ public static partial class GetUserProfile
         return entity.ToMappedMinimalApiResult(ResponseMapper.ToResponse);
     }
 
-    public static async Task<Results<Ok<Response>, NotFound>> HandleAnonymous(IRepository<User> repository,
+    public static async Task<Results<Ok<Response>, NotFound>> HandleHelloWorld(IRepository<User> repository,
         CancellationToken cancellationToken)
     {
         var entity = await repository.QueryAll()

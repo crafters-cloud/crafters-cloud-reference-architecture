@@ -9,6 +9,6 @@ public class ProfileEndpoints : IEndpoint
             .WithGroupName("Profile");
 
         group.MapGet("/", GetUserProfile.Handle).RequireAuthorization();
-        group.MapGet("/anonymous", GetUserProfile.HandleAnonymous);
+        group.MapGet("/hello-world", GetUserProfile.HandleHelloWorld);
     }
 }

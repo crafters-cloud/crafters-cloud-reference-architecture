@@ -12,9 +12,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 
-namespace CraftersCloud.ReferenceArchitecture.Api.Tests.Infrastructure;
+namespace CraftersCloud.ReferenceArchitecture.Api.Tests.Infrastructure.Api;
 
-internal class ApiWebApplicationFactory : WebApplicationFactory<Program>
+internal class ApiWebApplicationFactory<TEntryPoint> : WebApplicationFactory<TEntryPoint> where TEntryPoint : class
 {
     private readonly IConfiguration _configuration;
     private readonly bool _isUserAuthenticated;

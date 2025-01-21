@@ -24,26 +24,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Endpoints\RoleEndpointsFixture.GetById.verified.txt">
-      <ParentFile>UserEndpointsFixture</ParentFile>
-      <DependentUpon>RoleEndpointsFixture.cs</DependentUpon>
-    </None>
-    <None Update="Endpoints\RoleEndpointsFixture.GetStatuses.verified.txt">
-      <ParentFile>UserEndpointsFixture</ParentFile>
-      <DependentUpon>RoleEndpointsFixture.cs</DependentUpon>
-    </None>
-    <None Update="Endpoints\RoleEndpointsFixture.GetAll.verified.txt">
-      <ParentFile>UserEndpointsFixture</ParentFile>
-      <DependentUpon>RoleEndpointsFixture.cs</DependentUpon>
-    </None>
-    <None Update="Endpoints\RoleEndpointsFixture.Update.verified.txt">
-      <ParentFile>UserEndpointsFixture</ParentFile>
-      <DependentUpon>RoleEndpointsFixture.cs</DependentUpon>
-    </None>
-    <None Update="Endpoints\RoleEndpointsFixture.GetRoles.verified.txt">
-      <ParentFile>UserEndpointsFixture</ParentFile>
-      <DependentUpon>RoleEndpointsFixture.cs</DependentUpon>
-    </None>
+    <Using Include="Flurl.Http" />
+    <Using Include="System.Net" />
   </ItemGroup>
 
 </Project>

@@ -1,12 +1,9 @@
-﻿using System.Net;
-using CraftersCloud.Core.Entities;
+﻿using CraftersCloud.Core.Entities;
 using CraftersCloud.Core.Paging;
 using CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users;
-using CraftersCloud.ReferenceArchitecture.Api.Tests.Infrastructure.Api;
 using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
 using CraftersCloud.ReferenceArchitecture.Domain.Tests.Users;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
-using Flurl.Http;
 using Microsoft.AspNetCore.Mvc;
 using GetUsers = CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users.GetUsers;
 using UpdateUser = CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users.UpdateUser;
@@ -16,7 +13,7 @@ namespace CraftersCloud.ReferenceArchitecture.Api.Tests.CoreFeatures;
 // Fixture that validates if Api project has been setup correctly
 // Uses arbitrary endpoints (in this case user related) and verifies if basic operations, e.g. get, post, validations are correctly setup.  
 [Category("integration")]
-public class ApiSetupFixture : IntegrationFixtureBase
+public class ApiSetupFixture : EndpointsFixtureBase
 {
     private User _user = null!;
 

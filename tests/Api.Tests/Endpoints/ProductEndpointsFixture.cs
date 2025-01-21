@@ -1,18 +1,13 @@
-﻿using System.Net;
-using CraftersCloud.Core.Entities;
+﻿using CraftersCloud.Core.Entities;
 using CraftersCloud.Core.Paging;
 using CraftersCloud.ReferenceArchitecture.Api.Endpoints.Products;
-using CraftersCloud.ReferenceArchitecture.Api.Tests.Infrastructure.Api;
 using CraftersCloud.ReferenceArchitecture.Domain.Products;
 using CraftersCloud.ReferenceArchitecture.Domain.Tests.Products;
-using Flurl.Http;
-using GetProducts = CraftersCloud.ReferenceArchitecture.Api.Endpoints.Products.GetProducts;
-using UpdateProduct = CraftersCloud.ReferenceArchitecture.Api.Endpoints.Products.UpdateProduct;
 
 namespace CraftersCloud.ReferenceArchitecture.Api.Tests.Endpoints;
 
 [Category("integration")]
-public class ProductEndpointsFixture : IntegrationFixtureBase
+public class ProductEndpointsFixture : EndpointsFixtureBase
 {
     private IFlurlRequest _endpoint = null!;
 

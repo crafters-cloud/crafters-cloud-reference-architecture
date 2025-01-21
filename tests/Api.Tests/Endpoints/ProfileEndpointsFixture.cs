@@ -1,11 +1,9 @@
-﻿using CraftersCloud.ReferenceArchitecture.Api.Tests.Infrastructure.Api;
-using Flurl.Http;
-using GetUserProfile = CraftersCloud.ReferenceArchitecture.Api.Endpoints.Profile.GetUserProfile;
+﻿using CraftersCloud.ReferenceArchitecture.Api.Endpoints.Profile;
 
 namespace CraftersCloud.ReferenceArchitecture.Api.Tests.Endpoints;
 
 [Category("integration")]
-public class ProfileEndpointsFixture : IntegrationFixtureBase
+public class ProfileEndpointsFixture : EndpointsFixtureBase
 {
     [Test]
     public async Task GetUserProfile()

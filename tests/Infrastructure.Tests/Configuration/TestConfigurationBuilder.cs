@@ -8,9 +8,9 @@ public class TestConfigurationBuilder
     private string _connectionString = string.Empty;
     private readonly Action<ConfigurationBuilder>? _extraConfiguration = null;
 
-    public TestConfigurationBuilder WithDbName(string dbName)
+    public TestConfigurationBuilder WithDbContextName(string dbContextName)
     {
-        _dbContextName = dbName;
+        _dbContextName = dbContextName;
         return this;
     }
 

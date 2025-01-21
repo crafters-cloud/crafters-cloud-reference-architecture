@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>CraftersCloud.ReferenceArchitecture.AppHost.Tests</RootNamespace>
+    <AssemblyName>CraftersCloud.ReferenceArchitecture.AppHost.Tests</AssemblyName>
+  </PropertyGroup>
+
+  <Import Project="..\..\Tests.Build.props" />
+
+  <ItemGroup>
+    <PackageReference Include="Flurl.Http" />
+    <PackageReference Include="Aspire.Hosting.Testing" />
+    <PackageReference Include="Extensions.Logging.NUnit" />
+    <PackageReference Include="Microsoft.Extensions.Diagnostics.Testing" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\AppHost\AppHost.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Microsoft.Extensions.DependencyInjection" />
+    <Using Include="Aspire.Hosting.ApplicationModel" />
+    <Using Include="Aspire.Hosting.Testing" />
+  </ItemGroup>
+</Project>

@@ -1,17 +1,14 @@
-﻿using System.Net;
-using CraftersCloud.Core.Entities;
-using CraftersCloud.ReferenceArchitecture.Api.Tests.Infrastructure.Api;
+﻿using CraftersCloud.Core.Entities;
 using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Tests.Impersonation;
-using Flurl.Http;
 using Microsoft.EntityFrameworkCore;
 using CreateUser = CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users.CreateUser;
 
 namespace CraftersCloud.ReferenceArchitecture.Api.Tests.CoreFeatures;
 
 [Category("integration")]
-public class AuthorizationFixture : IntegrationFixtureBase
+public class AuthorizationFixture : EndpointsFixtureBase
 {
     private Role? _roleWithUsersReadPermission;
     private Role? _roleWithNonePermission;

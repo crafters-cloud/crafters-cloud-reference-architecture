@@ -1,5 +1,4 @@
-﻿using CraftersCloud.ReferenceArchitecture.Data.Migrations.Seeding;
-using CraftersCloud.ReferenceArchitecture.Data.Migrations.Seeding.MigrationSeeding;
+﻿using CraftersCloud.ReferenceArchitecture.Data.Migrations.Seeding.MigrationSeeding;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;

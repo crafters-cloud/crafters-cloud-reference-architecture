@@ -1,11 +1,7 @@
-﻿using System.Net;
-using CraftersCloud.ReferenceArchitecture.Api.Tests.Infrastructure.Api;
-using Flurl.Http;
-
-namespace CraftersCloud.ReferenceArchitecture.Api.Tests.CoreFeatures;
+﻿namespace CraftersCloud.ReferenceArchitecture.Api.Tests.CoreFeatures;
 
 [Category("integration")]
-public class UnauthenticatedAccessFixture : IntegrationFixtureBase
+public class UnauthenticatedAccessFixture : EndpointsFixtureBase
 {
     public UnauthenticatedAccessFixture() => DisableUserAuthentication();
 

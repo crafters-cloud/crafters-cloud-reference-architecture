@@ -2,7 +2,6 @@
 using CraftersCloud.ReferenceArchitecture.Api.Models;
 using CraftersCloud.ReferenceArchitecture.Domain;
 using CraftersCloud.ReferenceArchitecture.Domain.Products;
-using CraftersCloud.ReferenceArchitecture.Domain.Users;
 
 namespace CraftersCloud.ReferenceArchitecture.Api.Endpoints.Products;
 

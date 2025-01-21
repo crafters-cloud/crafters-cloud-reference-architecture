@@ -1,27 +1,23 @@
-﻿using System.Text.Json;
-using CraftersCloud.Core;
+﻿using CraftersCloud.Core;
 using CraftersCloud.Core.Tests.Shared;
-using CraftersCloud.ReferenceArchitecture.Infrastructure;
-using CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Init;
+using CraftersCloud.ReferenceArchitecture.Api.Tests.Infrastructure.Api;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Data;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Tests;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Tests.Configuration;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Tests.Database;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Tests.Impersonation;
-using Flurl.Http;
-using Flurl.Http.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CraftersCloud.ReferenceArchitecture.Api.Tests.Infrastructure.Api;
+namespace CraftersCloud.ReferenceArchitecture.Api.Tests;
 
-public class IntegrationFixtureBase
+public class EndpointsFixtureBase
 {
     private IConfiguration _configuration = null!;
     private TestDatabase _testDatabase = null!;
     private IServiceScope _testScope = null!;
-    private static ApiWebApplicationFactory _factory = null!;
+    private static ApiWebApplicationFactory<Program> _factory = null!;
     private bool _isUserAuthenticated = true;
     protected FlurlClient Client { get; private set; } = null!;
 
@@ -32,37 +28,32 @@ public class IntegrationFixtureBase
         await _testDatabase.CreateAsync();
 
         _configuration = new TestConfigurationBuilder()
-            .WithDbName("app-db")
+            .WithDbContextName(nameof(AppDbContext))
             .WithConnectionString(_testDatabase.ConnectionString)
             .Build();
 
-        _factory = new ApiWebApplicationFactory(_configuration, _isUserAuthenticated);
+        _factory = new ApiWebApplicationFactory<Program>(_configuration, _isUserAuthenticated);
 
         var scopeFactory = _factory.Services.GetRequiredService<IServiceScopeFactory>();
         _testScope = scopeFactory.CreateScope();
-        var httpClient = _factory.CreateClient();
-        Client = CreateFlurlClient(httpClient);
+        Client = _factory.CreateClient().ToFlurlClient();
 
         var dbContext = Resolve<DbContext>();
         await TestDatabase.ResetAsync(dbContext);
 
-        SeedTestUsers();
+        SeedTestUsers(dbContext);
     }
 
     protected void DisableUserAuthentication() => _isUserAuthenticated = false;
 
-    private void SeedTestUsers()
-    {
-        var dbContext = Resolve<DbContext>();
-        new TestUserDataSeeding(dbContext).Seed();
-    }
+    private static void SeedTestUsers(DbContext dbContext) => new TestUserDataSeeding(dbContext).Seed();
 
     [TearDown]
     public void Teardown()
     {
-        _factory.Dispose();
-        _testScope.Dispose();
         Client.Dispose();
+        _testScope.Dispose();
+        _factory.Dispose();
     }
 
     protected void AddAndSaveChanges(params object[] entities)
@@ -93,12 +84,4 @@ public class IntegrationFixtureBase
         var settableTimeProvider = Resolve<TestTimeProvider>();
         settableTimeProvider.SetNow(value);
     }
-
-    private static FlurlClient CreateFlurlClient(HttpClient httpClient) =>
-        new FlurlClient(httpClient).WithSettings(settings =>
-        {
-            var options = new JsonSerializerOptions(JsonSerializerDefaults.Web);
-            options.Converters.AppRegisterJsonConverters([AssemblyFinder.ApiAssembly]);
-            settings.JsonSerializer = new DefaultJsonSerializer(options);
-        });
 }

@@ -1,11 +1,9 @@
 ﻿using CraftersCloud.ReferenceArchitecture.Api.Endpoints.Roles;
-using CraftersCloud.ReferenceArchitecture.Api.Tests.Infrastructure.Api;
-using Flurl.Http;
 
 namespace CraftersCloud.ReferenceArchitecture.Api.Tests.Endpoints;
 
 [Category("integration")]
-public class RoleEndpointsFixture : IntegrationFixtureBase
+public class RoleEndpointsFixture : EndpointsFixtureBase
 {
     [Test]
     public async Task GetRoles()

@@ -1,4 +1,8 @@
 <Project>
+  <PropertyGroup>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+  
   <ItemGroup>
     <PackageReference Include="FakeItEasy" />
     <PackageReference Include="coverlet.collector">
@@ -6,6 +10,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="NUnit.Analyzers" />
     <PackageReference Include="NUnit3TestAdapter">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -17,5 +22,6 @@
 
   <ItemGroup>
     <Using Include="Shouldly" />
+    <Using Include="NUnit.Framework" />
   </ItemGroup>
 </Project>

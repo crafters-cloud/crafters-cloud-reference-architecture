@@ -82,6 +82,12 @@
         "resolved": "6.0.0",
         "contentHash": "+/SsmiySsXJlvQLCGBqaZKNVt3s/Y/HbAdwtop7Km2CnuZbaScoqkWJEBQ5Cy9ebkn6kCYKrHsXgwrFdTgcb3g=="
       },
+      "NUnit.Analyzers": {
+        "type": "Direct",
+        "requested": "[4.2.0, )",
+        "resolved": "4.2.0",
+        "contentHash": "4fJojPkzdoa4nB2+p6U+fITvPnVvwWSnsmiJ/Dl30xqiL3oxNbYvfeSLVd91hOmEjoUqSwN3Z7j1aFedjqWbUA=="
+      },
       "NUnit3TestAdapter": {
         "type": "Direct",
         "requested": "[4.6.0, )",
@@ -2411,6 +2417,7 @@
           "FakeItEasy": "[8.3.0, )",
           "JetBrains.Annotations": "[2024.3.0, )",
           "Microsoft.NET.Test.Sdk": "[17.12.0, )",
+          "NUnit.Analyzers": "[4.2.0, )",
           "Shouldly": "[4.2.1, )",
           "Verify": "[28.9.0, )",
           "Verify.NUnit": "[28.9.0, )"

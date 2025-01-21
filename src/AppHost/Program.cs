@@ -1,24 +1,26 @@
+using CraftersCloud.ReferenceArchitecture.AppHost;
+using Projects;
+
 var builder = DistributedApplication.CreateBuilder(args);
 
-var cache = builder.AddRedis("cache")
-    .WithDataBindMount(@"c:\data\redis")
+var dataDirectory = Path.Combine(AppDomain.CurrentDomain.GetDirectoryPath(5), "data");
+
+var cache = builder.AddRedis("redis")
+    .WithDataBindMount(Path.Combine(dataDirectory, "redis"))
     .WithLifetime(ContainerLifetime.Persistent)
     .WithRedisCommander();
 
-const string databaseName = "app-db";
+var sqlServer = builder.AddSqlServer("sql-server")
+    .WithDataBindMount(Path.Combine(dataDirectory, "sql-server"))
+    .WithLifetime(ContainerLifetime.Persistent);
 
-var sql = builder.AddSqlServer("sql")
-    .WithDataBindMount(@"c:\data\sql")
-    .WithLifetime(ContainerLifetime.Persistent)
-    .WithEnvironment("SQL_SERVER", databaseName);
+var database = sqlServer.AddDatabase("app-db");
 
-var database = sql.AddDatabase(databaseName);
-
-builder.AddProject<Projects.MigrationService>("migrations")
+builder.AddProject<MigrationService>("migrations")
     .WithReference(database)
     .WaitFor(database);
 
-builder.AddProject<Projects.Api>("api")
+builder.AddProject<Api>("api")
     .WithReference(cache)
     .WithReference(database);
 
