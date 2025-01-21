@@ -9,6 +9,7 @@
   <ItemGroup>
     <PackageReference Include="Flurl.Http" />
     <PackageReference Include="Aspire.Hosting.Testing" />
+    <PackageReference Include="CraftersCloud.Core.AspireTests.Shared" />
     <PackageReference Include="Extensions.Logging.NUnit" />
     <PackageReference Include="Microsoft.Extensions.Diagnostics.Testing" />
   </ItemGroup>

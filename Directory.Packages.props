@@ -3,7 +3,7 @@
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
     <AspireVersion>9.0.0</AspireVersion>
     <AspnetVersion>9.0.1</AspnetVersion>
-    <CraftersCoreVersion>2.0.0-pre.1</CraftersCoreVersion>
+    <CraftersCoreVersion>2.0.0-preview.2</CraftersCoreVersion>
     <EFcoreVersion>9.0.1</EFcoreVersion>
   </PropertyGroup>
   <ItemGroup>
@@ -21,6 +21,7 @@
     </PackageVersion>
     <PackageVersion Include="CraftersCloud.Core" Version="$(CraftersCoreVersion)" />
     <PackageVersion Include="CraftersCloud.Core.SourceGenerator" Version="$(CraftersCoreVersion)" />
+    <PackageVersion Include="CraftersCloud.Core.AspireTests.Shared" Version="$(CraftersCoreVersion)" />
     <PackageVersion Include="CraftersCloud.Core.AspNetCore" Version="$(CraftersCoreVersion)" />
     <PackageVersion Include="CraftersCloud.Core.EntityFramework" Version="$(CraftersCoreVersion)" />
     <PackageVersion Include="CraftersCloud.Core.EntityFramework.Infrastructure" Version="$(CraftersCoreVersion)" />

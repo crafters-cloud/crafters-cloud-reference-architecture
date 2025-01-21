@@ -1,4 +1,4 @@
-﻿using CraftersCloud.ReferenceArchitecture.AppHost.Tests.Infrastructure;
+﻿using CraftersCloud.Core.AspireTests.Shared;
 using Microsoft.Extensions.Logging;
 
 namespace CraftersCloud.ReferenceArchitecture.AppHost.Tests;
@@ -9,6 +9,10 @@ internal static class DistributedApplicationTestFactory
     {
         var builder = await DistributedApplicationTestingBuilder.CreateAsync<TEntryPoint>();
 
+        builder.Services.ConfigureHttpClientDefaults(clientBuilder => clientBuilder.AddStandardResilienceHandler());
+
+        // we don't need redis-commander for tests
+        builder.RemoveResource("redis-commander");
         builder.WithRandomParameterValues();
         builder.RemoveBindMounts();
         builder.WithRandomVolumeNames();

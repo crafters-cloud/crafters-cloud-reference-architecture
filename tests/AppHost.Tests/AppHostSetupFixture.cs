@@ -1,13 +1,13 @@
 ﻿using System.Net;
 using Aspire.Hosting;
-using CraftersCloud.ReferenceArchitecture.AppHost.Tests.Infrastructure;
+using CraftersCloud.Core.AspireTests.Shared;
 
 namespace CraftersCloud.ReferenceArchitecture.AppHost.Tests;
 
 /// <summary>
 /// Verifies that the application host starts and runs correctly.
 /// </summary>
-[Category("integration")]
+[Category("aspire-integration")]
 public class AppHostSetupFixture
 {
     private DistributedApplication _app;
@@ -16,7 +16,7 @@ public class AppHostSetupFixture
     public async Task OneTimeSetUp()
     {
         var appHost = await DistributedApplicationTestFactory.CreateAsync<Projects.AppHost>();
-
+        
         _app = await appHost.BuildAsync().WaitAsync(TimeSpan.FromSeconds(15));
         await _app.StartAsync().WaitAsync(TimeSpan.FromSeconds(120));
         await _app.WaitForResourcesAsync().WaitAsync(TimeSpan.FromSeconds(120));
