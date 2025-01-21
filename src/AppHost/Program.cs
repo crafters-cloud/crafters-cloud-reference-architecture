@@ -1,5 +1,4 @@
 using CraftersCloud.ReferenceArchitecture.AppHost;
-
 using Projects;
 
 var builder = DistributedApplication.CreateBuilder(args);
@@ -11,7 +10,7 @@ var cache = builder.AddRedis("redis")
     .WithLifetime(ContainerLifetime.Persistent)
     .WithRedisCommander();
 
-var sqlServer = builder.AddSqlServer("sql-server")
+var sqlServer = builder.AddSqlServer("sql-server", port: 1533)
     .WithDataBindMount(Path.Combine(dataDirectory, "sql-server"))
     .WithLifetime(ContainerLifetime.Persistent);
 

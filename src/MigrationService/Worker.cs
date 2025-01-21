@@ -50,8 +50,15 @@ public class Worker(
         });
     }
 
-    private static async Task RunMigrationAsync(AppDbContext dbContext, CancellationToken cancellationToken) =>
-        await dbContext.Database.MigrateAsync(cancellationToken);
+    private static async Task RunMigrationAsync(AppDbContext dbContext, CancellationToken cancellationToken)
+    {
+        var strategy = dbContext.Database.CreateExecutionStrategy();
+        await strategy.ExecuteAsync(async () =>
+            {
+                await dbContext.Database.MigrateAsync(cancellationToken);
+            }
+        );
+    }
 
     private static async Task SeedDataAsync(AppDbContext dbContext, CancellationToken cancellationToken)
     {

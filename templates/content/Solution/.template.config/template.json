@@ -112,6 +112,24 @@
         "fallbackVariableName": "HttpsPortGenerated"
       },
       "replaces": "44394"
+    },
+    "SqlServerPort": {
+      "type": "parameter",
+      "datatype": "integer",
+      "description": "Port number to use for the Sql Server."
+    },
+    "SqlServerPortGenerated": {
+      "type": "generated",
+      "generator": "port"
+    },
+    "SqlServerPortReplacer": {
+      "type": "generated",
+      "generator": "coalesce",
+      "parameters": {
+        "sourceVariableName": "SqlServerPort",
+        "fallbackVariableName": "SqlServerPortGenerated"
+      },
+      "replaces": "1533"
     }
   },
   "guids": [
