@@ -4,6 +4,7 @@
 ![CI](https://github.com/crafters-cloud/crafters-cloud-reference-architecture/workflows/CI/badge.svg)
 [![NuGet](https://img.shields.io/nuget/dt/CraftersCloud.ReferenceArchitecture.ProjectTemplates.svg)](https://www.nuget.org/packages/CraftersCloud.ReferenceArchitecture.ProjectTemplates)
 [![NuGet](https://img.shields.io/nuget/vpre/CraftersCloud.ReferenceArchitecture.ProjectTemplates.svg)](https://www.nuget.org/packages/CraftersCloud.ReferenceArchitecture.ProjectTemplates)
+[![MyGet (dev)](https://img.shields.io/myget/crafters-cloud/v/CraftersCloud.ReferenceArchitecture.ProjectTemplates.svg)](https://myget.org/gallery/crafters-cloud)
 
 ![CI](https://github.com/crafters-cloud/crafters-cloud-reference-architecture/workflows/CI/badge.svg)
 [![NuGet](https://img.shields.io/nuget/dt/CraftersCloud.ReferenceArchitecture.ProjectTemplates.svg)](https://www.nuget.org/packages/CraftersCloud.ReferenceArchitecture.ProjectTemplates)
