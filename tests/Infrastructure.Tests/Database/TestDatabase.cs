@@ -65,5 +65,5 @@ public class TestDatabase
             }
         });
 
-    private static void WriteLine(string value) => TestContext.WriteLine(value);
+    private static void WriteLine(string value) => TestContext.Out.Write(value);
 }
