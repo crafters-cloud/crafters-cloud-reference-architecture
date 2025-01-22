@@ -1340,15 +1340,6 @@
           "OneOf.SourceGenerator": "[3.0.271, )"
         }
       },
-      "CraftersCloud.ReferenceArchitecture.Data.Migrations": {
-        "type": "Project",
-        "dependencies": {
-          "CraftersCloud.ReferenceArchitecture.Domain": "[1.0.0, )",
-          "CraftersCloud.ReferenceArchitecture.Infrastructure": "[1.0.0, )",
-          "JetBrains.Annotations": "[2024.3.0, )",
-          "Microsoft.EntityFrameworkCore.SqlServer": "[9.0.1, )"
-        }
-      },
       "CraftersCloud.ReferenceArchitecture.Domain": {
         "type": "Project",
         "dependencies": {
@@ -1391,6 +1382,15 @@
           "Serilog.Sinks.ApplicationInsights": "[4.0.0, )",
           "Serilog.Sinks.Console": "[6.0.0, )",
           "Serilog.Sinks.File": "[6.0.0, )"
+        }
+      },
+      "CraftersCloud.ReferenceArchitecture.Migrations": {
+        "type": "Project",
+        "dependencies": {
+          "CraftersCloud.ReferenceArchitecture.Domain": "[1.0.0, )",
+          "CraftersCloud.ReferenceArchitecture.Infrastructure": "[1.0.0, )",
+          "JetBrains.Annotations": "[2024.3.0, )",
+          "Microsoft.EntityFrameworkCore.SqlServer": "[9.0.1, )"
         }
       },
       "CraftersCloud.ReferenceArchitecture.ServiceDefaults": {

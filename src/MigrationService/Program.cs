@@ -1,6 +1,7 @@
 using CraftersCloud.ReferenceArchitecture.Data.Migrations;
 using CraftersCloud.ReferenceArchitecture.Data.MigrationService;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Data;
+using CraftersCloud.ReferenceArchitecture.Migrations;
 using CraftersCloud.ReferenceArchitecture.ServiceDefaults;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;

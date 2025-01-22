@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using CraftersCloud.ReferenceArchitecture.Migrations;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 

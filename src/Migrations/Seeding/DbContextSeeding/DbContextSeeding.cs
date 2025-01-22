@@ -1,7 +1,7 @@
 using CraftersCloud.Core.EntityFramework.Seeding;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Data;
 
-namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Seeding.DbContextSeeding;
+namespace CraftersCloud.ReferenceArchitecture.Migrations.Seeding.DbContextSeeding;
 
 public static class DbContextSeeding
 {

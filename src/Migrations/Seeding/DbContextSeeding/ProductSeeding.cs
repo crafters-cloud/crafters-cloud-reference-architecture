@@ -5,7 +5,7 @@ using CraftersCloud.ReferenceArchitecture.Domain.Products.Commands;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Data;
 
-namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Seeding.DbContextSeeding;
+namespace CraftersCloud.ReferenceArchitecture.Migrations.Seeding.DbContextSeeding;
 
 internal class ProductSeeding : IDbContextSeeding<AppDbContext>
 {

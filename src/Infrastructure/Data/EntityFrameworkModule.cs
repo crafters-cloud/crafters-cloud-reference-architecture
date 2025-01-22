@@ -73,7 +73,7 @@ public class EntityFrameworkModule : Module
 
         if (dbContextSettings.RegisterMigrationsAssembly)
         {
-            sqlOptions = sqlOptions.MigrationsAssembly("CraftersCloud.ReferenceArchitecture.Data.Migrations");
+            sqlOptions = sqlOptions.MigrationsAssembly(AssemblyFinder.MigrationsAssembly);
         }
 
         return sqlOptions;
