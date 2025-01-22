@@ -8,27 +8,9 @@
       UserStatusName: Active,
       CreatedOn: DateTimeOffset_1,
       UpdatedOn: DateTimeOffset_1
-    },
-    {
-      Id: Guid_2,
-      EmailAddress: N/A,
-      FirstName: System,
-      LastName: User,
-      UserStatusName: Active,
-      CreatedOn: DateTimeOffset_1,
-      UpdatedOn: DateTimeOffset_1
-    },
-    {
-      Id: Guid_3,
-      EmailAddress: test_user@xyz.com,
-      FirstName: INTEGRATION,
-      LastName: TEST,
-      UserStatusName: Active,
-      CreatedOn: DateTimeOffset_1,
-      UpdatedOn: DateTimeOffset_1
     }
   ],
-  TotalCount: 3,
+  TotalCount: 1,
   PageNumber: 1,
   PageSize: 10,
   TotalPages: 1,
