@@ -24,6 +24,8 @@ It can support both, but only **if** and **when** needed, by applying the necess
 
 ### Domain (and entities)
 
+TBD
+
 ### Testing Strategy
 
 Following the idea of XP and YAGNI (You Ain't Gonna Need It), the focus is to first add integration tests that are
@@ -62,7 +64,7 @@ This combination of technologies provides a robust foundation for developing mod
 ### Prerequisites
 
 - .NET SDK 9
-- SQL Server
+- Aspire SDK
 - Docker
 
 ### Getting Started

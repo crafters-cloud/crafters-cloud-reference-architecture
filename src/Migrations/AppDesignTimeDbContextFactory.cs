@@ -1,9 +1,9 @@
-﻿using CraftersCloud.ReferenceArchitecture.Data.Migrations.Seeding.MigrationSeeding;
-using CraftersCloud.ReferenceArchitecture.Infrastructure.Data;
+﻿using CraftersCloud.ReferenceArchitecture.Infrastructure.Data;
+using CraftersCloud.ReferenceArchitecture.Migrations.Seeding.MigrationSeeding;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
-namespace CraftersCloud.ReferenceArchitecture.Data.Migrations;
+namespace CraftersCloud.ReferenceArchitecture.Migrations;
 
 [UsedImplicitly]
 public class AppDesignTimeDbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
@@ -32,9 +32,7 @@ public class AppDesignTimeDbContextFactory : IDesignTimeDbContextFactory<AppDbCo
 
         if (string.IsNullOrEmpty(connectionString))
         {
-            Console.WriteLine(
-                $"Connection string is not provided in the arguments. Falling back to developers connection string: '{DevelopmentConnectionsStrings.MainConnectionString}'");
-            connectionString = DevelopmentConnectionsStrings.MainConnectionString;
+            throw new ArgumentException("Missing connection string");
         }
 
         return connectionString;

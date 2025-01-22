@@ -6,7 +6,7 @@ namespace CraftersCloud.ReferenceArchitecture.Api.Endpoints.Roles;
 
 public static class GetRoles
 {
-    public class Response : ItemsResponse<KeyValuePairDto<Guid>>;
+    public class Response : ItemsResponse<KeyValuePairDto<RoleId>>;
 
     [UsedImplicitly]
     public static async Task<Ok<Response>> Handle(IRepository<Role> roleRepository,
@@ -16,9 +16,9 @@ public static class GetRoles
             .QueryAll()
             .AsNoTracking()
             .OrderBy(r => r.Name)
-            .Select(r => new KeyValuePairDto<Guid> { Key = r.Id, Value = r.Name })
+            .Select(r => new KeyValuePairDto<RoleId> { Key = r.Id, Value = r.Name })
             .ToListAsync(cancellationToken);
 
-        return items.ToMinimalApiResult<Guid, Response>();
+        return items.ToMinimalApiResult<RoleId, Response>();
     }
 }

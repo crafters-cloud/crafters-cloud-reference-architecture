@@ -1,10 +1,7 @@
-﻿using CraftersCloud.Core;
-using CraftersCloud.Core.Cqrs;
-using CraftersCloud.Core.Data;
+﻿using CraftersCloud.Core.Cqrs;
 using CraftersCloud.ReferenceArchitecture.Core.Cqrs;
 using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
 using FluentValidation;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CraftersCloud.ReferenceArchitecture.Domain.Users.Commands;
@@ -22,25 +19,12 @@ public class UpdateUserCommand : ICommand<UpdateCommandResult<User>>
     [UsedImplicitly]
     public class Validator : AbstractValidator<UpdateUserCommand>
     {
-        private readonly IServiceScopeFactory _scopeFactory;
-
         public Validator(IServiceScopeFactory scopeFactory)
         {
-            _scopeFactory = scopeFactory;
-            RuleFor(x => x.EmailAddress).ValidateUserEmail(UniqueEmailAddress);
+            RuleFor(x => x.EmailAddress).ValidateUserEmail(x => x.Id, scopeFactory);
             RuleFor(x => x.FirstName).ValidateUserFirstName();
             RuleFor(x => x.LastName).ValidateUserLastName();
             RuleFor(x => x.RoleId).ValidateRoleId();
-        }
-
-        private async Task<bool> UniqueEmailAddress(UpdateUserCommand command, string name,
-            CancellationToken cancellationToken)
-        {
-            using var scope = _scopeFactory.CreateScope();
-            var repository = scope.Resolve<IRepository<User>>();
-            return !await repository.QueryAll()
-                .QueryByEmail(name)
-                .AnyAsync(cancellationToken);
         }
     }
 }

@@ -1,6 +1,6 @@
-using CraftersCloud.ReferenceArchitecture.Data.Migrations;
 using CraftersCloud.ReferenceArchitecture.Data.MigrationService;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Data;
+using CraftersCloud.ReferenceArchitecture.Migrations;
 using CraftersCloud.ReferenceArchitecture.ServiceDefaults;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
@@ -12,7 +12,7 @@ builder.Services.AddHostedService<Worker>();
 builder.Services.AddOpenTelemetry()
     .WithTracing(tracing => tracing.AddSource(Worker.ActivitySourceName));
 
-builder.AddSqlServerDbContext<AppDbContext>(nameof(AppDbContext), null,
+builder.AddSqlServerDbContext<AppDbContext>("app-db", null,
     optionsBuilder =>
     {
         optionsBuilder.ConfigureWarnings(warnings => warnings.Ignore(RelationalEventId.PendingModelChangesWarning));

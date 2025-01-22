@@ -1,0 +1,12 @@
+{
+  "DefaultLocalCacheExpiration": "0.00:05:00",
+  "DefaultExpiration": "0.00:05:00",
+  "CacheKeyPrefixToRemove": "CraftersCloud:ReferenceArchitecture:",
+  "Entries": [
+    {
+      "Key": "Application:Identity:GetUserById:Query",
+      "Expiration": "0.00:02:00",
+      "LocalCacheExpiration": "0.00:02:00"
+    }
+  ]
+}

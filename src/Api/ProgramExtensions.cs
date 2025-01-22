@@ -12,6 +12,7 @@ using CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Logging;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Security;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Swagger;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Autofac;
+using CraftersCloud.ReferenceArchitecture.Infrastructure.Caching;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Configuration;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Data;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Identity;
@@ -30,11 +31,11 @@ public static class ProgramExtensions
         services.AddCors();
         services.AddHttpContextAccessor();
         services.AddApplicationInsightsTelemetry();
-        services.AppConfigureHttpJsonOptions([AssemblyFinder.ApiAssembly]);
+        services.AppConfigureHttpJsonOptions(AssemblyFinder.ApiAssembly);
         services.AppConfigureSettings(configuration);
         services.AddCoreHealthChecks(configuration)
             .AddDbContextCheck<AppDbContext>();
-        services.AppAddMediatr([AssemblyFinder.ApiAssembly]);
+        services.AppAddMediatr(AssemblyFinder.ApiAssembly);
         services.AppAddFluentValidation();
         services.AddCoreHttps(env);
 
@@ -49,6 +50,7 @@ public static class ProgramExtensions
         services.AddCoreEndpoints(AssemblyFinder.ApiAssembly);
         services.AddExceptionHandler<CoreGlobalExceptionHandler>();
         services.AddProblemDetails();
+        services.AppAddCaching(configuration, AssemblyFinder.ApiAssembly);
     }
 
     public static void AppConfigureHost(this IHostBuilder hostBuilder, IConfiguration configuration)

@@ -1,8 +1,8 @@
 ﻿using CraftersCloud.Core;
 using CraftersCloud.Core.Tests.Shared;
 using CraftersCloud.ReferenceArchitecture.Api.Tests.Infrastructure.Api;
-using CraftersCloud.ReferenceArchitecture.Infrastructure.Data;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Tests;
+using CraftersCloud.ReferenceArchitecture.Infrastructure.Tests.Cache;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Tests.Configuration;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Tests.Database;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Tests.Impersonation;
@@ -19,6 +19,7 @@ public class EndpointsFixtureBase
     private IServiceScope _testScope = null!;
     private static ApiWebApplicationFactory<Program> _factory = null!;
     private bool _isUserAuthenticated = true;
+    private TestCache _testCache;
     protected FlurlClient Client { get; private set; } = null!;
 
     [SetUp]
@@ -27,9 +28,13 @@ public class EndpointsFixtureBase
         _testDatabase = new TestDatabase();
         await _testDatabase.CreateAsync();
 
+        _testCache = new TestCache();
+        await _testCache.CreateAsync();
+
         _configuration = new TestConfigurationBuilder()
-            .WithDbContextName(nameof(AppDbContext))
-            .WithConnectionString(_testDatabase.ConnectionString)
+            .WithDbName("app-db")
+            .WithDbConnectionString(_testDatabase.ConnectionString)
+            .WithCacheConnectionString(_testCache.ConnectionString)
             .Build();
 
         _factory = new ApiWebApplicationFactory<Program>(_configuration, _isUserAuthenticated);

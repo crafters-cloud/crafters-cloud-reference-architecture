@@ -7,7 +7,7 @@ namespace CraftersCloud.ReferenceArchitecture.Api.Endpoints.Products;
 public static class GetProductStatuses
 {
     [PublicAPI]
-    public class Response : ItemsResponse<KeyValuePairDto<int>>;
+    public class Response : ItemsResponse<KeyValuePairDto<ProductStatusId>>;
 
     public static async Task<Ok<Response>> Handle(
         IRepository<ProductStatus> repository,
@@ -16,10 +16,10 @@ public static class GetProductStatuses
         var items = await repository
             .QueryAll()
             .AsNoTracking()
-            .Select(x => new KeyValuePairDto<int> { Key = x.Id, Value = x.Name })
+            .Select(x => new KeyValuePairDto<ProductStatusId> { Key = x.Id, Value = x.Name })
             .OrderBy(r => r.Value)
             .ToListAsync(cancellationToken);
 
-        return items.ToMinimalApiResult<int, Response>();
+        return items.ToMinimalApiResult<ProductStatusId, Response>();
     }
 }

@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <RootNamespace>CraftersCloud.ReferenceArchitecture.Data.Migrations</RootNamespace>
-    <AssemblyName>CraftersCloud.ReferenceArchitecture.Data.Migrations</AssemblyName>
+    <RootNamespace>CraftersCloud.ReferenceArchitecture.Migrations</RootNamespace>
+    <AssemblyName>CraftersCloud.ReferenceArchitecture.Migrations</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

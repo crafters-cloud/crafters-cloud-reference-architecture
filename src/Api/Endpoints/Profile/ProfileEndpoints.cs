@@ -6,9 +6,9 @@ public class ProfileEndpoints : IEndpoint
     public void MapEndpoint(IEndpointRouteBuilder app)
     {
         var group = app.MapGroup("profile")
+            .RequireAuthorization()
             .WithGroupName("Profile");
 
-        group.MapGet("/", GetUserProfile.Handle).RequireAuthorization();
-        group.MapGet("/hello-world", GetUserProfile.HandleHelloWorld);
+        group.MapGet("/", GetUserProfile.Handle);
     }
 }

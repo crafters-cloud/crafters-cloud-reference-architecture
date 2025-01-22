@@ -1,4 +1,6 @@
 ﻿using CraftersCloud.ReferenceArchitecture.Api.MinimalApi;
+using CraftersCloud.ReferenceArchitecture.Application.Identity.GetUserById;
+using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
 
 namespace CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users;
@@ -8,11 +10,11 @@ public static partial class GetUserById
     [PublicAPI]
     public class Response
     {
-        public Guid Id { get; set; }
+        public UserId Id { get; set; }
         public string EmailAddress { get; set; } = string.Empty;
         public string FirstName { get; set; } = string.Empty;
         public string LastName { get; set; } = string.Empty;
-        public Guid RoleId { get; set; }
+        public RoleId RoleId { get; set; }
         public DateTimeOffset CreatedOn { get; set; }
         public DateTimeOffset UpdatedOn { get; set; }
         public UserStatusId UserStatusId { get; set; } = UserStatusId.Active;
@@ -21,21 +23,16 @@ public static partial class GetUserById
     }
 
     [Mapper]
-    public static partial class ResponseMapper
+    public static partial class Mapper
     {
-        public static partial Response ToResponse(User source);
+        public static partial Response Map(QueryResponse source);
     }
 
-    public static async Task<Results<Ok<Response>, NotFound>> Handle(UserId id, IRepository<User> repository,
+    public static async Task<Results<Ok<Response>, NotFound>> Handle(UserId id, ISender sender,
         CancellationToken cancellationToken)
     {
-        var entity = await repository.QueryAll()
-            .Include(x => x.UserStatus)
-            .AsNoTracking()
-            .QueryById(id)
-            .QueryActiveOnly()
-            .SingleOrDefaultAsync(cancellationToken);
-
-        return entity.ToMappedMinimalApiResult(ResponseMapper.ToResponse);
+        var query = new Query(id);
+        var response = await sender.Send(query, cancellationToken);
+        return response.ToMinimalApiResult(Mapper.Map);
     }
 }

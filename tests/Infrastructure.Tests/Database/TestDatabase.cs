@@ -21,38 +21,23 @@ public class TestDatabase
 
     public async Task CreateAsync()
     {
-        // To use a local sqlServer instance, Create an Environment variable using R# Test Runner, with name "IntegrationTestsConnectionString"
-        // and value: "Server=.;Database={DatabaseName};Trusted_Connection=True;MultipleActiveResultSets=true;Encrypt=False"
-        var connectionString = Environment.GetEnvironmentVariable("IntegrationTestsConnectionString");
-
-        if (!string.IsNullOrEmpty(connectionString))
+        try
         {
-            // do not write ConnectionString to the console since it might contain username/password 
-            ConnectionString = connectionString;
+            _container ??= new MsSqlBuilder()
+                // Resource reuse for better development experience https://dotnet.testcontainers.org/api/resource_reuse/
+                .WithReuse(true)
+                .WithName("reference-architecture-sql-server-integration-tests")
+                .WithLabel("reuse-id", "reference-architecture-sql-server-integration-tests")
+                .Build();
+
+            await _container!.StartAsync();
+            ConnectionString = _container.GetConnectionString();
+            WriteLine($"Docker SQL connection string: {ConnectionString}");
         }
-        else
+        catch (Exception e)
         {
-            try
-            {
-                // These cannot be changed (it is hardcoded in MsSqlBuilder and changing any of them breaks starting of the container
-                // default database: master
-                // default username: sa
-                // default password: yourStrong(!)Password
-
-                _container ??= new MsSqlBuilder()
-                    .WithAutoRemove(true)
-                    .WithCleanUp(true)
-                    .Build();
-
-                await _container!.StartAsync();
-                ConnectionString = _container.GetConnectionString();
-                WriteLine($"Docker SQL connection string: {ConnectionString}");
-            }
-            catch (Exception e)
-            {
-                WriteLine($"Failed to start docker container: {e.Message}");
-                throw;
-            }
+            WriteLine($"Failed to start docker container: {e.Message}");
+            throw;
         }
     }
 

@@ -1,20 +1,24 @@
 using CraftersCloud.ReferenceArchitecture.AppHost;
 using Projects;
 
-var builder = DistributedApplication.CreateBuilder(args);
-
+const string projectName = "reference-architecture";
 var dataDirectory = Path.Combine(AppDomain.CurrentDomain.GetDirectoryPath(5), "data");
 
+var builder = DistributedApplication.CreateBuilder(args);
+
 var cache = builder.AddRedis("redis")
+    .WithContainerName($"{projectName}-redis")
     .WithDataBindMount(Path.Combine(dataDirectory, "redis"))
     .WithLifetime(ContainerLifetime.Persistent)
-    .WithRedisCommander();
+    .WithRedisCommander(
+        c => c.WithContainerName($"{projectName}-redis-commander"));
 
 var sqlServer = builder.AddSqlServer("sql-server", port: 1533)
+    .WithContainerName($"{projectName}-sql-server")
     .WithDataBindMount(Path.Combine(dataDirectory, "sql-server"))
     .WithLifetime(ContainerLifetime.Persistent);
 
-var database = sqlServer.AddDatabase("AppDbContext");
+var database = sqlServer.AddDatabase("app-db");
 
 var migrations = builder.AddProject<MigrationService>("migrations")
     .WithReference(database)

@@ -8,7 +8,7 @@ public static partial class GetProductById
     [PublicAPI]
     public class Response
     {
-        public Guid Id { get; set; }
+        public ProductId Id { get; set; }
         public string Name { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
         public DateTimeOffset CreatedOn { get; set; }
@@ -19,9 +19,9 @@ public static partial class GetProductById
     }
 
     [Mapper]
-    public static partial class ResponseMapper
+    public static partial class Mapper
     {
-        public static partial Response ToResponse(Product source);
+        public static partial Response Map(Product source);
     }
 
     public static async Task<Results<Ok<Response>, NotFound>> Handle(ProductId id,
@@ -34,6 +34,6 @@ public static partial class GetProductById
             .QueryById(id)
             .SingleOrDefaultAsync(cancellationToken);
 
-        return entity.ToMappedMinimalApiResult(ResponseMapper.ToResponse);
+        return entity.ToMinimalApiResult(Mapper.Map);
     }
 }

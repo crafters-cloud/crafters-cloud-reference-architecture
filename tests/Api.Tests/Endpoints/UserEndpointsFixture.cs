@@ -4,6 +4,7 @@ using CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users;
 using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
 using CraftersCloud.ReferenceArchitecture.Domain.Tests.Users;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
+using GetUserById = CraftersCloud.ReferenceArchitecture.Api.Endpoints.HelloWorld.GetUserById;
 
 namespace CraftersCloud.ReferenceArchitecture.Api.Tests.Endpoints;
 
@@ -16,15 +17,13 @@ namespace CraftersCloud.ReferenceArchitecture.Api.Tests.Endpoints;
 // write unit tests.
 public class UserEndpointsFixture : EndpointsFixtureBase
 {
-    private IFlurlRequest _endpoint = null!;
+    private IFlurlRequest Endpoint => Client.Request("users");
 
     private User _user = null!;
 
     [SetUp]
     public void SetUp()
     {
-        _endpoint = Client.Request("users");
-
         _user = new UserBuilder()
             .WithEmailAddress("john_doe@john.doe")
             .WithFirstName("John")
@@ -38,7 +37,7 @@ public class UserEndpointsFixture : EndpointsFixtureBase
     [Test]
     public async Task GetAll()
     {
-        var response = await _endpoint.AppendQueryParam(nameof(GetUsers.Request.SortBy), nameof(User.EmailAddress))
+        var response = await Endpoint.AppendQueryParam(nameof(GetUsers.Request.SortBy), nameof(User.EmailAddress))
             .AppendQueryParam(nameof(GetUsers.Request.EmailAddress), "john_doe")
             .GetJsonAsync<PagedQueryResponse<GetUsers.Response.Item>>();
         await Verify(response);
@@ -47,7 +46,7 @@ public class UserEndpointsFixture : EndpointsFixtureBase
     [Test]
     public async Task GetById()
     {
-        var response = await _endpoint.AppendPathSegment(_user.Id)
+        var response = await Endpoint.AppendPathSegment(_user.Id)
             .GetJsonAsync<GetUserById.Response>();
         await Verify(response);
     }
@@ -55,7 +54,7 @@ public class UserEndpointsFixture : EndpointsFixtureBase
     [Test]
     public async Task GetStatuses()
     {
-        var response = await _endpoint.AppendPathSegment("statuses").GetJsonAsync<GetUserStatuses.Response>();
+        var response = await Endpoint.AppendPathSegment("statuses").GetJsonAsync<GetUserStatuses.Response>();
         await Verify(response);
     }
 
@@ -69,7 +68,7 @@ public class UserEndpointsFixture : EndpointsFixtureBase
             Role.SystemAdminRoleId,
             UserStatusId.Active
         );
-        var response = await _endpoint.PostJsonAsync(request);
+        var response = await Endpoint.PostJsonAsync(request);
         response.StatusCode.ShouldBe((int) HttpStatusCode.Created);
     }
 
@@ -84,7 +83,7 @@ public class UserEndpointsFixture : EndpointsFixtureBase
             Role.SystemAdminRoleId,
             UserStatusId.Inactive
         );
-        var response = await _endpoint.PutJsonAsync(request);
+        var response = await Endpoint.PutJsonAsync(request);
         response.StatusCode.ShouldBe((int) HttpStatusCode.NoContent);
         var user = QueryDb<User>().QueryById(_user.Id).Single();
         await Verify(user);

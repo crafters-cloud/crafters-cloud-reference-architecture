@@ -39,9 +39,9 @@ public static partial class GetProducts
     }
 
     [Mapper]
-    public static partial class ResponseItemQueryMapper
+    public static partial class Mapper
     {
-        public static partial IQueryable<Response.Item> ProjectTo(IQueryable<Product> q);
+        public static partial IQueryable<Response.Item> Map(IQueryable<Product> q);
     }
 
     public static async Task<Ok<PagedQueryResponse<Response.Item>>> Handle([AsParameters] Request request,
@@ -53,7 +53,8 @@ public static partial class GetProducts
             .AsNoTracking()
             .QueryByStatusOptional(request.ProductStatusId)
             .QueryByNameOptional(request.Name, SearchPatterns.Like);
-        var items = await ResponseItemQueryMapper.ProjectTo(query)
+        
+        var items = await Mapper.Map(query)
             .ToPagedResponseAsync(request, cancellationToken);
 
         return TypedResults.Ok(items);

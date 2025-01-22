@@ -9,6 +9,7 @@
     <PackageReference Include="Autofac.Extensions.DependencyInjection" />
     <PackageReference Include="Azure.Extensions.AspNetCore.Configuration.Secrets" />
     <PackageReference Include="CraftersCloud.Core.AspNetCore" />
+    <PackageReference Include="CraftersCloud.Core.Caching" />
     <PackageReference Include="CraftersCloud.Core.Infrastructure" />
     <PackageReference Include="CraftersCloud.Core.EntityFramework.Infrastructure" />
     <PackageReference Include="CraftersCloud.Core.MediatR" />
@@ -16,11 +17,13 @@
     <PackageReference Include="CraftersCloud.Core.SmartEnums.Swagger" />
     <PackageReference Include="CraftersCloud.Core.SmartEnums.SystemTextJson" />
     <PackageReference Include="CraftersCloud.Core.Swagger" />
+    <PackageReference Include="CraftersCloud.Core.SystemTextJson" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
     <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" />
     <PackageReference Include="Microsoft.Extensions.Http.Resilience" />
     <PackageReference Include="Microsoft.Identity.Web" />
+    <PackageReference Include="OneOf.Serialization.SystemTextJson" />
     <PackageReference Include="Polly" />
     <PackageReference Include="Riok.Mapperly" />
     <PackageReference Include="Scalar.AspNetCore" />
@@ -37,6 +40,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="KeyVault\" />
   </ItemGroup>
 
 </Project>

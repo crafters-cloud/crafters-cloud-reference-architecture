@@ -7,7 +7,7 @@ namespace CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users;
 public static class GetUserStatuses
 {
     [PublicAPI]
-    public class Response : ItemsResponse<KeyValuePairDto<int>>;
+    public class Response : ItemsResponse<KeyValuePairDto<UserStatusId>>;
 
     public static async Task<Ok<Response>> Handle(
         IRepository<UserStatus> repository,
@@ -16,10 +16,10 @@ public static class GetUserStatuses
         var items = await repository
             .QueryAll()
             .AsNoTracking()
-            .Select(x => new KeyValuePairDto<int> { Key = x.Id, Value = x.Name })
+            .Select(x => new KeyValuePairDto<UserStatusId> { Key = x.Id, Value = x.Name })
             .OrderBy(r => r.Value)
             .ToListAsync(cancellationToken);
 
-        return items.ToMinimalApiResult<int, Response>();
+        return items.ToMinimalApiResult<UserStatusId, Response>();
     }
 }

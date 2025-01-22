@@ -11,7 +11,7 @@ internal static class HttpClientExtensions
         new FlurlClient(httpClient).WithSettings(settings =>
         {
             var options = new JsonSerializerOptions(JsonSerializerDefaults.Web);
-            options.Converters.AppRegisterJsonConverters([AssemblyFinder.ApiAssembly]);
+            options.Converters.AppRegisterJsonConverters(AssemblyFinder.ApiAssembly);
             settings.JsonSerializer = new DefaultJsonSerializer(options);
         });
 }

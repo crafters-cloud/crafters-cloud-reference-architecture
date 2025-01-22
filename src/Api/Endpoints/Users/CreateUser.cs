@@ -1,4 +1,5 @@
 ﻿using CraftersCloud.ReferenceArchitecture.Api.MinimalApi;
+using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
 using CraftersCloud.ReferenceArchitecture.Domain.Users.Commands;
 
@@ -10,31 +11,18 @@ public static partial class CreateUser
         string EmailAddress,
         string FirstName,
         string LastName,
-        Guid RoleId,
+        RoleId RoleId,
         UserStatusId UserStatusId);
     
     [UsedImplicitly]
     public class Validator : AbstractValidator<Request>
     {
-        private readonly IServiceScopeFactory _scopeFactory;
-
         public Validator(IServiceScopeFactory scopeFactory)
         {
-            _scopeFactory = scopeFactory;
-            RuleFor(x => x.EmailAddress).ValidateUserEmail(UniqueEmailAddress);
+            RuleFor(x => x.EmailAddress).ValidateUserEmail(getId => null, scopeFactory);
             RuleFor(x => x.FirstName).ValidateUserFirstName();
             RuleFor(x => x.LastName).ValidateUserLastName();
             RuleFor(x => x.RoleId).ValidateRoleId();
-        }
-
-        private async Task<bool> UniqueEmailAddress(Request command, string name,
-            CancellationToken cancellationToken)
-        {
-            using var scope = _scopeFactory.CreateScope();
-            var repository = scope.Resolve<IRepository<User>>();
-            return !await repository.QueryAll()
-                .QueryByEmail(name)
-                .AnyAsync(cancellationToken);
         }
     }
 

@@ -9,15 +9,13 @@ namespace CraftersCloud.ReferenceArchitecture.Api.Tests.Endpoints;
 [Category("integration")]
 public class ProductEndpointsFixture : EndpointsFixtureBase
 {
-    private IFlurlRequest _endpoint = null!;
+    private IFlurlRequest Endpoint =>  Client.Request("products");
 
     private Product _product = null!;
 
     [SetUp]
     public void SetUp()
     {
-        _endpoint = Client.Request("products");
-
         _product = new ProductBuilder()
             .WithName("Product 1")
             .WithDescription("Product 1 description")
@@ -29,7 +27,7 @@ public class ProductEndpointsFixture : EndpointsFixtureBase
     [Test]
     public async Task GetAll()
     {
-        var response = await _endpoint
+        var response = await Endpoint
             .AppendQueryParam(nameof(GetProducts.Request.SortBy), nameof(Product.Name))
             .AppendQueryParam(nameof(GetProducts.Request.ProductStatusId), ProductStatusId.Active.Value)
             .GetJsonAsync<PagedQueryResponse<GetProducts.Response.Item>>();
@@ -39,7 +37,7 @@ public class ProductEndpointsFixture : EndpointsFixtureBase
     [Test]
     public async Task GetById()
     {
-        var response = await _endpoint.AppendPathSegment(_product.Id)
+        var response = await Endpoint.AppendPathSegment(_product.Id)
             .GetJsonAsync<GetProductById.Response>();
         await Verify(response);
     }
@@ -47,7 +45,7 @@ public class ProductEndpointsFixture : EndpointsFixtureBase
     [Test]
     public async Task GetStatuses()
     {
-        var response = await _endpoint.AppendPathSegment("statuses")
+        var response = await Endpoint.AppendPathSegment("statuses")
             .GetJsonAsync<GetProductStatuses.Response>();
         await Verify(response);
     }
@@ -61,7 +59,7 @@ public class ProductEndpointsFixture : EndpointsFixtureBase
             ProductStatusId.Active
         );
         var response =
-            await _endpoint.PostJsonAsync(request);
+            await Endpoint.PostJsonAsync(request);
         response.StatusCode.ShouldBe((int) HttpStatusCode.Created);
     }
 
@@ -74,7 +72,7 @@ public class ProductEndpointsFixture : EndpointsFixtureBase
             "new description",
             ProductStatusId.Inactive
         );
-        var response = await _endpoint.PutJsonAsync(request);
+        var response = await Endpoint.PutJsonAsync(request);
         response.StatusCode.ShouldBe((int) HttpStatusCode.NoContent);
         var product = QueryDbSkipCache<Product>().QueryById(_product.Id).Single();
         await Verify(product);

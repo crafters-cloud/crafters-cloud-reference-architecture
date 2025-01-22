@@ -12,4 +12,8 @@
     <PackageReference Include="OneOf.SourceGenerator" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Caching\" />
+  </ItemGroup>
+
 </Project>

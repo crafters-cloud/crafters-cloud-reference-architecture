@@ -15,7 +15,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        
         with:
           fetch-depth: 0
       - name: Setup dotnet 9.0
@@ -25,8 +24,15 @@ jobs:
       - name: Build and Test
         run: ./tools/pack.ps1
         shell: pwsh
+      - name: Push to MyGet
+        if: github.ref == 'refs/heads/release' || startsWith(github.ref, 'refs/tags/v')
+        env:
+          NUGET_URL: https://www.myget.org/F/crafters-cloud/api/v3/index.json
+          NUGET_API_KEY: ${{ secrets.MYGET_CRAFTERS_CLOUD_CORE_CI_API_KEY }}
+        run: ./tools/push.ps1
+        shell: pwsh
       - name: Push to NuGet
-        if: startsWith(github.ref, 'refs/tags/v')
+        if: github.ref == 'refs/heads/release' || startsWith(github.ref, 'refs/tags/v')
         env:
           NUGET_URL: https://api.nuget.org/v3/index.json
           NUGET_API_KEY: ${{ secrets.NUGET_CRAFTERS_CLOUD_CORE_CI_API_KEY }}

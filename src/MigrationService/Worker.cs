@@ -1,6 +1,6 @@
 using System.Diagnostics;
-using CraftersCloud.ReferenceArchitecture.Data.Migrations.Seeding.DbContextSeeding;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Data;
+using CraftersCloud.ReferenceArchitecture.Migrations.Seeding.DbContextSeeding;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage;

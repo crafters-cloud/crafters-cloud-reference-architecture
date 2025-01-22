@@ -1,11 +1,11 @@
 ﻿{
   Items: [
     {
-      Key: 1,
+      Key: Active,
       Value: Active
     },
     {
-      Key: 2,
+      Key: Inactive,
       Value: Inactive
     }
   ]

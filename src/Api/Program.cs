@@ -14,7 +14,7 @@ public class Program
         Log.Logger = new LoggerConfiguration()
             .AppConfigureSerilog(bootstrapConfiguration)
             .CreateBootstrapLogger();
-
+        
         try
         {
             var builder = WebApplication.CreateBuilder(args);

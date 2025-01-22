@@ -1,5 +1,5 @@
 ﻿$dateSuffix = (Get-Date).ToString("yyyyMMdd")
-$filePath = "c:/temp/logs/crafters-cloud-reference-architecture-api-$dateSuffix.log"
+$filePath = "c:/temp/logs/reference-architecture-api-$dateSuffix.log"
 
 if (Test-Path $filePath)
 {

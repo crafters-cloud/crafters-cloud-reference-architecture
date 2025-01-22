@@ -1,7 +1,7 @@
 ﻿using CraftersCloud.Core.EntityFramework.Seeding;
 using Microsoft.EntityFrameworkCore;
 
-namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Seeding.MigrationSeeding;
+namespace CraftersCloud.ReferenceArchitecture.Migrations.Seeding.MigrationSeeding;
 
 public static class MigrationSeeding
 {
