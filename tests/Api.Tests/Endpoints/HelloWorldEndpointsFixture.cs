@@ -6,7 +6,7 @@ using GetUserById = CraftersCloud.ReferenceArchitecture.Api.Endpoints.HelloWorld
 namespace CraftersCloud.ReferenceArchitecture.Api.Tests.Endpoints;
 
 [Category("integration")]
-public class HelloWorldFixture : EndpointsFixtureBase
+public class HelloWorldEndpointsFixture : EndpointsFixtureBase
 {
     private User _user = null!;
     private IFlurlRequest _endpoint;

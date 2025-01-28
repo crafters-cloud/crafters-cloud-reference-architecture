@@ -1,0 +1,7 @@
+[
+  {
+    "Key": "Application:Identity:GetUserById:Query",
+    "Expiration": "10.00:00:00",
+    "LocalCacheExpiration": "0.00:02:00"
+  }
+]

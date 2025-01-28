@@ -1,6 +1,7 @@
 ﻿using System.Security.Claims;
 using System.Security.Principal;
 using Autofac;
+using CraftersCloud.ReferenceArchitecture.Infrastructure.Caching;
 using Microsoft.AspNetCore.Http;
 
 namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Autofac;
@@ -20,6 +21,8 @@ public static class ContainerBuilderExtensions
                 AssemblyFinder.InfrastructureAssembly
             ]
         });
+
+        builder.RegisterModule(new CachingModule { CacheEvictorsAssemblies = [AssemblyFinder.ApplicationAssembly] });
     }
 
     public static void AppRegisterClaimsPrincipalProvider(this ContainerBuilder builder) =>

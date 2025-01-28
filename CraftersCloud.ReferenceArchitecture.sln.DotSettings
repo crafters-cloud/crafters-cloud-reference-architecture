@@ -6,4 +6,7 @@
 	<s:Double x:Key="/Default/Environment/InjectedLayers/InjectedLayerCustomization/=File376C4AFF20F30D44AD3CE8A20DDC8BD6/RelativePriority/@EntryValue">1</s:Double>
 	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestRunner/RunConfigurationFilename/@EntryValue">C:\Projects\crafters-cloud\crafters-cloud-reference-architecture\.runsettings</s:String>
     <s:Boolean x:Key="/Default/UserDictionary/Words/=enrichers/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/UserDictionary/Words/=evictor/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/UserDictionary/Words/=evictors/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/UserDictionary/Words/=mediat/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/UserDictionary/Words/=seedings/@EntryIndexedValue">True</s:Boolean></wpf:ResourceDictionary>

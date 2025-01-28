@@ -405,14 +405,6 @@
         "resolved": "6.0.3",
         "contentHash": "/FkS66n3wJaUR+Grkg+dMMIyrfmfkEybNoyOhdBMURxavPx6Q1Kn7NY5Ho41s975gpXA9Pnw7WRJbxwICLFgbw=="
       },
-      "Microsoft.Extensions.Caching.Abstractions": {
-        "type": "Transitive",
-        "resolved": "9.0.1",
-        "contentHash": "Eghsg9SyIvq0c8x6cUpe71BbQoOmsytXxqw2+ZNiTnP8a8SBLKgEor1zZeWhC0588IbS2M0PP4gXGAd9qF862Q==",
-        "dependencies": {
-          "Microsoft.Extensions.Primitives": "9.0.1"
-        }
-      },
       "Microsoft.Extensions.Caching.Memory": {
         "type": "Transitive",
         "resolved": "9.0.1",
@@ -1005,6 +997,15 @@
           "NSwag.Generation": "14.2.0"
         }
       },
+      "OneOf.Serialization.SystemTextJson": {
+        "type": "Transitive",
+        "resolved": "1.1.1",
+        "contentHash": "LnhpCaooeVQ9Ueof6HZwlN2cIfFNMynymx/448CAN3O8e+fF4Hukp+dAJKWY5lBRZQ/KMyZ9Mz8BmHqsaAlEAQ==",
+        "dependencies": {
+          "OneOf": "3.0.263",
+          "System.Text.Json": "7.0.3"
+        }
+      },
       "OpenTelemetry": {
         "type": "Transitive",
         "resolved": "1.11.0",
@@ -1331,6 +1332,7 @@
           "CraftersCloud.Core.SmartEnums": "[2.0.0, )",
           "CraftersCloud.Core.SourceGenerator": "[2.0.0, )",
           "JetBrains.Annotations": "[2024.3.0, )",
+          "Microsoft.Extensions.Caching.Abstractions": "[9.0.1, )",
           "OneOf": "[3.0.271, )",
           "OneOf.SourceGenerator": "[3.0.271, )"
         }
@@ -1366,6 +1368,7 @@
           "Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore": "[9.0.1, )",
           "Microsoft.Extensions.Http.Resilience": "[9.1.0, )",
           "Microsoft.Identity.Web": "[3.6.1, )",
+          "OneOf.Serialization.SystemTextJson": "[1.1.1, )",
           "Polly": "[8.5.1, )",
           "Riok.Mapperly": "[4.1.1, )",
           "Scalar.AspNetCore": "[2.0.2, )",
@@ -1626,6 +1629,15 @@
           "Microsoft.Extensions.Logging": "9.0.1",
           "System.Formats.Asn1": "9.0.1",
           "System.Text.Json": "9.0.1"
+        }
+      },
+      "Microsoft.Extensions.Caching.Abstractions": {
+        "type": "CentralTransitive",
+        "requested": "[9.0.1, )",
+        "resolved": "9.0.1",
+        "contentHash": "Eghsg9SyIvq0c8x6cUpe71BbQoOmsytXxqw2+ZNiTnP8a8SBLKgEor1zZeWhC0588IbS2M0PP4gXGAd9qF862Q==",
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "9.0.1"
         }
       },
       "Microsoft.Extensions.Caching.StackExchangeRedis": {
