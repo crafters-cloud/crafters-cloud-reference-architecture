@@ -73,9 +73,9 @@
       },
       "Shouldly": {
         "type": "Direct",
-        "requested": "[4.2.1, )",
-        "resolved": "4.2.1",
-        "contentHash": "dKAKiSuhLKqD2TXwLKtqNg1nwzJcIKOOMncZjk9LYe4W+h+SCftpWdxwR79YZUIHMH+3Vu9s0s0UHNrgICLwRQ==",
+        "requested": "[4.3.0, )",
+        "resolved": "4.3.0",
+        "contentHash": "sDetrWXrl6YXZ4HeLsdBoNk3uIa7K+V4uvIJ+cqdRa5DrFxeTED7VkjoxCuU1kJWpUuBDZz2QXFzSxBtVXLwRQ==",
         "dependencies": {
           "DiffEngine": "11.3.0",
           "EmptyFiles": "4.4.0"
@@ -2462,14 +2462,6 @@
           "SharpZipLib": "1.4.2"
         }
       },
-      "Testcontainers.Redis": {
-        "type": "Transitive",
-        "resolved": "4.1.0",
-        "contentHash": "ZalCECpcgV/sod9INlQCx69X50qwi2J3hRsEvI/dPYyBi1NUyNgSpCz7NP+3hvlsEnujpj+9vAvjf1Guc8RqLw==",
-        "dependencies": {
-          "Testcontainers": "4.1.0"
-        }
-      },
       "YamlDotNet": {
         "type": "Transitive",
         "resolved": "16.2.0",
@@ -2527,7 +2519,7 @@
           "JetBrains.Annotations": "[2024.3.0, )",
           "Microsoft.NET.Test.Sdk": "[17.12.0, )",
           "NUnit.Analyzers": "[4.6.0, )",
-          "Shouldly": "[4.2.1, )",
+          "Shouldly": "[4.3.0, )",
           "Verify": "[28.9.0, )",
           "Verify.NUnit": "[28.9.0, )"
         }
@@ -2583,7 +2575,7 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "[9.0.0, )",
           "NUnit.Analyzers": "[4.6.0, )",
           "Respawn": "[6.2.1, )",
-          "Shouldly": "[4.2.1, )",
+          "Shouldly": "[4.3.0, )",
           "Testcontainers.MsSql": "[4.1.0, )",
           "Testcontainers.Redis": "[4.1.0, )",
           "Verify": "[28.9.0, )",
@@ -2622,7 +2614,7 @@
           "JetBrains.Annotations": "[2024.3.0, )",
           "Microsoft.NET.Test.Sdk": "[17.12.0, )",
           "NUnit.Analyzers": "[4.6.0, )",
-          "Shouldly": "[4.2.1, )",
+          "Shouldly": "[4.3.0, )",
           "Verify": "[28.9.0, )",
           "Verify.NUnit": "[28.9.0, )"
         }
@@ -3253,6 +3245,15 @@
         "requested": "[4.1.0, )",
         "resolved": "4.1.0",
         "contentHash": "DjNSX/5lOSEpkQvvZ5btBKs+iPshbWSjpKdcvS6yCSgYrykhSneRC+23Tl/2O4U6FGM13Dxp2C/VEtBePR84uw==",
+        "dependencies": {
+          "Testcontainers": "4.1.0"
+        }
+      },
+      "Testcontainers.Redis": {
+        "type": "CentralTransitive",
+        "requested": "[4.1.0, )",
+        "resolved": "4.1.0",
+        "contentHash": "ZalCECpcgV/sod9INlQCx69X50qwi2J3hRsEvI/dPYyBi1NUyNgSpCz7NP+3hvlsEnujpj+9vAvjf1Guc8RqLw==",
         "dependencies": {
           "Testcontainers": "4.1.0"
         }

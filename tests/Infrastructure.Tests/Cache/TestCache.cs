@@ -12,7 +12,8 @@ public class TestCache
         try
         {
             _container ??= new RedisBuilder()
-                .WithReuse(true)
+                // Resource reuse for better development experience https://dotnet.testcontainers.org/api/resource_reuse/
+                .WithReuse(true) 
                 .WithName("crafters-cloud-reference-architecture-redis-integration-tests")
                 .WithLabel("reuse-id", "crafters-cloud-reference-architecture-redis-integration-tests")
                 .Build();

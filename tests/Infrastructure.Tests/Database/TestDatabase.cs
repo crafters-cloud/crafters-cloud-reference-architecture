@@ -35,6 +35,7 @@ public class TestDatabase
             try
             {
                 _container ??= new MsSqlBuilder()
+                    // Resource reuse for better development experience https://dotnet.testcontainers.org/api/resource_reuse/
                     .WithReuse(true)
                     .WithName("crafters-cloud-reference-architecture-sql-integration-tests")
                     .WithLabel("reuse-id", "crafters-cloud-reference-architecture-sql-integration-tests")

@@ -53,9 +53,9 @@
       },
       "Shouldly": {
         "type": "Direct",
-        "requested": "[4.2.1, )",
-        "resolved": "4.2.1",
-        "contentHash": "dKAKiSuhLKqD2TXwLKtqNg1nwzJcIKOOMncZjk9LYe4W+h+SCftpWdxwR79YZUIHMH+3Vu9s0s0UHNrgICLwRQ==",
+        "requested": "[4.3.0, )",
+        "resolved": "4.3.0",
+        "contentHash": "sDetrWXrl6YXZ4HeLsdBoNk3uIa7K+V4uvIJ+cqdRa5DrFxeTED7VkjoxCuU1kJWpUuBDZz2QXFzSxBtVXLwRQ==",
         "dependencies": {
           "DiffEngine": "11.3.0",
           "EmptyFiles": "4.4.0"
@@ -1435,7 +1435,7 @@
           "JetBrains.Annotations": "[2024.3.0, )",
           "Microsoft.NET.Test.Sdk": "[17.12.0, )",
           "NUnit.Analyzers": "[4.6.0, )",
-          "Shouldly": "[4.2.1, )",
+          "Shouldly": "[4.3.0, )",
           "Verify": "[28.9.0, )",
           "Verify.NUnit": "[28.9.0, )"
         }
