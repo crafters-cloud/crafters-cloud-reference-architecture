@@ -1,7 +1,9 @@
 ﻿using CraftersCloud.ReferenceArchitecture.Api.MinimalApi;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
+using Microsoft.Extensions.Caching.Distributed;
+using Microsoft.Extensions.Caching.Hybrid;
 
-namespace CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users;
+namespace CraftersCloud.ReferenceArchitecture.Api.Endpoints.HelloWorld;
 
 public static partial class GetUserById
 {
@@ -23,10 +25,22 @@ public static partial class GetUserById
     [Mapper]
     public static partial class ResponseMapper
     {
-        public static partial Response ToResponse(User source);
+        public static partial Response? ToResponse(User? source);
     }
 
     public static async Task<Results<Ok<Response>, NotFound>> Handle(UserId id, IRepository<User> repository,
+        HybridCache cache,
+        CancellationToken cancellationToken)
+    {
+        var cacheKey = $"user:{id}";
+
+        var response = await cache.GetOrCreateAsync<Response?>(cacheKey, async _ =>
+            await GetResponse(id, repository, cancellationToken), cancellationToken: cancellationToken);
+
+        return response.ToMinimalApiResult();
+    }
+
+    private static async Task<Response?> GetResponse(UserId id, IRepository<User> repository,
         CancellationToken cancellationToken)
     {
         var entity = await repository.QueryAll()
@@ -36,6 +50,7 @@ public static partial class GetUserById
             .QueryActiveOnly()
             .SingleOrDefaultAsync(cancellationToken);
 
-        return entity.ToMinimalApiResult(ResponseMapper.ToResponse);
+        var response = ResponseMapper.ToResponse(entity);
+        return response;
     }
 }

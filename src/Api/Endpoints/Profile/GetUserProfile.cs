@@ -48,7 +48,7 @@ public static partial class GetUserProfile
             .AsNoTracking()
             .SingleOrDefaultAsync(cancellationToken);
 
-        return entity.ToMappedMinimalApiResult(ResponseMapper.ToResponse);
+        return entity.ToMinimalApiResult(ResponseMapper.ToResponse);
     }
 
     public static async Task<Results<Ok<Response>, NotFound>> HandleHelloWorld(IRepository<User> repository,
@@ -61,6 +61,6 @@ public static partial class GetUserProfile
             .AsNoTracking()
             .FirstOrDefaultAsync(cancellationToken);
 
-        return entity.ToMappedMinimalApiResult(ResponseMapper.ToResponse);
+        return entity.ToMinimalApiResult(ResponseMapper.ToResponse);
     }
 }

@@ -34,6 +34,6 @@ public static partial class GetProductById
             .QueryById(id)
             .SingleOrDefaultAsync(cancellationToken);
 
-        return entity.ToMappedMinimalApiResult(ResponseMapper.ToResponse);
+        return entity.ToMinimalApiResult(ResponseMapper.ToResponse);
     }
 }

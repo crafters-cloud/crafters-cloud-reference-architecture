@@ -12,6 +12,7 @@ using CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Logging;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Security;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Swagger;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Autofac;
+using CraftersCloud.ReferenceArchitecture.Infrastructure.Caching;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Configuration;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Data;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Identity;
@@ -49,6 +50,7 @@ public static class ProgramExtensions
         services.AddCoreEndpoints(AssemblyFinder.ApiAssembly);
         services.AddExceptionHandler<CoreGlobalExceptionHandler>();
         services.AddProblemDetails();
+        services.AppAddCaching(configuration);
     }
 
     public static void AppConfigureHost(this IHostBuilder hostBuilder, IConfiguration configuration)

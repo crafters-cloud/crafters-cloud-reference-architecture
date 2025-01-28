@@ -34,14 +34,10 @@ public class TestDatabase
         {
             try
             {
-                // These cannot be changed (it is hardcoded in MsSqlBuilder and changing any of them breaks starting of the container
-                // default database: master
-                // default username: sa
-                // default password: yourStrong(!)Password
-
                 _container ??= new MsSqlBuilder()
-                    .WithAutoRemove(true)
-                    .WithCleanUp(true)
+                    .WithReuse(true)
+                    .WithName("crafters-cloud-reference-architecture-sql-integration-tests")
+                    .WithLabel("reuse-id", "crafters-cloud-reference-architecture-sql-integration-tests")
                     .Build();
 
                 await _container!.StartAsync();
