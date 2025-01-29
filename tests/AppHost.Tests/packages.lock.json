@@ -40,9 +40,9 @@
       },
       "CraftersCloud.Core.AspireTests.Shared": {
         "type": "Direct",
-        "requested": "[2.1.0-preview.0.4, )",
-        "resolved": "2.1.0-preview.0.4",
-        "contentHash": "HrUFi+RFg6W9+BAzlu7M4ztzxNiT2gsb/v9xOy2YzN3RfJJ3Ttolr1ZKOsZk4PkCQth33SAkd0aGqiwURdAhuQ==",
+        "requested": "[2.1.0-preview.1, )",
+        "resolved": "2.1.0-preview.1",
+        "contentHash": "exfx57hhcWIBsX+dN5EUavx4tsp9pYq5Y7mED02zTNmK1dUzAhVX9Dm39PfRQQaPwRgkQpdR/MXg+XFamviOTA==",
         "dependencies": {
           "Aspire.Hosting.Testing": "9.0.0",
           "JetBrains.Annotations": "2024.3.0",

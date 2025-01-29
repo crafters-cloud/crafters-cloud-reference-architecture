@@ -1,7 +1,6 @@
 ﻿using CraftersCloud.Core;
 using CraftersCloud.Core.Tests.Shared;
 using CraftersCloud.ReferenceArchitecture.Api.Tests.Infrastructure.Api;
-using CraftersCloud.ReferenceArchitecture.Infrastructure.Data;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Tests;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Tests.Cache;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Tests.Configuration;
@@ -33,7 +32,7 @@ public class EndpointsFixtureBase
         await _cache.CreateAsync();
 
         _configuration = new TestConfigurationBuilder()
-            .WithDbContextName(nameof(AppDbContext))
+            .WithDbName("app-db")
             .WithDbConnectionString(_testDatabase.ConnectionString)
             .WithCacheConnectionString(_cache.ConnectionString)
             .Build();

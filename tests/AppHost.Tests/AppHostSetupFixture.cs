@@ -36,11 +36,11 @@ public class AppHostSetupFixture
     public async Task ApiIsOn()
     {
         var httpClient = _app.CreateHttpClient("api");
-        var response = await httpClient.GetAsync("/profile/hello-world");
+        var response = await httpClient.GetAsync("/hello-world");
         response.StatusCode.ShouldBe(HttpStatusCode.OK);
     }
 
-    [TestCase("AppDbContext", TestName = "Database has connection string")]
+    [TestCase("app-db", TestName = "Database has connection string")]
     [TestCase("redis", TestName = "Cache has connection string")]
     public async Task ResourceHasConnectionString(string resourceName)
     {

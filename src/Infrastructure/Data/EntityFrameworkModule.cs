@@ -44,7 +44,7 @@ public class EntityFrameworkModule : Module
             //ef 9 started showing this error in integration tests
             .ConfigureWarnings(warnings => warnings.Log(RelationalEventId.PendingModelChangesWarning));
 
-        const string connectionStringName = nameof(AppDbContext);
+        const string connectionStringName = "app-db";
         var connectionString = configuration.GetConnectionString(connectionStringName) ??
                                throw new InvalidOperationException(
                                    $"Connection string with name: '{connectionStringName}' was not found.");

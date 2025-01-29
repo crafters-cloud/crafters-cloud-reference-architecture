@@ -26,8 +26,8 @@ public class TestDatabase
             _container ??= new MsSqlBuilder()
                 // Resource reuse for better development experience https://dotnet.testcontainers.org/api/resource_reuse/
                 .WithReuse(true)
-                .WithName("reference-architecture-sql-integration-tests")
-                .WithLabel("reuse-id", "reference-architecture-sql-integration-tests")
+                .WithName("reference-architecture-sql-server-integration-tests")
+                .WithLabel("reuse-id", "reference-architecture-sql-server-integration-tests")
                 .Build();
 
             await _container!.StartAsync();
