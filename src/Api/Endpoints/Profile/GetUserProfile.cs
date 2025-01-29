@@ -18,10 +18,10 @@ public static partial class GetUserProfile
     }
 
     [Mapper]
-    public static partial class ResponseMapper
+    public static partial class Mapper
     {
         [UserMapping(Default = true)]
-        public static Response ToResponse(User source)
+        public static Response Map(User source)
         {
             var dto = MapToResponse(source);
             dto.Permissions = source.GetPermissionIds();
@@ -48,19 +48,6 @@ public static partial class GetUserProfile
             .AsNoTracking()
             .SingleOrDefaultAsync(cancellationToken);
 
-        return entity.ToMinimalApiResult(ResponseMapper.ToResponse);
-    }
-
-    public static async Task<Results<Ok<Response>, NotFound>> HandleHelloWorld(IRepository<User> repository,
-        CancellationToken cancellationToken)
-    {
-        var entity = await repository.QueryAll()
-            .Include(u => u.Role)
-            .ThenInclude(r => r.Permissions)
-            .Include(u => u.UserStatus)
-            .AsNoTracking()
-            .FirstOrDefaultAsync(cancellationToken);
-
-        return entity.ToMinimalApiResult(ResponseMapper.ToResponse);
+        return entity.ToMinimalApiResult(Mapper.Map);
     }
 }

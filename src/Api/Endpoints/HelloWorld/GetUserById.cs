@@ -22,16 +22,16 @@ public static partial class GetUserById
     }
 
     [Mapper]
-    public static partial class ResponseMapper
+    public static partial class Mapper
     {
-        public static partial Response ToResponse(QueryResponse source);
+        public static partial Response Map(QueryResponse source);
     }
 
     public static async Task<Results<Ok<Response>, NotFound>> Handle(UserId id, ISender sender,
         CancellationToken cancellationToken)
     {
-        var query = new Query { Id = id };
+        var query = new Query(id);
         var response = await sender.Send(query, cancellationToken);
-        return response.ToMinimalApiResult(ResponseMapper.ToResponse);
+        return response.ToMinimalApiResult(Mapper.Map);
     }
 }

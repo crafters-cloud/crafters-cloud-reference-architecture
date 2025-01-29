@@ -42,9 +42,9 @@ public static partial class GetUsers
     }
 
     [Mapper]
-    public static partial class ResponseItemQueryMapper
+    public static partial class Mapper
     {
-        public static partial IQueryable<Response.Item> ProjectTo(IQueryable<User> q);
+        public static partial IQueryable<Response.Item> Map(IQueryable<User> q);
     }
 
     public static async Task<Ok<PagedQueryResponse<Response.Item>>> Handle([AsParameters] Request request,
@@ -58,7 +58,7 @@ public static partial class GetUsers
             .QueryByNameOptional(request.Name)
             .QueryEmailOptional(request.EmailAddress, SearchPatterns.Like);
 
-        var items = await ResponseItemQueryMapper.ProjectTo(query)
+        var items = await Mapper.Map(query)
             .ToPagedResponseAsync(request, cancellationToken);
 
         return TypedResults.Ok(items);

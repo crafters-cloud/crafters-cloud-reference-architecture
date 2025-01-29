@@ -21,9 +21,9 @@ public static partial class GetUserById
     }
 
     [Mapper]
-    public static partial class ResponseMapper
+    public static partial class Mapper
     {
-        public static partial Response ToResponse(User source);
+        public static partial Response Map(User source);
     }
 
     public static async Task<Results<Ok<Response>, NotFound>> Handle(UserId id, IRepository<User> repository,
@@ -36,6 +36,6 @@ public static partial class GetUserById
             .QueryActiveOnly()
             .SingleOrDefaultAsync(cancellationToken);
 
-        return entity.ToMinimalApiResult(ResponseMapper.ToResponse);
+        return entity.ToMinimalApiResult(Mapper.Map);
     }
 }

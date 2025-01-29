@@ -3,7 +3,7 @@
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
     <AspireVersion>9.0.0</AspireVersion>
     <AspnetVersion>9.0.1</AspnetVersion>
-    <CraftersCoreVersion>2.0.0</CraftersCoreVersion>
+    <CraftersCoreVersion>2.1.0-preview.0.4</CraftersCoreVersion>
     <EFcoreVersion>9.0.1</EFcoreVersion>
   </PropertyGroup>
   <ItemGroup>
