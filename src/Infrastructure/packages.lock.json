@@ -1558,7 +1558,6 @@
           "CraftersCloud.Core.SmartEnums": "[2.1.0-preview.1, )",
           "CraftersCloud.Core.SourceGenerator": "[2.1.0-preview.1, )",
           "JetBrains.Annotations": "[2024.3.0, )",
-          "Microsoft.Extensions.Caching.Abstractions": "[9.0.1, )",
           "OneOf": "[3.0.271, )",
           "OneOf.SourceGenerator": "[3.0.271, )"
         }

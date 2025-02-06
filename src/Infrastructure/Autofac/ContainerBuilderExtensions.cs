@@ -21,8 +21,6 @@ public static class ContainerBuilderExtensions
                 AssemblyFinder.InfrastructureAssembly
             ]
         });
-
-        builder.RegisterModule(new CachingModule { CacheEvictorsAssemblies = [AssemblyFinder.ApplicationAssembly] });
     }
 
     public static void AppRegisterClaimsPrincipalProvider(this ContainerBuilder builder) =>

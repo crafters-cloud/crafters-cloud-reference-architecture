@@ -1,0 +1,37 @@
+﻿{
+  Items: [
+    {
+      Id: Guid_1,
+      EmailAddress: john_doe@john.doe,
+      FirstName: John,
+      LastName: Doe,
+      UserStatusName: Active,
+      CreatedOn: DateTimeOffset_1,
+      UpdatedOn: DateTimeOffset_1
+    },
+    {
+      Id: Guid_2,
+      EmailAddress: N/A,
+      FirstName: System,
+      LastName: User,
+      UserStatusName: Active,
+      CreatedOn: DateTimeOffset_1,
+      UpdatedOn: DateTimeOffset_1
+    },
+    {
+      Id: Guid_3,
+      EmailAddress: test_user@xyz.com,
+      FirstName: INTEGRATION,
+      LastName: TEST,
+      UserStatusName: Active,
+      CreatedOn: DateTimeOffset_1,
+      UpdatedOn: DateTimeOffset_1
+    }
+  ],
+  TotalCount: 3,
+  PageNumber: 1,
+  PageSize: 10,
+  TotalPages: 1,
+  HasNextPage: false,
+  HasPreviousPage: false
+}

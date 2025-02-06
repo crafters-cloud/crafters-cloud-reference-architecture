@@ -1,7 +1,7 @@
 ﻿namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Caching;
 
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
-public sealed class CacheSettingEntry
+public sealed class CacheEntryOption
 {
     public string Key { get; init; } = string.Empty;
     public TimeSpan Expiration { get; init; }

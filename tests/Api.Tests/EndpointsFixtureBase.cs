@@ -19,7 +19,7 @@ public class EndpointsFixtureBase
     private IServiceScope _testScope = null!;
     private static ApiWebApplicationFactory<Program> _factory = null!;
     private bool _isUserAuthenticated = true;
-    private TestCache _cache;
+    private TestCache _testCache;
     protected FlurlClient Client { get; private set; } = null!;
 
     [SetUp]
@@ -28,13 +28,13 @@ public class EndpointsFixtureBase
         _testDatabase = new TestDatabase();
         await _testDatabase.CreateAsync();
 
-        _cache = new TestCache();
-        await _cache.CreateAsync();
+        _testCache = new TestCache();
+        await _testCache.CreateAsync();
 
         _configuration = new TestConfigurationBuilder()
             .WithDbName("app-db")
             .WithDbConnectionString(_testDatabase.ConnectionString)
-            .WithCacheConnectionString(_cache.ConnectionString)
+            .WithCacheConnectionString(_testCache.ConnectionString)
             .Build();
 
         _factory = new ApiWebApplicationFactory<Program>(_configuration, _isUserAuthenticated);

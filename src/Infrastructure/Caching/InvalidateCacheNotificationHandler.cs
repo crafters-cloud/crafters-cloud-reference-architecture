@@ -1,16 +1,16 @@
-﻿using MediatR;
+﻿using CraftersCloud.ReferenceArchitecture.Core.Caching;
+using MediatR;
 using Microsoft.Extensions.Caching.Hybrid;
 
 namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Caching;
 
 [UsedImplicitly]
-public class InvalidateCacheNotificationHandler<T>(ICacheEvictorsRegistry cacheEvictorsRegistry, HybridCache cache)
-    : INotificationHandler<T> where T : INotification
+public class InvalidateCacheNotificationHandler<T>(HybridCache cache)
+    : INotificationHandler<T> where T : ICacheTagEvictor, INotification
 {
     public async Task Handle(T notification, CancellationToken cancellationToken)
     {
-        var cacheEvictors = cacheEvictorsRegistry.GetEvictors(notification);
-        var removeTasks = cacheEvictors.Select(evictor => evictor.RemoveAsync(cache, notification));
-        await Task.WhenAll(removeTasks);
+        var tasks = notification.Tags.Select(t => cache.RemoveByTagAsync(t, cancellationToken).AsTask());
+        await Task.WhenAll(tasks);
     }
 }

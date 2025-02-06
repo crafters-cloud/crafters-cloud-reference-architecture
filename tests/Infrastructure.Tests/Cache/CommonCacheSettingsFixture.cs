@@ -2,22 +2,27 @@
 using CraftersCloud.ReferenceArchitecture.Core.Caching;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Caching;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Tests.MediatR;
-using Microsoft.Extensions.Logging.Abstractions;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
+using ServiceCollectionExtensions =
+    CraftersCloud.ReferenceArchitecture.Infrastructure.Caching.ServiceCollectionExtensions;
 
 namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Tests.Cache;
 
 public class CommonCacheSettingsFixture
 {
-    private const string SettingsFileName = "cachesettings.json";
+    private const string SettingsFileName = "cacheEntrySettings.json";
     private readonly string[] _assemblyNames;
-    private readonly CacheSettingsEntries _settingsEntries;
+    private readonly CacheEntryOptions _entryOptions;
 
     public CommonCacheSettingsFixture(string[] assemblyNames)
     {
-        var path = Path.Combine(TestContext.CurrentContext.TestDirectory, "Caching", SettingsFileName);
-        var cacheSettingEntries = CacheSettingsEntries.ReadEntries(path);
-        _settingsEntries = new CacheSettingsEntries(cacheSettingEntries, NullLogger<CacheSettingsEntries>.Instance);
-
+        var serviceCollection = new ServiceCollection();
+        var basePath = Path.Combine(TestContext.CurrentContext.TestDirectory, "Caching");
+        serviceCollection.AddCacheEntryConfiguration(basePath, SettingsFileName,
+            new ServiceCollectionExtensions.CachingOptions());
+        var serviceProvider = serviceCollection.BuildServiceProvider();
+        _entryOptions = serviceProvider.GetRequiredService<IOptions<CacheEntryOptions>>().Value;
         _assemblyNames = assemblyNames;
     }
 
@@ -47,9 +52,9 @@ public class CommonCacheSettingsFixture
             }
             else
             {
-                var key = CachingOptions.CreateCacheEntrySettingKey(meta.CachedRequestType);
-                var entry = _settingsEntries.FindExpirationFor(key);
-                yield return (key, entry != null, meta);
+                var key = CacheKeyHelper.CreateCacheEntryOptionKey(meta.CachedRequestType);
+                var found = _entryOptions.TryFindEntry(key, out _);
+                yield return (key, found, meta);
             }
         }
     }
@@ -60,12 +65,12 @@ public class CommonCacheSettingsFixture
             FindAllRequestsAndRequestHandlersThatAreCached(_assemblyNames).ToList();
 
         var requests = new List<(string key, RequestHandlerMeta? meta)>();
-        foreach (var entry in _settingsEntries.Entries)
+        foreach (var entry in _entryOptions.Entries)
         {
             var request =
                 requestAndRequestHandlers.SingleOrDefault(r =>
                     r.CachedRequestType != null &&
-                    CachingOptions.CreateCacheEntrySettingKey(r.CachedRequestType) == entry.Key);
+                    CacheKeyHelper.CreateCacheEntryOptionKey(r.CachedRequestType) == entry.Key);
             requests.Add((entry.Key, request));
         }
 

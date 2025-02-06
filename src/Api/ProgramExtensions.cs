@@ -50,7 +50,7 @@ public static class ProgramExtensions
         services.AddCoreEndpoints(AssemblyFinder.ApiAssembly);
         services.AddExceptionHandler<CoreGlobalExceptionHandler>();
         services.AddProblemDetails();
-        services.AppAddCaching(configuration, [AssemblyFinder.ApiAssembly]);
+        services.AppAddCaching(configuration, [AssemblyFinder.ApiAssembly], [AssemblyFinder.ApiAssembly]);
     }
 
     public static void AppConfigureHost(this IHostBuilder hostBuilder, IConfiguration configuration)

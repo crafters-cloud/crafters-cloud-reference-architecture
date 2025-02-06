@@ -1,45 +1,29 @@
-﻿using CraftersCloud.Core.StronglyTypedIds;
+﻿namespace CraftersCloud.ReferenceArchitecture.Core.Caching;
 
-namespace CraftersCloud.ReferenceArchitecture.Core.Caching;
-
-public record CachingOptions(string FullCachingKey, string CacheSettingEntryKey)
+public record CachingOptions(string FullCachingKey, string CacheEntryOptionKey)
 {
-    public static string CreateRemoveAllCachingKeyPattern<T>() where T : ICachedQuery =>
-        CreateFullCachingKey<T>("*");
+    private IList<string>? _tags;
+    public IEnumerable<string>? Tags => _tags?.AsReadOnly();
 
-    protected static string CreateFullCachingKey<T>(string key) where T : ICachedQuery =>
-        CreateFullCachingKey(typeof(T), key);
+    public static CachingOptions For<T>(string cacheKeyPart) where T : ICachedQuery =>
+        new CachingOptions<T>(cacheKeyPart);
 
-    public static string CreateFullCachingKey(Type type, string key)
+    public CachingOptions WithTags(params string[] tags)
     {
-        var result = RemoveNonRelevantNamespaces(type)
-            .RemoveCharactersNotSuitableForCacheKey() + ":" + key;
+        _tags ??= [];
+        foreach (var tag in tags)
+        {
+            _tags.Add(tag);
+        }
 
-        return result;
+        return this;
     }
-
-    protected static string CreateCacheEntrySettingKey<T>() where T : ICachedQuery =>
-        CreateCacheEntrySettingKey(typeof(T));
-
-    public static string CreateCacheEntrySettingKey(Type type)
-    {
-        var result = RemoveNonRelevantNamespaces(type)
-            .RemoveCharactersNotSuitableForCacheKey()
-            .RemoveEverythingAfterInclusive('+');
-
-        return result;
-    }
-
-    private static string RemoveNonRelevantNamespaces(Type type) =>
-        type.FullName?.Replace("CraftersCloud.ReferenceArchitecture.", "") ?? string.Empty;
-    
-    public static CachingOptions For<T>(string key) where T : ICachedQuery =>
-        new CachingOptions<T>(key);
 }
 
 public record CachingOptions<T> : CachingOptions where T : ICachedQuery
 {
-    internal CachingOptions(string key) : base(CreateFullCachingKey<T>(key), CreateCacheEntrySettingKey<T>())
+    internal CachingOptions(string cacheKeyPart) : base(CacheKeyHelper.CreateFullCachingKey<T>(cacheKeyPart),
+        CacheKeyHelper.CreateCacheEntryOptionKey<T>())
     {
     }
 }

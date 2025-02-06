@@ -28,4 +28,67 @@
     <Using Include="System.Net" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="CoreFeatures\CacheSetupFixture.CreateReturnsValidationErrors_firstName=EmailAddressAlreadyTaken.verified.txt">
+      <ParentFile>ApiSetupFixture</ParentFile>
+      <DependentUpon>CacheSetupFixture.cs</DependentUpon>
+    </None>
+    <None Update="CoreFeatures\CacheSetupFixture.CreateReturnsValidationErrors_firstName=InvalidEmail.verified.txt">
+      <ParentFile>ApiSetupFixture</ParentFile>
+      <DependentUpon>CacheSetupFixture.cs</DependentUpon>
+    </None>
+    <None Update="CoreFeatures\CacheSetupFixture.CreateReturnsValidationErrors_firstName=MissingEmail.verified.txt">
+      <ParentFile>ApiSetupFixture</ParentFile>
+      <DependentUpon>CacheSetupFixture.cs</DependentUpon>
+    </None>
+    <None Update="CoreFeatures\CacheSetupFixture.CreateReturnsValidationErrors_firstName=MissingName.verified.txt">
+      <ParentFile>ApiSetupFixture</ParentFile>
+      <DependentUpon>CacheSetupFixture.cs</DependentUpon>
+    </None>
+    <None Update="CoreFeatures\CacheSetupFixture.CreateReturnsValidationErrors_name=EmailAddressAlreadyTaken.verified.txt">
+      <ParentFile>ApiSetupFixture</ParentFile>
+      <DependentUpon>CacheSetupFixture.cs</DependentUpon>
+    </None>
+    <None Update="CoreFeatures\CacheSetupFixture.CreateReturnsValidationErrors_name=InvalidEmail.verified.txt">
+      <ParentFile>ApiSetupFixture</ParentFile>
+      <DependentUpon>CacheSetupFixture.cs</DependentUpon>
+    </None>
+    <None Update="CoreFeatures\CacheSetupFixture.CreateReturnsValidationErrors_name=MissingEmail.verified.txt">
+      <ParentFile>ApiSetupFixture</ParentFile>
+      <DependentUpon>CacheSetupFixture.cs</DependentUpon>
+    </None>
+    <None Update="CoreFeatures\CacheSetupFixture.CreateReturnsValidationErrors_name=MissingName.verified.txt">
+      <ParentFile>ApiSetupFixture</ParentFile>
+      <DependentUpon>CacheSetupFixture.cs</DependentUpon>
+    </None>
+    <None Update="CoreFeatures\CacheSetupFixture.CreateUser.verified.txt">
+      <ParentFile>ApiSetupFixture</ParentFile>
+      <DependentUpon>CacheSetupFixture.cs</DependentUpon>
+    </None>
+    <None Update="CoreFeatures\CacheSetupFixture.GivenValidUserId_GetById_ReturnsUserDetails.verified.txt">
+      <ParentFile>ApiSetupFixture</ParentFile>
+      <DependentUpon>CacheSetupFixture.cs</DependentUpon>
+    </None>
+    <None Update="CoreFeatures\CacheSetupFixture.TestCreate.verified.txt">
+      <ParentFile>ApiSetupFixture</ParentFile>
+      <DependentUpon>CacheSetupFixture.cs</DependentUpon>
+    </None>
+    <None Update="CoreFeatures\CacheSetupFixture.TestGetAll.verified.txt">
+      <ParentFile>ApiSetupFixture</ParentFile>
+      <DependentUpon>CacheSetupFixture.cs</DependentUpon>
+    </None>
+    <None Update="CoreFeatures\CacheSetupFixture.TestUpdate.verified.txt">
+      <ParentFile>ApiSetupFixture</ParentFile>
+      <DependentUpon>CacheSetupFixture.cs</DependentUpon>
+    </None>
+    <None Update="CoreFeatures\CacheSetupFixture.UpdateUser.verified.txt">
+      <ParentFile>ApiSetupFixture</ParentFile>
+      <DependentUpon>CacheSetupFixture.cs</DependentUpon>
+    </None>
+    <None Update="CoreFeatures\CacheSetupFixture.HelloWorld.verified.txt">
+      <ParentFile>ApiSetupFixture</ParentFile>
+      <DependentUpon>CacheSetupFixture.cs</DependentUpon>
+    </None>
+  </ItemGroup>
+
 </Project>

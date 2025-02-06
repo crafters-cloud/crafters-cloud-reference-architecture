@@ -1,5 +1,6 @@
 ﻿using CraftersCloud.ReferenceArchitecture.Api.MinimalApi;
 using CraftersCloud.ReferenceArchitecture.Application.Identity.GetUserById;
+using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
 
 namespace CraftersCloud.ReferenceArchitecture.Api.Endpoints.HelloWorld;
@@ -9,11 +10,11 @@ public static partial class GetUserById
     [PublicAPI]
     public class Response
     {
-        public Guid Id { get; set; }
+        public UserId Id { get; set; }
         public string EmailAddress { get; set; } = string.Empty;
         public string FirstName { get; set; } = string.Empty;
         public string LastName { get; set; } = string.Empty;
-        public Guid RoleId { get; set; }
+        public RoleId RoleId { get; set; }
         public DateTimeOffset CreatedOn { get; set; }
         public DateTimeOffset UpdatedOn { get; set; }
         public UserStatusId UserStatusId { get; set; } = UserStatusId.Active;
