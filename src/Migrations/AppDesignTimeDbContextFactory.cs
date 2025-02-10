@@ -1,5 +1,4 @@
-﻿using CraftersCloud.ReferenceArchitecture.Infrastructure;
-using CraftersCloud.ReferenceArchitecture.Infrastructure.Data;
+﻿using CraftersCloud.ReferenceArchitecture.Infrastructure.Data;
 using CraftersCloud.ReferenceArchitecture.Migrations.Seeding.MigrationSeeding;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
@@ -17,7 +16,7 @@ public class AppDesignTimeDbContextFactory : IDesignTimeDbContextFactory<AppDbCo
         optionsBuilder.UseSqlServer(connectionString,
             b =>
             {
-                b.MigrationsAssembly(AssemblyFinder.MigrationsAssembly);
+                b.MigrationsAssembly(typeof(AppDesignTimeDbContextFactory).Assembly.FullName);
             });
 
         var result = new AppDbContext(optionsBuilder.Options)
@@ -33,7 +32,7 @@ public class AppDesignTimeDbContextFactory : IDesignTimeDbContextFactory<AppDbCo
 
         if (string.IsNullOrEmpty(connectionString))
         {
-            throw new InvalidOperationException("Connection string is not provided in the arguments.");
+            throw new ArgumentException("Missing connection string");
         }
 
         return connectionString;

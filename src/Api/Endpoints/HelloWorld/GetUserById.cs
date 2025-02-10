@@ -10,11 +10,11 @@ public static partial class GetUserById
     [PublicAPI]
     public class Response
     {
-        public UserId Id { get; set; }
+        public Guid Id { get; set; }
         public string EmailAddress { get; set; } = string.Empty;
         public string FirstName { get; set; } = string.Empty;
         public string LastName { get; set; } = string.Empty;
-        public RoleId RoleId { get; set; }
+        public Guid RoleId { get; set; }
         public DateTimeOffset CreatedOn { get; set; }
         public DateTimeOffset UpdatedOn { get; set; }
         public UserStatusId UserStatusId { get; set; } = UserStatusId.Active;
