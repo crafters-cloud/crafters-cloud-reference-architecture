@@ -212,7 +212,7 @@ namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Migrations
             migrationBuilder.InsertData(
                 table: "User",
                 columns: new[] { "Id", "CreatedById", "CreatedOn", "EmailAddress", "FirstName", "LastName", "RoleId", "UpdatedById", "UpdatedOn", "UserStatusId" },
-                values: new object[] { new Guid("dfb44aa8-bfc9-4d95-8f45-ed6da241dcfc"), new Guid("dfb44aa8-bfc9-4d95-8f45-ed6da241dcfc"), new DateTimeOffset(new DateTime(2024, 3, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "N/A", "System", "User", new Guid("028e686d-51de-4dd9-91e9-dfb5ddde97d0"), new Guid("dfb44aa8-bfc9-4d95-8f45-ed6da241dcfc"), new DateTimeOffset(new DateTime(2024, 3, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), (byte)1 });
+                values: new object[] { new Guid("DFB44AA8-BFC9-4D95-8F45-ED6DA241DCFC"), new Guid("DFB44AA8-BFC9-4D95-8F45-ED6DA241DCFC"), new DateTimeOffset(new DateTime(2024, 3, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "N/A", "System", "User", new Guid("028e686d-51de-4dd9-91e9-dfb5ddde97d0"), new Guid("DFB44AA8-BFC9-4D95-8F45-ED6DA241DCFC"), new DateTimeOffset(new DateTime(2024, 3, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), (byte)1 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Permission_Name",

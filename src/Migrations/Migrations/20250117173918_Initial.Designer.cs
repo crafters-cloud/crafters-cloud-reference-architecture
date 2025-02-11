@@ -229,14 +229,14 @@ namespace CraftersCloud.ReferenceArchitecture.Data.Migrations.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("dfb44aa8-bfc9-4d95-8f45-ed6da241dcfc"),
-                            CreatedById = new Guid("dfb44aa8-bfc9-4d95-8f45-ed6da241dcfc"),
+                            Id = new Guid("DFB44AA8-BFC9-4D95-8F45-ED6DA241DCFC"),
+                            CreatedById = new Guid("DFB44AA8-BFC9-4D95-8F45-ED6DA241DCFC"),
                             CreatedOn = new DateTimeOffset(new DateTime(2024, 3, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             EmailAddress = "N/A",
                             FirstName = "System",
                             LastName = "User",
                             RoleId = new Guid("028e686d-51de-4dd9-91e9-dfb5ddde97d0"),
-                            UpdatedById = new Guid("dfb44aa8-bfc9-4d95-8f45-ed6da241dcfc"),
+                            UpdatedById = new Guid("DFB44AA8-BFC9-4D95-8F45-ED6DA241DCFC"),
                             UpdatedOn = new DateTimeOffset(new DateTime(2024, 3, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             UserStatusId = (byte)1
                         });
