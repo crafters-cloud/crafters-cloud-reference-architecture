@@ -182,3 +182,11 @@ Unit tests should be written for complex business rules. However, given that thi
 - [Microsoft Aspire](https://learn.microsoft.com/en-us/dotnet/aspire/get-started/aspire-overview): A set of tools, templates, and packages for building observable, production ready apps.
 
 Together, these technologies create a strong foundation for developing modern, high-quality applications.
+
+## How-tos
+
+- [Scaffold a new feature](./documentation/how-tos/how-to-scaffold-a-new-feature.md).
+- [Adding property/column to an entity/table](./documentation/how-tos/how-to-add-new-property-to-an-entity.md)
+- Builder pattern (TODO).
+- Seeding  (TODO).
+- How to decide when to put logic in the Endpoints or to use Query/Commands  (TODO). 
