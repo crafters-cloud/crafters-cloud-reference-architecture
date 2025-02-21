@@ -24,7 +24,7 @@ Copy-FolderContents -SourceDir "${SolutionDir}/src" -DestinationDir "${ProjectDi
 Copy-FolderContents -SourceDir "${SolutionDir}/tests" -DestinationDir "${ProjectDir}/tests" -Exclude @('bin', 'obj', 'TestResults') -CleanOnly:$CleanOnly
 
 # Copy files from the $SolutionDir to the $ProjectDir
-Get-ChildItem -Path $SolutionDir -File | ForEach-Object {
+Get-ChildItem -Path $SolutionDir -File -Force | ForEach-Object {
     $destinationPath = Join-Path -Path $ProjectDir -ChildPath $_.Name
     Copy-Item -Path $_.FullName -Destination $destinationPath -Force
 }
