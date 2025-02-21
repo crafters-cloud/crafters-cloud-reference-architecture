@@ -30,11 +30,12 @@ public class AppDesignTimeDbContextFactory : IDesignTimeDbContextFactory<AppDbCo
     {
         var connectionString = args.FirstOrDefault();
 
-        if (string.IsNullOrEmpty(connectionString))
+        if (!string.IsNullOrEmpty(connectionString))
         {
-            throw new ArgumentException("Missing connection string");
+            return connectionString;
         }
 
-        return connectionString;
+        Console.WriteLine("Connection string is not provided in the arguments.'");
+        return string.Empty;
     }
 }
