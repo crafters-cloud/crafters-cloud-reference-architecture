@@ -232,12 +232,12 @@
       "condition": "(!skipGit)",
       "args": {
         "executable": "git",
-        "args": "add *",
+        "args": "add .",
         "redirectStandardOutput": "false"
       },
       "manualInstructions": [
         {
-          "text": "Run 'git add *'"
+          "text": "Run 'git add .'"
         }
       ],
       "description": "git add",
