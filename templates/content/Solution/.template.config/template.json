@@ -100,57 +100,57 @@
         "format": "yyyy"
       }
     },
-    "HttpPort": {
+    "httpPort": {
       "type": "parameter",
       "datatype": "integer",
       "description": "Port number to use for the HTTP endpoint in launchSettings.json."
     },
-    "HttpPortGenerated": {
+    "httpPortGenerated": {
       "type": "generated",
       "generator": "port"
     },
-    "HttpPortReplacer": {
+    "httpPortReplacer": {
       "type": "generated",
       "generator": "coalesce",
       "parameters": {
-        "sourceVariableName": "HttpPort",
-        "fallbackVariableName": "HttpPortGenerated"
+        "sourceVariableName": "httpPort",
+        "fallbackVariableName": "httpPortGenerated"
       },
       "replaces": "5440"
     },
-    "HttpsPort": {
+    "httpsPort": {
       "type": "parameter",
       "datatype": "integer",
       "description": "Port number to use for the HTTP endpoint in launchSettings.json."
     },
-    "HttpsPortGenerated": {
+    "httpsPortGenerated": {
       "type": "generated",
       "generator": "port"
     },
-    "HttpsPortReplacer": {
+    "httpsPortReplacer": {
       "type": "generated",
       "generator": "coalesce",
       "parameters": {
-        "sourceVariableName": "HttpsPort",
-        "fallbackVariableName": "HttpsPortGenerated"
+        "sourceVariableName": "httpsPort",
+        "fallbackVariableName": "httpsPortGenerated"
       },
       "replaces": "44394"
     },
-    "SqlServerPort": {
+    "sqlServerPort": {
       "type": "parameter",
       "datatype": "integer",
       "description": "Port number to use for the Sql Server."
     },
-    "SqlServerPortGenerated": {
+    "sqlServerPortGenerated": {
       "type": "generated",
       "generator": "port"
     },
-    "SqlServerPortReplacer": {
+    "sqlServerPortReplacer": {
       "type": "generated",
       "generator": "coalesce",
       "parameters": {
-        "sourceVariableName": "SqlServerPort",
-        "fallbackVariableName": "SqlServerPortGenerated"
+        "sourceVariableName": "sqlServerPort",
+        "fallbackVariableName": "sqlServerPortGenerated"
       },
       "replaces": "1533"
     }
@@ -232,15 +232,15 @@
       "condition": "(!skipGit)",
       "args": {
         "executable": "git",
-        "args": "add .",
+        "args": "add --all",
         "redirectStandardOutput": "false"
       },
       "manualInstructions": [
         {
-          "text": "Run 'git add .'"
+          "text": "Run 'git add --all'"
         }
       ],
-      "description": "git add",
+      "description": "git add --all",
       "actionId": "3A7C4B45-1F5D-4A30-959A-51B88E82B5D2",
       "continueOnError": true
     },
