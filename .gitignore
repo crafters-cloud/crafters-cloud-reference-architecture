@@ -289,4 +289,5 @@ __pycache__/
 /templates/content/Solution/Tests.Build.props
 /templates/content/Solution/CraftersCloud.ReferenceArchitecture.sln.DotSettings
 /templates/content/Solution/nuget.config
+/templates/content/Solution/.gitattributes
 /data
