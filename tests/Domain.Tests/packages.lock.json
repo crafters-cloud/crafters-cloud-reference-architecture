@@ -119,6 +119,14 @@
         "resolved": "0.26.0",
         "contentHash": "n7btGXdtRyprGnpLMpBs6rLScxlvPtVWwmTR8h7CtJvpZXBGhGvibEdZxRjeTZNrwf403jJ0ZPpt35Pz/NaNsw=="
       },
+      "Autofac": {
+        "type": "Transitive",
+        "resolved": "8.2.0",
+        "contentHash": "T+4+W4byzyUOarCbIcFRbxpYKC+cndfQm/+VeWpB60P2MCN0JMsewUhZqvH5Ooe936HQjn5uHvEY9tq6BfbiIw==",
+        "dependencies": {
+          "System.Diagnostics.DiagnosticSource": "8.0.1"
+        }
+      },
       "Azure.Core": {
         "type": "Transitive",
         "resolved": "1.44.1",
@@ -1039,8 +1047,8 @@
       },
       "Polly.Core": {
         "type": "Transitive",
-        "resolved": "8.5.2",
-        "contentHash": "1MJKdxv4zwDmiWvYvVN24DsrWUfgQ4F83voH8bhbtLMdPuGy8CfTUzsgQhvyrl1a7hrM6f/ydwLVdVUI0xooUw=="
+        "resolved": "8.4.2",
+        "contentHash": "BpE2I6HBYYA5tF0Vn4eoQOGYTYIK1BlF5EXVgkWGn3mqUUjbXAr13J6fZVbp7Q3epRR8yshacBMlsHMhpOiV3g=="
       },
       "Polly.Extensions": {
         "type": "Transitive",
@@ -1360,7 +1368,6 @@
       "CraftersCloud.ReferenceArchitecture.Infrastructure": {
         "type": "Project",
         "dependencies": {
-          "Autofac": "[8.2.0, )",
           "Autofac.Extensions.DependencyInjection": "[10.0.0, )",
           "Azure.Extensions.AspNetCore.Configuration.Secrets": "[1.4.0, )",
           "Azure.Monitor.OpenTelemetry.AspNetCore": "[1.2.0, )",
@@ -1382,7 +1389,6 @@
           "Microsoft.Extensions.Http.Resilience": "[9.1.0, )",
           "Microsoft.Identity.Web": "[3.7.0, )",
           "OneOf.Serialization.SystemTextJson": "[1.1.1, )",
-          "Polly": "[8.5.2, )",
           "Riok.Mapperly": "[4.1.1, )",
           "Scalar.AspNetCore": "[2.0.12, )",
           "Serilog.AspNetCore": "[9.0.0, )",
@@ -1409,15 +1415,6 @@
           "Shouldly": "[4.3.0, )",
           "Verify": "[28.10.1, )",
           "Verify.NUnit": "[28.10.1, )"
-        }
-      },
-      "Autofac": {
-        "type": "CentralTransitive",
-        "requested": "[8.2.0, )",
-        "resolved": "8.2.0",
-        "contentHash": "T+4+W4byzyUOarCbIcFRbxpYKC+cndfQm/+VeWpB60P2MCN0JMsewUhZqvH5Ooe936HQjn5uHvEY9tq6BfbiIw==",
-        "dependencies": {
-          "System.Diagnostics.DiagnosticSource": "8.0.1"
         }
       },
       "Autofac.Extensions.DependencyInjection": {
@@ -1835,15 +1832,6 @@
           "Microsoft.Extensions.Configuration": "8.0.0",
           "Microsoft.Extensions.Options": "8.0.0",
           "OpenTelemetry.Api.ProviderBuilderExtensions": "1.8.0"
-        }
-      },
-      "Polly": {
-        "type": "CentralTransitive",
-        "requested": "[8.5.2, )",
-        "resolved": "8.5.2",
-        "contentHash": "vbXsGgkG86nG+TOwY+SmtrGrRHmHH0DQaxtILx//d3Dz/ocJ8izSNYzdvU2gEtWa/LDD8zJLvD3HdjEkdlvkhg==",
-        "dependencies": {
-          "Polly.Core": "8.5.2"
         }
       },
       "Respawn": {
