@@ -28,9 +28,11 @@ public static partial class GetUserById
         public static partial Response Map(QueryResponse source);
     }
 
-    public static async Task<Results<Ok<Response>, NotFound>> Handle(UserId id, ISender sender,
+    public static async Task<Results<Ok<Response>, NotFound>> Handle(UserId id, ISender sender, ILogger<HelloWorldEndpoints> logger,
         CancellationToken cancellationToken)
     {
+        
+        logger.LogInformation("Handling GET Hello World Endpoint");
         var query = new Query(id);
         var response = await sender.Send(query, cancellationToken);
         return response.ToMinimalApiResult(Mapper.Map);

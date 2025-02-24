@@ -17,6 +17,7 @@ using CraftersCloud.ReferenceArchitecture.Infrastructure.Configuration;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Data;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Identity;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Mediator;
+using CraftersCloud.ReferenceArchitecture.Infrastructure.OpenTelemetry;
 using CraftersCloud.ReferenceArchitecture.ServiceDefaults;
 using Microsoft.IdentityModel.Logging;
 using Serilog;
@@ -30,9 +31,9 @@ public static class ProgramExtensions
     {
         services.AddCors();
         services.AddHttpContextAccessor();
-        services.AddApplicationInsightsTelemetry();
         services.AppConfigureHttpJsonOptions(AssemblyFinder.ApiAssembly);
         services.AppConfigureSettings(configuration);
+        services.AppAddOpenTelemetry(configuration);
         services.AddCoreHealthChecks(configuration)
             .AddDbContextCheck<AppDbContext>();
         services.AppAddMediatr(AssemblyFinder.ApiAssembly);
@@ -55,12 +56,10 @@ public static class ProgramExtensions
 
     public static void AppConfigureHost(this IHostBuilder hostBuilder, IConfiguration configuration)
     {
-        hostBuilder.UseSerilog((context, services, loggerConfiguration) =>
+        hostBuilder.UseSerilog((context, _, loggerConfiguration) =>
         {
-            loggerConfiguration
-                .AppConfigureSerilog(configuration)
-                .AddAppInsightsToSerilog(configuration, services);
-        });
+            loggerConfiguration.AppConfigureSerilog(configuration);
+        }, writeToProviders: true);
         hostBuilder.UseServiceProviderFactory(new AutofacServiceProviderFactory());
         hostBuilder.ConfigureContainer<ContainerBuilder>((_, containerBuilder) =>
         {

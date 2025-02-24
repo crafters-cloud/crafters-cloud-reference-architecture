@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Init;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Configuration;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Identity;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Tests;
@@ -50,7 +51,7 @@ internal class ApiWebApplicationFactory<TEntryPoint> : WebApplicationFactory<TEn
             });
         });
         builder.ConfigureContainer<ContainerBuilder>(ConfigureContainer);
-        builder.UseSerilog((context, services, loggerConfiguration) =>
+        builder.UseSerilog((_, _, loggerConfiguration) =>
         {
             loggerConfiguration.ConfigureSerilogForIntegrationTests();
         });

@@ -1,12 +1,7 @@
 ﻿using System.Reflection;
 using CraftersCloud.Core.AspNetCore.ApplicationInsights;
-using CraftersCloud.Core.Helpers;
-using CraftersCloud.Core.Infrastructure;
-using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using Serilog;
-using Serilog.Events;
 
 namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Init;
 
@@ -29,26 +24,12 @@ public static class SerilogStartupExtension
             .Enrich.WithProcessId()
             .Enrich.WithMachineName()
             .Enrich.With(new OperationIdEnricher())
-            .Enrich.WithProperty("AppVersion", Assembly.GetEntryAssembly()!.GetName().Version!);
+            .Enrich.WithProperty("AppVersion", Assembly.GetEntryAssembly()!.GetName().Version!)
+            .WriteTo.OpenTelemetry();
 
         // for enabling self diagnostics see https://github.com/serilog/serilog/wiki/Debugging-and-Diagnostics
         // Serilog.Debugging.SelfLog.Enable(Console.Error);
 
         return loggerConfiguration;
-    }
-
-    public static void AddAppInsightsToSerilog(this LoggerConfiguration loggerConfiguration,
-        IConfiguration configuration, IServiceProvider serviceProvider)
-    {
-        var settings = configuration.GetRequiredSection(ApplicationInsightsSettings.SectionName)
-            .Get<ApplicationInsightsSettings>()!;
-        if (!settings.ConnectionString.HasContent())
-        {
-            return;
-        }
-
-        var telemetryConfiguration = serviceProvider.GetRequiredService<TelemetryConfiguration>();
-        loggerConfiguration.WriteTo.ApplicationInsights(telemetryConfiguration, TelemetryConverter.Traces,
-            LogEventLevel.Information);
     }
 }

@@ -44,8 +44,7 @@ public class TestConfigurationBuilder
             { "ConnectionStrings:Redis", _cacheConnectionString },
             { "HealthChecks:TokenAuthorizationEnabled", "false" },
             { "Swagger:Enabled", "false" },
-            { "KeyVault:Enabled", "false" },
-            { "ApplicationInsights:ConnectionString", "" }
+            { "KeyVault:Enabled", "false" }
         };
 
         configurationBuilder.AddInMemoryCollection(dict);

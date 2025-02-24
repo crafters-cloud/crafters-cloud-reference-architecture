@@ -15,7 +15,6 @@
 
   <ItemGroup>
     <PackageReference Include="CraftersCloud.Core.HealthChecks" />
-    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" />
   </ItemGroup>
 
   <ItemGroup>
