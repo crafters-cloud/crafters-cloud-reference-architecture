@@ -18,7 +18,7 @@ public static class TestUserData
         CreateUser(TestUserId, TestEmailAddress, "INTEGRATION", "TEST", Role.SystemAdminRoleId);
 
     public static User CreateSystemUser() =>
-        CreateUser(User.SystemUserId, "N/A", "System", "User", Role.SystemAdminRoleId);
+        CreateUser(UserId.SystemUserId, "N/A", "System", "User", Role.SystemAdminRoleId);
 
     private static User CreateUser(UserId id, string email, string firstName, string lastName, RoleId roleId)
     {

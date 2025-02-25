@@ -56,10 +56,10 @@ public static class ProgramExtensions
 
     public static void AppConfigureHost(this IHostBuilder hostBuilder, IConfiguration configuration)
     {
-        hostBuilder.UseSerilog((context, _, loggerConfiguration) =>
+        hostBuilder.UseSerilog((_, _, loggerConfiguration) =>
         {
             loggerConfiguration.AppConfigureSerilog(configuration);
-        }, writeToProviders: true);
+        }, writeToProviders: true); // writeToProviders:true needed so that Serilog logs appear in the AzureMonitor
         hostBuilder.UseServiceProviderFactory(new AutofacServiceProviderFactory());
         hostBuilder.ConfigureContainer<ContainerBuilder>((_, containerBuilder) =>
         {

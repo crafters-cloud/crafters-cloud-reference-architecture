@@ -1,6 +1,7 @@
-﻿using System.Reflection;
-using CraftersCloud.Core.AspNetCore.ApplicationInsights;
+﻿using System.Diagnostics;
+using System.Reflection;
 using Microsoft.Extensions.Configuration;
+using CraftersCloud.Core.Helpers;
 using Serilog;
 
 namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Api.Init;
@@ -16,6 +17,10 @@ public static class SerilogStartupExtension
             // we might not have logger section in the tests only
             return loggerConfiguration;
         }
+        
+        var assembly = Assembly.GetEntryAssembly()!;
+        var versionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
+        var productVersion = versionInfo.ProductVersion.RemoveAfter('+');
 
         loggerConfiguration
             .ReadFrom.Configuration(configuration)
@@ -23,8 +28,7 @@ public static class SerilogStartupExtension
             .Enrich.WithThreadId()
             .Enrich.WithProcessId()
             .Enrich.WithMachineName()
-            .Enrich.With(new OperationIdEnricher())
-            .Enrich.WithProperty("AppVersion", Assembly.GetEntryAssembly()!.GetName().Version!)
+            .Enrich.WithProperty("ProductVersion", productVersion)
             .WriteTo.OpenTelemetry();
 
         // for enabling self diagnostics see https://github.com/serilog/serilog/wiki/Debugging-and-Diagnostics

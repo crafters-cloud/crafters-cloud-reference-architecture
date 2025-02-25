@@ -20,8 +20,8 @@ internal class ProductSeeding : IDbContextSeeding<AppDbContext>
                 ProductStatusId.Active));
 
             product.WithId(id);
-            product.SetCreated(asOf, User.SystemUserId);
-            product.SetUpdated(asOf, User.SystemUserId);
+            product.SetCreated(asOf, UserId.SystemUserId);
+            product.SetUpdated(asOf, UserId.SystemUserId);
 
             dbContext.Set<Product>().Add(product);
         }

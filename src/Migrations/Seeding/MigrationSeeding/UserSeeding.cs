@@ -12,14 +12,14 @@ internal class UserSeeding : IModelBuilderSeeding
         var asOf = new DateTimeOffset(2024, 3, 29, 0, 0, 0, TimeSpan.Zero);
         var user = new
         {
-            Id = User.SystemUserId,
+            Id = UserId.SystemUserId,
             EmailAddress = "N/A",
             FirstName = "System",
             LastName = "User",
             RoleId = Role.SystemAdminRoleId,
-            CreatedById = User.SystemUserId,
+            CreatedById = UserId.SystemUserId,
             CreatedOn = asOf,
-            UpdatedById = User.SystemUserId,
+            UpdatedById = UserId.SystemUserId,
             UpdatedOn = asOf,
             UserStatusId = UserStatusId.Active
         };

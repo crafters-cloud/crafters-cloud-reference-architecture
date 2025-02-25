@@ -4,16 +4,15 @@ using CraftersCloud.ReferenceArchitecture.Domain.Identity;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using DomainUser = CraftersCloud.ReferenceArchitecture.Domain.Users.User;
 
 namespace CraftersCloud.ReferenceArchitecture.Infrastructure.Identity;
 
 [UsedImplicitly]
-public class SystemUserProvider(IRepository<DomainUser> userRepository, ILogger<SystemUserProvider> logger)
+public class SystemUserProvider(IRepository<User> userRepository, ILogger<SystemUserProvider> logger)
     : ICurrentUserProvider
 {
     private UserContext? _user;
-    public virtual UserId? UserId => DomainUser.SystemUserId;
+    public virtual UserId? UserId => CraftersCloud.ReferenceArchitecture.Domain.Users.UserId.SystemUserId;
 
     public UserContext? User
     {
