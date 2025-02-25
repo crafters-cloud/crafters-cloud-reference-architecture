@@ -1,3 +1,5 @@
 ﻿{
-  UserFullName: SystemUser
+  UserId: a18c0a9d-a0ad-4d29-9187-b93a5a214ab8,
+  ItemsCount: 2,
+  ItemsTotalQuantity: 5
 }
