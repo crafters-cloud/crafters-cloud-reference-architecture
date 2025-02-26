@@ -4,9 +4,9 @@
     "net9.0": {
       "CraftersCloud.Core": {
         "type": "Direct",
-        "requested": "[2.2.0-preview.3, )",
-        "resolved": "2.2.0-preview.3",
-        "contentHash": "UkcZhWezKuZQQZH61u6MnMmfBNqlD2s7Ej9asDwb435V90FKtE0waViZ6o9MP9vVEyyRlidXvPYPaFIHiKRYnA==",
+        "requested": "[3.0.0-preview.1, )",
+        "resolved": "3.0.0-preview.1",
+        "contentHash": "S4au5T2evwdVi/QHcnl6+T0FC52M9uHh6ngshBheukFxcARJWY0PK0CuwC6gHqlzw7VhHZcNMXz0jOZUBxUWWw==",
         "dependencies": {
           "FluentValidation": "11.11.0",
           "JetBrains.Annotations": "2024.3.0",
@@ -16,20 +16,20 @@
       },
       "CraftersCloud.Core.SmartEnums": {
         "type": "Direct",
-        "requested": "[2.2.0-preview.3, )",
-        "resolved": "2.2.0-preview.3",
-        "contentHash": "E7JzfilbLwq9fEOoF/B6IYt4jmqfhyjMFJQnNXNHqLXBRNV7eqMDukqe3XUEfppbHkucKM34ljOH4V4FY15RTA==",
+        "requested": "[3.0.0-preview.1, )",
+        "resolved": "3.0.0-preview.1",
+        "contentHash": "z1/7o/QMzjEXnebJJcxr/vDZycp8sy+Er+2r/IaS9Khx9PvLSH95hXgE2NrZM+15qM4IamHBv7X8C4eJH+gMzg==",
         "dependencies": {
           "Ardalis.SmartEnum": "8.2.0",
-          "CraftersCloud.Core": "2.2.0-preview.3",
+          "CraftersCloud.Core": "3.0.0-preview.1",
           "JetBrains.Annotations": "2024.3.0"
         }
       },
       "CraftersCloud.Core.SourceGenerator": {
         "type": "Direct",
-        "requested": "[2.2.0-preview.3, )",
-        "resolved": "2.2.0-preview.3",
-        "contentHash": "6WsDRj/xRDPulV6mCnie+7TT6OKJakf+aJRt/nGWP0sP9cHupYpO8fkhbtxtcYpwjvy3TB+BHs2fAcqfZZdflg==",
+        "requested": "[3.0.0-preview.1, )",
+        "resolved": "3.0.0-preview.1",
+        "contentHash": "1Xpt8WUKAtL8SVd8u+eykPD+rDyjuFkRU9V0w/tRRxitktohEcQWXh8PkmLDj04d45A65DdoCy4kdtFMI77fDw==",
         "dependencies": {
           "JetBrains.Annotations": "2024.3.0"
         }

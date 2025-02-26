@@ -1,17 +1,17 @@
 <Project>
   <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-    <AspireVersion>9.0.0</AspireVersion>
-    <AspnetVersion>9.0.1</AspnetVersion>
-    <CraftersCoreVersion>2.2.0-preview.3</CraftersCoreVersion>
-    <EFcoreVersion>9.0.1</EFcoreVersion>
+    <AspireVersion>9.0.2</AspireVersion>
+    <AspnetVersion>9.0.2</AspnetVersion>
+    <CraftersCoreVersion>3.0.0-preview.1</CraftersCoreVersion>
+    <EFcoreVersion>9.0.2</EFcoreVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageVersion Include="Aspire.Hosting.AppHost" Version="$(AspireVersion)" />
-    <PackageVersion Include="Aspire.Hosting.Azure.ServiceBus" Version="9.0.0" />
+    <PackageVersion Include="Aspire.Hosting.AppHost" Version="9.1.0" />
+    <PackageVersion Include="Aspire.Hosting.Azure.ServiceBus" Version="9.1.0" />
     <PackageVersion Include="Aspire.Hosting.Testing" Version="$(AspireVersion)" />
-    <PackageVersion Include="Aspire.Hosting.Redis" Version="$(AspireVersion)" />
-    <PackageVersion Include="Aspire.Hosting.SqlServer" Version="$(AspireVersion)" />
+    <PackageVersion Include="Aspire.Hosting.Redis" Version="9.1.0" />
+    <PackageVersion Include="Aspire.Hosting.SqlServer" Version="9.1.0" />
     <PackageVersion Include="Aspire.Microsoft.EntityFrameworkCore.SqlServer" Version="$(AspireVersion)" />
     <PackageVersion Include="Autofac.Extensions.DependencyInjection" Version="10.0.0" />
     <PackageVersion Include="Azure.Extensions.AspNetCore.Configuration.Secrets" Version="1.4.0" />
@@ -57,15 +57,15 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageVersion>
-    <PackageVersion Include="Microsoft.Extensions.Caching.Abstractions" Version="9.0.1" />
-    <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="9.0.1" />
-    <PackageVersion Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" Version="9.0.1" />
-    <PackageVersion Include="Microsoft.Extensions.Diagnostics.Testing" Version="9.1.0" />
-    <PackageVersion Include="Microsoft.Extensions.Hosting" Version="9.0.1" />
-    <PackageVersion Include="Microsoft.Extensions.Http.Resilience" Version="9.1.0" />
-    <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.1" />
-    <PackageVersion Include="Microsoft.Extensions.ServiceDiscovery" Version="9.0.0" />
-    <PackageVersion Include="Microsoft.Identity.Web" Version="3.7.0" />
+    <PackageVersion Include="Microsoft.Extensions.Caching.Abstractions" Version="9.0.2" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="9.0.2" />
+    <PackageVersion Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" Version="9.0.2" />
+    <PackageVersion Include="Microsoft.Extensions.Diagnostics.Testing" Version="9.2.0" />
+    <PackageVersion Include="Microsoft.Extensions.Hosting" Version="9.0.2" />
+    <PackageVersion Include="Microsoft.Extensions.Http.Resilience" Version="9.2.0" />
+    <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.2" />
+    <PackageVersion Include="Microsoft.Extensions.ServiceDiscovery" Version="9.1.0" />
+    <PackageVersion Include="Microsoft.Identity.Web" Version="3.7.1" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.13.0" />
     <PackageVersion Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="9.0.0" />
     <PackageVersion Include="MinVer" Version="6.0.0" />
@@ -88,7 +88,7 @@
     <PackageVersion Include="OpenTelemetry.Instrumentation.Runtime" Version="1.11.0" />
     <PackageVersion Include="Respawn" Version="6.2.1" />
     <PackageVersion Include="Riok.Mapperly" Version="4.1.1" />
-    <PackageVersion Include="Scalar.AspNetCore" Version="2.0.12" />
+    <PackageVersion Include="Scalar.AspNetCore" Version="2.0.18" />
     <PackageVersion Include="Serilog.AspNetCore" Version="9.0.0" />
     <PackageVersion Include="Serilog.Enrichers.Environment" Version="3.0.1" />
     <PackageVersion Include="Serilog.Enrichers.Process" Version="3.0.0" />
@@ -99,9 +99,9 @@
     <PackageVersion Include="Serilog.Sinks.File" Version="6.0.0" />
     <PackageVersion Include="Serilog.Sinks.OpenTelemetry" Version="4.1.1" />
     <PackageVersion Include="Shouldly" Version="4.3.0" />
-    <PackageVersion Include="Testcontainers.MsSql" Version="4.2.0" />
-    <PackageVersion Include="Testcontainers.Redis" Version="4.2.0" />
-    <PackageVersion Include="Verify" Version="28.10.1" />
-    <PackageVersion Include="Verify.NUnit" Version="28.10.1" />
+    <PackageVersion Include="Testcontainers.MsSql" Version="4.3.0" />
+    <PackageVersion Include="Testcontainers.Redis" Version="4.3.0" />
+    <PackageVersion Include="Verify" Version="28.13.0" />
+    <PackageVersion Include="Verify.NUnit" Version="28.13.0" />
   </ItemGroup>
 </Project>

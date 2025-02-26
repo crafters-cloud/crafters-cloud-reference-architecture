@@ -32,7 +32,7 @@ builder.AddProject<Api>("api")
 
 var serviceBus = builder.AddAzureServiceBus("sbemulator");
 
-serviceBus.AddQueue("queue1")
+serviceBus.AddServiceBusQueue("queue1")
     .WithProperties(queue => queue.DeadLetteringOnMessageExpiration = false);
 
 serviceBus
