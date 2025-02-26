@@ -36,6 +36,45 @@
           "Polly.Core": "8.4.2"
         }
       },
+      "Aspire.Hosting.Azure.ServiceBus": {
+        "type": "Direct",
+        "requested": "[9.0.0, )",
+        "resolved": "9.0.0",
+        "contentHash": "QLCWiQ8InbDC6Ls6+S7CFnzKH8hbOc2ufeaW8l6OGtQ9qsus7lAHh+KQbfy+Pwi0B5awyBblZqjcUW6h85muDA==",
+        "dependencies": {
+          "AspNetCore.HealthChecks.Uris": "8.0.1",
+          "Aspire.Hosting.Azure": "9.0.0",
+          "Azure.Core": "1.44.1",
+          "Azure.Identity": "1.13.1",
+          "Azure.Provisioning": "1.0.0",
+          "Azure.Provisioning.KeyVault": "1.0.0",
+          "Azure.Provisioning.ServiceBus": "1.0.0",
+          "Azure.ResourceManager.Authorization": "1.1.3",
+          "Azure.ResourceManager.KeyVault": "1.3.0",
+          "Azure.ResourceManager.Resources": "1.9.0",
+          "Azure.Security.KeyVault.Secrets": "4.7.0",
+          "Google.Protobuf": "3.28.2",
+          "Grpc.AspNetCore": "2.66.0",
+          "Grpc.Net.ClientFactory": "2.66.0",
+          "Grpc.Tools": "2.67.0",
+          "Humanizer.Core": "2.14.1",
+          "JsonPatch.Net": "3.1.1",
+          "KubernetesClient": "15.0.1",
+          "Microsoft.Extensions.Configuration.Abstractions": "8.0.0",
+          "Microsoft.Extensions.Configuration.Binder": "8.0.2",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Diagnostics.HealthChecks": "8.0.11",
+          "Microsoft.Extensions.Hosting": "8.0.1",
+          "Microsoft.Extensions.Hosting.Abstractions": "8.0.1",
+          "Microsoft.Extensions.Http": "8.0.1",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Options": "8.0.2",
+          "Microsoft.Extensions.Primitives": "8.0.0",
+          "Polly.Core": "8.4.2",
+          "System.IO.Hashing": "8.0.0",
+          "System.Text.Json": "8.0.5"
+        }
+      },
       "Aspire.Hosting.Orchestration.win-x64": {
         "type": "Direct",
         "requested": "[9.0.0, )",
@@ -143,6 +182,43 @@
           "Polly.Core": "8.4.2"
         }
       },
+      "Aspire.Hosting.Azure": {
+        "type": "Transitive",
+        "resolved": "9.0.0",
+        "contentHash": "Koseg38jeCl4tkH8kGitQLBo8eYygLlhMkTw78kAikag9sujOUaazGwYy9+mtdyjaFe878uSoxD++pIIKDGiww==",
+        "dependencies": {
+          "AspNetCore.HealthChecks.Uris": "8.0.1",
+          "Aspire.Hosting": "9.0.0",
+          "Azure.Core": "1.44.1",
+          "Azure.Identity": "1.13.1",
+          "Azure.Provisioning": "1.0.0",
+          "Azure.Provisioning.KeyVault": "1.0.0",
+          "Azure.ResourceManager.Authorization": "1.1.3",
+          "Azure.ResourceManager.KeyVault": "1.3.0",
+          "Azure.ResourceManager.Resources": "1.9.0",
+          "Azure.Security.KeyVault.Secrets": "4.7.0",
+          "Google.Protobuf": "3.28.2",
+          "Grpc.AspNetCore": "2.66.0",
+          "Grpc.Net.ClientFactory": "2.66.0",
+          "Grpc.Tools": "2.67.0",
+          "Humanizer.Core": "2.14.1",
+          "JsonPatch.Net": "3.1.1",
+          "KubernetesClient": "15.0.1",
+          "Microsoft.Extensions.Configuration.Abstractions": "8.0.0",
+          "Microsoft.Extensions.Configuration.Binder": "8.0.2",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Diagnostics.HealthChecks": "8.0.11",
+          "Microsoft.Extensions.Hosting": "8.0.1",
+          "Microsoft.Extensions.Hosting.Abstractions": "8.0.1",
+          "Microsoft.Extensions.Http": "8.0.1",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Options": "8.0.2",
+          "Microsoft.Extensions.Primitives": "8.0.0",
+          "Polly.Core": "8.4.2",
+          "System.IO.Hashing": "8.0.0",
+          "System.Text.Json": "8.0.5"
+        }
+      },
       "AspNetCore.HealthChecks.Redis": {
         "type": "Transitive",
         "resolved": "8.0.1",
@@ -193,6 +269,92 @@
           "Azure.Core": "1.44.1",
           "Microsoft.Identity.Client": "4.66.1",
           "Microsoft.Identity.Client.Extensions.Msal": "4.66.1",
+          "System.Memory": "4.5.5",
+          "System.Text.Json": "6.0.10",
+          "System.Threading.Tasks.Extensions": "4.5.4"
+        }
+      },
+      "Azure.Provisioning": {
+        "type": "Transitive",
+        "resolved": "1.0.0",
+        "contentHash": "erXVVUOjv9ATaumZTilJgJpFrNG396Qh4gwq/Q2CD9ud2Pg63jHo6se9GyVoDR+U702MVBtHYJYJJajjDrknjQ==",
+        "dependencies": {
+          "Azure.Core": "1.44.1",
+          "System.ClientModel": "1.2.1",
+          "System.Text.Json": "6.0.10"
+        }
+      },
+      "Azure.Provisioning.KeyVault": {
+        "type": "Transitive",
+        "resolved": "1.0.0",
+        "contentHash": "OwlBFnpxub33zQDa6aR/pjgdt71o9heb6B+GZbvURloB2ID20zGOrHuT8sSsGc7iW3WkaRLROvtM8bIuPu/STQ==",
+        "dependencies": {
+          "Azure.Core": "1.44.1",
+          "Azure.Provisioning": "1.0.0",
+          "System.ClientModel": "1.2.1",
+          "System.Text.Json": "6.0.10"
+        }
+      },
+      "Azure.Provisioning.ServiceBus": {
+        "type": "Transitive",
+        "resolved": "1.0.0",
+        "contentHash": "MuLi+qkBxiQYNu2Q3CeswA40r3dD8mrNZPH1uLQduQLomCMH24hzB1QiFrTwQgYGRjt0cO0FRvUYMLl6skYCWA==",
+        "dependencies": {
+          "Azure.Core": "1.44.1",
+          "Azure.Provisioning": "1.0.0",
+          "System.ClientModel": "1.2.1",
+          "System.Text.Json": "6.0.10"
+        }
+      },
+      "Azure.ResourceManager": {
+        "type": "Transitive",
+        "resolved": "1.13.0",
+        "contentHash": "B0ZE4gNxs942DScLH53X7L4uqnMnh1LTpjHZUfnToQsjA65AuxiiDCVMQUkTTeQOP3PNd0UOrgRNpjQlbU8bgg==",
+        "dependencies": {
+          "Azure.Core": "1.42.0",
+          "System.ClientModel": "1.0.0",
+          "System.Text.Json": "6.0.9"
+        }
+      },
+      "Azure.ResourceManager.Authorization": {
+        "type": "Transitive",
+        "resolved": "1.1.3",
+        "contentHash": "W4T3QiJt9usLFLT8g9WuvzIoH8QBxo2+QX0rvukT48lp575eDBeO2nS8POyTWwQ3gNUaYwa8MtUOnZPtazXRSQ==",
+        "dependencies": {
+          "Azure.Core": "1.39.0",
+          "Azure.ResourceManager": "1.11.1",
+          "System.ClientModel": "1.0.0",
+          "System.Text.Json": "4.7.2"
+        }
+      },
+      "Azure.ResourceManager.KeyVault": {
+        "type": "Transitive",
+        "resolved": "1.3.0",
+        "contentHash": "9CCBWmMj3g9Oq614oPm6fxMQSKarKSeqShRp6zH/iQ9QmUpIYSvhFXif6wlgEcih9wFbjGjQcl3MCK0U5l7enw==",
+        "dependencies": {
+          "Azure.Core": "1.40.0",
+          "Azure.ResourceManager": "1.12.0",
+          "System.ClientModel": "1.0.0",
+          "System.Text.Json": "4.7.2"
+        }
+      },
+      "Azure.ResourceManager.Resources": {
+        "type": "Transitive",
+        "resolved": "1.9.0",
+        "contentHash": "AaGmoPM6UxEYtmf5ADkl26DRy1Ms9CIL9yqgUnoU6YhXYA8r/F52p16JQ9xEHSCzXhr+OO4x2ztujHtj1Eb+qw==",
+        "dependencies": {
+          "Azure.Core": "1.43.0",
+          "Azure.ResourceManager": "1.13.0",
+          "System.ClientModel": "1.1.0",
+          "System.Text.Json": "6.0.9"
+        }
+      },
+      "Azure.Security.KeyVault.Secrets": {
+        "type": "Transitive",
+        "resolved": "4.7.0",
+        "contentHash": "uOPCojkm41V4dKTORyGzl3/f/lriKpxSQ43fWDn4StRJBVmbF1F/DNWJhwm207kCnqgE/W9+tskJSimIKHCZkw==",
+        "dependencies": {
+          "Azure.Core": "1.44.1",
           "System.Memory": "4.5.5",
           "System.Text.Json": "6.0.10",
           "System.Threading.Tasks.Extensions": "4.5.4"
@@ -704,11 +866,11 @@
       },
       "System.ClientModel": {
         "type": "Transitive",
-        "resolved": "1.1.0",
-        "contentHash": "UocOlCkxLZrG2CKMAAImPcldJTxeesHnHGHwhJ0pNlZEvEXcWKuQvVOER2/NiOkJGRJk978SNdw3j6/7O9H1lg==",
+        "resolved": "1.2.1",
+        "contentHash": "s9+M5El+DXdCRRLzxak8uGBKWT8H/eIssGpFtpaMKdJULrQbBDPH/zFbVyHX+NDczhS5EvjHFbBH9/L+0UhmcA==",
         "dependencies": {
-          "System.Memory.Data": "1.0.2",
-          "System.Text.Json": "6.0.9"
+          "System.Memory.Data": "6.0.0",
+          "System.Text.Json": "6.0.10"
         }
       },
       "System.Configuration.ConfigurationManager": {
@@ -741,6 +903,11 @@
           "Microsoft.IdentityModel.JsonWebTokens": "7.1.2",
           "Microsoft.IdentityModel.Tokens": "7.1.2"
         }
+      },
+      "System.IO.Hashing": {
+        "type": "Transitive",
+        "resolved": "8.0.0",
+        "contentHash": "ne1843evDugl0md7Fjzy6QjJrzsjh46ZKbhf8GwBXb5f/gw97J4bxMs0NQKifDuThh/f0bZ0e62NPl1jzTuRqA=="
       },
       "System.IO.Pipelines": {
         "type": "Transitive",
