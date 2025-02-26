@@ -4,7 +4,7 @@
     "net9.0": {
       "Aspire.Microsoft.EntityFrameworkCore.SqlServer": {
         "type": "Direct",
-        "requested": "[9.0.2, )",
+        "requested": "[9.1.0, )",
         "resolved": "9.1.0",
         "contentHash": "FnarU2GxAoWvC5RfY/qgN88QmumyIWRQjjPghQO/uRCxMoAmC+OQGxv8tGdtxiWE3gqO+ZplGSeqSXfWaHTL8Q==",
         "dependencies": {
@@ -1284,6 +1284,7 @@
       "CraftersCloud.ReferenceArchitecture.ServiceDefaults": {
         "type": "Project",
         "dependencies": {
+          "AspNetCore.HealthChecks.ApplicationStatus": "[9.0.0, )",
           "Azure.Monitor.OpenTelemetry.AspNetCore": "[1.2.0, )",
           "JetBrains.Annotations": "[2024.3.0, )",
           "Microsoft.Extensions.Http.Resilience": "[9.2.0, )",
@@ -1293,6 +1294,15 @@
           "OpenTelemetry.Instrumentation.AspNetCore": "[1.11.0, )",
           "OpenTelemetry.Instrumentation.Http": "[1.11.0, )",
           "OpenTelemetry.Instrumentation.Runtime": "[1.11.0, )"
+        }
+      },
+      "AspNetCore.HealthChecks.ApplicationStatus": {
+        "type": "CentralTransitive",
+        "requested": "[9.0.0, )",
+        "resolved": "9.0.0",
+        "contentHash": "wKHuIu066q1Aa3hHLFFP/ZHaTutTaGn4zHY5v1TVTRu/WfRR/QUPDajipsC655Y1uwPE9wZ8Fu7n4lOBG/nOpw==",
+        "dependencies": {
+          "Microsoft.Extensions.Diagnostics.HealthChecks": "8.0.11"
         }
       },
       "Autofac.Extensions.DependencyInjection": {

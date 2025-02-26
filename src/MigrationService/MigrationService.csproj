@@ -1,5 +1,4 @@
 <Project Sdk="Microsoft.NET.Sdk.Worker">
-
     <PropertyGroup>
         <RootNamespace>CraftersCloud.ReferenceArchitecture.Data.MigrationService</RootNamespace>
         <AssemblyName>CraftersCloud.ReferenceArchitecture.Data.MigrationService</AssemblyName>

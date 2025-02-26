@@ -1,4 +1,5 @@
-using Azure.Provisioning.ServiceBus;
+using System.Text.Json.Nodes;
+using Aspire.Hosting.Azure;
 using CraftersCloud.ReferenceArchitecture.AppHost;
 using Projects;
 
@@ -25,32 +26,20 @@ var migrations = builder.AddProject<MigrationService>("migrations")
     .WithReference(database)
     .WaitFor(database);
 
-builder.AddProject<Api>("api")
-    .WithReference(cache)
-    .WithReference(database)
-    .WaitFor(migrations);
-
 var serviceBus = builder.AddAzureServiceBus("sbemulator");
 
 serviceBus.AddServiceBusQueue("queue1")
     .WithProperties(queue => queue.DeadLetteringOnMessageExpiration = false);
 
-serviceBus
-    .WithQueue("queue1", queue =>
+serviceBus.AddServiceBusTopic("topic1")
+    .AddServiceBusSubscription("sub1")
+    .WithProperties(subscription =>
     {
-        queue.DeadLetteringOnMessageExpiration = false;
-    })
-    .WithTopic("topic1", topic =>
-    {
-        var subscription = new ServiceBusSubscription("sub1")
-        {
-            MaxDeliveryCount = 10,
-        };
-        topic.Subscriptions.Add(subscription);
+        subscription.MaxDeliveryCount = 10;
 
-        var rule = new ServiceBusRule("app-prop-filter-1")
+        var rule = new AzureServiceBusRule("app-prop-filter-1")
         {
-            CorrelationFilter = new()
+            CorrelationFilter = new AzureServiceBusCorrelationFilter
             {
                 ContentType = "application/text",
                 CorrelationId = "id1",
@@ -63,7 +52,20 @@ serviceBus
             }
         };
         subscription.Rules.Add(rule);
-    })
-    ;
+    });
+
+serviceBus.RunAsEmulator(configure => configure.WithContainerName($"{projectName}-service-bus")
+    .WithConfiguration(document =>
+    {
+        document["UserConfig"]!["Logging"] = new JsonObject { ["Type"] = "Console" };
+    }).WithLifetime(ContainerLifetime.Persistent));
+
+builder.AddProject<Api>("api")
+    .WithReference(cache)
+    .WithReference(database)
+    .WaitFor(migrations);
+
+builder.AddProject<Projects.ServiceBusWorker>("worker")
+    .WithReference(serviceBus).WaitFor(serviceBus);
 
 await builder.Build().RunAsync();
