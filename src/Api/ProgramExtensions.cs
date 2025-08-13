@@ -35,7 +35,7 @@ public static class ProgramExtensions
         services.AppConfigureSettings(configuration);
         services.AddCoreHealthChecks(configuration)
             .AddDbContextCheck<AppDbContext>();
-        services.AppAddMediatr([AssemblyFinder.ApiAssembly]);
+        services.AppAddMediatr([AssemblyFinder.ApiAssembly, AssemblyFinder.InfrastructureAssembly]);
         services.AppAddFluentValidation();
         services.AddCoreHttps(env);
 
