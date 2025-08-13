@@ -4,7 +4,7 @@ using CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users;
 using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
 using CraftersCloud.ReferenceArchitecture.Domain.Tests.Users;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
-using GetUserById = CraftersCloud.ReferenceArchitecture.Api.Endpoints.HelloWorld.GetUserById;
+using GetUserById = CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users.GetUserById;
 
 namespace CraftersCloud.ReferenceArchitecture.Api.Tests.Endpoints;
 

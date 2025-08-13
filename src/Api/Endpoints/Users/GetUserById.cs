@@ -1,4 +1,5 @@
 ﻿using CraftersCloud.ReferenceArchitecture.Api.MinimalApi;
+using CraftersCloud.ReferenceArchitecture.Application.Identity.GetUserById;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
 
 namespace CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users;
@@ -19,23 +20,18 @@ public static partial class GetUserById
         public string UserStatusName { get; set; } = string.Empty;
         public string UserStatusDescription { get; set; } = string.Empty;
     }
-
+    
     [Mapper]
     public static partial class Mapper
     {
-        public static partial Response Map(User source);
+        public static partial Response Map(QueryResponse source);
     }
 
-    public static async Task<Results<Ok<Response>, NotFound>> Handle(UserId id, IRepository<User> repository,
+    public static async Task<Results<Ok<Response>, NotFound>> Handle(Guid id, ISender sender,
         CancellationToken cancellationToken)
     {
-        var entity = await repository.QueryAll()
-            .Include(x => x.UserStatus)
-            .AsNoTracking()
-            .QueryById(id)
-            .QueryActiveOnly()
-            .SingleOrDefaultAsync(cancellationToken);
-
-        return entity.ToMinimalApiResult(Mapper.Map);
+        var query = new Query(new UserId(id));
+        var response = await sender.Send(query, cancellationToken);
+        return response.ToMinimalApiResult(Mapper.Map);
     }
 }

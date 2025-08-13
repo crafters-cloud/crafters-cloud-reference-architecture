@@ -16,8 +16,8 @@ public static class CommonVerifierSettingsInitializer
         VerifierSettings.AddExtraSettings(settings =>
         {
             // needed for SmartEnum serialization 
-            settings.Converters.AddCoreSmartEnumJsonConverters([entryAssembly, AssemblyFinder.DomainAssembly]);
-            settings.Converters.AddStronglyTypedIdsJsonConverters([entryAssembly, AssemblyFinder.DomainAssembly]);
+            settings.Converters.AddCoreVerifyTestsSmartEnumJsonConverters([entryAssembly, AssemblyFinder.DomainAssembly]);
+            settings.Converters.AddCoreVerifyTestsStronglyTypedIdsJsonConverters([entryAssembly, AssemblyFinder.DomainAssembly]);
 
             settings.NullValueHandling = NullValueHandling.Ignore;
 

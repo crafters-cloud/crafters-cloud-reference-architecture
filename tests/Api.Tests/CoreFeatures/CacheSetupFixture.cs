@@ -2,7 +2,7 @@
 using CraftersCloud.ReferenceArchitecture.Domain.Authorization;
 using CraftersCloud.ReferenceArchitecture.Domain.Users;
 using Microsoft.Extensions.Caching.Hybrid;
-using GetUserById = CraftersCloud.ReferenceArchitecture.Api.Endpoints.HelloWorld.GetUserById;
+using GetUserById = CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users.GetUserById;
 using UpdateUser = CraftersCloud.ReferenceArchitecture.Api.Endpoints.Users.UpdateUser;
 
 namespace CraftersCloud.ReferenceArchitecture.Api.Tests.CoreFeatures;
@@ -26,7 +26,7 @@ public class CacheSetupFixture : EndpointsFixtureBase
     public async Task CreateUser()
     {
         var userId = await CrateUser();
-        var cacheKey = "Application:Identity:GetUserById:Query:" + userId;
+        var cacheKey = "Application:Identity:GetUserById:Query:" + userId.Value;
 
         var existsInCache = await _cache.ExistsAsync(cacheKey);
         existsInCache.ShouldBeFalse("Cache is empty");
@@ -34,15 +34,14 @@ public class CacheSetupFixture : EndpointsFixtureBase
         // get user by id to populate cache
         var response = await GetUserBy(userId);
         response.Id.ShouldBe(userId);
-        
         existsInCache = await _cache.ExistsAsync(cacheKey);
         existsInCache.ShouldBeTrue("Getting user by id populates cache");
 
         // now call update, which clears cache
         var statusCode = await UpdateUser(userId);
-        statusCode.ShouldBe(HttpStatusCode.OK);
+        statusCode.ShouldBe(HttpStatusCode.NoContent);
         existsInCache = await _cache.ExistsAsync(cacheKey);
-        existsInCache.ShouldBeTrue("Update clears cache");
+        existsInCache.ShouldBeFalse("Update clears cache");
     }
 
     private async Task<UserId> CrateUser()
@@ -59,7 +58,7 @@ public class CacheSetupFixture : EndpointsFixtureBase
     private async Task<HttpStatusCode> UpdateUser(UserId id)
     {
         var request = AnUpdateUserRequest(id);
-        var result = await _endpoint.PutJsonAsync(request);
+        var result = await Client.Request("users").PutJsonAsync(request);
         return (HttpStatusCode)result.StatusCode;
     }
 

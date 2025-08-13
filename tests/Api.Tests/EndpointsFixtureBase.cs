@@ -12,7 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace CraftersCloud.ReferenceArchitecture.Api.Tests;
 
-public class EndpointsFixtureBase
+public abstract class EndpointsFixtureBase
 {
     private IConfiguration _configuration = null!;
     private TestDatabase _testDatabase = null!;

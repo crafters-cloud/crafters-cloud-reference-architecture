@@ -9,6 +9,5 @@ public class HelloWorldEndpoints : IEndpoint
             .WithGroupName("Hello World");
 
         group.MapGet("/", HelloWorld.Handle);
-        group.MapGet("/user/{id:guid}", GetUserById.Handle);
     }
 }
