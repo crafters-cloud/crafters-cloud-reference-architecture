@@ -4,41 +4,41 @@
     "net9.0": {
       "CraftersCloud.Core": {
         "type": "Direct",
-        "requested": "[3.0.0-preview.1, )",
-        "resolved": "3.0.0-preview.1",
-        "contentHash": "S4au5T2evwdVi/QHcnl6+T0FC52M9uHh6ngshBheukFxcARJWY0PK0CuwC6gHqlzw7VhHZcNMXz0jOZUBxUWWw==",
+        "requested": "[3.0.2, )",
+        "resolved": "3.0.2",
+        "contentHash": "x2Y2xVcv74x4l2P0k7ufU+N72w01iOcwFtJR2YbXSbNYlP9TToJOT/LUh9cp2A9B4eEtW3RwLsGFp4QOKgTmMA==",
         "dependencies": {
-          "FluentValidation": "11.11.0",
-          "JetBrains.Annotations": "2024.3.0",
-          "MediatR": "12.4.1",
+          "FluentValidation": "12.0.0",
+          "JetBrains.Annotations": "2025.2.0",
+          "MediatR": "12.5.0",
           "OneOf": "3.0.271"
         }
       },
       "CraftersCloud.Core.SmartEnums": {
         "type": "Direct",
-        "requested": "[3.0.0-preview.1, )",
-        "resolved": "3.0.0-preview.1",
-        "contentHash": "z1/7o/QMzjEXnebJJcxr/vDZycp8sy+Er+2r/IaS9Khx9PvLSH95hXgE2NrZM+15qM4IamHBv7X8C4eJH+gMzg==",
+        "requested": "[3.0.2, )",
+        "resolved": "3.0.2",
+        "contentHash": "6d56l92UWX3qGvDMcw/yDgPvSjA6aCkYBpTo96qknGwmwlQRdmUlX5X2PpwNtW3Z1WPKE2wy+oym08RTfSnRaA==",
         "dependencies": {
           "Ardalis.SmartEnum": "8.2.0",
-          "CraftersCloud.Core": "3.0.0-preview.1",
-          "JetBrains.Annotations": "2024.3.0"
+          "CraftersCloud.Core": "3.0.2",
+          "JetBrains.Annotations": "2025.2.0"
         }
       },
       "CraftersCloud.Core.SourceGenerator": {
         "type": "Direct",
-        "requested": "[3.0.0-preview.1, )",
-        "resolved": "3.0.0-preview.1",
-        "contentHash": "1Xpt8WUKAtL8SVd8u+eykPD+rDyjuFkRU9V0w/tRRxitktohEcQWXh8PkmLDj04d45A65DdoCy4kdtFMI77fDw==",
+        "requested": "[3.0.2, )",
+        "resolved": "3.0.2",
+        "contentHash": "cgfi7taXGABcioPgRPxbMtJo1Yy3FEQWjuPpYzSLNFhrKYu7M6eHlyiSf9O10h2HJu7jbfIDLOvarMNXRbtTKg==",
         "dependencies": {
-          "JetBrains.Annotations": "2024.3.0"
+          "JetBrains.Annotations": "2025.2.0"
         }
       },
       "JetBrains.Annotations": {
         "type": "Direct",
-        "requested": "[2024.3.0, )",
-        "resolved": "2024.3.0",
-        "contentHash": "ox5pkeLQXjvJdyAB4b2sBYAlqZGLh3PjSnP1bQNVx72ONuTJ9+34/+Rq91Fc0dG29XG9RgZur9+NcP4riihTug=="
+        "requested": "[2025.2.0, )",
+        "resolved": "2025.2.0",
+        "contentHash": "2BvMkOSW+50EbQFhWFIPWTqmcDLiyyjwkMN7lN386bhP2vN/7ts5t59qu11HtenmHFxqDzaD8J1fFoh+QTOzVA=="
       },
       "MinVer": {
         "type": "Direct",
@@ -65,8 +65,8 @@
       },
       "MediatR": {
         "type": "Transitive",
-        "resolved": "12.4.1",
-        "contentHash": "0tLxCgEC5+r1OCuumR3sWyiVa+BMv3AgiU4+pz8xqTc+2q1WbUEXFOr7Orm96oZ9r9FsldgUtWvB2o7b9jDOaw==",
+        "resolved": "12.5.0",
+        "contentHash": "vqm2H8/nqL5NAJHPhsG1JOPwfkmbVrPyh4svdoRzu+uZh6Ex7PRoHBGsLYC0/RWCEJFqD1ohHNpteQvql9OktA==",
         "dependencies": {
           "MediatR.Contracts": "[2.0.1, 3.0.0)",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.0"
@@ -84,9 +84,9 @@
       },
       "FluentValidation": {
         "type": "CentralTransitive",
-        "requested": "[11.11.0, )",
-        "resolved": "11.11.0",
-        "contentHash": "cyIVdQBwSipxWG8MA3Rqox7iNbUNUTK5bfJi9tIdm4CAfH71Oo5ABLP4/QyrUwuakqpUEPGtE43BDddvEehuYw=="
+        "requested": "[12.0.0, )",
+        "resolved": "12.0.0",
+        "contentHash": "8NVLxtMUXynRHJIX3Hn1ACovaqZIJASufXIIFkD0EUbcd5PmMsL1xUD5h548gCezJ5BzlITaR9CAMrGe29aWpA=="
       }
     }
   }

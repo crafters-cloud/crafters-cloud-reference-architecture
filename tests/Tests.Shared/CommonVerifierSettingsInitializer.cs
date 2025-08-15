@@ -3,6 +3,7 @@ using Argon;
 using CraftersCloud.Core.Tests.Shared.SmartEnums;
 using CraftersCloud.Core.Tests.Shared.StronglyTypedIds;
 using CraftersCloud.ReferenceArchitecture.Infrastructure;
+using VerifyTests;
 
 namespace CraftersCloud.ReferenceArchitecture.Tests.Shared;
 
