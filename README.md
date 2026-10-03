@@ -16,7 +16,7 @@ Primarily designed to be flexible and extensible, the architecture allows develo
 
 ### Prerequisites
 
-- .NET SDK 9
+- .NET SDK 10
 - Aspire SDK
 - Docker
 

@@ -1,0 +1,25 @@
+version: 2
+updates:
+  - package-ecosystem: nuget
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      crafters-core:
+        patterns: ["CraftersCloud.Core*"]
+      aspire:
+        patterns: ["Aspire.*"]
+      microsoft:
+        patterns: ["Microsoft.*", "System.*"]
+      opentelemetry:
+        patterns: ["OpenTelemetry.*"]
+      minor-and-patch:
+        update-types: ["minor", "patch"]
+    ignore:
+      # Verify 33+ fails the build without a sponsorship declaration (SponsorCheck)
+      - dependency-name: Verify*
+        versions: [">=33.0.0"]
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly

@@ -23,7 +23,7 @@ public class TestDatabase
     {
         try
         {
-            _container ??= new MsSqlBuilder()
+            _container ??= new MsSqlBuilder("mcr.microsoft.com/mssql/server:2022-CU14-ubuntu-22.04")
                 // Resource reuse for better development experience https://dotnet.testcontainers.org/api/resource_reuse/
                 .WithReuse(true)
                 .WithName("reference-architecture-sql-server-integration-tests")

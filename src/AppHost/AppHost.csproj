@@ -1,20 +1,18 @@
-<Project Sdk="Microsoft.NET.Sdk">
-
-  <Sdk Name="Aspire.AppHost.Sdk" Version="9.0.0" />
+<Project Sdk="Aspire.AppHost.Sdk/13.6.0">
 
   <PropertyGroup>
     <RootNamespace>CraftersCloud.ReferenceArchitecture.AppHost</RootNamespace>
     <AssemblyName>CraftersCloud.ReferenceArchitecture.AppHost</AssemblyName>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <IsAspireHost>true</IsAspireHost>
     <UserSecretsId>0d97b3d4-7a49-473b-941a-7b60a8a6f546</UserSecretsId>
+    <!-- Aspire 13.6 defaults AspireUseCliBundle to false and then warns about it (ASPIRE010); keep the default without the warning -->
+    <MSBuildWarningsAsMessages>$(MSBuildWarningsAsMessages);ASPIRE010</MSBuildWarningsAsMessages>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Aspire.Hosting.AppHost" />
     <PackageReference Include="Aspire.Hosting.Azure.ServiceBus" />
     <PackageReference Include="Aspire.Hosting.Redis" />
     <PackageReference Include="Aspire.Hosting.SqlServer" />
