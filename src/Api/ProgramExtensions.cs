@@ -90,14 +90,12 @@ public static class ProgramExtensions
 
         app.UseCoreHttps(app.Environment);
 
-        app.UseMiddleware<LogContextMiddleware>();
-
         app.UseExceptionHandler();
 
         app.UseAuthentication();
-        app.UseAuthorization();
-
+        // must run after authentication: it resolves the current user, which caches the request principal
         app.UseMiddleware<LogContextMiddleware>();
+        app.UseAuthorization();
 
         app.MapGet("/", () => Results.Redirect("/swagger")).ExcludeFromDescription();
 
