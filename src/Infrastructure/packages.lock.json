@@ -1485,6 +1485,7 @@
         "dependencies": {
           "CraftersCloud.Core.Caching.Abstractions": "[3.0.0-preview.1, )",
           "CraftersCloud.Core.EntityFramework": "[3.0.0-preview.1, )",
+          "CraftersCloud.Core.IntegrationEvents": "[2.1.0, )",
           "CraftersCloud.ReferenceArchitecture.Core": "[1.0.0, )",
           "FluentValidation": "[11.11.0, )",
           "JetBrains.Annotations": "[2024.3.0, )"
@@ -1523,6 +1524,16 @@
           "JetBrains.Annotations": "2024.3.0",
           "Microsoft.EntityFrameworkCore": "9.0.2",
           "System.Linq.Dynamic.Core": "1.6.0.2"
+        }
+      },
+      "CraftersCloud.Core.IntegrationEvents": {
+        "type": "CentralTransitive",
+        "requested": "[2.1.0, )",
+        "resolved": "2.1.0",
+        "contentHash": "vSy8RTh/uDDJGD0pAEWulPjXFYiaxoF0mN7fXSYCHihcacK+LaiKrcgFTts3p6CaxJi+FqpJ7LdE+jd/uLgaiA==",
+        "dependencies": {
+          "CraftersCloud.Core": "2.1.0",
+          "JetBrains.Annotations": "2024.3.0"
         }
       },
       "CraftersCloud.Core.SmartEnums": {

@@ -23,6 +23,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageVersion>
     <PackageVersion Include="CraftersCloud.Core" Version="$(CraftersCoreVersion)" />
+    <PackageVersion Include="CraftersCloud.Core.IntegrationEvents" Version="2.1.0" />
     <PackageVersion Include="CraftersCloud.Core.SourceGenerator" Version="$(CraftersCoreVersion)" />
     <PackageVersion Include="CraftersCloud.Core.AspireTests.Shared" Version="$(CraftersCoreVersion)" />
     <PackageVersion Include="CraftersCloud.Core.AspNetCore" Version="$(CraftersCoreVersion)" />

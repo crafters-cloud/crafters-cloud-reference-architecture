@@ -50,14 +50,14 @@ public class User : EntityWithCreatedUpdated<UserId>
         LastName = command.LastName;
         RoleId = command.RoleId;
         UserStatusId = command.UserStatusId;
-        AddDomainEvent(new UserUpdatedDomainEvent(Id, EmailAddress));
+        AddDomainEvent(new UserUpdatedDomainEvent(Id, RoleId, UserStatusId));
     }
 
     public void UpdateRole(Role role)
     {
         RoleId = role.Id;
         Role = role;
-        AddDomainEvent(new UserUpdatedDomainEvent(Id, EmailAddress));
+        AddDomainEvent(new UserUpdatedDomainEvent(Id, RoleId, UserStatusId));
     }
 
     public IReadOnlyCollection<PermissionId> GetPermissionIds() => Role.Permissions.Select(p => p.Id).ToArray();

@@ -63,9 +63,11 @@ serviceBus.RunAsEmulator(configure => configure.WithContainerName($"{projectName
 builder.AddProject<Api>("api")
     .WithReference(cache)
     .WithReference(database)
-    .WaitFor(migrations);
+    .WithReference(serviceBus)
+    .WaitFor(migrations)
+    .WaitFor(serviceBus);
 
-builder.AddProject<Projects.ServiceBusWorker>("worker")
+builder.AddProject<ServiceBusWorker>("worker")
     .WithReference(serviceBus).WaitFor(serviceBus);
 
 await builder.Build().RunAsync();

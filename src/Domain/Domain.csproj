@@ -7,6 +7,7 @@
   <ItemGroup>
     <PackageReference Include="CraftersCloud.Core.Caching.Abstractions" />
     <PackageReference Include="CraftersCloud.Core.EntityFramework" />
+    <PackageReference Include="CraftersCloud.Core.IntegrationEvents" />
     <PackageReference Include="FluentValidation" />
   </ItemGroup>
 

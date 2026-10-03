@@ -15,6 +15,7 @@ using CraftersCloud.ReferenceArchitecture.Infrastructure.Autofac;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Caching;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Configuration;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Data;
+using CraftersCloud.ReferenceArchitecture.Infrastructure.EventBus;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Identity;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.Mediator;
 using CraftersCloud.ReferenceArchitecture.Infrastructure.OpenTelemetry;
@@ -52,6 +53,7 @@ public static class ProgramExtensions
         services.AddExceptionHandler<CoreGlobalExceptionHandler>();
         services.AddProblemDetails();
         services.AppAddCaching(configuration, AssemblyFinder.ApiAssembly);
+        services.AppAddServiceBus(configuration);
     }
 
     public static void AppConfigureHost(this IHostBuilder hostBuilder, IConfiguration configuration)
