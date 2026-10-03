@@ -11,7 +11,7 @@ public class TestCache
     {
         try
         {
-            _container ??= new RedisBuilder()
+            _container ??= new RedisBuilder("redis:7.0")
                 // Resource reuse for better development experience https://dotnet.testcontainers.org/api/resource_reuse/
                 .WithReuse(true) 
                 .WithName("reference-architecture-redis-integration-tests")

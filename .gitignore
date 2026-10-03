@@ -290,4 +290,5 @@ __pycache__/
 /templates/content/Solution/CraftersCloud.ReferenceArchitecture.sln.DotSettings
 /templates/content/Solution/nuget.config
 /templates/content/Solution/.gitattributes
+/templates/content/Solution/global.json
 /data

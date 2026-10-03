@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <RootNamespace>CraftersCloud.ReferenceArchitecture.SolutionTemplate</RootNamespace>
     <AssemblyName>CraftersCloud.ReferenceArchitecture.SolutionTemplate</AssemblyName>
     <PackageType>Template</PackageType>
