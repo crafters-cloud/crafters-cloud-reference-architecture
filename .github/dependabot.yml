@@ -1,7 +1,18 @@
 version: 2
+# Every feed in nuget.config must be declared here; Dependabot's proxy blocks undeclared hosts
+registries:
+  crafters-feed:
+    type: nuget-feed
+    url: https://www.myget.org/F/crafters-cloud/api/v3/index.json
+  nuget-org:
+    type: nuget-feed
+    url: https://api.nuget.org/v3/index.json
 updates:
   - package-ecosystem: nuget
     directory: /
+    registries:
+      - crafters-feed
+      - nuget-org
     schedule:
       interval: weekly
     groups:
