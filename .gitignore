@@ -291,4 +291,6 @@ __pycache__/
 /templates/content/Solution/nuget.config
 /templates/content/Solution/.gitattributes
 /templates/content/Solution/global.json
+/templates/content/Solution/BACKLOG.md
+/templates/content/Solution/BACKLOG-DONE.md
 /data

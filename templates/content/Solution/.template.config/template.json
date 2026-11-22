@@ -35,7 +35,9 @@
         "**/tools/**",
         "**/*.lock.json",
         "templating.md",
-        "LICENSE.md"
+        "LICENSE.md",
+        "BACKLOG.md",
+        "BACKLOG-DONE.md"
       ]
     }
   ],
