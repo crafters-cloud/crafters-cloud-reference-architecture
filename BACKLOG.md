@@ -22,13 +22,19 @@ Added: 2026-11-22
 
 `LogContextMiddleware` ran before authentication and cached the anonymous principal, so every permission check failed. Verified by running the AppHost.
 
-### RA-003 Move to a patched CraftersCloud.Core release
+### RA-003 Move to CraftersCloud.Core 3.1.0
 
 Added: 2026-11-22
 
-Depends on CORE-002 in crafters-cloud-core. Then check whether the transitive `System.Security.Cryptography.Pkcs` / `.Xml` pins from PR #18 are still needed.
+Depends on CORE-002 in crafters-cloud-core (stable 3.1.0 with the dependency fixes). Then check whether the transitive `System.Security.Cryptography.Pkcs` / `.Xml` pins from PR #18 are still needed.
 
 ## Medium
+
+### RA-008 Remove the unused Microsoft.Identity.Web package
+
+Added: 2026-11-22
+
+`Infrastructure` references it, but no code calls it. Decided: remove it and keep `DummyUserAuthenticationHandler`; projects created from the template add their own authentication. It is also one of the packages that pulls in `System.Security.Cryptography.Pkcs`.
 
 ### RA-004 Integration test through the real authentication path
 
@@ -54,25 +60,19 @@ Added: 2026-11-22
 
 `tools/pack.ps1` only runs `Category=integration|Category=unit`, so the Aspire AppHost tests never run.
 
-### RA-008 Microsoft.Identity.Web is referenced but unused
+### RA-016 Move to .NET 11 and CraftersCloud.Core 4.0.0
 
 Added: 2026-11-22
 
-`Infrastructure` references it, but no code calls it; authentication uses `DummyUserAuthenticationHandler`. Remove the package or wire up real Entra ID authentication.
-
-### RA-009 Protect `main` and triage stale branches
-
-Added: 2026-11-22
-
-`main` allows force-pushes. Unmerged old branches: `angular`, `caching`, `complex-binding`. `chore/net10` is merged and can be deleted.
+Follows CORE-012: .NET 11, Core 4.0.0, EF Core 11, Aspire 17 and the other new major versions, including the template projects.
 
 ## Low
 
-### RA-010 Finish publishing user integration events via Service Bus
+### RA-010 Redesign integration events / messaging
 
 Added: 2026-11-22
 
-Started on branch `wip/service-bus-integration-events`. Gaps: handlers assign the user id to `IntegrationEvent.Id`, `IntegrationEventService` is a no-op, `IntegrationEventLogDbContext` has no registration or migration, it references `CraftersCloud.Core.IntegrationEvents` 2.1.0, and it disables warnings-as-errors.
+Parked until a project needs it; then redesign rather than finish the existing attempt. Branch `wip/service-bus-integration-events` is a reference only (known gaps: handlers assign the user id to `IntegrationEvent.Id`, `IntegrationEventService` is a no-op, the event log has no registration or migration, it references `CraftersCloud.Core.IntegrationEvents` 2.1.0). `main` has the Service Bus emulator and a demo `ServiceBusWorker`.
 
 ### RA-011 Verify that ServiceBusWorker sends and receives messages
 
@@ -98,8 +98,8 @@ Added: 2026-11-22
 
 crafters-cloud-core already uses `.slnx`. Check the template and `cleanup-template.cmd` still work.
 
-### RA-015 Plan the next target framework
+### RA-009 Protect the `main` branch
 
 Added: 2026-11-22
 
-Same as CORE-010: stay on .NET 10 (LTS) and move to .NET 12 (LTS, expected 2027-11).
+`main` allows direct pushes and force-pushes. Postponed while there is a single contributor; when that changes, require a PR with passing CI and block force-pushes.
