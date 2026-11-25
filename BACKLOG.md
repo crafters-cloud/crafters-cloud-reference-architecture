@@ -64,7 +64,7 @@ Added: 2026-11-22
 
 Added: 2026-11-22
 
-Follows CORE-012: .NET 11, Core 4.0.0, EF Core 11, Aspire 17 and the other new major versions, including the template projects.
+Follows CORE-012: .NET 11, Core 4.0.0, EF Core 11, Aspire 17 and the other new major versions, including the template projects. Also adopt the union-based `Result` types from CORE-013 (core PR #24): replace OneOf return types with `QueryResult<T>` / `CreateResult<T>` / `UpdateResult` and use `ToMinimalApiResult` in endpoints (about five files).
 
 ## Low
 
